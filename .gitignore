@@ -16,4 +16,6 @@
 !/log/.keep
 /tmp
 /lib/templates
+.idea
+/config/database.yml
 

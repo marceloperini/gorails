@@ -3,7 +3,7 @@ class TbUsuario < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-auditable
+
  HUMANIZED_ATTRIBUTES = {
 :id => "Usuario"
 }
@@ -11,14 +11,7 @@ def self.human_attribute_name(attr, vazio=nil)
   HUMANIZED_ATTRIBUTES[attr.to_sym] || super
 end
 
-self.table_name = "sch_.tb_usuario"
-
-
-
-
-RELATORIO_USUARIO_TITULO = ["Relatórios Usuario"]
-RELATORIO_USUARIO_TITULOS = []
-RELATORIO_USUARIO_CAMPOS = []
+#self.table_name = "tb_usuario"
 
 
 def self.to_csv(options = {})
