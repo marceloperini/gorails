@@ -1,0 +1,8 @@
+
+development:
+  adapter:  postgresql
+  host:     localhost
+  database: db_teste
+  schema:   sch_gorails
+  username: postgres
+  password: postgres
