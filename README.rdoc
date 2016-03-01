@@ -53,4 +53,4 @@ um chat em tempo real.
 
 ## Triagem de tarefas
 
-Trello
+Trello(https://trello.com)
