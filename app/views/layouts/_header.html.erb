@@ -97,7 +97,14 @@
             </li>
 
             <% if user_signed_in? %>
-               <li> Logado como <strong><%= current_user.email %></strong>.<%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> </li>
+                <li>
+                  <i class="si si-speedometer"></i><span class="sidebar-mini-hide"> Logado como <strong><%= current_user.first_name %></strong>.</span>
+                </li>
+               <li><%= link_to  edit_user_registration_path, :class => 'navbar-link' do %>
+
+                     <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Editar Perfil</span>
+                 <%end%>
+                     </li>
                 <li><%= link_to "Deslogar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             <% else %>
                 <li><%= link_to  new_user_registration_path, :class => 'navbar-link'  do %>

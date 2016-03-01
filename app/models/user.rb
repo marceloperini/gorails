@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
  :email=>"E-mail",
 :password=>"Senha",
 :password_confirmation=>"Confirmação de Senha",
-:remember_me=>"Lembrar-me"
+:remember_me=>"Lembrar-me",
+:current_password=>'Senha Atual',
+:first_name=>'Primeiro Nome',
+:last_name=>'Ultimo Nome'
 }
 def self.human_attribute_name(attr, vazio=nil)
   HUMANIZED_ATTRIBUTES[attr.to_sym] || super
