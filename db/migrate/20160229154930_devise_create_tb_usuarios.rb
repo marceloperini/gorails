@@ -34,8 +34,8 @@ class DeviseCreateTbUsuarios < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :tb_usuarios, :email,                unique: true
-    add_index :tb_usuarios, :reset_password_token, unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
     # add_index :tb_usuarios, :confirmation_token,   unique: true
     # add_index :tb_usuarios, :unlock_token,         unique: true
   end

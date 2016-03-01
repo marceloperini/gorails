@@ -138,6 +138,7 @@
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.8.3, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancan (v1.6.10, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cancancan (v1.13.1, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.8, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.1, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
@@ -181,6 +182,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.5.0, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v2.1.0, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rolify (v5.0.0, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.19, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v4.0.5, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.2.0 [rails4]) [gem]" level="application" />

@@ -52,6 +52,7 @@ GEM
     bootstrap_form (2.3.0)
     builder (3.2.2)
     cancan (1.6.10)
+    cancancan (1.13.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -147,6 +148,7 @@ GEM
       json (~> 1.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rolify (5.0.0)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap_form
   cancan
+  cancancan
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
@@ -210,6 +213,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.0)
   rails_layout
+  rolify
   sass-rails (~> 4.0.0)
   sdoc
   sweet-alert

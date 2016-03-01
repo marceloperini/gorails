@@ -78,7 +78,7 @@
         <div class="side-content">
           <ul class="nav-main">
             <li>
-              <a class="active" href="frontend_home.html"><i class="si si-home"></i><span class="sidebar-mini-hide">Página Inicial</span></a>
+              <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide">Página Inicial</span></a>
             </li>
             <li>
               <a href="/eventos"><i class="si si-energy"></i><span class="sidebar-mini-hide">Eventos</span></a>
@@ -91,21 +91,22 @@
             <li>
               <a href="frontend_contact.html"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide">Contato</span></a>
             </li>
-            <li class="nav-main-heading"><span class="sidebar-mini-hide">Apps</span></li>
-            <li>
-              <a href="index.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Página do Usuário</span></a>
-            </li>
+            <li class="nav-main-heading"><span class="sidebar-mini-hide">Usuário</span></li>
 
             <% if user_signed_in? %>
                 <li>
-                  <i class="si si-speedometer"></i><span class="sidebar-mini-hide"> Logado como <strong><%= current_user.first_name %></strong>.</span>
+                  <a href="#"><i class="si si-speedometer"></i><span class="sidebar-mini-hide"> Logado como <%= current_user.first_name %></span></a>
                 </li>
                <li><%= link_to  edit_user_registration_path, :class => 'navbar-link' do %>
 
                      <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Editar Perfil</span>
                  <%end%>
                      </li>
-                <li><%= link_to "Deslogar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                <li><%= link_to  destroy_user_session_path, method: :delete, :class => 'navbar-link'  do %>
+                      <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Deslogar</span>
+                  <%end%>
+
+                      </li>
             <% else %>
                 <li><%= link_to  new_user_registration_path, :class => 'navbar-link'  do %>
                       <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Registrar</span>
