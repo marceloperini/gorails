@@ -36,3 +36,4 @@ gem 'cancancan'
 gem 'rolify'
 gem 'mysql2'
 gem 'sqlite3'
+gem 'coveralls', require: false
