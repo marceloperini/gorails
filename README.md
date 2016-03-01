@@ -28,7 +28,7 @@ O bower é utilizado em conjunto com o [bower-installer](https://github.com/blit
 para ter um controle maior dos arquivos que entram no controle de versão.
 Ambos são monitorados pelo [gemnasium](https://gemnasium.com).
 
-## Controle da Qualidade 
+## Controle da Qualidade [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
 
 
 ## Garantia da Qualidade 
