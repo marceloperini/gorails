@@ -1,8 +1,8 @@
 
 development:
   adapter:  postgresql
-  host:     localhost
+  host:     
   database: gorails
   schema:   sch_gorails
-  username: postgres
-  password: mobscene
+  username: 
+  password: 
