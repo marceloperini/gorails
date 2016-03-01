@@ -1,28 +1,56 @@
-== README
+# GORAILS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Esse é o código fonte do site [GORAILS](http://www.gorails.com.br/).
+GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores de goiás e do brasil também possam se unir para beneficar a comunidade rails.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Configuração Inicial
+
+Esse projeto está sendo desenvolvido usando Ruby 2.1.2. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
+especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
+
+- Crie um arquivo de configuração do banco de dados:
+```shell
+cp config/database.example.yml config/database.yml
+```
+- Execute o comando `rake db:create` para cria seu banco de dados.
+- Execute o comando `rake db:migrate` para criar todas as tabelas no seu banco de dados.
+- Execute o comando `rails s` para subir o servidor [rails](https://github.com/rails/rails)
+
+## Testes
+ 
+## Dependências 
+
+Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby` e o 
+[bower](http://bower.io) para controle de dependências `js` e `css`.
+O bower é utilizado em conjunto com o [bower-installer](https://github.com/blittle/bower-installer)
+para ter um controle maior dos arquivos que entram no controle de versão.
+Ambos são monitorados pelo [gemnasium](https://gemnasium.com).
+
+## Controle da Qualidade 
+
+
+## Garantia da Qualidade 
+
+Para garantir a qualidade, é utilizado um guia de estilos, boas práticas e má praticas.
+Essa garantia é monitorada pelo [Code Climate](https://codeclimate.com) e pelo [houndci](http://houndci.com).
+O Code Climate checa por má práticas de programação em relação a estrutura do código enquanto 
+que o Houndci checa má práticas na sintaxe do código, isto é, se a leitura do mesmo não é 
+demasiada complicada.
+
+## Documentação
+
+
+
+## Gerenciamento de Projeto 
+
+
+## Discussões 
+
+Para discussões relacionadas ao projeto, é utilizado o [slack](https://go-railsslack.com) que disponibiliza
+um chat em tempo real.
+
+## Triagem de tarefas
+
+Trello
