@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
 :id => "Usuario",
  :email=>"E-mail",
 :password=>"Senha",
-:password_confirmation=>"Confirmação de Senha"
+:password_confirmation=>"Confirmação de Senha",
+:remember_me=>"Lembrar-me"
 }
 def self.human_attribute_name(attr, vazio=nil)
   HUMANIZED_ATTRIBUTES[attr.to_sym] || super
