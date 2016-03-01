@@ -81,7 +81,7 @@
               <a class="active" href="frontend_home.html"><i class="si si-home"></i><span class="sidebar-mini-hide">Página Inicial</span></a>
             </li>
             <li>
-              <a href="frontend_features.html"><i class="si si-energy"></i><span class="sidebar-mini-hide">Eventos</span></a>
+              <a href="/eventos"><i class="si si-energy"></i><span class="sidebar-mini-hide">Eventos</span></a>
             </li>
             <li>
               <a href="frontend_pricing.html"><i class="si si-wallet"></i><span class="sidebar-mini-hide">Noticias</span></a>
@@ -95,6 +95,22 @@
             <li>
               <a href="index.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Página do Usuário</span></a>
             </li>
+
+            <% if user_signed_in? %>
+               <li> Logado como <strong><%= current_user.email %></strong>.<%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> </li>
+                <li><%= link_to "Deslogar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            <% else %>
+                <li><%= link_to  new_user_registration_path, :class => 'navbar-link'  do %>
+                      <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Registrar</span>
+                  <%end%>
+                      </li>
+                <li><%= link_to  new_user_session_path, :class => 'navbar-link'  do %>
+                      <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Logar</span>
+
+                  <%end%>
+                      </li>
+            <% end %>
+
           </ul>
         </div>
         <!-- END Side Content -->

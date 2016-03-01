@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :tb_usuarios
+
+  resources :tb_eventos,:path=>'eventos'
+
+  devise_for :users
   get "/paginas/:pagina" => "paginas#show"
   root "paginas#show", pagina: "home"
 end

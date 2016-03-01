@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @tb_evento.nome %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @tb_evento.data %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @tb_evento.descricao %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @tb_evento.local %>
+</p>
+
+<p>
+  <strong>Limite participantes:</strong>
+  <%= @tb_evento.limite_participantes %>
+</p>
+
+<%= link_to 'Edit', edit_tb_evento_path(@tb_evento) %> |
+<%= link_to 'Back', tb_eventos_path %>

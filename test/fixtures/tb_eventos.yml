@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  data: 2016-02-29 21:33:34
+  descricao: MyText
+  local: MyText
+  limite_participantes: 1
+
+two:
+  nome: MyString
+  data: 2016-02-29 21:33:34
+  descricao: MyText
+  local: MyText
+  limite_participantes: 1

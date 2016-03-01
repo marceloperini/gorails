@@ -1,11 +1,14 @@
-class TbUsuario < ActiveRecord::Base
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
  HUMANIZED_ATTRIBUTES = {
-:id => "Usuario"
+:id => "Usuario",
+ :email=>"E-mail",
+:password=>"Senha",
+:password_confirmation=>"Confirmação de Senha"
 }
 def self.human_attribute_name(attr, vazio=nil)
   HUMANIZED_ATTRIBUTES[attr.to_sym] || super
