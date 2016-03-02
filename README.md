@@ -18,7 +18,7 @@ cp config/database.example.yml config/database.yml
 - Execute o comando `rake db:migrate` para criar todas as tabelas no seu banco de dados.
 - Execute o comando `rails s` para subir o servidor [rails](https://github.com/rails/rails)
 
-## Testes[![Build Status](https://travis-ci.org/gorails/gorails.svg?branch=master)](https://travis-ci.org/gorails/gorails)
+## Testes [![Build Status](https://travis-ci.org/gorails/gorails.svg?branch=master)](https://travis-ci.org/gorails/gorails)
  
 ## Dependências 
 
@@ -43,7 +43,9 @@ demasiada complicada.
 
 
 
-## Gerenciamento de Projeto 
+## Gerenciamento de Projeto
+
+[![Throughput Graph](https://graphs.waffle.io/gorails/gorails/throughput.svg)](https://waffle.io/gorails/gorails/metrics)
 
 
 ## Discussões 
