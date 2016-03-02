@@ -4,32 +4,38 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Local</th>
-      <th>Participants limit</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Local</th>
+    <th>Participants limit</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+  <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
         <td><%= event.date %></td>
         <td><%= event.local %></td>
         <td><%= event.participants_limit %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhar', event %></td>
+        <td><%unless event.registered(current_user.id)%><%= link_to 'Inscrever-se', register_events_path(id: event.id, user: current_user.id) %><%end%></td>
+        <td>
+          <% if can? :update, event %><%= link_to 'Edit', edit_event_path(event) %>
+          <% end %></td>
+        <td>
+          <% if can? :remove, event %><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %>
+          <% end %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if can? :create, @events %>
+    <%= link_to 'New Event', new_event_path %>
+<% end %>

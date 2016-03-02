@@ -61,14 +61,28 @@ class EventsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
+  def register
+    if params and params[:id].present? and params[:id].present? and Registration.where(:user_id => params[:user], :event_id => params[:id]).count >= 1
+      redirect_to events_path, alert: "Este email já está registrado no evento!"
+    else
+      if params and params[:id].present? and params[:id].present?
+        Registration.create!(event_id: params[:id], user_id: params[:user])
+        redirect_to events_path, notice: "Inscrito no Evento com sucesso"
+      else
+        redirect_to events_path, alert: "Parâmetros incompletos para realizar o registro no evento"
+      end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:name, :description, :date, :local, :participants_limit)
-    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:name, :description, :date, :local, :participants_limit)
+  end
 end

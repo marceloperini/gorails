@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require oneui
+ *= require amaran.min
  *= require_self
 
  */

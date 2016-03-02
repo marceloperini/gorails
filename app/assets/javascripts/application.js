@@ -21,3 +21,4 @@
 //= require core/jquery.placeholder.min
 //= require core/js.cookie.min
 //= require app
+//= require jquery.amaran.min

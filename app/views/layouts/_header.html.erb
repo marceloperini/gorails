@@ -80,16 +80,18 @@
             <li>
               <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide">Página Inicial</span></a>
             </li>
+            <% if user_signed_in? %>
             <li>
               <a href="/eventos"><i class="si si-energy"></i><span class="sidebar-mini-hide">Eventos</span></a>
             </li>
+                <%end%>
             <li>
-              <a href="frontend_pricing.html"><i class="si si-wallet"></i><span class="sidebar-mini-hide">Noticias</span></a>
+              <a href="/news"><i class="si si-wallet"></i><span class="sidebar-mini-hide">Noticias</span></a>
             </li>
 
 
             <li>
-              <a href="frontend_contact.html"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide">Contato</span></a>
+              <a href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide">Contato</span></a>
             </li>
             <li class="nav-main-heading"><span class="sidebar-mini-hide">Usuário</span></li>
 
