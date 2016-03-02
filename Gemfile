@@ -1,18 +1,19 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.0'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.2.5.2'
+gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.1'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.4.1'
 gem 'pg'
 gem 'activerecord-session_store'
 gem 'will_paginate'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
-gem "paperclip"
+# gem "paperclip"
+gem 'carrierwave'
 gem "cancan"
 gem 'validates_email_format_of'
 group :doc do
@@ -34,3 +35,6 @@ gem 'tzinfo-data'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+#gem 'mysql2'
+gem 'sqlite3'
+gem 'coveralls', require: false
