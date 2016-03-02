@@ -40,7 +40,7 @@ demasiada complicada.
 
 
 
-## Gerenciamento de Projeto
+## Gerenciamento de Projeto [![Stories in Ready](https://badge.waffle.io/gorails/gorails.svg?label=ready&title=Ready)](http://waffle.io/gorails/gorails)
 
 [![Throughput Graph](https://graphs.waffle.io/gorails/gorails/throughput.svg)](https://waffle.io/gorails/gorails/metrics)
 
