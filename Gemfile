@@ -13,7 +13,7 @@ gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
 # gem "paperclip"
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "cancan"
 gem 'validates_email_format_of'
 group :doc do
@@ -38,3 +38,4 @@ gem 'rolify'
 #gem 'mysql2'
 gem 'sqlite3'
 gem 'coveralls', require: false
+gem "rmagick", "~>2.13.2"
