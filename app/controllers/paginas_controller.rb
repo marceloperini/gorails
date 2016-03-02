@@ -9,6 +9,10 @@ class PaginasController < ApplicationController
 
     private
     def pagina_valida?
-      File.exist?(Pathname.new(Rails.root + "app/views/paginas/#{params[:pagina]}.html.erb"))
+    requested_file = sanitize(params[:pagina])
+    if payload =~ /.html.erb$/
+      File.exist?(Pathname.new(Rails.root + "app/views/paginas/#{requested_file}.html.erb"))
+    else
+      raise "Unknown file format requested"
     end
 end
