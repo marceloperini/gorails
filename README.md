@@ -45,7 +45,7 @@ demasiada complicada.
 [![Throughput Graph](https://graphs.waffle.io/gorails/gorails/throughput.svg)](https://waffle.io/gorails/gorails/metrics)
 
 
-## Discussões 
+## Discussões  [![Slack Status](https://desolate-anchorage-59902.herokuapp.com//badge.svg)](https://go-rails.slack.com)
 
 Para discussões relacionadas ao projeto, é utilizado o [slack](https://go-railsslack.com) que disponibiliza
 um chat em tempo real.
