@@ -6,7 +6,7 @@ GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores d
 
 ## Configuração Inicial
 
-Esse projeto está sendo desenvolvido usando Ruby 2.1.2. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+Esse projeto está sendo desenvolvido usando Ruby 2.0.0. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
 especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
@@ -22,11 +22,8 @@ cp config/database.example.yml config/database.yml
  
 ## Dependências 
 
-Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby` e o 
-[bower](http://bower.io) para controle de dependências `js` e `css`.
-O bower é utilizado em conjunto com o [bower-installer](https://github.com/blittle/bower-installer)
-para ter um controle maior dos arquivos que entram no controle de versão.
-Ambos são monitorados pelo [gemnasium](https://gemnasium.com).
+Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby`.
+Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
 
 ## Controle da Qualidade [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
 
