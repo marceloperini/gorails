@@ -1,41 +1,49 @@
-<p id="notice"><%= notice %></p>
+<main id="main-container"><div class="bg-image" style="background-image: url('assets/img/photos/photo25@2x.jpg');">
+  <div class="bg-black-op">
+    <section class="content content-full content-boxed">
+      <div class="push-150-t push-50 text-center">
+        <h1 class="h2 text-white push-10 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Novos Eventos periodicamente.</h1>
+        <h2 class="h4 text-white-op push visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Junte-se a nossa comunidade para ter acesso a eventos e cursos.</h2>
+        <a class="btn btn-rounded btn-noborder btn-lg btn-success visibility-hidden" data-toggle="appear" data-class="animated zoomIn" href="javascript:void(0)">Torne-se um associado</a>
+      </div>
+    </section>
+  </div>
+</div>
+  <section class="content content-boxed overflow-hidden">
+    <div class="push-50-t push-50">
+      <div class="row">
+        <% @events.each do |event| %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a class="block block-rounded block-link-hover2" href="#">
+            <div class="block-content block-content-full text-center bg-city ribbon ribbon-bookmark ribbon-crystal">
+              <div class="ribbon-box font-w600">R$ 0</div>
+              <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 visibility-hidden" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                <i class="fa fa-html5 text-white-op"></i>
+              </div>
+              <div class="text-white-op">
+                <em>3 palestras</em> &bull; <em>4 horas</em>
+              </div>
+            </div>
+            <div class="block-content">
+              <h4 class="mheight-125"><%= event.name %></h4>
+              <div class="font-s12 text-center push"><%= event.date %></div>
+            </div>
+          </a>
+        </div>
+        <%end%>
+      </div>
+    </div>
+  </section>
 
-<h1>Listing Events</h1>
+  <div class="bg-gray-lighter">
+    <section class="content content-full content-boxed">
+      <div class="push-20-t push-20 text-center">
+        <h3 class="h4 push-20 visibility-hidden" data-toggle="appear">Esta pronto para começar? Junte-se hoje.</h3>
+        <a class="btn btn-rounded btn-noborder btn-lg btn-success visibility-hidden" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)">Associe-se hoje</a>
+      </div>
+    </section>
+  </div>
+</main>
 
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Local</th>
-    <th>Participants limit</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.local %></td>
-        <td><%= event.participants_limit %></td>
-        <td><%= link_to 'Detalhar', event %></td>
-        <td><%unless event.registered(current_user.id)%><%= link_to 'Inscrever-se', register_events_path(id: event.id, user: current_user.id) %><%end%></td>
-        <td>
-          <% if can? :update, event %><%= link_to 'Edit', edit_event_path(event) %>
-          <% end %></td>
-        <td>
-          <% if can? :remove, event %><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %>
-          <% end %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
 
-<br>
-<% if can? :create, @events %>
-    <%= link_to 'New Event', new_event_path %>
-<% end %>
