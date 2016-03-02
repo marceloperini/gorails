@@ -20,7 +20,7 @@ cp config/database.example.yml config/database.yml
 
 ## Testes [![Build Status](https://travis-ci.org/gorails/gorails.svg?branch=master)](https://travis-ci.org/gorails/gorails)
  
-## Dependências 
+## Dependências [![Dependency Status](https://gemnasium.com/gorails/gorails.svg)](https://gemnasium.com/gorails/gorails)
 
 Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby`.
 Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
