@@ -18,5 +18,4 @@
 /lib/templates
 .idea
 /config/database.yml
-/uploads/*
-
+/public/uploads/*
