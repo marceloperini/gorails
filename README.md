@@ -6,7 +6,7 @@ GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores d
 
 ## Configuração Inicial
 
-Esse projeto está sendo desenvolvido usando Ruby 2.1.2. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+Esse projeto está sendo desenvolvido usando Ruby 2.0.0. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
 especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
@@ -20,13 +20,10 @@ cp config/database.example.yml config/database.yml
 
 ## Testes [![Build Status](https://travis-ci.org/gorails/gorails.svg?branch=master)](https://travis-ci.org/gorails/gorails)
  
-## Dependências 
+## Dependências [![Dependency Status](https://gemnasium.com/gorails/gorails.svg)](https://gemnasium.com/gorails/gorails)
 
-Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby` e o 
-[bower](http://bower.io) para controle de dependências `js` e `css`.
-O bower é utilizado em conjunto com o [bower-installer](https://github.com/blittle/bower-installer)
-para ter um controle maior dos arquivos que entram no controle de versão.
-Ambos são monitorados pelo [gemnasium](https://gemnasium.com).
+Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby`.
+Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
 
 ## Controle da Qualidade [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
 
@@ -43,12 +40,12 @@ demasiada complicada.
 
 
 
-## Gerenciamento de Projeto
+## Gerenciamento de Projeto [![Stories in Ready](https://badge.waffle.io/gorails/gorails.svg?label=ready&title=Ready)](http://waffle.io/gorails/gorails)
 
 [![Throughput Graph](https://graphs.waffle.io/gorails/gorails/throughput.svg)](https://waffle.io/gorails/gorails/metrics)
 
 
-## Discussões 
+## Discussões  [![Slack Status](https://desolate-anchorage-59902.herokuapp.com/badge.svg)](https://desolate-anchorage-59902.herokuapp.com/)
 
 Para discussões relacionadas ao projeto, é utilizado o [slack](https://go-railsslack.com) que disponibiliza
 um chat em tempo real.
