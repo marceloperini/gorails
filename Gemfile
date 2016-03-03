@@ -23,8 +23,6 @@ gem 'tzinfo-data'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem 'mysql2'
-gem 'sqlite3'
 gem 'coveralls', require: false
 
 group :doc do
@@ -41,18 +39,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-<<<<<<< 83497221c512e667883c02a791200a163faf6aea
-gem 'nested_form'
-gem 'sweet-alert'
-gem 'sweet-alert-confirm'
-gem 'tzinfo-data'
-gem 'devise'
-gem 'cancancan'
-gem 'rolify'
-gem 'coveralls', require: false
-gem "rmagick", "~>2.15.4"
-
-=======
 
 group :development, :test do
   gem 'byebug'
@@ -65,4 +51,3 @@ group :test do
   gem "json-schema"
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
->>>>>>> Adiciona gems para ambiente de test
