@@ -36,4 +36,5 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', require: false
-gem "rmagick", "~>2.13.2"
+gem "rmagick", "~>2.15.4"
+
