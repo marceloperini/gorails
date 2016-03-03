@@ -1,4 +1,5 @@
 class PaginasController < ApplicationController
+
     def show
       if pagina_valida?
         render template: "paginas/#{params[:pagina]}"
@@ -8,11 +9,14 @@ class PaginasController < ApplicationController
     end
 
     private
-    def pagina_valida?
-    requested_file = sanitize(params[:pagina])
-    if payload =~ /.html.erb$/
-      File.exist?(Pathname.new(Rails.root + "app/views/paginas/#{requested_file}.html.erb"))
-    else
-      raise "Unknown file format requested"
-    end
+
+      def pagina_valida?
+        requested_file =  ActionController::Base.helpers.sanitize(params[:pagina])
+        
+        if File.exist?(Pathname.new(Rails.root + "app/views/paginas/#{requested_file}.html.erb"))
+          true
+        else
+          raise "Unknown file format requested"
+        end
+      end
 end
