@@ -1,7 +1,0 @@
-development:
-  adapter:  postgresql
-  host:     
-  database: gorails
-  schema:   sch_gorails
-  username: 
-  password: 

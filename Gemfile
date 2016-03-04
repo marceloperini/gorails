@@ -16,18 +16,6 @@ gem 'jquery-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "cancan"
 gem 'validates_email_format_of'
-group :doc do
-  gem 'sdoc', :require => false
-end
-platforms :ruby do
-  gem 'unicorn'
-end
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'quiet_assets'
-  gem 'rails_layout'
-end
 gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
@@ -36,5 +24,29 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', require: false
-gem "rmagick", "~>2.15.4"
 
+group :doc do
+  gem 'sdoc', :require => false
+end
+
+platforms :ruby do
+  gem 'unicorn'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'byebug'
+end
+
+group :test do
+	gem 'rspec-rails', '~> 3.0'
+	gem "factory_girl_rails", "~> 4.0"
+  gem 'shoulda-matchers', '~> 3.1'
+  gem "codeclimate-test-reporter", require: nil
+end
