@@ -48,6 +48,5 @@ group :test do
 	gem 'rspec-rails', '~> 3.0'
 	gem "factory_girl_rails", "~> 4.0"
   gem 'shoulda-matchers', '~> 3.1'
-  gem "json-schema"
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
+  gem "codeclimate-test-reporter", require: nil
 end

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: gorails_development
+
+test:
+  <<: *default
+  database: gorails_test
+
+production:
+  <<: *default
+  host:     <%= ENV['GORAILS_DATABASE_HOST'] %>
+  database: <%= ENV['GORAILS_DATABASE_NAME'] %>
+  username: <%= ENV['GORAILS_DATABASE_USERNAME'] %>
+  password: <%= ENV['GORAILS_DATABASE_PASSWORD'] %>
