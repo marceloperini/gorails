@@ -1,16 +1,43 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <div class="block block-themed animated fadeIn">
+      <div class="block-header bg-primary">
+        <ul class="block-options">
+          <li>
+            <%if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Esqueceu sua Senha?", new_password_path(resource_name) %><br />
+            <% end %>
+          </li>
+          <li>
+            <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%= link_to "Registrar", new_registration_path(resource_name) ,class:"btn btn-block btn-primary"%><br />
+            <% end %>
+          </li>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        </ul>
+        <h3 class="block-title">Login</h3>
+      </div>
+      <div class="block-content block-content-full block-content-narrow">
+            <%= form_for(resource,as: resource_name, url: password_path(resource_name), html: {:class => "js-validation-login form-horizontal push-30-t push-50", method: :post }) do |f| %>
+                <%= devise_error_messages! %>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <div class="form-material form-material-primary floating">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true ,class:"form-control"%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= f.submit "Me envie as instruções" ,class: "btn btn-primary" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
