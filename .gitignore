@@ -16,7 +16,7 @@
 !/log/.keep
 /tmp
 /lib/templates
-/.idea
+.idea/*
 /Gemfile.lock
 /public/uploads/*
 /config/database.yml
