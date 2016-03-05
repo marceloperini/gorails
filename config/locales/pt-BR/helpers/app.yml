@@ -1,0 +1,24 @@
+pt-BR:
+  app:
+    site_name: Associação Goiana de Ruby on Rails
+    site_title: GORails - Associação Goiana de Ruby on Rails
+    home: Início
+    
+  misc:
+    false: Não
+    False: Não
+    true: Sim
+    True: Sim
+    prompt: Selecione
+    per: "Quantidade por página"
+    search_by: "Buscar Por"
+    actions: Ações
+    action:
+      back: Voltar
+      cancel: Cancelar
+      confirm: Confirmar exclusão?
+      destroy: Remover
+      edit: Editar
+      new: Adicionar
+      per: Mostrar
+      show: Visualizar

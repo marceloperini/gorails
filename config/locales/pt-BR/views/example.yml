@@ -1,0 +1,15 @@
+pt-BR:
+  examples:
+    index:
+      h1: "Exemplos"
+      header: "Lista de exemplos"
+    show:
+      h1: "Exemplos"
+      header: "Detalhes: %example"
+    edit:
+      h1: "Exemplos"
+      header: "Editar: %example"
+    new:
+      h1: "Exemplos"
+      header: "Cadastrar Exemplo"
+

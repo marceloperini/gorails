@@ -8,7 +8,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.4.1'
 gem 'pg'
 gem 'activerecord-session_store'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
@@ -24,6 +24,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', require: false
+gem 'simple_form'
 
 group :doc do
   gem 'sdoc', :require => false
@@ -42,11 +43,11 @@ end
 
 group :development, :test do
   gem 'byebug'
+	gem "factory_girl_rails", "~> 4.0"
 end
 
 group :test do
-	gem 'rspec-rails', '~> 3.0'
-	gem "factory_girl_rails", "~> 4.0"
+  gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem "codeclimate-test-reporter", require: nil
 end

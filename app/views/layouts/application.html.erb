@@ -49,8 +49,31 @@
 <%=render '/layouts/flash_messages'%>
 <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed header-navbar-transparent">
 <%=render '/layouts/header'%>
-  <%= yield %>
-  <%=render '/layouts/footer'%>
+
+  <main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                  <%= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                  <%= yield :breadcrumb if content_for?(:breadcrumb) %>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+      <%= yield %>
+      <%=render '/layouts/footer'%>
+    </div>
+  </div>
 </div>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
