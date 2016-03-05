@@ -17,6 +17,8 @@
 /tmp
 /lib/templates
 /.idea
-/config/database.yml
 /Gemfile.lock
 .ruby-version
+/public/uploads/*
+/config/database.yml
+
