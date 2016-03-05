@@ -19,4 +19,4 @@
 /.idea
 /config/database.yml
 /Gemfile.lock
-
+.ruby-version
