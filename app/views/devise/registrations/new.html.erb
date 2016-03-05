@@ -1,45 +1,10 @@
 
 
 
-<main id="main-container"><div class="bg-image" style="background-image: url('assets/img/photos/photo25@2x.jpg');">
+<main id="main-container">
 
-</div>
   <section class="content content-boxed overflow-hidden">
     <div class="push-50-t push-50">
-      <div class="row">
-
-        <h2>Sign up</h2>
-
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
-
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Sign up" %>
-            </div>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
-
-
-
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
             <div class="block block-themed animated fadeIn">
@@ -55,8 +20,6 @@
                 <h3 class="block-title">Registrar</h3>
               </div>
               <div class="block-content block-content-full block-content-narrow">
-                <h1 class="h2 font-w600 push-30-t push-5"></h1>
-                <p>Por favor preencha os campos para criar uma nova conta.</p>
                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: "js-validation-register form-horizontal push-50-t push-50",id: "new_user") do |f| %>
 
                   <div class="form-group">
@@ -70,7 +33,6 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <div class="form-material form-material-success">
-                        <input class="form-control" type="password" id="user_password" value="user[password]" placeholder="Por favor digite sua senha">
                         <%= f.label :password,"Senha" %>
                         <% if @minimum_password_length %>
                             <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -82,8 +44,8 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <div class="form-material form-material-success">
-                        <input class="form-control" type="password" id="user_password_confirmation" value="user[password_confirmation]" placeholder="Digite sua senha novamente">
-                        <label for="user_password_confirmation">Confirmação de Senha</label>
+                        <%= f.label :password_confirmation %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Digite sua senha novamente" ,class: "form-control"%>
                       </div>
                     </div>
                   </div>
@@ -97,7 +59,8 @@
                   </div>
                   <div class="form-group">
                     <div class="col-xs-12 col-sm-6 col-md-5">
-                      <button class="btn btn-block btn-success" type="submit" name="commit" value="Sign up"><i class="fa fa-plus pull-right"></i> Criar Conta</button>
+                      <%= f.submit "Registrar", class:"btn btn-block btn-success" %>
+                      <%= render "devise/shared/links" %>
                     </div>
                   </div>
                 <% end %>
@@ -120,7 +83,7 @@
                   <h3 class="block-title">Termos &amp; Condições</h3>
                 </div>
                 <div class="block-content">
-                  <p>Não existe termos no momento...</p>
+                  <%=render "layouts/termos"%>
 
                 </div>
               </div>
@@ -131,9 +94,6 @@
             </div>
           </div>
         </div>
-
-
-      </div>
     </div>
   </section>
 
