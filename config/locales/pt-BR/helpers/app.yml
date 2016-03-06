@@ -3,6 +3,9 @@ pt-BR:
     site_name: Associação Goiana de Ruby on Rails
     site_title: GORails - Associação Goiana de Ruby on Rails
     home: Início
+  layouts:
+    application:
+      h1: GORails - Associação Goiana de Ruby on Rails
     
   misc:
     false: Não
