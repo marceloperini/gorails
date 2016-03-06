@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+
+    attributes:
+      user:
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em
+        email: E-Mail                 
+        reset_password_token: Redefinir Senha Token 
+        reset_password_sent_at: Redefinir Senha enviada em
+        remember_created_at: Relembrar criada em
+        first_name: Nome
+        last_name: Sobrenome
+        cpf: CPF
+
+  helpers:
+    submit:
+      user:
+        create: "Registrar"
+        update: "Atualizar %{model}"

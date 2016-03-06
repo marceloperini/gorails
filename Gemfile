@@ -25,6 +25,7 @@ gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', require: false
 gem 'simple_form'
+gem 'rails-i18n'
 
 group :doc do
   gem 'sdoc', :require => false
