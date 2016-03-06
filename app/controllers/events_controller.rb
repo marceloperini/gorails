@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   end
 
   def register
-    if @event and @event.is_registrated?(set_user)
+    if @event.is_registrated?(set_user)
       redirect_to events_path, alert: "Este email já está registrado no evento!"
     else
       if @event.exceeded_limit?
