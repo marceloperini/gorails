@@ -18,3 +18,4 @@ lib/templates
 /Gemfile.lock
 .ruby-version
 /public/uploads/*
+/config/database.yml
