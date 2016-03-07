@@ -19,3 +19,4 @@ lib/templates
 .ruby-version
 /public/uploads/*
 /config/database.yml
+/config/initializers/setup_mail.rb
