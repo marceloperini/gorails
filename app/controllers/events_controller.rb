@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
   before_filter :authenticate_user!, :except => [:show, :index]
 
   # GET /events
@@ -26,7 +27,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -63,23 +63,26 @@ class EventsController < ApplicationController
   end
 
   def register
-    if params and params[:id].present? and params[:id].present? and Registration.where(:user_id => params[:user], :event_id => params[:id]).count >= 1
+    if @event.is_registrated?(set_user)
       redirect_to events_path, alert: "Este email já está registrado no evento!"
     else
-      if params and params[:id].present? and params[:id].present?
-        Registration.create!(event_id: params[:id], user_id: params[:user])
-        redirect_to events_path, notice: "Inscrito no Evento com sucesso"
+      if @event.exceeded_limit?
+        render json: { exceeded_limit: true }
       else
-        redirect_to events_path, alert: "Parâmetros incompletos para realizar o registro no evento"
+        @event.to_register(set_user)
+        redirect_to events_path, notice: "Inscrito no Evento com sucesso"
       end
     end
-
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def set_user
+    params[:user_id]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

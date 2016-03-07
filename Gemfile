@@ -51,4 +51,5 @@ group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem "codeclimate-test-reporter", require: nil
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
