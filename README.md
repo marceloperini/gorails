@@ -36,7 +36,7 @@ O Code Climate checa por má práticas de programação em relação a estrutura
 que o Houndci checa má práticas na sintaxe do código, isto é, se a leitura do mesmo não é 
 demasiada complicada.
 
-## Documentação
+## Documentação [![Inline docs](http://inch-ci.org/github/gorails/gorails.svg?branch=master)](http://inch-ci.org/github/gorails/gorails)
 
 
 
