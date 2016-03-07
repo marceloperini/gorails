@@ -2,14 +2,15 @@ require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
 
-	let(:user) { create :user }
+	login_user
+
 	let(:event) { create :event }
 
 	describe '#register' do
 	  context "when user is already registred" do
 	  	before(:each) do
-	  		create :registration, user: user, event: event
-	  		post :register, { id: event.id, user_id: user.id }
+	  		create :registration, user: @current_user, event: event
+	  		post :register, { id: event.id, user_id: @current_user.id }
 	  	end
 
 	  	it 'redirect to index of events' do
@@ -24,7 +25,7 @@ RSpec.describe EventsController, type: :controller do
 	  context "when exceeded number of participants" do
 	  	before(:each) do
 	  		create_list :registration, 10, event: event
-	  		post :register, { id: event.id, user_id: user.id }
+	  		post :register, { id: event.id, user_id: @current_user.id }
 	  	end
 
 	  	it 'result of exceeded limit be true' do
@@ -34,7 +35,7 @@ RSpec.describe EventsController, type: :controller do
 
 	  context "when not exceeded number of participants and first register of user" do
 	  	before(:each) do
-	  		post :register, { id: event.id, user_id: user.id }
+	  		post :register, { id: event.id, user_id: @current_user.id }
 	  	end
 
 	  	it 'redirect to index of events' do
