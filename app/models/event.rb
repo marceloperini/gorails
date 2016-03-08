@@ -14,4 +14,10 @@ class Event < ActiveRecord::Base
   	false
   end
 
+  validates_presence_of :name,:description,:local,:participants_limit,:start_at,:end_at
+
+  def event_duration
+    (( self.end_at  - self.start_at) / 1.hour).round
+  end
+
 end

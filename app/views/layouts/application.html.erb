@@ -38,12 +38,15 @@
 
   <!-- OneUI CSS framework -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 
   <%= csrf_meta_tags %>
 
   <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
   <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
   <!-- END Stylesheets -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
 </head>
 <body>
 <%=render '/layouts/flash_messages'%>
@@ -75,7 +78,8 @@
     </div>
 </div>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
 <script>
     $(document).ready(function () {
         //your code here
