@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   :cpf=>"CPF",
   :nickname=>"Nickname"
   }
+  
+  def admin?
+    self.admin == true
+  end
 
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
