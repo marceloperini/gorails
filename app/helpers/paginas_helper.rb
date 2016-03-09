@@ -1,4 +1,5 @@
 module PaginasHelper
+  # Returns a number of lines of codes based on parameter
   def lines_of_code(ext)
 
     o = 0 # Number of files
