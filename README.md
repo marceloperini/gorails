@@ -25,7 +25,7 @@ cp config/database.example.yml config/database.yml
 Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby`.
 Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
 
-## Controle da Qualidade [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
+## Controle da Qualidade [![Build Status](https://semaphoreci.com/api/v1/jcottobboni/gorails/branches/master/badge.svg)](https://semaphoreci.com/jcottobboni/gorails)
 
 
 ## Garantia da Qualidade [![Code Climate](https://codeclimate.com/github/gorails/gorails/badges/gpa.svg)](https://codeclimate.com/github/gorails/gorails)
