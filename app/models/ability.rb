@@ -1,3 +1,4 @@
+# Abily class for CanCan gem
 class Ability
   include CanCan::Ability
 

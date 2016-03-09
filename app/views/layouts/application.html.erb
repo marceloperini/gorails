@@ -13,23 +13,23 @@
 
   <!-- Icons -->
   <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-  <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
-
-  <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="assets/img/favicons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="assets/img/favicons/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="assets/img/favicons/favicon-192x192.png" sizes="192x192">
-
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/faviicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/faviicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/faviicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/faviicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/faviicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/faviicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/faviicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/faviicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/faviicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/faviicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/faviicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/faviicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/faviicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/faviicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/images/faviicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <!-- END Icons -->
 
   <!-- Stylesheets -->
@@ -38,7 +38,6 @@
 
   <!-- OneUI CSS framework -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 
   <%= csrf_meta_tags %>
 
@@ -46,7 +45,6 @@
   <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
   <!-- END Stylesheets -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
 </head>
 <body>
 <%=render '/layouts/flash_messages'%>
@@ -54,28 +52,23 @@
 <%=render '/layouts/header'%>
 
   <main id="main-container">
-    <!-- Page Header -->
-    <!--<div class="content bg-gray-lighter">-->
-        <!--<div class="row items-push">-->
-            <!--<div class="col-sm-7">-->
-                <!--<h1 class="page-heading">-->
-                  <!--<%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>-->
-                <!--</h1>-->
-            <!--</div>-->
-            <!--<div class="col-sm-5 text-right hidden-xs">-->
-                <!--<ol class="breadcrumb push-10-t">-->
-                  <!--<%#= yield :breadcrumb if content_for?(:breadcrumb) %>-->
-                <!--</ol>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!-- END Page Header -->
-
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                  <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                  <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
+                </ol>
+            </div>
+        </div>
+    </div>
     <!-- Page Content -->
-    <div class="content">
       <%= yield %>
       <%=render '/layouts/footer'%>
-    </div>
 </div>
 
 

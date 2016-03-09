@@ -1,3 +1,5 @@
+# app/models/registration.rb
+# Model for events registrations
 class Registration < ActiveRecord::Base
   belongs_to :event
   belongs_to :user

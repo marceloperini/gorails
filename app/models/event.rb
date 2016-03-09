@@ -1,6 +1,6 @@
 # app/models/event.rb
 class Event < ActiveRecord::Base
-
+  resourcify
 	belongs_to :user
 
   has_many :registrations

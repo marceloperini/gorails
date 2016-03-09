@@ -22,3 +22,4 @@
 //= require core/js.cookie.min
 //= require app
 //= require jquery.amaran.min
+//= require summernote
