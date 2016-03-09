@@ -29,7 +29,7 @@ module PaginasHelper
     puts "#{m.to_s} lines of comments."
     return n
   end
-
+# Returns number of registrated users 
   def users_ammount
     return User.all.size
   end
