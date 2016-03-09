@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
-  #before_filter :authenticate_user!, :except => [:show, :index]
-  before_filter :authenticate_user!
-  #before_filter do 
+
+  #before_filter :authenticate_user!
+  #before_filter do
    # redirect_to :new_user_session_path unless current_user && current_user.admin?
   #end
 
@@ -67,14 +67,14 @@ class EventsController < ApplicationController
   end
 
   def register
-    if @event.is_registrated?(set_user)
+    if @event.is_registrated?(set_user.id)
       redirect_to events_path, alert: "Este email já está registrado no evento!"
     else
       if @event.exceeded_limit?
         render json: { exceeded_limit: true }
       else
-        @event.to_register(set_user)
-        redirect_to events_path, notice: "Inscrito no Evento com sucesso"
+        @event.to_register(set_user.id)
+        redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
       end
     end
   end
@@ -86,7 +86,7 @@ class EventsController < ApplicationController
   end
 
   def set_user
-    params[:user_id]
+    @user = User.find(params[:user_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
