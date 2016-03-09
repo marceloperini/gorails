@@ -1,29 +1,21 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
-  # GET /attachments
-  # GET /attachments.json
   def index
     @attachments = Attachment.all
   end
 
-  # GET /attachments/1
-  # GET /attachments/1.json
   def show
     @attachments = Attachment.all
   end
 
-  # GET /attachments/new
   def new
     @attachment = Attachment.new
   end
 
-  # GET /attachments/1/edit
   def edit
   end
 
-  # POST /attachments
-  # POST /attachments.json
   def create
     @attachment = Attachment.new(attachment_params)
 
@@ -38,8 +30,6 @@ class AttachmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /attachments/1
-  # PATCH/PUT /attachments/1.json
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
@@ -52,8 +42,6 @@ class AttachmentsController < ApplicationController
     end
   end
 
-  # DELETE /attachments/1
-  # DELETE /attachments/1.json
   def destroy
     @attachment.destroy
     respond_to do |format|

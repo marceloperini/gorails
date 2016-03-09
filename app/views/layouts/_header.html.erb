@@ -80,13 +80,11 @@
             <li>
               <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide">Página Inicial</span></a>
             </li>
-            <% if user_signed_in? %>
             <li>
-              <a href="/eventos"><i class="si si-energy"></i><span class="sidebar-mini-hide">Eventos</span></a>
+              <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide">Eventos</span></a>
             </li>
-                <%end%>
             <li>
-              <a href="/news"><i class="si si-wallet"></i><span class="sidebar-mini-hide">Noticias</span></a>
+              <a href="/news"><i class="fa fa-newspaper-o"></i><span class="sidebar-mini-hide">Noticias</span></a>
             </li>
 
 
@@ -97,15 +95,15 @@
 
             <% if user_signed_in? %>
                 <li>
-                  <a href="#"><i class="si si-speedometer"></i><span class="sidebar-mini-hide"> Logado como <%= current_user.first_name %></span></a>
+                  <a href="#"><i class="fa fa-user"></i><span class="sidebar-mini-hide"><%= current_user.nickname %></span></a>
                 </li>
                <li><%= link_to  edit_user_registration_path, :class => 'navbar-link' do %>
 
-                     <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Editar Perfil</span>
+                     <i class="fa fa-edit"></i><span class="sidebar-mini-hide">Editar Perfil</span>
                  <%end%>
                      </li>
                 <li><%= link_to  destroy_user_session_path, method: :delete, :class => 'navbar-link'  do %>
-                      <i class="si si-speedometer"></i><span class="sidebar-mini-hide">Deslogar</span>
+                      <i class="fa fa-sign-out "></i><span class="sidebar-mini-hide">Deslogar</span>
                   <%end%>
 
                       </li>

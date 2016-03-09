@@ -14,20 +14,27 @@
       <div class="row">
         <% @events.each do |event| %>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <a class="block block-rounded block-link-hover2" href="#">
-            <div class="block-content block-content-full text-center bg-city ribbon ribbon-bookmark ribbon-crystal">
-              <div class="ribbon-box font-w600">R$ 0</div>
-              <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 visibility-hidden" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
-                <i class="fa fa-html5 text-white-op"></i>
-              </div>
-              <div class="text-white-op">
-                <em>3 palestras</em> &bull; <em>4 horas</em>
-              </div>
-            </div>
-            <div class="block-content">
-              <h4 class="mheight-125"><%= event.name %></h4>
-              <div class="font-s12 text-center push"><%= event.date %></div>
-            </div>
+          <a  href="#">
+            <%= link_to(event,:class=>"block block-rounded block-link-hover2") do %>
+                <div class="block-content block-content-full text-center bg-city ribbon ribbon-bookmark ribbon-crystal">
+                  <div class="ribbon-box font-w600">R$ 0</div>
+                  <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 visibility-hidden" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                    <i class="fa fa-diamond text-white-op"></i>
+                  </div>
+                  <div class="text-white-op">
+                    <!--<em>3 palestras</em> &bull; <em>4 horas</em>-->
+                  </div>
+                </div>
+                <div class="block-content">
+                  <h4 class="mheight-125"><%= event.name %></h4>
+                  <div class="font-s12 text-center push"><%= event.start_at.strftime("Data %d/%m/%Y") %></div>
+                </div>
+            <% end %>
+
+            <%= @partners.each do |partner| %>
+              <%= partner.name %><br>
+              <%= partner.category %><br>
+            <% end %>
           </a>
         </div>
         <%end%>

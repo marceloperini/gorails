@@ -28,7 +28,7 @@ Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
 ## Controle da Qualidade [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
 
 
-## Garantia da Qualidade 
+## Garantia da Qualidade [![Code Climate](https://codeclimate.com/github/gorails/gorails/badges/gpa.svg)](https://codeclimate.com/github/gorails/gorails)
 
 Para garantir a qualidade, é utilizado um guia de estilos, boas práticas e má praticas.
 Essa garantia é monitorada pelo [Code Climate](https://codeclimate.com) e pelo [houndci](http://houndci.com).
@@ -36,7 +36,7 @@ O Code Climate checa por má práticas de programação em relação a estrutura
 que o Houndci checa má práticas na sintaxe do código, isto é, se a leitura do mesmo não é 
 demasiada complicada.
 
-## Documentação
+## Documentação [![Inline docs](http://inch-ci.org/github/gorails/gorails.svg?branch=master)](http://inch-ci.org/github/gorails/gorails)
 
 
 

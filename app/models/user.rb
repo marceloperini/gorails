@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
   :remember_me=>"Lembrar-me",
   :current_password=>'Senha Atual',
   :first_name=>'Primeiro Nome',
-  :last_name=>'Ultimo Nome'
+  :last_name=>'Ultimo Nome',
+  :cpf=>"CPF",
+  :nickname=>"Nickname"
   }
 
   def self.human_attribute_name(attr, vazio=nil)

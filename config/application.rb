@@ -21,6 +21,25 @@ module Gorails
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join('app','assets','fonts','javascripts/core','images/avatars','images/favicons','images/photos','images/various')
     config.assets.precompile += %w( .svg .eot .woff .ttf)
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales','**', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :'pt-BR'
+
+    config.generators do |g|
+      g.template_engine :go
+      #g.fallbacks[:gorails] = :erb 
+      g.assets = false
+      g.helper = false
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       request_specs: false
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.action_controller.include_all_helpers = false

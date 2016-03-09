@@ -1,31 +1,124 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+<main id="main-container" style="min-height: 380px;"><div class="bg-image" style="background-image: url('assets/img/various/promo-code.png');">
+  <div class="bg-primary-dark-op">
+    <section class="content content-full content-boxed">
+      <div class="push-100-t push-50 text-center">
+        <h1 class="h2 text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"> <%= @event.name %></h1>
+        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"><%= @event.start_at.strftime("Data %d/%m/%Y") %></h2>
+      </div>
+    </section>
+  </div>
+</div>
+  <div class="bg-white">
+    <section class="content content-mini content-mini-full content-boxed overflow-hidden">
+      <ol class="breadcrumb">
+        <li><a class="text-primary-dark" href="/events">Eventos</a></li>
+        <li><%= @event.name %></li>
+      </ol>
+    </section>
+  </div>
+  <section class="content content-boxed overflow-hidden">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="block block-rounded">
+          <div class="block-content">
+            <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Descrição do Evento</h3>
+            <%= @event.description.html_safe %>
+            <br>
+            <br>
+            <br>
+            <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Local</h3>
+            <%= @event.local.html_safe %>
+            <!--<table class="table table-borderless table-vcenter">-->
+              <!--<tbody>-->
+              <!--<tr class="active">-->
+                <!--<th style="width: 50px;"></th>-->
+                <!--<th>1. Intro</th>-->
+                <!--<th class="font-s12 text-right">-->
+                  <!--<span class="text-muted">0.2 hours</span>-->
+                <!--</th>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td class="success text-center">-->
+                  <!--<i class="fa fa-fw fa-unlock text-success"></i>-->
+                <!--</td>-->
+                <!--<td>-->
+                  <!--<a href="frontend_elearning_lesson.php">1.1 HTML5 Intro (free preview)</a>-->
+                <!--</td>-->
+                <!--<td class="text-right">-->
+                  <!--<em class="font-s12 text-muted">12 min</em>-->
+                <!--</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="block block-rounded">
+          <div class="block-content">
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+            <%=link_to "Increver-se",register_events_path(:id=>@event.id, :user_id=>current_user.id),class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
+          </div>
+        </div>
+        <div class="block block-rounded">
+          <div class="block-header bg-gray-lighter text-center">
+            <h3 class="block-title">Sobre este Evento</h3>
+          </div>
+          <div class="block-content">
+            <table class="table table-borderless table-condensed">
+              <tbody>
+              <tr>
+                <td>
+                  <!--<i class="fa fa-fw fa-book push-10-r"></i> 3 palestras-->
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-fw fa-clock-o push-10-r"></i> <%=@event.event_duration%> horas duração
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-fw fa-heart push-10-r"></i> <%= @event.participants_limit %> Vagas
+                </td>
+              </tr>
 
-<p>
-  <strong>Local:</strong>
-  <%= @event.local %>
-</p>
-
-<p>
-  <strong>Participants limit:</strong>
-  <%= @event.participants_limit %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
-<p id="notice"><%= notice %></p>
+              <!--<tr>-->
+                <!--<td>-->
+                  <!--<i class="fa fa-fw fa-tags push-10-r"></i>-->
+                  <!--<a class="label label-primary" href="javascript:void(0)">HTML</a>-->
+                  <!--<a class="label label-primary" href="javascript:void(0)">CSS</a>-->
+                  <!--<a class="label label-primary" href="javascript:void(0)">JavaScript</a>-->
+                <!--</td>-->
+              <!--</tr>-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--<a class="block block-rounded block-link-hover3" href="javascript:void(0)">-->
+          <!--<div class="block-header bg-gray-lighter text-center">-->
+            <!--<h3 class="block-title">About The Instructor</h3>-->
+          <!--</div>-->
+          <!--<div class="block-content block-content-full text-center">-->
+            <!--<div class="push">-->
+              <!--<img class="img-avatar" src="assets/img/avatars/avatar14.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="font-w600 push-5">Scott Ruiz</div>-->
+            <!--<div class="text-muted">Front-end Developer</div>-->
+          <!--</div>-->
+        <!--</a>-->
+      </div>
+    </div>
+  </section>
+  <div class="bg-gray-lighter">
+    <section class="content content-full content-boxed">
+      <div class="push-20-t push-20 text-center">
+        <h3 class="h4 push-20 animated fadeIn" data-toggle="appear"></h3>
+        <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
+      </div>
+    </section>
+  </div>
+</main>
 
