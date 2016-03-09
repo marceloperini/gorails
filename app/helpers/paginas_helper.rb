@@ -4,8 +4,9 @@ module PaginasHelper
   # ==== Examples
   # lines_of_code(rb)
   # lines_of_code(html)
+  # Returns a number of lines of codes based on parameter
   def lines_of_code(ext)
-     # returns a number of lines of codes based on parameter
+     
 
     o = 0 # Number of files
     n = 0 # Number of lines of code
