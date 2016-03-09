@@ -30,11 +30,6 @@
                   <div class="font-s12 text-center push"><%= event.start_at.strftime("Data %d/%m/%Y") %></div>
                 </div>
             <% end %>
-
-            <%= @partners.each do |partner| %>
-              <%= partner.name %><br>
-              <%= partner.category %><br>
-            <% end %>
           </a>
         </div>
         <%end%>

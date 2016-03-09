@@ -33,21 +33,15 @@
       <%= f.label :participants_limit %><br>
       <%= f.number_field :participants_limit, min: 1 %>
 
-      <%= f.fields_for :partner do |partner| %>
-        <%= partner.input :name, label: 'Nome do patrocinador', error: 'name is mandatory, please specipartnery one' %>
-        
-        <%= partner.input :link, hint: 'No special characters.' %>
+      <%= f.fields_for :partners do |partner| %>
+        Nome do patrocinador:
+        <%= partner.input :name %>
+        <%= partner.input :link %>
         <%= partner.check_box :site %>
-
-        <%#= partner.input :event, value: @event %>
-
-        <%= partner.input :category, collection: Partner.categories %>
-
-        <%#= partner.collection_select(:category, :category_id, Partner.all, :id, :, prompt: true) %>
-
+        <%= partner.input :category, collection: Partner.categories.keys %>
       <% end %>
                 </div>
-      <%= f.submit "Cadastrar",class: "btn btn-primary"%>
+      <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando" } %>
 
 <% end %>
 <script>

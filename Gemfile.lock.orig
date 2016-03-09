@@ -49,6 +49,9 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap_form (2.3.0)
+    brcpfcnpj (3.3.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     builder (3.2.2)
     byebug (8.2.2)
     cancan (1.6.10)
@@ -240,6 +243,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap_form
+  brcpfcnpj (~> 3.3)
   byebug
   cancan
   cancancan
@@ -274,10 +278,10 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   validates_email_format_of
-<<<<<<< HEAD
-  will_paginate
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.10.6
 =======
->>>>>>> 96a521032cf5426bbbc93a5903ff382ca3501168
+   1.11.2
+>>>>>>> 0e25f71c9a421d1d17694d140a7aa42606b29115

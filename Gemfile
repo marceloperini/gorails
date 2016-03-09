@@ -26,6 +26,7 @@ gem 'rolify'
 gem 'coveralls', require: false
 gem 'simple_form'
 gem 'rails-i18n'
+gem 'brcpfcnpj', '~> 3.3'
 
 group :doc do
   gem 'sdoc', :require => false

@@ -4,9 +4,9 @@
   <%= f.input :link, hint: 'No special characters.' %>
   <%= f.input :site %>
 
-  <%= f.association :events %>
+  <%= f.input :events, collection: @events %>
 
-  <%= f.input :category, collection: Partner.categories %>
+  <%= f.input :category, collection: Partner.categories.keys %>
 
   <%= f.button :submit %>
 <% end %>
