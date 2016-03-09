@@ -1,0 +1,14 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <%%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+  </div>
+
+  <div class="form-group form-actions">
+  	<%%= link_to I18n.t('misc.action.back'), <%= plural_table_name %>_path, class: 'btn btn-sm btn-square btn-default' %> 
+    <%%= f.button :submit, class: 'btn btn-sm btn-square btn-primary' %>
+  </div>
+<%% end %>
