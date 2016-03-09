@@ -1,3 +1,4 @@
+# app/helpers/paginas_helper.rb
 module PaginasHelper
   # params:
         #   ext - file extension
