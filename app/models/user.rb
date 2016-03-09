@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   :cpf=>"CPF",
   :nickname=>"Nickname"
   }
-  
+
   #def admin?
    # self.admin == true
   #end
@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
   end
 
   def has_valid_cpf?
-    return true if self.cpf_valido?
-    false
+    self.cpf.valido?
   end
 end
