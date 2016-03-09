@@ -1,3 +1,4 @@
+# app/models/user.rb
 class User < ActiveRecord::Base
   rolify
   # Include default devise modules. Others available are:
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
-
+# Generate csv from all atributes of user
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       lista = []
@@ -38,6 +39,7 @@ class User < ActiveRecord::Base
     end
   end
 
+# Verify if cpf attribute is valid
   def has_valid_cpf?
     self.cpf.valido?
   end
