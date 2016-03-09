@@ -1,4 +1,6 @@
+# app/controllers/paginas_controller.rb
 class PaginasController < ApplicationController
+  
   # GET /paginas/quem-somos
   # GET /paginas/home
   def show
@@ -9,8 +11,9 @@ class PaginasController < ApplicationController
     end
   end
 
+
   private
-# returns true if the requested file exists or raise unknown format if not
+# Returns true if the requested file exists or raise unknown format if not
   def pagina_valida?
     requested_file =  ActionController::Base.helpers.sanitize(params[:pagina])
     if File.exist?(Pathname.new(Rails.root + "app/views/paginas/#{requested_file}.html.erb"))
