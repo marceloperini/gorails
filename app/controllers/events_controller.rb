@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
 
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   #before_filter do
    # redirect_to :new_user_session_path unless current_user && current_user.admin?
   #end
@@ -67,19 +67,15 @@ class EventsController < ApplicationController
   end
 
   def register
-    if set_user.has_valid_cpf?
-      if @event.is_registrated?(set_user.id)
-        redirect_to events_path, alert: "Este email já está registrado no evento!"
-      else
-        if @event.exceeded_limit?
-          render json: { exceeded_limit: true }
-        else
-          @event.to_register(set_user.id)
-          redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
-        end
-      end
+    if @event.is_registrated?(set_user.id)
+      redirect_to events_path, alert: "Este email já está registrado no evento!"
     else
-      redirect_to edit_user_registration, notice: "Favor complete seu cadastro."
+      if @event.exceeded_limit?
+        render json: { exceeded_limit: true }
+      else
+        @event.to_register(set_user.id)
+        redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+      end
     end
   end
 
