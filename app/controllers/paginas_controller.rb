@@ -1,5 +1,6 @@
 class PaginasController < ApplicationController
-# show te page for current requested parameter
+  # GET /paginas/quem-somos
+  # GET /paginas/home
   def show
     if pagina_valida?
       render template: "paginas/#{params[:pagina]}"
