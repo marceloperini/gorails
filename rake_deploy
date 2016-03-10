@@ -1,3 +1,5 @@
+db:create
 db:migrate
+assets:precompile 
 
 
