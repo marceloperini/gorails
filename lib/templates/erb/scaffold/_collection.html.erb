@@ -1,0 +1,21 @@
+<%% collection.each do |resource| %>
+    <tr id="<%%= dom_id(resource)%>">
+      <% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <td><%%= resource.<%= attribute.name %> %></td>
+      <% end -%>
+      <td class="text-center">
+        <div class="btn-group">
+           <%%= link_to <%= singular_table_name %>_path(resource), data: { toggle: 'tooltip', original_title: I18n.t('misc.action.show')}, title: '', class: "btn btn-xs btn-default" do %>
+             <i class="fa fa-list"></i>
+           <%% end %>
+             <%%= link_to edit_<%= singular_table_name %>_path(resource) , data: { toggle: 'tooltip', original_title: I18n.t('misc.action.edit')}, title: '', class: "btn btn-xs btn-default" do %>
+             <i class="fa fa-pencil"></i>
+           <%% end %>
+             <%%= link_to <%= singular_table_name %>_path(resource) , data: { toggle: 'tooltip', original_title: I18n.t('misc.action.destroy')}, title: '', class: "btn btn-xs btn-default" do %>
+             <i class="fa fa-times"></i>
+           <%% end %> 
+        </div>
+      </td>
+    </tr>
+<%% end %>
+

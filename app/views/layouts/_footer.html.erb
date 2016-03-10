@@ -49,6 +49,7 @@
       </div>
       <div class="pull-left">
         <a class="font-w600" href="javascript:void(0)" target="_blank">GORAILS LABS</a> &copy; <%=DateTime.now.year%>
+        <%= link_to  'Sair', destroy_user_session_path, method: :delete %>
       </div>
     </div>
     <!-- END Copyright Info -->

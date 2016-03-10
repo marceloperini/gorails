@@ -1,0 +1,34 @@
+pt-BR:
+  <%= plural_name %>:
+    default: &default
+      h1: <%= class_name %>
+      header: "Lista de <%= plural_name %>"
+      block_header: <%= plural_name %>
+    index:
+      <<: *default
+      header: "Lista de <%= plural_name %>"
+      block_header: <%= plural_name %>
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar <%= class_name %>"
+    create:
+      alert: "<%= class_name %> não pode ser cadastrado."
+      notice: "<%= class_name %> cadastrado com sucesso."
+    update:
+      alert: "<%= class_name %> não pode ser atualizado."
+      notice: "<%= class_name %> atualizado com sucesso."
+    destroy:
+      alert: "<%= class_name %> não pode ser excluído."
+      notice: "<%= class_name %> excluído com sucesso."
+      
+  helpers:
+    submit:
+      <%= singular_name %>:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      
