@@ -32,15 +32,25 @@
                 <div class="form-group">
       <%= f.label :participants_limit %><br>
       <%= f.number_field :participants_limit, min: 1 %>
-
+      <br>
+      <br>
+      <h3>Patrocinador</h3>
       <%= f.fields_for :partners do |partner| %>
-        Nome do patrocinador:
-        <%= partner.input :name %>
+      <p>
+        <%= partner.input :name, placeholder: "Nome do Patrocinador" %>
         <%= partner.input :link %>
+        Possui site?
         <%= partner.check_box :site %>
+        <br>
+        <%= partner.label :logo, "Logo" %>
+        <%= partner.file_field :logo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+        <br>
         <%= partner.input :category, collection: Partner.categories.keys %>
+        <%= partner.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando" } %>
+      </p>
       <% end %>
-                </div>
+      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success', data: { disable_with: "Adicionando" } %>
+      </div>
       <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando" } %>
 
 <% end %>

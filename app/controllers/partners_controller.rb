@@ -13,6 +13,7 @@ class PartnersController < ApplicationController
   end
 
   def edit
+    @partner.attachments.build
   end
 
   def create
@@ -55,6 +56,6 @@ class PartnersController < ApplicationController
     end
 
     def partner_params
-      params.require(:partner).permit(:name, :link, :order, :site, :event_id, :category)
+      params.require(:partner).permit(:name, :link, :order, :site, :event_id, :category, :logo, attachments_attributes: [:id, :name, :file_type, :data, :origin_type, :origin_id])
     end
 end

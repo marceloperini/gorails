@@ -61,7 +61,7 @@
               <ul>
                 <li>Nome: <%= link_to partner.name, partner.link %></li>
                 <br>
-                <%#= image_tag partner.attachments.data.url %>
+                <%= link_to (image_tag partner.logo.thumb.url), partner.link %>
                 <br>
                 <li>Categoria: <%= t(partner.category) %></li>
                 <br>
