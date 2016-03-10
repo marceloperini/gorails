@@ -9,12 +9,12 @@
   Link: <%= link_to partner.name, partner.link %>
 </p>
 <p>
-  <%= image_tag partner.attachment.data.url %>
+  <%= image_tag partner.logo.medium.url %>
 </p>
 
 <p>
 Evento:
-  <%= partner.event.name %>
+  <%= partner.event.present? ? link_to(partner.event.name, partner.event) : "Nenhum evento associado." %>
 </p>
-
+--------------------------------------------------
 <% end %>

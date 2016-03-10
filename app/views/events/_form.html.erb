@@ -45,13 +45,13 @@
         <%= partner.label :logo, "Logo" %>
         <%= partner.file_field :logo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
         <br>
-        <%= partner.input :category, collection: Partner.categories.keys %>
-        <%= partner.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando" } %>
+        <%= partner.input :category, collection: Partner.categories.keys, prompt: "Selecione uma categoria" %>
+        <%= partner.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
       </p>
       <% end %>
-      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success', data: { disable_with: "Adicionando" } %>
+      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success', data: { disable_with: "Adicionando..." } %>
       </div>
-      <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando" } %>
+      <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
 
 <% end %>
 <script>

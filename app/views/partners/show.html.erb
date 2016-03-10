@@ -10,7 +10,7 @@
 <p>
   <% @partner.attachments.each do |content| %>
     Arquivo:
-    <%= show_by_file_type(content.data, content.data.file.identifier) %>
+    <%= show_by_file_type(content.data) %>
   <% end %>
 </p>
 

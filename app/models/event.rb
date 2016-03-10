@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 
 	belongs_to :user
   has_many :partners
-  accepts_nested_attributes_for :partners, allow_destroy: true
+  accepts_nested_attributes_for :partners, allow_destroy: true, reject_if: :all_blank
 
   has_many :registrations
 

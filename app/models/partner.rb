@@ -6,5 +6,5 @@ class Partner < ActiveRecord::Base
 
   enum category: [:sponsor, :supporter, :contributor]
 
-  validates_presence_of :logo, :category
+  validates_presence_of :name, :category
 end

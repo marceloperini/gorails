@@ -59,9 +59,10 @@
             <% @event.partners.each do |partner| %>
             <p>
               <ul>
-                <li>Nome: <%= link_to partner.name, partner.link %></li>
+                <li>Nome: <%= link_to partner.name, partner %></li>
                 <br>
-                <%= link_to (image_tag partner.logo.thumb.url), partner.link %>
+                <%#= link_to (image_tag partner.logo.thumb.url), partner.link %>
+                <%= show_by_file_type(partner.logo) %>
                 <br>
                 <li>Categoria: <%= t(partner.category) %></li>
                 <br>

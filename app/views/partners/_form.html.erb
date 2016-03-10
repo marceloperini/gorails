@@ -4,7 +4,7 @@
   <%= f.input :link, hint: 'No special characters.' %>
   <%= f.input :site %>
 
-  <%= f.input :category, collection: Partner.categories.keys %>
+  <%= f.input :category, collection: Partner.categories.keys, prompt: "Selecione uma categoria" %>
   <br>
   Anexos:
   <%= f.fields_for :attachments, html: { multipart: true } do |attachment| %>
@@ -35,5 +35,5 @@
 <% end %>
 
 
-  <%= f.submit "Cadastrar", data: { disable_with: "Cadastrando" } %>
+  <%= f.submit "Cadastrar", data: { disable_with: "Cadastrando..." } %>
 <% end %>
