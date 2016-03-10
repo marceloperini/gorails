@@ -23,3 +23,4 @@
 //= require app
 //= require jquery.amaran.min
 //= require summernote
+//= require maskedinput

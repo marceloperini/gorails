@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      <%= singular_name %>:
+        one: "<%= class_name %>"
+        other: "<%= plural_name %>"
+        explain: "<%= class_name %>"
+
+    attributes:
+      <%= singular_name %>:
+      <%- attributes.each do |attribute| -%>
+        <%= attribute.name %>: "<%= attribute.name %>"
+      <%- end -%>
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

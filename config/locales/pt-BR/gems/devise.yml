@@ -1,17 +1,8 @@
 pt-BR:
-  activerecord:
-    attributes:
-      user:
-        current_password: Senha atual
-        email: Email
-        password: Senha
-        password_confirmation: Confirme sua senha
-        remember_me: Lembra senha
-    models:
-      user: Usuário
-  devise:
+  devise: &default
     confirmations:
       new:
+        header: Reenviar instruções de confirmação
         resend_confirmation_instructions: Reenviar instruções de confirmação
     mailer:
       confirmation_instructions:
@@ -51,6 +42,10 @@ pt-BR:
       new:
         sign_up: Inscrever-se
     sessions:
+      signed_in: "Logado com sucesso."
+      signed_up: "Cadastro realizado com sucesso"
+      signed_out: "Deslogado com sucesso."
+      already_signed_out: 'Você já se deslogou.'
       new:
         sign_in: Login
     shared:
@@ -65,3 +60,27 @@ pt-BR:
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instruções de desbloqueio
+    failure:
+      already_authenticated: 'Você já está logado.'
+      inactive: 'Sua conta ainda não foi ativada.'
+      invalid: 'E-mail ou senha inválidos.'
+      invalid_token: 'O token de autenticação não é válido.'
+      locked: 'Sua conta está bloqueada.'
+      not_found_in_database: 'E-mail ou senha inválidos.'
+      timeout: 'Sua sessão expirou, por favor, efetue login novamente para continuar.'
+      unauthenticated: 'Para continuar, efetue login ou registre-se.'
+      unconfirmed: 'Antes de continuar, confirme a sua conta.' 
+
+    errors:
+      messages:
+        already_confirmed: "já foi confirmado"
+        confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
+        expired: "expirou, por favor, solicite uma nova"
+        not_found: "não encontrado"
+        not_locked: "não foi bloqueado"
+        not_saved:
+          one: "Não foi possível salvar %{resource}: 1 erro"
+          other: "Não foi possível salvar %{resource}: %{count} erros."
+
+      user:
+        <<: *default

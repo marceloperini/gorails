@@ -1,0 +1,37 @@
+<%%= provide :page_title, I18n.t('<%= plural_table_name %>.show.header', resource: @<%= singular_table_name %>.try(:id) ) %>
+<%%= provide :breadcrumb do %>
+  <li><%%= link_to  I18n.t('activerecord.models.<%= singular_table_name %>.other'), <%= plural_table_name %>_path %></li>
+  <li><%%= link_to  @<%= singular_table_name %>.try(:id), @<%= singular_table_name %> %></li>
+  <li><%%= I18n.t('<%= plural_table_name %>.show.header', resource: @<%= singular_table_name %>.try(:id) ) %></li>
+<%% end %>
+
+<div class="panel">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%%= I18n.t('<%= plural_table_name %>.show.header', resource: @<%= singular_table_name %>.try(:id)) %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+        <% attributes.reject(&:password_digest?).each do |attribute| -%>
+          <tr>
+            <td><strong><%%=t 'activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>' %>:</strong></td>
+             <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+          </tr>   
+        <% end -%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-sm-7">
+        <%%= link_to I18n.t('misc.action.back'), <%= plural_table_name %>_path, class: 'btn btn-default' %>
+        <%%= link_to I18n.t('misc.action.edit'),edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-warning' %>
+        <%%= link_to I18n.t('misc.action.destroy'),<%= singular_table_name %>_path(@<%= singular_table_name %>), method: :destroy, data: {confirm: I18n.t('misc.actions.confirm') }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

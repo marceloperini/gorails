@@ -1,0 +1,16 @@
+<%%= provide :page_title, I18n.t('<%= plural_table_name %>.new.header') %>
+<%%= provide :breadcrumb do %>
+  <li><%%= link_to  t('activerecord.models.<%= singular_table_name %>.other'), <%= plural_table_name %>_path %></li>
+  <li><%%=t '<%= plural_table_name %>.new.header' %></li>
+<%% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%%= I18n.t('<%= plural_table_name %>.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%%= render 'form' %>
+    </div>
+  </div>
+</div>
