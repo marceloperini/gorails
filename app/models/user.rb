@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
   def has_valid_cpf?
     self.cpf.valido?
   end
+
+  def need_updated_account?
+    self.cpf.nil? or self.nickname.nil? or self.first_name.nil? or self.last_name.nil?
+  end
 end
