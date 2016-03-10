@@ -53,3 +53,7 @@ um chat em tempo real.
 ## Triagem de tarefas
 
 Trello(https://trello.com)
+
+##Vakinha
+Ajude -nos em futuros eventos.
+ https://www.vakinha.com.br/vaquinha/gorails
