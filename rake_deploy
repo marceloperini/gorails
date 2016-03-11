@@ -1,4 +1,4 @@
 db:migrate
-assets:precompile RAILS_ENV=production
+assets:precompile --trace
 
 
