@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      gift:
+        one: "Gift"
+        other: "gifts"
+        explain: "Gift"
+
+    attributes:
+      gift:
+        name: "name"
+        description: "description"
+        event: "event"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

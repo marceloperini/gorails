@@ -1,0 +1,16 @@
+<%= provide :page_title, I18n.t('gifts.new.header') %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  t('activerecord.models.gift.other'), gifts_path %></li>
+  <li><%=t 'gifts.new.header' %></li>
+<% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%= I18n.t('gifts.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

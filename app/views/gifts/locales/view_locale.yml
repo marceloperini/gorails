@@ -1,0 +1,34 @@
+pt-BR:
+  gifts:
+    default: &default
+      h1: Gift
+      header: "Lista de gifts"
+      block_header: gifts
+    index:
+      <<: *default
+      header: "Lista de gifts"
+      block_header: gifts
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Gift"
+    create:
+      alert: "Gift não pode ser cadastrado."
+      notice: "Gift cadastrado com sucesso."
+    update:
+      alert: "Gift não pode ser atualizado."
+      notice: "Gift atualizado com sucesso."
+    destroy:
+      alert: "Gift não pode ser excluído."
+      notice: "Gift excluído com sucesso."
+      
+  helpers:
+    submit:
+      gift:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

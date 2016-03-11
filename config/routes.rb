@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gifts
   resources :link_categories
   resources :partners
   resources :events, :path => 'eventos' do

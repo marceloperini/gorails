@@ -53,6 +53,21 @@
       </div>
       <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
 
+
+    <h3>Brindes</h3>
+    <%= f.fields_for :gifts do |gift| %>
+        <p>
+          <%= gift.input :name, placeholder: "Nome do brinde" %>
+          <%= gift.label :photo, "Foto" %>
+          <%= gift.file_field :photo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+          <br>
+          <%= gift.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
+        </p>
+    <% end %>
+    <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success', data: { disable_with: "Adicionando..." } %>
+    </div>
+    <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
+
 <% end %>
 <script>
     $(document).ready(function () {

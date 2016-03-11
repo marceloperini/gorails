@@ -52,28 +52,11 @@
             <!--</tr>-->
             <!--</tbody>-->
             <!--</table>-->
+
+
+
           </div>
-          <h3>Patrocinadores</h3>
-          <br>
-          <% if @event.partners.any? %>
-            <% @event.partners.each do |partner| %>
-            <p>
-              <ul>
-                <li>Nome: <%= link_to partner.name, partner %></li>
-                <br>
-                <%#= link_to (image_tag partner.logo.thumb.url), partner.link %>
-                <%= show_by_file_type(partner.logo) %>
-                <br>
-                <li>Categoria: <%= t(partner.category) %></li>
-                <br>
-              </ul>
-            </p>
-            <% end %>
-          <% else %>
-            <p> 
-              Sem patrocinador cadastrado neste evento!
-            </p>
-          <% end %>
+
         </div>
       </div>
       <div class="col-md-4">
@@ -143,6 +126,62 @@
     <section class="content content-full content-boxed">
       <div class="push-20-t push-20 text-center">
         <h3 class="h4 push-20 animated fadeIn" data-toggle="appear"></h3>
+        <h3>Patrocinadores</h3>
+        <br>
+        <% if @event.partners.any? %>
+
+            <div class="content-grid">
+              <div class="row">
+
+                  <% @event.partners.each_with_index do |partner,index| %>
+                    <div class="col-xs-3">
+                      <div class="block" style="min-height: 150px;vertical-align: middle;">
+                        <div class="block-content">
+                           <%#= link_to partner.name, partner %>
+                          <%= show_by_file_type(partner.logo) %>
+                        <%#= t(partner.category) %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+
+
+
+              </div>
+            </div>
+        <% else %>
+            <p>
+              Sem patrocinador cadastrado neste evento!
+            </p>
+        <% end %>
+
+        <h3>Brindes</h3>
+        <br>
+        <% if @event.gifts.any? %>
+
+            <div class="content-grid">
+              <div class="row">
+
+                  <% @event.gifts.each do |gift| %>
+                    <div class="col-xs-3">
+                      <div class="block" style="min-height: 150px; align-items: center;">
+                        <div class="block-content">
+                           <%#= link_to gift.name, gift %>
+                          <%= show_by_file_type(gift.photo) %>
+                        </div>
+                      </div>
+                    </div>
+
+              <% end %>
+
+
+              </div>
+            </div>
+        <% else %>
+            <p>
+              Sem Brinde cadastrado no evento
+            </p>
+        <% end %>
         <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
       </div>
     </section>
