@@ -1,0 +1,17 @@
+<%= provide :page_title, I18n.t('link_categories.edit.header', resource: @link_category.try(:id) ) %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  I18n.t('activerecord.models.link_category.other'), link_categories_path %></li>
+  <li><%= link_to  @link_category.try(:id), @link_category %></li>
+  <li><%= I18n.t('link_categories.edit.header', resource: @link_category.try(:id) ) %></li>
+<% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%= I18n.t('link_categories.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

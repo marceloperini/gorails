@@ -48,27 +48,36 @@
 </head>
 <body>
 <%=render '/layouts/flash_messages'%>
-<div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed header-navbar-transparent">
-<%=render '/layouts/header'%>
+
+
+
+  <% if user_signed_in? %>
+    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed header-navbar-transparent">
+      <%=render '/layouts/header_sidebar'%>
+  <%else%>
+      <div id="page-container" class="  header-navbar-fixed header-navbar-transparent header-navbar-scroll">
+
+      <%=render '/layouts/header_top'%>
+  <%end%>
 
   <main id="main-container">
     <div class="content bg-gray-lighter">
-        <div class="row items-push">
-            <div class="col-sm-7">
-                <h1 class="page-heading">
-                  <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
-                </h1>
-            </div>
-            <div class="col-sm-5 text-right hidden-xs">
-                <ol class="breadcrumb push-10-t">
-                  <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
-                </ol>
-            </div>
+      <div class="row items-push">
+        <div class="col-sm-7">
+          <h1 class="page-heading">
+            <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
+          </h1>
         </div>
+        <div class="col-sm-5 text-right hidden-xs">
+          <ol class="breadcrumb push-10-t">
+            <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
+          </ol>
+        </div>
+      </div>
     </div>
     <!-- Page Content -->
-      <%= yield %>
-      <%=render '/layouts/footer'%>
+    <%= yield %>
+    <%=render '/layouts/footer'%>
 </div>
 
 

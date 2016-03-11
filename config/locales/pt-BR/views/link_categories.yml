@@ -1,0 +1,34 @@
+pt-BR:
+  link_categories:
+    default: &default
+      h1: LinkCategory
+      header: "Lista de link_categories"
+      block_header: link_categories
+    index:
+      <<: *default
+      header: "Lista de Categorias de Link"
+      block_header: Categorias de Link
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Categoria de Link"
+    create:
+      alert: "LinkCategory não pode ser cadastrado."
+      notice: "LinkCategory cadastrado com sucesso."
+    update:
+      alert: "LinkCategory não pode ser atualizado."
+      notice: "LinkCategory atualizado com sucesso."
+    destroy:
+      alert: "LinkCategory não pode ser excluído."
+      notice: "LinkCategory excluído com sucesso."
+      
+  helpers:
+    submit:
+      link_category:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

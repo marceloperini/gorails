@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :link_categories
   resources :events, :path => 'eventos' do
   	post :register, on: :member
     collection do

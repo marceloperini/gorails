@@ -1,11 +1,11 @@
 pt-BR:
   app:
     site_name: Associação Goiana de Ruby on Rails
-    site_title: GORails - Associação Goiana de Ruby on Rails
+    site_title: GORAILS - Associação Goiana de Ruby on Rails
     home: Início
   layouts:
     application:
-      h1: GORails - Associação Goiana de Ruby on Rails
+      h1: GORAILS - Associação Goiana de Ruby on Rails
     
   misc:
     false: Não
