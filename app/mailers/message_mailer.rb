@@ -1,7 +1,7 @@
 class MessageMailer < ActionMailer::Base
 
-  default from: "GORAILS<contato@gorails.com.br>"
-  default to:   "GORAILS<contato@gorails.com.br>"
+  default from: "GORAILS<inscricoes@gorails.com.br>"
+  default to:   "GORAILS<inscricoes@gorails.com.br>"
 
   def new_message(message)
     @message = message
