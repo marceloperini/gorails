@@ -1,0 +1,39 @@
+<%= simple_nested_form_for @partner do |f| %>
+
+  <%= f.input :name, label: 'Your name please', error: 'name is mandatory, please specify one' %>
+  <%= f.input :link, hint: 'No special characters.' %>
+  <%= f.input :site %>
+
+  <%= f.input :category, collection: Partner.categories.keys, prompt: "Selecione uma categoria" %>
+  <br>
+  Anexos:
+  <%= f.fields_for :attachments, html: { multipart: true } do |attachment| %>
+  <div class="actions">
+    <p>
+      <%= attachment.label :name, "Nome" %><br>
+      <%= attachment.text_field :name %>
+    </p>
+    <p>
+      <%= attachment.label :file_type, "Tipo do Arquivo" %>
+      <%= attachment.text_field :file_type %>
+    </p>
+
+    <p>
+      <%= attachment.label :data, "Arquivo" %>
+      <%= attachment.file_field :data %>
+    </p>
+    <p>
+      <%= attachment.label :logo, "Logo" %>
+      <%= attachment.file_field :logo %>
+    </p>
+    <p>
+      <%= attachment.label :situation, "Situação" %>
+      <%= attachment.check_box :situation %>
+    </p>
+
+  </div>
+<% end %>
+
+
+  <%= f.submit "Cadastrar", data: { disable_with: "Cadastrando..." } %>
+<% end %>

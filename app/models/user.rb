@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
    # self.admin == true
   #end
 
+  # validates :terms_of_service, acceptance: true
+
   usar_como_cpf :cpf
 
   def self.human_attribute_name(attr, vazio=nil)

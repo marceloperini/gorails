@@ -1,0 +1,25 @@
+<p>
+  Nome: <%= @partner.name %>
+</p>
+<p>
+  Categoria: <%= t(@partner.category) %>
+</p>
+<p>
+  Link: <%= link_to @partner.name, @partner.link %>
+</p>
+<p>
+  <% @partner.attachments.each do |content| %>
+    Arquivo:
+    <%= show_by_file_type(content.data) %>
+  <% end %>
+</p>
+
+<p>
+<% if @partner.event.present? %>
+  Evento:
+    <br>
+    Nome: <%= link_to @partner.event.name, @partner.event %>
+<% else %>
+  Nenhuma evento associado para este patrocinador.
+<% end %>
+</p>

@@ -1,0 +1,27 @@
+Todos os Arquivos
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+      <th>#</th> 
+      <th>Name</th> 
+      <th>Type</th> 
+      <th>Origin Type</th> 
+      <th>Situation</th> 
+      <th>File</th>
+      <th>Origem do arquivo</th>
+    </tr> 
+  </thead> 
+  <tbody> 
+  <% @attachments.each do |file| %>
+    <tr> 
+      <th scope="row"><%= file.id %></th> 
+      <td><%= file.name %></td> 
+      <td><%= file.file_type %></td> 
+      <td><%= file.origin_type %></td> 
+      <td><%= file.situation %></td> 
+      <td><%= show_by_file_type(file.data) %></td>
+      <td><%= file.origin.name unless file.origin.nil? %></td>
+    </tr> 
+    <% end %>
+  </tbody> 
+</table>

@@ -1,0 +1,20 @@
+<% @partners.each do |partner| %>
+<p>
+  Nome: <%= partner.name %>
+</p>
+<p>
+  Categoria: <%= t(partner.category) %>
+</p>
+<p>
+  Link: <%= link_to partner.name, partner.link %>
+</p>
+<p>
+  <%= image_tag partner.logo.medium.url %>
+</p>
+
+<p>
+Evento:
+  <%= partner.event.present? ? link_to(partner.event.name, partner.event) : "Nenhum evento associado." %>
+</p>
+--------------------------------------------------
+<% end %>

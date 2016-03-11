@@ -12,8 +12,8 @@ gem 'kaminari'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
-# gem "paperclip"
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave', '0.9.0' #, github: 'carrierwaveuploader/carrierwave'
+gem 'rmagick'
 gem "cancan"
 gem 'validates_email_format_of'
 gem 'nested_form'
