@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20160310030637) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "name"
-    t.string   "file_type"
+    t.string   "type"
     t.string   "origin_type"
     t.boolean  "situation"
     t.integer  "origin_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "data"
+    t.string   "file"
   end
 
   add_index "attachments", ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id", using: :btree
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20160310030637) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.datetime "end_at"
+  end
+
+  create_table "link_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "partners", force: :cascade do |t|
