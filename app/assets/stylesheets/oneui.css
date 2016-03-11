@@ -9,7 +9,7 @@ body {
 body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    color: #646464;
+    color: #646464;font
     background-color: #f5f5f5;
 }
 .no-focus *:focus {
@@ -2183,8 +2183,8 @@ a.list-group-item:focus {
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url('fontawesome-webfont.eot?v=4.5.0');
-    src: url('fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('fontawesome-webfont.woff?v=4.5.0') format('woff'), url('fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+    src: url('/assets/fontawesome-webfont.eot?v=4.5.0');
+    src: url('/assets/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('/assets/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('/assets/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('/assets/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('/assets/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -4258,8 +4258,8 @@ a.list-group-item:focus {
 }
 @font-face {
     font-family: Simple-Line-Icons;
-    src: url(Simple-Line-Icons.eot);
-    src: url(Simple-Line-Icons.eot?#iefix) format('embedded-opentype'), url(Simple-Line-Icons.woff) format('woff'), url(Simple-Line-Icons.ttf) format('truetype'), url(Simple-Line-Icons.svg#Simple-Line-Icons) format('svg');
+    src: url('/assets/Simple-Line-Icons.eot');
+    src: url('/assets/Simple-Line-Icons.eot?#iefix') format('embedded-opentype'), url('/assets/Simple-Line-Icons.woff') format('woff'), url('/assets/Simple-Line-Icons.ttf') format('truetype'), url('/assets/Simple-Line-Icons.svg#Simple-Line-Icons') format('svg');
     font-weight: 400;
     font-style: normal;
 }
