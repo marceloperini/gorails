@@ -84,3 +84,6 @@ pt-BR:
 
       user:
         <<: *default
+
+    omniauth_callbacks:
+      success: "Registrado com sucesso!"
