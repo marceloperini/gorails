@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :attachments
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks" }
+  resources :users, :only => [:show]
 
   get "/paginas/:pagina" => "paginas#show"
   root "paginas#show", pagina: "home"

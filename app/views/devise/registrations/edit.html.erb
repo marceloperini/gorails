@@ -6,11 +6,11 @@
 
       <%if current_user.avatar.url.present?%>
       <%= show_by_file_type(current_user.avatar)%>
-      <%= f.label :remove_avatar do%>
-      <%= f.check_box :remove_avatar%>
-      <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
-      <%= f.hidden_field :avatar_cache%>
-          <%end%>
+          <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+          <%= f.hidden_field :avatar_cache%>
+    <%else%>
+          <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+          <%= f.hidden_field :avatar_cache%>
       <%end%>
 
     <div class="field">
