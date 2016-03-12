@@ -31,6 +31,7 @@ gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-instagram', '~> 1.0', '>= 1.0.2'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', :require => false

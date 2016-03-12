@@ -22,4 +22,6 @@ ee https://help.github.com/articles/ignoring-files for more about ignoring files
 /config/initializers/setup_mail.rb
 schema.rb
 config/initializers/secret_token.rb
-/config/production_env.yml
+
+# Ignore application configuration
+/config/application.yml
