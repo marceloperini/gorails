@@ -65,8 +65,8 @@ class User < ActiveRecord::Base
           last_name: data["last_name"],
           email: data["email"],
           password: Devise.friendly_token[0,20],
-          provider: data["provider"],
-          uid: data["uid"]
+          provider: access_token.provider,
+          uid: access_token.uid
         )
     end
     user
