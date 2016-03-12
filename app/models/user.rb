@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
       :first_name => 'Primeiro Nome',
       :last_name => 'Ultimo Nome',
       :cpf => "CPF",
-      :nickname => "Nickname"
+      :nickname => "Nickname",
+      :bio=>"Biografia",
+      :job_title=> "Cargo/Função"
   }
 
   #def admin?
@@ -34,6 +36,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
+  mount_uploader :cover_photo, AttachmentsUploader
   accepts_nested_attributes_for :attachments
 
   def self.human_attribute_name(attr, vazio=nil)

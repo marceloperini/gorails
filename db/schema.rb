@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312152109) do
+ActiveRecord::Schema.define(version: 20160312201456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 20160312152109) do
   end
 
   add_index "attachments", ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id", using: :btree
-
-  create_table "authorizations", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.string   "token"
-    t.string   "secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -130,6 +120,9 @@ ActiveRecord::Schema.define(version: 20160312152109) do
     t.string   "provider"
     t.string   "uid"
     t.string   "avatar"
+    t.string   "cover_photo"
+    t.text     "bio"
+    t.string   "job_title"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

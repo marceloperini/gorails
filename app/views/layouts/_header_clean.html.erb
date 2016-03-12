@@ -1,0 +1,54 @@
+<header id="header-navbar" class="content-mini content-mini-full">
+  <ul class="nav-header pull-right">
+    <li>
+      <div class="btn-group">
+        <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+          <%=  image_tag current_user.avatar.thumb.url%>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-header">Perfil</li>
+
+          <li><%= link_to  current_user  , :class => 'navbar-link' do %>
+                <i class="si si-user pull-right"></i><span class="sidebar-mini-hide"> Perfil</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+                <i class="si si-settings pull-right"></i>Editar perfil
+            <% end %>
+          </li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Ações</li>
+
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+                <i class="si si-logout pull-right"></i><span class="sidebar-mini-hide"> Deslogar</span>
+            <% end %>
+          </li>
+
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+  <ul class="nav-header pull-left">
+    <li>
+      <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Principal </span></a>
+    </li>
+
+    <li>
+      <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
+    </li>
+
+    <li>
+      <a href="/links/uteis"><i class="fa fa-link"></i>
+        <span class="sidebar-mini-hide"> Links Utéis</span></a>
+    </li>
+
+    <li>
+      <a href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide"> Contato</span></a>
+    </li>
+
+  </ul>
+</header>

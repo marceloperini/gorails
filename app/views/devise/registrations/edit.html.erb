@@ -7,9 +7,11 @@
       <%if current_user.avatar.url.present?%>
       <%= show_by_file_type(current_user.avatar)%>
           <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+          <%= f.file_field :cover_photo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
           <%= f.hidden_field :avatar_cache%>
     <%else%>
           <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+          <%= f.file_field :cover_photo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
           <%= f.hidden_field :avatar_cache%>
       <%end%>
 
@@ -35,6 +37,15 @@
       <%= f.label :cpf %><br />
       <%= f.text_field :cpf ,class: "cpf",maxlength: 14%>
     </div>
+
+      <div class="field">
+        <%= f.label :bio %><br />
+        <%= f.text_field :bio %>
+      </div>
+      <div class="field">
+        <%= f.label :job_title %><br />
+        <%= f.text_field :job_title %>
+      </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

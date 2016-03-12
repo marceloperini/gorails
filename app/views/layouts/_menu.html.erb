@@ -1,22 +1,4 @@
-<li>
-  <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Principal</span></a>
-</li>
 
-
-
-<li>
-  <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
-</li>
-
-<li>
-
-  <a href="/links/uteis"><i class="fa fa-link"></i>
-    <span class="sidebar-mini-hide"> Links Utéis</span></a>
-</li>
-
-<li>
-  <a href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide"> Contato</span></a>
-</li>
 
 <% if user_signed_in? %>
 
@@ -33,17 +15,7 @@
         </li>
     <% end %>
 
-    <% if user_signed_in? %>
-        <li><%= link_to  current_user  , :class => 'navbar-link' do %>
-              <i class="fa fa-user"></i><span class="sidebar-mini-hide"> Perfil</span>
-          <% end %>
-        </li>
-    <% end %>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-          <i class="fa fa-sign-out "></i><span class="sidebar-mini-hide"> Deslogar</span>
-      <% end %>
-    </li>
+
 
 <% else %>
 
