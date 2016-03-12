@@ -1,71 +1,11 @@
 <!-- Footer -->
-<footer id="page-footer" class="bg-white">
-  <div class="content-grid">
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-        <div class="block">
-          <div class="block-content">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<footer id="page-footer" style="background-color: rgba(210, 200, 200, 0.09);">
 
-  <div class="content content-boxed">
+  <div class="content content-boxed" style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
     <!-- Footer Navigation -->
-    <div class="row push-30-t items-push-2x">
-      <div class="col-sm-4">
-        <h3 class="h5 font-w600 text-uppercase push-20">Eventos</h3>
+
+    <div class="row">
+      <div class="col-sm-3">
         <ul class="list list-simple-mini font-s13">
           <li>
             <a class="font-w600" href="/paginas/quem-somos">Quem Somos</a>
@@ -78,47 +18,52 @@
           </li>
         </ul>
       </div>
-      <div class="col-sm-4">
-        <h3 class="h5 font-w600 text-uppercase push-20">Support</h3>
+
+      <div class="col-sm-3">
         <ul class="list list-simple-mini font-s13">
           <li>
+            Política de Privacidade
           </li>
           <li>
+            Termos de Uso
+          </li>
+          <li>
+            Associe-se
           </li>
         </ul>
       </div>
-      <div class="col-sm-4">
-        <h3 class="h5 font-w600 text-uppercase push-20">Entre em Contato</h3>
+
+      <div class="col-sm-3">
         <div class="font-s13 push">
           <strong>Associação Goiana de Ruby on Rails</strong><br>
           Goiânia - Goiás<br>
-          Brasil<br>
-          <!--<abbr title="Phone"></abbr> (62) 9999-9999-->
-        </div>
-        <div class="font-s13">
-          <i class="si si-envelope-open"></i> contato@gorails.com.br
+
+          <div class="font-s13">
+            <i class="si si-envelope-open"></i>
+            <%= link_to 'contato@gorails.com.br', 'mailto:contato@gorails.com.br' %>
+          </div>
         </div>
       </div>
+
+
+      <div class="col-sm-3">
+        <div class="pull-right">
+          <a class="font-w600" href="http://www.locaweb.com.br/cloud/jelastic/?IS=1&gclid=CjwKEAiA04S3BRCYteOr6b-roSUSJABE1-6BLYnWKU4zxPepeq2-XLed8Hl3jN3rNWhszz3bSlVipRoCQOrw_wcB#" target="_blank"> <%= image_tag("locaweb.png", width: "150px", alt: "Edit Entry") %></a>
+        </div>
+      </div>
+
     </div>
     <!-- END Footer Navigation -->
 
     <!-- Copyright Info -->
     <div class="font-s12 push-20 clearfix">
-      <hr class="remove-margin-t">
-      <div class="pull-right">
-        <a class="font-w600" href="http://www.locaweb.com.br/cloud/jelastic/?IS=1&gclid=CjwKEAiA04S3BRCYteOr6b-roSUSJABE1-6BLYnWKU4zxPepeq2-XLed8Hl3jN3rNWhszz3bSlVipRoCQOrw_wcB#" target="_blank"> <%=image_tag("locaweb.png", width: "150px", alt: "Edit Entry") %></a>
-
-      </div>
+      <hr class="remove-margin-t" style="margin-bottom: 10px;">
       <div class="pull-left">
-        <a class="font-w600" href="javascript:void(0)" target="_blank">GoRails LABS</a> &copy; <%=DateTime.now.year%>
+        <a class="font-w600" href="/" target="_blank">GoRails</a> &copy; <%= DateTime.now.year %>.
+        Todos os direitos reservados.
       </div>
     </div>
     <!-- END Copyright Info -->
   </div>
 </footer>
-<!-- END Footer -->
-<!-- END Page Container -->
 
-
-
-<!-- Page JS Code -->
