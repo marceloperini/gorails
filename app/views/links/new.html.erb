@@ -1,0 +1,16 @@
+<%= provide :page_title, I18n.t('links.new.header') %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  t('activerecord.models.link.other'), links_path %></li>
+  <li><%=t 'links.new.header' %></li>
+<% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%= I18n.t('links.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

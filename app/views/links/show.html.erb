@@ -1,0 +1,43 @@
+<%= provide :page_title, I18n.t('links.show.header', resource: @link.try(:id) ) %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  I18n.t('activerecord.models.link.other'), links_path %></li>
+  <li><%= link_to  @link.try(:id), @link %></li>
+  <li><%= I18n.t('links.show.header', resource: @link.try(:id) ) %></li>
+<% end %>
+
+<div class="panel">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= I18n.t('links.show.header', resource: @link.try(:id)) %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.link.name' %>:</strong></td>
+             <td><%= @link.name %></td>
+          </tr>   
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.link.link' %>:</strong></td>
+             <td><%= @link.link %></td>
+          </tr>   
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.link.link_category' %>:</strong></td>
+             <td><%= @link.link_category.name %></td>
+          </tr>   
+                </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-sm-7">
+        <%= link_to I18n.t('misc.action.back'), links_path, class: 'btn btn-default' %>
+        <%= link_to I18n.t('misc.action.edit'),edit_link_path(@link), class: 'btn btn-warning' %>
+        <%= link_to I18n.t('misc.action.destroy'),link_path(@link), method: :destroy, data: {confirm: I18n.t('misc.actions.confirm') }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

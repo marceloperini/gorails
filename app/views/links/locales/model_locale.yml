@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      link:
+        one: "Link"
+        other: "links"
+        explain: "Link"
+
+    attributes:
+      link:
+        name: "name"
+        link: "link"
+        link_category: "link_category"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

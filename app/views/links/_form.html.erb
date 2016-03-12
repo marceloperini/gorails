@@ -1,0 +1,15 @@
+<%= simple_form_for(@link) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :link %>
+    <%=f.input :description%>
+    <%= f.association :link_category %>
+  </div>
+
+  <div class="form-group form-actions">
+  	<%= link_to I18n.t('misc.action.back'), links_path, class: 'btn btn-sm btn-square btn-default' %> 
+    <%= f.button :submit, class: 'btn btn-sm btn-square btn-primary' %>
+  </div>
+<% end %>

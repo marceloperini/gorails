@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :links, :path=>"links" do
+    collection do
+      get 'uteis'
+    end
+  end
   resources :gifts
   resources :link_categories
   resources :partners
