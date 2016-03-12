@@ -60,7 +60,12 @@
                   <div class="form-group">
                     <div class="col-xs-12 col-sm-6 col-md-5">
                       <%= f.submit "Registrar", class:"btn btn-block btn-success" %>
-                      <%= render "devise/shared/links" %>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:5px">
+                      <a class="btn btn-block btn-social btn-google"
+                      href="<%=user_omniauth_authorize_path(:google_oauth2)%>">
+                        <span class="fa fa-google"></span> Registrar-se com Google
+                      </a>
                     </div>
                   </div>
                 <% end %>
