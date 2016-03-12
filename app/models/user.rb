@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable
+
 
   HUMANIZED_ATTRIBUTES = {
   :id => "Usuario",
@@ -29,6 +31,8 @@ class User < ActiveRecord::Base
 
   usar_como_cpf :cpf
 
+  has_many :authorizations
+
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
@@ -49,5 +53,22 @@ class User < ActiveRecord::Base
 
   def need_updated_account?
     self.cpf.nil? or self.nickname.nil? or self.first_name.nil? or self.last_name.nil?
+  end
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(:email => data["email"]).first
+
+    unless user
+      user = User.create(
+          first_name: data["first_name"],
+          last_name: data["last_name"],
+          email: data["email"],
+          password: Devise.friendly_token[0,20],
+          provider: data["provider"],
+          uid: data["uid"]
+        )
+    end
+    user
   end
 end
