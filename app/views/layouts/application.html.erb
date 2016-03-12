@@ -53,17 +53,17 @@
 <%= render '/layouts/flash_messages' %>
 
 <% if user_signed_in? %>
-    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed">
+    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed bg-white-op">
       <%= render '/layouts/header_sidebar' %>
-      <%= render '/layouts/header_top' %>
+      <%#= render '/layouts/header_top' %>
 <% else %>
     <div id="page-container" class="">
+      <%#= render '/layouts/header_sidebar' %>
       <%= render '/layouts/header_top' %>
-      <%= render '/layouts/header_sidebar' %>
 <% end %>
 
-<main id="main-container" style="background-color: #2C343F !important; padding-top: 5px;
-        background-image: url('<%=asset_path "bg2.jpg"%>')">
+<main id="main-container" style="background-color: #f9f9f9 !important; padding-top: 0px;
+">
   <!--<div class="content bg-gray-lighter">-->
   <!--<div class="row items-push">-->
   <!--<div class="col-sm-7">-->
