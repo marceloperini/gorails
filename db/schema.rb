@@ -29,16 +29,6 @@ ActiveRecord::Schema.define(version: 20160312012326) do
 
   add_index "attachments", ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id", using: :btree
 
-  create_table "authorizations", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.string   "token"
-    t.string   "secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
