@@ -4,6 +4,15 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+      <%if current_user.avatar.url.present?%>
+      <%= show_by_file_type(current_user.avatar)%>
+      <%= f.label :remove_avatar do%>
+      <%= f.check_box :remove_avatar%>
+      <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
+      <%= f.hidden_field :avatar_cache%>
+          <%end%>
+      <%end%>
+
     <div class="field">
       <%= f.label :nickname %><br />
       <%= f.text_field :nickname %>
@@ -51,6 +60,7 @@
   </div>
 <% end %>
 
+  <br>
 <h3>Cancelar minha Conta</h3>
 
 <p>Não precisa mais ter um conta aqui? <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem Certeza?" }, method: :delete %></p>

@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   usar_como_cpf :cpf
 
   has_many :authorizations
+  has_many :attachments, as: :origin
+  mount_uploader :avatar, AttachmentsUploader
+  accepts_nested_attributes_for :attachments
 
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
