@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :user do
+  	nickname 'MyNickName'
   	first_name 'MyFirstName'
   	last_name 'MyLastName'
   	cpf '54256315454'
