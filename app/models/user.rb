@@ -60,14 +60,18 @@ class User < ActiveRecord::Base
     user = User.where(:email => data["email"]).first
 
     unless user
-      user = User.create(
-          first_name: data["first_name"],
-          last_name: data["last_name"],
-          email: data["email"],
-          password: Devise.friendly_token[0,20],
-          provider: access_token.provider,
-          uid: access_token.uid
-        )
+      user = User.new
+      if access_token.provider == 'google_oauth2'
+        user.first_name = data["first_name"]
+        user.last_name = data["last_name"]
+      elsif access_token.provider == 'facebook'
+        user.first_name = data["name"]
+      end
+      user.email = data["email"]
+      user.password = Devise.friendly_token[0,20]
+      user.provider = access_token.provider
+      user.uid = access_token.uid
+      user.save
     end
     user
   end
