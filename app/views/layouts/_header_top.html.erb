@@ -1,9 +1,10 @@
-<header id="header-navbar" class="content-mini content-mini-full">
+<header id="header-navbar" class="content-mini content-mini-full" style="background-color: #2C343F;">
   <div class="content-boxed">
     <ul class="nav-header pull-right">
       <li>
+
         <div class="btn-group">
-          <!--<button class="btn btn-link text-white dropdown-toggle" data-toggle="dropdown" type="button">-->
+           <!--<button class="btn btn-link text-white dropdown-toggle" data-toggle="dropdown" type="button">-->
             <!--<i class="si si-drop"></i>-->
           <!--</button>-->
           <!--<ul class="dropdown-menu dropdown-menu-right sidebar-mini-hide font-s13">-->
@@ -11,26 +12,28 @@
           <!--</ul>-->
         </div>
       </li>
+
       <li class="hidden-md hidden-lg">
         <button class="btn btn-link text-white pull-right" data-toggle="class-toggle" data-target=".js-nav-main-header" data-class="nav-main-header-o" type="button">
           <i class="fa fa-navicon"></i>
         </button>
       </li>
     </ul>
+
     <ul class="js-nav-main-header nav-main-header pull-right">
       <li class="text-right hidden-md hidden-lg">
         <button class="btn btn-link text-white" data-toggle="class-toggle" data-target=".js-nav-main-header" data-class="nav-main-header-o" type="button">
           <i class="fa fa-times"></i>
         </button>
       </li>
-
-
-      <%=render 'layouts/menu'%>
+      <%= render 'layouts/menu_header' %>
     </ul>
+
     <ul class="nav-header pull-left">
       <li class="header-content">
         <a class="h5 text-white" href="/">
-          <%=image_tag("ruby.png", size: "22x16", alt: "Edit Entry") %> <span class="h4 font-w600 sidebar-mini-hide">gorails</span>
+          <%= image_tag("logo_sem_nome_mini.png",   alt: "GoRails", :style=> "margin-bottom: 4px;") %>
+          <span class="h4 font-w600 sidebar-mini-hide">GoRails</span>
         </a>
       </li>
     </ul>

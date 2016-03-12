@@ -6,9 +6,9 @@ GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores d
 
 ## Configuração Inicial
 
-Esse projeto está sendo desenvolvido usando Ruby 2.2.3. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+Esse projeto está sendo desenvolvido usando Ruby 2.0.0. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
-especificada no arquivo [.ruby-version](https://github.com/gorails/gorails/blob/master/.ruby-version).
+especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
 - Crie um arquivo de configuração do banco de dados:
 ```shell

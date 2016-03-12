@@ -21,6 +21,7 @@
 //= require core/jquery.placeholder.min
 //= require core/js.cookie.min
 //= require app
+//= require default
 //= require jquery.amaran.min
 //= require summernote
 //= require maskedinput
