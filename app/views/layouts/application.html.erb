@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
+<!--[if IE 9]>
+<html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
 
-  <title>GORAILS</title>
+  <title>GoRails</title>
 
   <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
   <meta name="author" content="pixelcave">
@@ -22,7 +24,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/faviicon/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/faviicon/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/faviicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/faviicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/faviicon/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/faviicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/faviicon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/faviicon/favicon-16x16.png">
@@ -37,49 +39,48 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
 
   <!-- OneUI CSS framework -->
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
-
   <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
   <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
   <!-- END Stylesheets -->
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
+
 <body>
-<%=render '/layouts/flash_messages'%>
+<%= render '/layouts/flash_messages' %>
 
+<% if user_signed_in? %>
+    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed">
+      <%= render '/layouts/header_sidebar' %>
+      <%= render '/layouts/header_top' %>
+<% else %>
+    <div id="page-container" class="">
+      <%= render '/layouts/header_top' %>
+      <%= render '/layouts/header_sidebar' %>
+<% end %>
 
-
-  <% if user_signed_in? %>
-    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed header-navbar-transparent">
-      <%=render '/layouts/header_sidebar'%>
-  <%else%>
-      <div id="page-container" class="  header-navbar-fixed header-navbar-transparent header-navbar-scroll">
-
-      <%=render '/layouts/header_top'%>
-  <%end%>
-
-  <main id="main-container">
-    <div class="content bg-gray-lighter">
-      <div class="row items-push">
-        <div class="col-sm-7">
-          <h1 class="page-heading">
-            <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
-          </h1>
-        </div>
-        <div class="col-sm-5 text-right hidden-xs">
-          <ol class="breadcrumb push-10-t">
-            <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
-          </ol>
-        </div>
+<main id="main-container">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
+        </h1>
+      </div>
+      <div class="col-sm-5 text-right hidden-xs">
+        <ol class="breadcrumb push-10-t">
+          <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
+        </ol>
       </div>
     </div>
-    <!-- Page Content -->
-    <%= yield %>
-    <%=render '/layouts/footer'%>
+  </div>
+  <!-- Page Content -->
+  <%= yield %>
+  <%= render '/layouts/footer' %>
 </div>
-
 
 
 <script>
