@@ -133,7 +133,7 @@
             <div class="content-grid">
               <div class="row">
 
-                  <% @event.partners.each_with_index do |partner,index| %>
+                  <% @event.partners.order(:order).each_with_index do |partner,index| %>
                     <div class="col-xs-3">
                       <div class="block" style="min-height: 150px;vertical-align: middle;">
                         <div class="block-content">
