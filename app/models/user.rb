@@ -11,20 +11,20 @@ class User < ActiveRecord::Base
 
 
   HUMANIZED_ATTRIBUTES = {
-  :id => "Usuario",
-  :email=>"E-mail",
-  :password=>"Senha",
-  :password_confirmation=>"Confirmação de Senha",
-  :remember_me=>"Lembrar-me",
-  :current_password=>'Senha Atual',
-  :first_name=>'Primeiro Nome',
-  :last_name=>'Ultimo Nome',
-  :cpf=>"CPF",
-  :nickname=>"Nickname"
+      :id => "Usuario",
+      :email => "E-mail",
+      :password => "Senha",
+      :password_confirmation => "Confirmação de Senha",
+      :remember_me => "Lembrar-me",
+      :current_password => 'Senha Atual',
+      :first_name => 'Primeiro Nome',
+      :last_name => 'Ultimo Nome',
+      :cpf => "CPF",
+      :nickname => "Nickname"
   }
 
   #def admin?
-   # self.admin == true
+  # self.admin == true
   #end
 
   # validates :terms_of_service, acceptance: true
@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
-# Generate csv from all atributes of user
+
+  # Generate csv from all atributes of user
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       lista = []
@@ -46,7 +47,7 @@ class User < ActiveRecord::Base
     end
   end
 
-# Verify if cpf attribute is valid
+  # Verify if cpf attribute is valid
   def has_valid_cpf?
     self.cpf.valido?
   end
@@ -68,11 +69,20 @@ class User < ActiveRecord::Base
         user.first_name = data["name"]
       end
       user.email = data["email"]
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
       user.provider = access_token.provider
       user.uid = access_token.uid
       user.save
     end
     user
+  end
+
+  def nome_usuario
+    if first_name and last_name
+      " #{first_name} #{last_name}"
+    else
+      " #{email.split('@')[0]}"
+    end
+
   end
 end

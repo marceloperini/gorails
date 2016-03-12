@@ -29,28 +29,9 @@
         <button class="btn btn-link text-gray pull-right visible-xs visible-sm" type="button" data-toggle="layout" data-action="sidebar_close">
           <i class="fa fa-times"></i>
         </button>
-        <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
-        <div class="btn-group pull-right visible-md visible-lg">
-          <button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">
-            <i class="si si-drop"></i>
-          </button>
 
-          <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
-          <div class="btn-group pull-right visible-md visible-lg">
-            <!--<button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">-->
-              <!--<i class="si si-drop"></i>-->
-            <!--</button>-->
-            <!--<ul class="dropdown-menu dropdown-menu-right font-s13 sidebar-mini-hide">-->
-            <!-- -->
-            <!--</ul>-->
-          </div>
-          <a class="h5 text-white" href="/">
-            <%=image_tag("ruby.png", size: "22x16", alt: "Edit Entry") %> <span class="h4 font-w600 sidebar-mini-hide">gorails</span>
-          </a>
- 
-        </div>
         <a class="h5 text-white" href="/">
-          <%= image_tag("ruby.png", size: "22x16", alt: "Edit Entry") %>
+          <%= image_tag("logo_sem_nome_mini.png",   alt: "GoRails", :style=> "margin-bottom: 4px;") %>
           <span class="h4 font-w600 sidebar-mini-hide">GoRails</span>
         </a>
       </div>
@@ -61,8 +42,6 @@
         <ul class="nav-main">
 
           <%= render 'layouts/menu' %>
-
-
         </ul>
       </div>
       <!-- END Side Content -->

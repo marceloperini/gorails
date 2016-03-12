@@ -62,24 +62,27 @@
       <%= render '/layouts/header_sidebar' %>
 <% end %>
 
-<main id="main-container">
-  <div class="content bg-gray-lighter">
-    <div class="row items-push">
-      <div class="col-sm-7">
-        <h1 class="page-heading">
-          <%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>
-        </h1>
-      </div>
-      <div class="col-sm-5 text-right hidden-xs">
-        <ol class="breadcrumb push-10-t">
-          <%#= yield :breadcrumb if content_for?(:breadcrumb) %>
-        </ol>
-      </div>
-    </div>
-  </div>
+<main id="main-container" style="background-color: #2C343F !important; padding-top: 5px;
+        background-image: url('<%=asset_path "bg2.jpg"%>')">
+  <!--<div class="content bg-gray-lighter">-->
+  <!--<div class="row items-push">-->
+  <!--<div class="col-sm-7">-->
+  <!--<h1 class="page-heading">-->
+  <!--<%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>-->
+  <!--</h1>-->
+  <!--</div>-->
+  <!--<div class="col-sm-5 text-right hidden-xs">-->
+  <!--<ol class="breadcrumb push-10-t">-->
+  <!--<%#= yield :breadcrumb if content_for?(:breadcrumb) %>-->
+  <!--</ol>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
   <!-- Page Content -->
   <%= yield %>
   <%= render '/layouts/footer' %>
+</main>
+</div>
 </div>
 
 

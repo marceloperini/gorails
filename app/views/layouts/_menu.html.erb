@@ -1,17 +1,22 @@
 <li>
-  <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Página Inicial</span></a>
+  <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Principal</span></a>
 </li>
+
+<% if user_signed_in? %>
+    <li>
+      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+          <i class="fa fa-user"></i><span class="sidebar-mini-hide"> Seu Perfil </span>
+      <% end %>
+    </li>
+<% end %>
 
 <li>
   <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
 </li>
 
 <li>
-  <a href="/links/uteis"><i class="fa fa-link"></i><span class="sidebar-mini-hide"> Links Utéis</span></a>
-</li>
-
-<li>
-  <a href="#"><i class="fa fa-newspaper-o"></i><span class="sidebar-mini-hide"> Noticias</span></a>
+  <a href="/links/uteis"><i class="fa fa-link"></i>
+    <span class="sidebar-mini-hide"> Links Utéis</span></a>
 </li>
 
 <li>
@@ -19,21 +24,6 @@
 </li>
 
 <% if user_signed_in? %>
-    <li>
-      <a href="#"><i class="fa fa-user"></i><span class="sidebar-mini-hide"><%= current_user.nickname %></span></a>
-    </li>
-
-    <li>
-      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-          <i class="fa fa-edit"></i><span class="sidebar-mini-hide"> Editar Perfil</span>
-      <% end %>
-    </li>
-
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-          <i class="fa fa-sign-out "></i><span class="sidebar-mini-hide"> Deslogar</span>
-      <% end %>
-    </li>
 
     <% if can? :magage, link_categories_path %>
         <li class="nav-main-heading"><span class="sidebar-mini-hide">Admin</span></li>
@@ -49,6 +39,7 @@
     <% end %>
 
 <% else %>
+
     <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
           <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
       <% end %>
@@ -58,4 +49,5 @@
           <i class="fa fa-sign-in"></i><span class="sidebar-mini-hide"> Logar</span>
       <% end %>
     </li>
+
 <% end %>
