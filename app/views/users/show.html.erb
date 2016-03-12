@@ -3,10 +3,10 @@
     <div class="bg-image" style="background-image: url('assets/img/photos/photo6@2x.jpg');">
       <div class="block-content bg-primary-dark-op text-center overflow-hidden">
         <div class="push-30-t push animated fadeInDown">
-          <img class="img-avatar img-avatar96 img-avatar-thumb" src="assets/img/avatars/avatar4.jpg" alt="">
+          <%=  image_tag current_user.avatar.thumb.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
         </div>
         <div class="push-30 animated fadeInUp">
-          <h2 class="h4 font-w600 text-white push-5">Susan Elliott</h2>
+          <h2 class="h4 font-w600 text-white push-5"><%=@user.full_name%></h2>
           <h3 class="h5 text-gray">Web Designer</h3>
         </div>
       </div>
@@ -43,8 +43,9 @@
     <div class="col-sm-5 col-sm-push-7 col-lg-4 col-lg-push-8">
       <div class="block">
         <div class="block-content block-content-full text-center">
-          <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-plus text-success"></i> Follow</button>
-          <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-inbox text-info"></i> Send Message</button>
+          <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+              <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-edit text-success"></i>Editar perfil</button>
+          <% end %>
         </div>
       </div>
       <div class="block">

@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   end
 
   def need_updated_account?
-    self.cpf.nil? or self.nickname.nil? or self.first_name.nil? or self.last_name.nil?
+    self.cpf.nil? or self.first_name.nil? or self.last_name.nil?
   end
 
   def self.from_omniauth(access_token)
@@ -80,7 +80,8 @@ class User < ActiveRecord::Base
     user
   end
 
-  def nome_usuario
+#Returns a full name of user, a combination of first name and last name
+  def full_name
     if first_name and last_name
       " #{first_name} #{last_name}"
     else
