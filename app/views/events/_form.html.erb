@@ -49,9 +49,8 @@
         <%= partner.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
       </p>
       <% end %>
-      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success', data: { disable_with: "Adicionando..." } %>
+      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success'%>
       </div>
-      <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
 
 
     <h3>Brindes</h3>
@@ -64,7 +63,7 @@
           <%= gift.link_to_remove "Fechar", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
         </p>
     <% end %>
-    <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success', data: { disable_with: "Adicionando..." } %>
+    <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success' %>
     </div>
     <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
 
