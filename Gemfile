@@ -27,6 +27,8 @@ gem 'coveralls', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj', '~> 3.3'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-google-oauth2', '~> 0.3.1'
 
 group :doc do
   gem 'sdoc', :require => false
