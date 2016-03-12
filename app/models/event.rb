@@ -30,4 +30,8 @@ class Event < ActiveRecord::Base
     DateTime.now > self.end_at
   end
 
+  def remaining_vacancies
+   self.participants_limit -  self.registrations.size
+  end
+
 end
