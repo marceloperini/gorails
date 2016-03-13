@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
 
   usar_como_cpf :cpf
 
-  has_many :authorizations
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
   mount_uploader :cover_photo, AttachmentsUploader
@@ -63,20 +62,23 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(access_token)
+    provider = access_token.provider
     data = access_token.info
     user = User.where(:email => data["email"]).first
 
     unless user
       user = User.new
-      if access_token.provider == 'google_oauth2'
+      if provider == 'google_oauth2'
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
-      elsif access_token.provider == 'facebook'
+      elsif provider == 'facebook' or provider == 'github'
         user.first_name = data["name"]
+      elsif provider == 'github'
+        user.nickname = data["nickname"]
       end
       user.email = data["email"]
-      user.password = Devise.friendly_token[0, 20]
-      user.provider = access_token.provider
+      user.password = Devise.friendly_token[0,20]
+      user.provider = provider
       user.uid = access_token.uid
       user.save
     end
