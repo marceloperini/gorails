@@ -30,8 +30,9 @@ gem 'brcpfcnpj', '~> 3.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-google-oauth2', '~> 0.4.0'
 gem 'omniauth-facebook', '~> 3.0'
-gem 'figaro'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'omniauth-linkedin'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', :require => false

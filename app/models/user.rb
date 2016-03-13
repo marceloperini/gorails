@@ -68,14 +68,9 @@ class User < ActiveRecord::Base
 
     unless user
       user = User.new
-      if provider == 'google_oauth2'
-        user.first_name = data["first_name"]
-        user.last_name = data["last_name"]
-      elsif provider == 'facebook' or provider == 'github'
-        user.first_name = data["name"]
-      elsif provider == 'github'
-        user.nickname = data["nickname"]
-      end
+      user.first_name ||= data["first_name"]
+      user.last_name ||= data["last_name"]
+      user.nickname ||= data["nickname"]
       user.email = data["email"]
       user.password = Devise.friendly_token[0,20]
       user.provider = provider
