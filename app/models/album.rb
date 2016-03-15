@@ -5,17 +5,4 @@ class Album < ActiveRecord::Base
   validates_uniqueness_of :title
 
   accepts_nested_attributes_for :images,allow_destroy: true, reject_if: :all_blank
-
-
-  #scope :by_weight, ->() { order('"albums"."weight" DESC') }
-  #scope :published, -> { where(is_published: true) }
-  #scope :recent, -> { joins(:images).where(Image.arel_table[:created_at].gt(Time.now - 1.day)).limit(1) }
-
-  def to_param
-    "#{self.id}-#{self.title.parameterize}"
-  end
-
-  def is_recent?
-    Album.where(id: self.id).recent.size > 0
-  end
 end
