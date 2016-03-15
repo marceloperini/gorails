@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314232920) do
+ActiveRecord::Schema.define(version: 20160315002305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+  end
 
   create_table "attachments", force: :cascade do |t|
     t.string   "name"
@@ -51,6 +58,16 @@ ActiveRecord::Schema.define(version: 20160314232920) do
   end
 
   add_index "gifts", ["event_id"], name: "index_gifts_on_event_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "album_id"
+    t.string   "asset"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["album_id"], name: "index_images_on_album_id", using: :btree
 
   create_table "link_categories", force: :cascade do |t|
     t.string   "name"
@@ -137,6 +154,7 @@ ActiveRecord::Schema.define(version: 20160314232920) do
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "gifts", "events"
+  add_foreign_key "images", "albums"
   add_foreign_key "links", "link_categories"
   add_foreign_key "partners", "events"
 end

@@ -70,6 +70,17 @@
     <% end %>
     <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success' %>
     </div>
+
+    <h3>Albuns</h3>
+    <%= f.fields_for :albums do |album| %>
+        <p>
+          <%= album.input :title, placeholder: "Digite o Titulo do Album" %>
+          <%= album.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
+        </p>
+    <% end %>
+    <%= f.link_to_add "Adicionar um novo Brinde", :albums, class: 'btn btn-success' %>
+
+
     <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
 
 <% end %>
