@@ -151,7 +151,10 @@
                     <div class="block" style="min-height: 150px;vertical-align: middle;">
                       <div class="block-content">
                         <%#= link_to partner.name, partner %>
-                        <%= show_by_file_type(partner.logo) %>
+                        
+                         <%= link_to url_with_protocol(partner.link) ,target: "_blank" do%>
+                            <%= show_by_file_type(partner.logo) %>
+                        <%end%>
                         <%#= t(partner.category) %>
                       </div>
                     </div>
