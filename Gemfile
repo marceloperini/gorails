@@ -14,6 +14,7 @@ gem 'pdfkit'
 gem 'jquery-rails'
 gem 'carrierwave', '0.10.0' #, github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem "mini_magick"
 gem "cancan"
 gem 'validates_email_format_of'
 gem 'nested_form'

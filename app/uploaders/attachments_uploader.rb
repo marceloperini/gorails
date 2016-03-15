@@ -4,6 +4,7 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
 
 
   # Include RMagick or MiniMagick support:
+  include CarrierWave::MiniMagick
   include CarrierWave::RMagick
   include CarrierWave::MimeTypes
 
@@ -18,6 +19,11 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def watermark(watermark_image, options = {})
+    cache_stored_file! if !cached?
+    Watermarker.new(current_path, watermark_image).watermark!(options)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -46,6 +52,7 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
 
   version :large, :if => :image? do
     process :resize_to_limit => [1200, 800]
+    process :watermark => [Rails.root.join('app/assets/images/logo_sem_nome_mini.png')]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -64,4 +71,6 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
     def image?(new_file)
       new_file.content_type.start_with? 'image'
     end
+
+
 end
