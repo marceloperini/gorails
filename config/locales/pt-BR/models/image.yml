@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      image:
+        one: "Image"
+        other: "images"
+        explain: "Image"
+
+    attributes:
+      image:
+        album: "album"
+        asset: "asset"
+        title: "title"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

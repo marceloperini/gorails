@@ -1,0 +1,43 @@
+<%= provide :page_title, I18n.t('images.show.header', resource: @image.try(:id) ) %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  I18n.t('activerecord.models.image.other'), images_path %></li>
+  <li><%= link_to  @image.try(:id), @image %></li>
+  <li><%= I18n.t('images.show.header', resource: @image.try(:id) ) %></li>
+<% end %>
+
+<div class="panel">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= I18n.t('images.show.header', resource: @image.try(:id)) %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.image.album' %>:</strong></td>
+             <td><%= @image.album %></td>
+          </tr>   
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.image.asset' %>:</strong></td>
+             <td><%= @image.asset %></td>
+          </tr>   
+                  <tr>
+            <td><strong><%=t 'activerecord.attributes.image.title' %>:</strong></td>
+             <td><%= @image.title %></td>
+          </tr>   
+                </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-sm-7">
+        <%= link_to I18n.t('misc.action.back'), images_path, class: 'btn btn-default' %>
+        <%= link_to I18n.t('misc.action.edit'),edit_image_path(@image), class: 'btn btn-warning' %>
+        <%= link_to I18n.t('misc.action.destroy'),image_path(@image), method: :destroy, data: {confirm: I18n.t('misc.actions.confirm') }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

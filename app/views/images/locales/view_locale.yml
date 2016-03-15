@@ -1,0 +1,34 @@
+pt-BR:
+  images:
+    default: &default
+      h1: Image
+      header: "Lista de images"
+      block_header: images
+    index:
+      <<: *default
+      header: "Lista de images"
+      block_header: images
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Image"
+    create:
+      alert: "Image não pode ser cadastrado."
+      notice: "Image cadastrado com sucesso."
+    update:
+      alert: "Image não pode ser atualizado."
+      notice: "Image atualizado com sucesso."
+    destroy:
+      alert: "Image não pode ser excluído."
+      notice: "Image excluído com sucesso."
+      
+  helpers:
+    submit:
+      image:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      
