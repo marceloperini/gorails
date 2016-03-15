@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :albums
   resources :links, :path=>"links" do
     collection do
       get 'uteis'

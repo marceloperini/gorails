@@ -1,0 +1,12 @@
+<%= simple_form_for(@album) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+  </div>
+
+  <div class="form-group form-actions">
+  	<%= link_to I18n.t('misc.action.back'), albums_path, class: 'btn btn-sm btn-square btn-default' %> 
+    <%= f.button :submit, class: 'btn btn-sm btn-square btn-primary' %>
+  </div>
+<% end %>

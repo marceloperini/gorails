@@ -1,0 +1,34 @@
+pt-BR:
+  albums:
+    default: &default
+      h1: Album
+      header: "Lista de albums"
+      block_header: albums
+    index:
+      <<: *default
+      header: "Lista de albums"
+      block_header: albums
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Album"
+    create:
+      alert: "Album não pode ser cadastrado."
+      notice: "Album cadastrado com sucesso."
+    update:
+      alert: "Album não pode ser atualizado."
+      notice: "Album atualizado com sucesso."
+    destroy:
+      alert: "Album não pode ser excluído."
+      notice: "Album excluído com sucesso."
+      
+  helpers:
+    submit:
+      album:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

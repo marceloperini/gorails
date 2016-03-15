@@ -1,4 +1,4 @@
-  <div class="bg-image" style="background-image: url('<%=asset_path "bg-red.jpg"%>')";>
+<div class="bg-image" style="background-image: url('<%=asset_path "bg-red.jpg"%>')";>
   <div class="bg-primary-dark-op">
     <section class="content content-full content-boxed">
       <div class="push-100-t push-50 text-center">
@@ -9,190 +9,196 @@
   </div>
 </div>
 
-  <div class="bg-white">
-    <section class="content content-mini content-mini-full content-boxed overflow-hidden">
-      <ol class="breadcrumb">
-        <li><a class="text-primary-dark" href="/events">Eventos</a></li>
-        <li><%= @event.name %></li>
-      </ol>
-    </section>
-  </div>
+<div class="bg-white">
+  <section class="content content-mini content-mini-full content-boxed overflow-hidden">
+    <ol class="breadcrumb">
+      <li><a class="text-primary-dark" href="/events">Eventos</a></li>
+      <li><%= @event.name %></li>
+    </ol>
+  </section>
+</div>
 
-  <section class="content content-boxed overflow-hidden">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="block block-rounded">
-          <div class="block-content">
-            <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Descrição do Evento</h3>
-            <%= @event.description.html_safe %>
-            <br>
-            <br>
-            <br>
-            <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Local</h3>
-            <%= @event.local.html_safe %>
-            <!--<table class="table table-borderless table-vcenter">-->
-            <!--<tbody>-->
-            <!--<tr class="active">-->
-            <!--<th style="width: 50px;"></th>-->
-            <!--<th>1. Intro</th>-->
-            <!--<th class="font-s12 text-right">-->
-            <!--<span class="text-muted">0.2 hours</span>-->
-            <!--</th>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class="success text-center">-->
-            <!--<i class="fa fa-fw fa-unlock text-success"></i>-->
-            <!--</td>-->
-            <!--<td>-->
-            <!--<a href="frontend_elearning_lesson.php">1.1 HTML5 Intro (free preview)</a>-->
-            <!--</td>-->
-            <!--<td class="text-right">-->
-            <!--<em class="font-s12 text-muted">12 min</em>-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-            <!--</table>-->
+<section class="content content-boxed overflow-hidden">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="block block-rounded">
+        <div class="block-content">
+          <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Descrição do Evento</h3>
+          <%= @event.description.html_safe %>
+          <br>
+          <br>
+          <br>
+          <h3 class="h4 push-20 animated fadeIn" data-toggle="appear">Local</h3>
+          <%= @event.local.html_safe %>
+          <!--<table class="table table-borderless table-vcenter">-->
+          <!--<tbody>-->
+          <!--<tr class="active">-->
+          <!--<th style="width: 50px;"></th>-->
+          <!--<th>1. Intro</th>-->
+          <!--<th class="font-s12 text-right">-->
+          <!--<span class="text-muted">0.2 hours</span>-->
+          <!--</th>-->
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--<td class="success text-center">-->
+          <!--<i class="fa fa-fw fa-unlock text-success"></i>-->
+          <!--</td>-->
+          <!--<td>-->
+          <!--<a href="frontend_elearning_lesson.php">1.1 HTML5 Intro (free preview)</a>-->
+          <!--</td>-->
+          <!--<td class="text-right">-->
+          <!--<em class="font-s12 text-muted">12 min</em>-->
+          <!--</td>-->
+          <!--</tr>-->
+          <!--</tbody>-->
+          <!--</table>-->
 
 
-
-          </div>
 
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="block block-rounded">
-          <div class="block-content">
-            <% if user_signed_in?  %>
-                <%unless  @event.event_happened?%>
-                    <%=link_to "Increver-se",register_events_path(:id=>@event.id, :user_id=>current_user.id),class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
-                <%end%>
-            <%else%>
-                Faça Login para se Inscrever
-            <%end%>
 
-          </div>
-        </div>
-        <div class="block block-rounded">
-          <div class="block-header bg-gray-lighter text-center">
-            <h3 class="block-title">Sobre este Evento</h3>
-          </div>
-          <div class="block-content">
-            <table class="table table-borderless table-condensed">
-              <tbody>
-              <tr>
-                <td>
-                  <!--<i class="fa fa-fw fa-book push-10-r"></i> 3 palestras-->
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-fw fa-clock-o push-10-r"></i> <%=@event.event_duration%> horas duração
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.participants_limit %> Total de Vagas
-                </td>
-              </tr>
-              <%unless  @event.event_happened?%>
-              <tr>
-                <td>
-                  <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.remaining_vacancies%> Vagas Restantes
-                </td>
-              </tr>
-                  <%end%>
-
-              <!--<tr>-->
-              <!--<td>-->
-              <!--<i class="fa fa-fw fa-tags push-10-r"></i>-->
-              <!--<a class="label label-primary" href="javascript:void(0)">HTML</a>-->
-              <!--<a class="label label-primary" href="javascript:void(0)">CSS</a>-->
-              <!--<a class="label label-primary" href="javascript:void(0)">JavaScript</a>-->
-              <!--</td>-->
-              <!--</tr>-->
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <!--<a class="block block-rounded block-link-hover3" href="javascript:void(0)">-->
-        <!--<div class="block-header bg-gray-lighter text-center">-->
-        <!--<h3 class="block-title">About The Instructor</h3>-->
-        <!--</div>-->
-        <!--<div class="block-content block-content-full text-center">-->
-        <!--<div class="push">-->
-        <!--<img class="img-avatar" src="assets/img/avatars/avatar14.jpg" alt="">-->
-        <!--</div>-->
-        <!--<div class="font-w600 push-5">Scott Ruiz</div>-->
-        <!--<div class="text-muted">Front-end Developer</div>-->
-        <!--</div>-->
-        <!--</a>-->
       </div>
     </div>
-  </section>
-  <div class="bg-gray-lighter">
-    <section class="content content-full content-boxed">
-      <div class="push-20-t push-20 text-center">
-        <h3 class="h4 push-20 animated fadeIn" data-toggle="appear"></h3>
-        <h3>Patrocinadores</h3>
-        <br>
-        <% if @event.partners.any? %>
+    <div class="col-md-4">
+      <div class="block block-rounded">
+        <div class="block-content">
+          <% if user_signed_in?  %>
+              <%if  @event.event_happened?%>
+                  Este Evento ja aconteceu
+              <%else%>
+                  <%if @event.inscriptions_open?%>
+                      <%=link_to "Increver-se",register_events_path(:id=>@event.id, :user_id=>current_user.id),class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
+                  <%else%>
+                      As inscrições para este evento foram encerradas
+                  <%end%>
+              <%end%>
+          <%else%>
+              Faça Login para se Inscrever
+          <%end%>
 
-            <div class="content-grid">
-              <div class="row">
+        </div>
+      </div>
+      <div class="block block-rounded">
+        <div class="block-header bg-gray-lighter text-center">
+          <h3 class="block-title">Sobre este Evento</h3>
+        </div>
+        <div class="block-content">
+          <table class="table table-borderless table-condensed">
+            <tbody>
+            <tr>
+              <td>
+                <!--<i class="fa fa-fw fa-book push-10-r"></i> 3 palestras-->
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fa fa-fw fa-clock-o push-10-r"></i> <%=@event.event_duration%> horas duração
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.participants_limit %> Total de Vagas
+              </td>
+            </tr>
+            <%unless  @event.event_happened?%>
+                <tr>
+                  <td>
+                    <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.remaining_vacancies%> Vagas Restantes
+                  </td>
+                </tr>
+            <%end%>
 
-                  <% @event.partners.order(:order).each_with_index do |partner,index| %>
-                    <div class="col-xs-3">
-                      <div class="block" style="min-height: 150px;vertical-align: middle;">
-                        <div class="block-content">
-                           <%#= link_to partner.name, partner %>
-                          <%= show_by_file_type(partner.logo) %>
+            <!--<tr>-->
+            <!--<td>-->
+            <!--<i class="fa fa-fw fa-tags push-10-r"></i>-->
+            <!--<a class="label label-primary" href="javascript:void(0)">HTML</a>-->
+            <!--<a class="label label-primary" href="javascript:void(0)">CSS</a>-->
+            <!--<a class="label label-primary" href="javascript:void(0)">JavaScript</a>-->
+            <!--</td>-->
+            <!--</tr>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--<a class="block block-rounded block-link-hover3" href="javascript:void(0)">-->
+      <!--<div class="block-header bg-gray-lighter text-center">-->
+      <!--<h3 class="block-title">About The Instructor</h3>-->
+      <!--</div>-->
+      <!--<div class="block-content block-content-full text-center">-->
+      <!--<div class="push">-->
+      <!--<img class="img-avatar" src="assets/img/avatars/avatar14.jpg" alt="">-->
+      <!--</div>-->
+      <!--<div class="font-w600 push-5">Scott Ruiz</div>-->
+      <!--<div class="text-muted">Front-end Developer</div>-->
+      <!--</div>-->
+      <!--</a>-->
+    </div>
+  </div>
+</section>
+<div class="bg-gray-lighter">
+  <section class="content content-full content-boxed">
+    <div class="push-20-t push-20 text-center">
+      <h3 class="h4 push-20 animated fadeIn" data-toggle="appear"></h3>
+      <h3>Patrocinadores</h3>
+      <br>
+      <% if @event.partners.any? %>
+
+          <div class="content-grid">
+            <div class="row">
+
+              <% @event.partners.order(:order).each_with_index do |partner,index| %>
+                  <div class="col-xs-3">
+                    <div class="block" style="min-height: 150px;vertical-align: middle;">
+                      <div class="block-content">
+                        <%#= link_to partner.name, partner %>
+                        <%= show_by_file_type(partner.logo) %>
                         <%#= t(partner.category) %>
-                        </div>
                       </div>
                     </div>
-                  <% end %>
+                  </div>
+              <% end %>
 
 
 
-              </div>
             </div>
-        <% else %>
-            <p>
-              Sem patrocinador cadastrado neste evento!
-              
-            </p>
-        <% end %>
+          </div>
+      <% else %>
+          <p>
+            Sem patrocinador cadastrado neste evento!
 
-        <h3>Brindes</h3>
-        <br>
-        <% if @event.gifts.any? %>
+          </p>
+      <% end %>
 
-            <div class="content-grid">
-              <div class="row">
+      <h3>Brindes</h3>
+      <br>
+      <% if @event.gifts.any? %>
 
-                  <% @event.gifts.each do |gift| %>
-                    <div class="col-xs-3">
-                      <div class="block" style="min-height: 150px; align-items: center;">
-                        <div class="block-content">
-                           <%#= link_to gift.name, gift %>
-                          <%= show_by_file_type(gift.photo) %>
-                        </div>
+          <div class="content-grid">
+            <div class="row">
+
+              <% @event.gifts.each do |gift| %>
+                  <div class="col-xs-3">
+                    <div class="block" style="min-height: 150px; align-items: center;">
+                      <div class="block-content">
+                        <%#= link_to gift.name, gift %>
+                        <%= show_by_file_type(gift.photo) %>
                       </div>
                     </div>
+                  </div>
 
               <% end %>
 
 
-              </div>
             </div>
-        <% else %>
-            <p>
-              Sem Brinde cadastrado no evento
-            </p>
-        <% end %>
-        <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
-      </div>
-    </section>
-  </div>
+          </div>
+      <% else %>
+          <p>
+            Sem Brinde cadastrado no evento
+          </p>
+      <% end %>
+      <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
+    </div>
+  </section>
+</div>
 
 

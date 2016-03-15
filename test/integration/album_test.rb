@@ -1,0 +1,7 @@
+require 'test_helper'
+
+class AlbumTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
+end
