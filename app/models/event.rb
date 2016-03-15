@@ -1,13 +1,14 @@
 # app/models/event.rb
 class Event < ActiveRecord::Base
+  include ActionView::Helpers
   resourcify
-	belongs_to :user
+  belongs_to :user
   has_many :partners
   has_many :gifts
   has_many :albums
   accepts_nested_attributes_for :partners, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :gifts, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :albums,allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :albums, allow_destroy: true, reject_if: :all_blank
 
 
   has_many :registrations
@@ -19,14 +20,14 @@ class Event < ActiveRecord::Base
 
 # Returns false if event is full
   def exceeded_limit?
-  	return true if self.registrations.size >= self.participants_limit
-  	false
+    return true if self.registrations.size >= self.participants_limit
+    false
   end
 
-  validates_presence_of :name,:description,:local,:participants_limit,:start_at,:end_at
+  validates_presence_of :name, :description, :local, :participants_limit, :start_at, :end_at
 # Returns duration of event
   def event_duration
-    (( self.end_at  - self.start_at) / 1.hour).round
+    ((self.end_at - self.start_at) / 1.hour).round
   end
 
   def event_happened?
@@ -38,7 +39,15 @@ class Event < ActiveRecord::Base
   end
 
   def remaining_vacancies
-   self.participants_limit -  self.registrations.size
+    self.participants_limit - self.registrations.size
+  end
+
+  def get_event_cover_image
+    if self.albums.first
+      self.albums.first.images.first.asset.thumb.url
+    else
+      asset_path "bg-red.jpg"
+    end
   end
 
 end
