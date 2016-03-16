@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :events, :path => 'eventos' do
   	post :register, on: :member
     collection do
-      get 'register'
+      post 'register'
     end
   end
   resources :attachments

@@ -62,18 +62,28 @@
     <div class="col-md-4">
       <div class="block block-rounded">
         <div class="block-content">
+
           <% if user_signed_in?  %>
-              <%if  @event.event_happened?%>
-                  Este Evento ja aconteceu
-              <%else%>
-                  <%if @event.inscriptions_open?%>
-                      <%=link_to "Increver-se",register_events_path(:id=>@event.id, :user_id=>current_user.id),class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
+
+            <%if @event.is_registrated?(current_user.id)%>
+              <center>Voçê já esta registrado neste evento</center>
                   <%else%>
-                      As inscrições para este evento foram encerradas
-                  <%end%>
-              <%end%>
+              <%= simple_form_for :register, { url: register_events_path(:id=>@event.id, :user_id=>current_user.id) } do |f| %>
+
+                  <%if current_user.cpf.blank?%>
+                    <%= f.label :cpf ,"CPF"%>
+                    <%= f.text_field :cpf  ,class:"form-control  cpf"%>
+                      <%end%>
+
+                  <br>
+                  <%= f.submit "Inscrever-se", data: { disable_with: "Cadastrando..." } ,class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
+              <% end %>
+              <% end %>
+
           <%else%>
-              Faça Login para se Inscrever
+              <%= link_to new_user_session_path, :class => 'btn btn-block btn-rounded btn-noborder btn-success push-10' do %>
+                  Inscrever-se
+              <% end %>
           <%end%>
 
         </div>
@@ -211,5 +221,11 @@
     </div>
   </section>
 </div>
-<script>jQuery(function(){App.initHelpers('magnific-popup');});</script>
+<script>
+    jQuery(function(){App.initHelpers('magnific-popup');});
 
+    $(document).ready(function() {
+
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+    } );
+</script>
