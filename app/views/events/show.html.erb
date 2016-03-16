@@ -161,8 +161,10 @@
 
               <% @event.partners.order(:order).each_with_index do |partner,index| %>
                   <div class="col-xs-3">
-                    <div class="block" style="min-height: 150px;vertical-align: middle;">
+                    <div class="block" style="display: inline-flex; width: 100%;"
+div block-content style="align-self: center; padding-top: 0px;>
                       <div class="block-content">
+                      
                         <%#= link_to partner.name, partner %>
 
                         <%= link_to url_with_protocol(partner.link) ,target: "_blank" do%>
