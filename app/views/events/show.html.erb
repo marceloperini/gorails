@@ -113,13 +113,7 @@
                 <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.participants_limit %> Total de Vagas
               </td>
             </tr>
-            <%unless  @event.event_happened?%>
-                <tr>
-                  <td>
-                    <i class="fa fa-fw fa-user push-10-r"></i> <%= @event.remaining_vacancies%> Vagas Restantes
-                  </td>
-                </tr>
-            <%end%>
+
 
             <!--<tr>-->
             <!--<td>-->
