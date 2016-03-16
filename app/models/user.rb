@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   #end
 
   # validates :terms_of_service, acceptance: true
-
+has_many :registrations
   usar_como_cpf :cpf
 
   has_many :attachments, as: :origin
@@ -84,6 +84,15 @@ class User < ActiveRecord::Base
   def full_name
     if first_name and last_name
       " #{first_name} #{last_name}"
+    else
+      " #{email.split('@')[0]}"
+    end
+
+  end
+
+  def event_name
+    if first_name
+      " #{first_name}"
     else
       " #{email.split('@')[0]}"
     end
