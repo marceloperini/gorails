@@ -7,7 +7,8 @@
           <%if registration.user.avatar%>
           <%=  image_tag registration.user.avatar.thumb.url,class:"img-avatar"%>
               <%else%>
-            <%=image_tag "rails.jpg",class:"img-avatar"%>
+           
+            <%= image_tag("user.png", :alt => "Foto Padrão",:class=>"img-avatar") %>
           <%end%>
         </div>
         <div class="pull-left push-10-t">
