@@ -1,5 +1,5 @@
 
-
+<% if @event.albums.any? %>
 <div class="row items-push">
   <div class="col-sm-8">
     <h1 class="page-heading">
@@ -13,7 +13,7 @@
   <div class="content">
     <div class="row items-push js-gallery-advanced">
 
-      <% if @event.albums.any? %>
+
 
 
               <% @event.albums.order(:created_at).each do |album| %>
@@ -43,10 +43,7 @@
     </div>
   </div>
       <% else %>
-          <p>
-            Sem albuns no evento
 
-          </p>
 <% end %>
 
 
