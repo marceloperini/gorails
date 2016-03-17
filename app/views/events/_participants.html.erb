@@ -1,23 +1,23 @@
 <div class="row">
   <% @event.registrations.each do |registration| %>
-  <div class="col-sm-6 col-lg-1 ">
-      <div class="block-content block-content-full clearfix " data-toggle="tooltip" data-placement="top"  data-original-title="<%=registration.user.event_name%>">
-        <%if registration.user.avatar%>
-          <%=  image_tag registration.user.avatar.thumb.url,class:"img-avatar"%>
-              <%else%>
-           
-            <%= image_tag("user.png", :alt => "Foto Padrão",:class=>"img-avatar") %>
+      <div class="col-sm-6 col-lg-1 ">
+        <div class="block-content block-content-full clearfix " data-toggle="tooltip" data-placement="top"  data-original-title="<%=registration.user.event_name%>">
+          <%if registration.user.avatar.present?%>
+              <%=  image_tag registration.user.avatar.thumb.url,class:"img-avatar"%>
+          <%else%>
+              <%= image_tag("user.png",:class=>"img-avatar" )%>
+
           <%end%>
 
-        <!--<div class="pull-left push-10-t">-->
+          <!--<div class="pull-left push-10-t">-->
           <!--<div class="font-w600 push-5"><%#=registration.user.event_name%></div>-->
           <!--<%#if registration.user.job_title%>-->
           <!--<div class="text-muted"><%#=registration.user.job_title%></div>-->
-              <!--<%#end%>-->
-        <!--</div>-->
+          <!--<%#end%>-->
+          <!--</div>-->
+        </div>
       </div>
-  </div>
-      <%end%>
+  <%end%>
 
 </div>
 
