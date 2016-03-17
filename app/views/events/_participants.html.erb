@@ -1,11 +1,11 @@
 <div class="row">
   <% @event.registrations.each do |registration| %>
-      <div class="col-sm-6 col-lg-1 ">
-        <div class="block-content block-content-full clearfix " data-toggle="tooltip" data-placement="top"  data-original-title="<%=registration.user.event_name%>">
+      <div class="col-sm-6 col-lg-1 " >
+        <div class="block-content block-content-full clearfix">
           <%if registration.user.avatar.present?%>
-              <%=  image_tag registration.user.avatar.thumb.url,class:"img-avatar"%>
+              <%=  image_tag registration.user.avatar.thumb.url,class:"img-avatar","data-toggle"=>"tooltip", "data-placement"=>"top",  'data-original-title'=>"#{registration.user.event_name}"%>
           <%else%>
-              <%= image_tag("user.png",:class=>"img-avatar" )%>
+              <%= image_tag("user.png",:class=>"img-avatar","data-toggle"=>"tooltip", "data-placement"=>"top",  'data-original-title'=>"#{registration.user.event_name}" )%>
 
           <%end%>
 
