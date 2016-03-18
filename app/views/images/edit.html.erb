@@ -1,0 +1,17 @@
+<%= provide :page_title, I18n.t('images.edit.header', resource: @image.try(:id) ) %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  I18n.t('activerecord.models.image.other'), images_path %></li>
+  <li><%= link_to  @image.try(:id), @image %></li>
+  <li><%= I18n.t('images.edit.header', resource: @image.try(:id) ) %></li>
+<% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%= I18n.t('images.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

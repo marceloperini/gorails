@@ -1,0 +1,33 @@
+<%= provide :page_title, I18n.t('images.index.header') %>
+<%= provide :breadcrumb do %>
+  <li><%= I18n.t('activerecord.models.image.other') %></li>
+<% end %>
+
+<div class="block">
+  <div class="block-header">
+      <h3 class="block-title"><%= I18n.t('images.index.block_header') %></h3>
+      <div class="block-options">
+        <%= link_to I18n.t('misc.action.new'), new_image_path, class: 'btn btn-sm btn-square btn-success' %>
+      </div>
+  </div>
+  <div class="block-content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                          <th><%=t 'activerecord.attributes.image.album' %></th>
+                          <th><%=t 'activerecord.attributes.image.asset' %></th>
+                          <th><%=t 'activerecord.attributes.image.title' %></th>
+                          <th class="text-center" style="width: 100px;"><%=t 'misc.actions' %></th>
+            </tr>
+        </thead>
+        <tbody id='images'>
+          <%= render 'collection', collection: @images %> 
+        </tbody>
+    </table>
+    
+    <div class="dataTables_paginate paging_simple_numbers"  id="pagination">
+      <%#= render 'pagination', collection: @images %>
+    </div>
+    
+  </div>
+</div>

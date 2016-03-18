@@ -24,3 +24,6 @@
 //= require jquery.amaran.min
 //= require summernote
 //= require maskedinput
+//= require plugins/magnific-popup/magnific-popup.min
+//= require commontator/application
+

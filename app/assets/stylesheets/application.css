@@ -16,6 +16,8 @@
  *= require amaran.min
  *= require summernote
  *= require custom
+ *= require magnific-popup.min
+ *= require commontator/application
  *= require_self
 
  */

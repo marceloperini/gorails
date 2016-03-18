@@ -14,6 +14,7 @@ gem 'pdfkit'
 gem 'jquery-rails'
 gem 'carrierwave', '0.10.0' #, github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem "mini_magick"
 gem "cancan"
 gem 'validates_email_format_of'
 gem 'nested_form'
@@ -28,11 +29,13 @@ gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj', '~> 3.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
-gem 'omniauth-google-oauth2', '~> 0.4.0'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-linkedin'
 gem 'figaro'
+gem 'commontator', '~> 4.11.1'
+gem 'acts_as_votable'
 
 group :doc do
   gem 'sdoc', :require => false

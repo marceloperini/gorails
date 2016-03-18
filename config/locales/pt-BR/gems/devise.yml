@@ -29,6 +29,8 @@ pt-BR:
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
+      user:
+        send_instructions: As Intruções foram enviados em seu e-mail!
     registrations:
       edit:
         are_you_sure: Você tem certeza?
@@ -39,6 +41,8 @@ pt-BR:
         unhappy: Não está contente
         update: Atualizar
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
+      user:
+        updated: Usuário atualizado com sucesso!
       new:
         sign_up: Inscrever-se
     sessions:

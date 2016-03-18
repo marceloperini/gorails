@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount Commontator::Engine => '/commontator'
+  resources :images
+  resources :albums
   resources :links, :path=>"links" do
     collection do
       get 'uteis'
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
   resources :events, :path => 'eventos' do
   	post :register, on: :member
     collection do
-      get 'register'
+      post 'register'
     end
   end
   resources :attachments

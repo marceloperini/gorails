@@ -1,5 +1,9 @@
 <!-- Main Container -->
 <!-- Hero Content -->
+
+
+
+
 <div class="bg-image" style="background-image: url('<%=asset_path "rails.jpg"%>');">
   <div class="bg-primary-dark-op">
     <section class="content content-full content-boxed overflow-hidden">
@@ -10,7 +14,8 @@
 
         <h2 class="h5 text-white-op push-50 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Um
           evento para aproximar a comunidade Ruby on Rails de Goiás</h2>
-        <a class="btn btn-rounded btn-noborder btn-lg btn-primary visibility-hidden" data-toggle="appear" data-class="animated bounceIn" data-timeout="800" href="#">Inscreva-se</a>
+        <a class="btn btn-rounded btn-noborder btn-lg btn-success visibility-hidden" data-toggle="appear" data-class="animated bounceIn" href="/eventos/3">Inscreva-se </a>
+
       </div>
       <div class="row visibility-hidden" data-toggle="appear" data-class="animated fadeInUp">
         <div class="col-sm-8 col-sm-offset-2">
@@ -94,7 +99,7 @@
     <!-- Section Content -->
     <div class="row items-push push-20-t push-20 text-center">
       <div class="col-sm-4">
-        <div class="h1 push-5" data-toggle="countTo" data-to="<%= lines_of_code('rb') %>" data-after=""></div>
+        <div class="h1 push-5" data-toggle="countTo" data-to="<%= lines_of_code('rb') + lines_of_code('erb') %>" data-after=""></div>
         <div class="font-w600 text-uppercase text-muted">Linhas de código escritas</div>
       </div>
       <div class="col-sm-4">
@@ -102,7 +107,7 @@
         <div class="font-w600 text-uppercase text-muted"> Parceiros</div>
       </div>
       <div class="col-sm-4">
-        <div class="h1 push-5" data-toggle="countTo" data-to="<%= lines_of_code('rb') / 4 %>" data-after=""></div>
+        <div class="h1 push-5" data-toggle="countTo" data-to="<%= (lines_of_code('rb') + lines_of_code('erb')) / 6 %>" data-after=""></div>
         <div class="font-w600 text-uppercase text-muted"> Xícaras de café consumidas</div>
       </div>
     </div>
@@ -187,7 +192,7 @@
       <!-- Section Content -->
       <div class="row items-push-2x push-50-t text-center">
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150">
-          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>">" alt="">
+          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>">"
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>
@@ -202,7 +207,7 @@
           <div class="h6 text-gray">- Raphael</div>
         </div>
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150" data-timeout="150">
-          <img class="img-avatar img-avatar-thumb" src="assets/avatars/avatar16.jpg" alt="">
+          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>" alt="">
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>
@@ -216,7 +221,7 @@
           <div class="h6 text-gray">- Wanderson</div>
         </div>
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150" data-timeout="300">
-          <img class="img-avatar img-avatar-thumb" src="assets/avatars/avatar6.jpg" alt="">
+          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>" alt="">
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>

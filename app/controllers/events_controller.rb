@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
   #before_filter :authenticate_user!,except: [:show,:index]
   #before_filter do
-   # redirect_to :new_user_session_path unless current_user && current_user.admin?
+  # redirect_to :new_user_session_path unless current_user && current_user.admin?
   #end
   load_and_authorize_resource :except => [:index,:show]
 
@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    commontator_thread_show(@event)
   end
 
   # GET /events/new
@@ -71,14 +72,26 @@ class EventsController < ApplicationController
   def register
     if @event.is_registrated?(set_user.id)
       redirect_to events_path, alert: "Este email já está registrado no evento!"
-    elsif set_user.need_updated_account?
-      redirect_to edit_user_registration_path, alert: "Você precisa preencher todos os dados de seu perfil antes de se inscrever em um evento!"
     else
       if @event.exceeded_limit?
         render json: { exceeded_limit: true }
       else
-        @event.to_register(set_user.id)
-        redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+        if @user.cpf.present?
+          @event.to_register(set_user.id)
+          redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+
+        elsif params[:register][:cpf] != ""
+         if  @user.update_attributes(:cpf=>params[:register][:cpf]) and @event.to_register(set_user.id)
+          redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+         else
+           redirect_to event_path(@event), notice: "Cpf Invalido!"
+
+           end
+        else
+          redirect_to event_path(@event), notice: "Cpf necessario!"
+        end
+
+
       end
     end
   end
@@ -95,6 +108,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :description, :start_at,:end_at, :local, :participants_limit, partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo, :_destroy],gifts_attributes: [:id, :name, :photo, :_destroy])
+    params.require(:event).permit(:name,:status, :description, :start_at,:end_at, :local, :participants_limit, partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo, :_destroy],gifts_attributes: [:id, :name, :photo, :_destroy],albums_attributes: [:id, :title,:event_id, :_destroy,images_attributes: [:id, :title, :asset, :_destroy]])
   end
 end

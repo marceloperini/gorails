@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "contato@gorails.com.br"
+  default from: "inscricoes@gorails.com.br"
   layout 'mailer'
 end

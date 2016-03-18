@@ -2,7 +2,7 @@
   <div class="bg-image" style="background-image: url('<%=asset_path @user.cover_photo.url%>');">
     <div class="block-content bg-primary-dark-op text-center overflow-hidden">
       <div class="push-30-t push animated fadeInDown">
-        <%=  image_tag current_user.avatar.thumb.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
+        <%=  image_tag @user.avatar.thumb.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
       </div>
       <div class="push-30 animated fadeInUp">
         <h2 class="h4 font-w600 text-white push-5"><%=@user.full_name%></h2>
