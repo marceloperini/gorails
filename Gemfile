@@ -34,6 +34,8 @@ gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-linkedin'
 gem 'figaro'
+gem 'commontator', '~> 4.11.1'
+gem 'acts_as_votable'
 
 group :doc do
   gem 'sdoc', :require => false

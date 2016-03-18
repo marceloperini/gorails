@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Commontator::Engine => '/commontator'
   resources :images
   resources :albums
   resources :links, :path=>"links" do

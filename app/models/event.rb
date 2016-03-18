@@ -2,6 +2,7 @@
 class Event < ActiveRecord::Base
   include ActionView::Helpers
   resourcify
+  acts_as_commontable
   belongs_to :user
   has_many :partners
   has_many :gifts
