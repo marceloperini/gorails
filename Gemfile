@@ -37,6 +37,7 @@ gem 'figaro'
 gem 'commontator', '~> 4.11.1'
 gem 'acts_as_votable'
 gem 'newrelic_rpm'
+gem "recaptcha", require: "recaptcha/rails"
 
 group :doc do
   gem 'sdoc', :require => false

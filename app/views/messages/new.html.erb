@@ -1,13 +1,12 @@
-
-  <div class="bg-white">
-    <section class="content content-boxed">
-      <div class="row items-push push-50-t push-30">
-        <div class="col-md-6 col-md-offset-3">
-            <%= form_for @message, html: {:class => "form-horizontal"}, url: contact_path do |message_form| %>
+<div class="bg-white">
+  <section class="content content-boxed">
+    <div class="row items-push push-50-t push-30">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for @message, html: {:class => "form-horizontal"}, url: contact_path do |message_form| %>
             <div class="form-group">
               <div class="col-xs-6">
                 <div class="form-material form-material-primary">
-                  <%= message_form.text_field :name, placeholder: "Digite seu nome aqui",class: "form-control" %>
+                  <%= message_form.text_field :name, placeholder: "Digite seu nome aqui", class: "form-control" %>
                   <label for="frontend-contact-firstname">Nome</label>
                 </div>
               </div>
@@ -16,7 +15,7 @@
             <div class="form-group">
               <div class="col-xs-12">
                 <div class="form-material form-material-primary">
-                  <%= message_form.email_field :email, placeholder: "Digite seu email aqui",class: "form-control"%>
+                  <%= message_form.email_field :email, placeholder: "Digite seu email aqui", class: "form-control" %>
                   <label for="frontend-contact-email">Email</label>
                 </div>
               </div>
@@ -25,20 +24,25 @@
             <div class="form-group">
               <div class="col-xs-12">
                 <div class="form-material form-material-primary">
-                  <%= message_form.text_area :content, placeholder: "Digite sua Mensagem aqui",class: "form-control"%>
+                  <%= message_form.text_area :content, placeholder: "Digite sua Mensagem aqui", class: "form-control" %>
                   <label for="frontend-contact-msg">Mensagem</label>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <%= message_form.submit "Enviar",class:"btn btn-block btn-primary" do %>
-                    <i class="fa fa-send pull-left"></i> Send Message
-                <%end%>
+              <div class="col-xs-12  col-sm-6 col-sm-offset-3">
+                <%= recaptcha_tags %> <!-- THIS -->
               </div>
             </div>
-          <% end %>
-        </div>
+            <div class="form-group">
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <%= message_form.submit "Enviar", class: "btn btn-block btn-primary", :style => "width: 303px !important;" do %>
+                    <i class="fa fa-send pull-left"></i> Send Message
+                <% end %>
+              </div>
+            </div>
+        <% end %>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>

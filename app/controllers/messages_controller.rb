@@ -8,8 +8,12 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.valid?
-      MessageMailer.new_message(@message).deliver
-      redirect_to contact_path, notice: "Sua Mensagem foi Enviada! Nossa equipe entrará em contato em breve."
+      if verify_recaptcha(model: @message, message: "Recaptcha inválido.")
+        MessageMailer.new_message(@message).deliver
+        redirect_to contact_path, notice: "Sua Mensagem foi Enviada! Nossa equipe entrará em contato em breve."
+      else
+        render :new
+      end
     else
       flash[:alert] = "Um erro ocorreu e sua mensagem não pode ser enviada"
       render :new
