@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
       :last_name => 'Ultimo Nome',
       :cpf => "CPF",
       :nickname => "Nickname",
-      :bio=>"Biografia",
-      :job_title=> "Cargo/Função"
+      :bio => "Biografia",
+      :job_title => "Cargo/Função"
   }
 
   #def admin?
@@ -31,13 +31,16 @@ class User < ActiveRecord::Base
   #end
 
   # validates :terms_of_service, acceptance: true
-has_many :registrations
+  has_many :registrations
+  validate :unicidade_cpf
   usar_como_cpf :cpf
+
 
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
   mount_uploader :cover_photo, AttachmentsUploader
   accepts_nested_attributes_for :attachments
+
 
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
@@ -58,6 +61,12 @@ has_many :registrations
     self.cpf.valido?
   end
 
+  def unicidade_cpf
+    if self.cpf.present? and User.where(:cpf => self.cpf).where("id <> ?", self.id || 0).first
+      errors.add(:cpf, "já está em uso")
+    end
+  end
+
   def need_updated_account?
     self.cpf.nil? or self.first_name.nil? or self.last_name.nil?
   end
@@ -73,7 +82,7 @@ has_many :registrations
       user.last_name ||= data["last_name"]
       user.nickname ||= data["nickname"]
       user.email = data["email"]
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
       user.provider = provider
       user.uid = access_token.uid
       user.save
@@ -81,7 +90,7 @@ has_many :registrations
     user
   end
 
-#Returns a full name of user, a combination of first name and last name
+  #Returns a full name of user, a combination of first name and last name
   def full_name
     if first_name and last_name
       " #{first_name} #{last_name}"
