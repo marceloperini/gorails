@@ -4,7 +4,7 @@
         <script type="text/javascript">
             $.amaran({
                 content:{
-                    bgcolor:'#27ae60',
+                    bgcolor:'<%= name == :notice ? "#27ae60" : "#ae5757" %>',
                     color:'#fff',
                     message:'<strong><%= name == :notice ? "Sucesso" : "Atenção" %></strong><p style="font-size:12px"><%=msg%></p>',
                 },
@@ -20,4 +20,6 @@
         </script>
     <% end %>
 <% end %>
+
+
 
