@@ -1,18 +1,18 @@
 <li>
-  <a class="active" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Principal </span></a>
+  <a class="<%= 'active' if ["paginas"].include?(controller_name) %>" href="/"><i class="si si-home"></i><span class="sidebar-mini-hide"> Principal </span></a>
 </li>
 
 <li>
-  <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
+  <a class="<%= 'active' if ["events"].include?(controller_name) %>" href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
 </li>
 
 <li>
-  <a href="/links/uteis"><i class="fa fa-link"></i>
+  <a class="<%= 'active' if ["links"].include?(controller_name) %>" href="/links/uteis"><i class="fa fa-link"></i>
     <span class="sidebar-mini-hide"> Links Utéis</span></a>
 </li>
 
 <li>
-  <a href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide"> Contato</span></a>
+  <a class="<%= 'active' if ["messages"].include?(controller_name) %>" href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide"> Contato</span></a>
 </li>
 
 <% if user_signed_in? %>
@@ -30,7 +30,7 @@
 
 <% else %>
 
-    <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+    <li><%= link_to new_user_registration_path, :class => "navbar-link #{'active' if ['registrations'].include?(controller_name)}" do %>
           <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
       <% end %>
     </li>
