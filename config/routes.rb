@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   root "paginas#show", pagina: "home"
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+  match "/422" => "errors#error422", via: [ :get, :post, :patch, :delete ]
+  match "/500" => "errors#error500", via: [ :get, :post, :patch, :delete ]
 end
