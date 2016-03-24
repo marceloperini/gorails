@@ -268,7 +268,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.2)
+    tzinfo-data (1.2016.3)
       tzinfo (>= 1.0.0)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
@@ -331,7 +331,7 @@ DEPENDENCIES
   sweet-alert
   sweet-alert-confirm
   turbolinks
-  tzinfo-data (>= 1.2016.2)
+  tzinfo-data (>= 1.2016.3)
   uglifier (>= 3.0.0)
   unicorn
   validates_email_format_of
