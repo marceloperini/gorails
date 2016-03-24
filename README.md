@@ -54,3 +54,7 @@ um chat em tempo real.
 
 Trello(https://trello.com)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gorails/gorails/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
