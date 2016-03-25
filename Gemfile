@@ -14,7 +14,7 @@ gem 'pdfkit'
 gem 'jquery-rails'
 gem 'carrierwave', '0.10.0' #, github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
-gem "mini_magick",'>= 4.5.0'
+gem "mini_magick",'>= 4.5.1'
 gem "cancan"
 gem 'validates_email_format_of'
 gem 'nested_form'
@@ -36,7 +36,7 @@ gem 'omniauth-linkedin'
 gem 'figaro'
 gem 'commontator', '~> 4.11.1'
 gem 'acts_as_votable'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm','>= 3.15.1.316'
 gem "recaptcha", require: "recaptcha/rails"
 
 group :doc do
