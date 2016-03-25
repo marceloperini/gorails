@@ -38,7 +38,9 @@
   <meta name="msapplication-TileImage" content="/assets/images/faviicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <!-- END Icons -->
-
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
   <!-- Stylesheets -->
   <!-- Web fonts -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
@@ -70,7 +72,7 @@
 </head>
 
 <body>
-<%= render '/layouts/flash_messages' %>
+<%= render '/layouts/flash_messages'  ,locals: { flash: flash }%>
 
 <% if user_signed_in? %>
     <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed bg-white-op">

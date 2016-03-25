@@ -70,25 +70,27 @@ class EventsController < ApplicationController
   end
 
   def register
+
     if @event.is_registrated?(set_user.id)
-      redirect_to events_path, alert: "Este email já está registrado no evento!"
+
+      redirect_to events_path,:flash => { :error => "Este email já está registrado no evento!!" }
+
     else
       if @event.exceeded_limit?
         render json: { exceeded_limit: true }
       else
         if @user.cpf.present?
           @event.to_register(set_user.id)
-          redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+          redirect_to events_path,:flash => { success: "Inscrito no Evento com sucesso!" }
 
         elsif params[:register][:cpf] != ""
          if  @user.update_attributes(:cpf=>params[:register][:cpf]) and @event.to_register(set_user.id)
-          redirect_to events_path, notice: "Inscrito no Evento com sucesso!"
+          redirect_to events_path,:flash => { success: "Inscrito no Evento com sucesso!"}
          else
-           redirect_to event_path(@event), notice: "Cpf Invalido!"
-
+           redirect_to event_path(@event),:flash => { error: "Cpf Invalido!" }
            end
         else
-          redirect_to event_path(@event), notice: "Cpf necessario!"
+          redirect_to event_path(@event), :flash => {  error: "Cpf necessario!"}
         end
 
 

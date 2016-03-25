@@ -4,9 +4,9 @@
         <script type="text/javascript">
             $.amaran({
                 content:{
-                    bgcolor:'<%= name == :notice ? "#27ae60" : "#ae5757" %>',
+                    bgcolor:'<%= flash_error_color(name) %>',
                     color:'#fff',
-                    message:'<strong><%= name == :notice ? "Sucesso" : "Atenção" %></strong><p style="font-size:12px"><%=msg%></p>',
+                    message:'<strong><%= flash_message_title(name)%></strong><p style="font-size:12px"><%=msg%></p>',
                 },
                 theme:'colorful',
                 cssanimationOut: 'bounceOut',

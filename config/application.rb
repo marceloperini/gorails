@@ -48,5 +48,6 @@ module Gorails
     require Rails.root.join("config/initializers/custom_public_exceptions")
     config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
 
+
   end
 end

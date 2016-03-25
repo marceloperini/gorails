@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  def redirect_to(*args)
+    flash.keep
+    super
+  end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -9,6 +13,7 @@ class ApplicationController < ActionController::Base
 	def sanitize(params)
     ActionController::Base.helpers.sanitize(params)
   end
+
 end
 
 
