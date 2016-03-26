@@ -2,8 +2,8 @@ module ControllerMacros
 
   def login_user
     before(:each) do
-      @request.env["devise.mapping"] = Devise.mappings[:user]
-      @current_user = FactoryGirl.create(:user)
+      @request.env["devise.mapping"] = Devise.mappings[:user_with_cpf]
+      @current_user = FactoryGirl.create(:user_with_cpf)
       sign_in @current_user
     end
   end
