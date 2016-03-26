@@ -81,6 +81,7 @@ class EventsController < ApplicationController
       else
         if @user.cpf.present?
           @event.to_register(set_user.id)
+          @event.create_activity key: 'event.registered_on', owner: current_user
           redirect_to events_path,:flash => { success: "Inscrito no Evento com sucesso!" }
 
         elsif params[:register][:cpf] != ""

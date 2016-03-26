@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
     ActionController::Base.helpers.sanitize(params)
   end
 
+  include PublicActivity::StoreController
+  hide_action :current_user
+
 end
 
 

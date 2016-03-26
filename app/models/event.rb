@@ -1,5 +1,8 @@
 # app/models/event.rb
 class Event < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+
   include ActionView::Helpers
   resourcify
   acts_as_commontable

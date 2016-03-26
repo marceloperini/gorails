@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+
   mount Commontator::Engine => '/commontator'
   resources :images
   resources :albums
