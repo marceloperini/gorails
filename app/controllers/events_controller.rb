@@ -70,33 +70,12 @@ class EventsController < ApplicationController
   end
 
   def register
-
-    if @event.is_registrated?(set_user.id)
-
-      redirect_to events_path,:flash => { :error => "Este email já está registrado no evento!!" }
-
-    else
-      if @event.exceeded_limit?
-        render json: { exceeded_limit: true }
-      else
-        if @user.cpf.present?
-          @event.to_register(set_user.id)
-          @event.create_activity key: 'event.registered_on', owner: current_user
-          redirect_to events_path,:flash => { success: "Inscrito no Evento com sucesso!" }
-
-        elsif params[:register][:cpf] != ""
-         if  @user.update_attributes(:cpf=>params[:register][:cpf]) and @event.to_register(set_user.id)
-          redirect_to events_path,:flash => { success: "Inscrito no Evento com sucesso!"}
-         else
-           redirect_to event_path(@event),:flash => { error: "Cpf Invalido!" }
-           end
-        else
-          redirect_to event_path(@event), :flash => {  error: "Cpf necessario!"}
-        end
-
-
-      end
-    end
+    return error_email_already_register if @event.is_registrated?(set_user.id)
+    return render json: { exceeded_limit: true } if @event.exceeded_limit?
+    return register_user if @user.cpf.present?
+    params.merge!(register:{}.merge!(cpf: "")) if params[:register].nil?
+    return update_cpf_and_registre if params[:register][:cpf] != ""
+    error_necessary_cpf
   end
 
   private
@@ -113,4 +92,27 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name,:status, :description, :start_at,:end_at, :local, :participants_limit, partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo, :_destroy],gifts_attributes: [:id, :name, :photo, :_destroy,winners_attributes: [:id, :gift_id, :user_id, :_destroy]],albums_attributes: [:id, :title,:event_id, :_destroy,images_attributes: [:id, :title, :asset, :_destroy]])
   end
+
+  def register_user
+    @event.to_register(set_user.id)
+    register_success
+  end
+
+  def error_email_already_register
+    redirect_to events_path, flash: { :error => "Este email já está registrado no evento!!" }
+  end
+
+  def error_necessary_cpf
+    redirect_to event_path(@event), :flash => {  error: "Cpf necessario!"}
+  end
+
+  def register_success
+    redirect_to events_path, flash: { success: "Inscrito no Evento com sucesso!" }
+  end
+
+  def update_cpf_and_registre
+    return  register_success if  @user.update_attributes(:cpf=>params[:register][:cpf]) and @event.to_register(set_user.id)
+    redirect_to event_path(@event),:flash => { error: "Cpf Invalido!" }
+  end
+
 end
