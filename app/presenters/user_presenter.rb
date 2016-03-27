@@ -1,10 +1,10 @@
 class UserPresenter < Burgundy::Item
 
-  def user_avatar(css=true)
+  def user_avatar(css=true,size="")
     if item.avatar.present?
-      h.image_tag(item.avatar.url, class: css ? "img-avatar img-avatar96 img-avatar-thumb" : ""  )
+      h.image_tag(item.avatar.url, class: css ? "img-avatar img-avatar#{size} img-avatar-thumb" : ""  )
     else
-      h.image_tag(avatar_url(item), class: css ? "img-avatar img-avatar96 img-avatar-thumb" : "" )
+      h.image_tag(avatar_url(item), class: css ? "img-avatar img-avatar#{size} img-avatar-thumb" : "" )
     end
   end
 
