@@ -3,7 +3,7 @@
     <div class="block-content bg-primary-dark-op text-center overflow-hidden">
       <div class="push-30-t push animated fadeInDown">
         <%if @user.avatar.present?%>
-            <%=  image_tag current_user.avatar.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
+            <%=  image_tag @user.avatar.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
         <%else%>
             <%= image_tag("user.png",class:"img-avatar img-avatar96 img-avatar-thumb")%>
 

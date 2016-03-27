@@ -22,6 +22,35 @@
               <%end%>
         </div>
       </div>
+      <div class="block">
+        <div class="block-content">
+          <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Brindes Ganhos</h3>
+
+          <% if @user.winners.any? %>
+              <table class="table table-borderless table-condensed">
+                <tbody>
+              <% @user.winners.order(:created_at).each do |winner| %>
+
+                    <tr>
+                      <td>
+                        <i class="fa fa-fw fa-book push-10-r"></i>
+                        Ganhou o brinde <%=winner.gift.name%>, no evento <%= winner.gift.event.name%><br>
+                      </td>
+                    </tr>
+
+
+
+                  <% end %>
+              </tbody>
+              </table>
+          <% else %>
+              <p>
+                Você ainda não ganhou nenhum brinde em eventos
+
+              </p>
+          <% end %>
+        </div>
+      </div>
 
 
 

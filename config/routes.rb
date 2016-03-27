@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :winners
   get 'activities/index'
 
   mount Commontator::Engine => '/commontator'

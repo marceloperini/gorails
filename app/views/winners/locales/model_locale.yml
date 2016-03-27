@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      winner:
+        one: "Winner"
+        other: "winners"
+        explain: "Winner"
+
+    attributes:
+      winner:
+        gift: "gift"
+        user: "user"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

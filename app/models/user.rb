@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   #def admin?
   # self.admin == true
   #end
-
+has_many :winners
   # validates :terms_of_service, acceptance: true
   has_many :registrations
   validate :unicidade_cpf

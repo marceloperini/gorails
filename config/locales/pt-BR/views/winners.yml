@@ -1,0 +1,34 @@
+pt-BR:
+  winners:
+    default: &default
+      h1: Winner
+      header: "Lista de winners"
+      block_header: winners
+    index:
+      <<: *default
+      header: "Lista de winners"
+      block_header: winners
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Winner"
+    create:
+      alert: "Winner não pode ser cadastrado."
+      notice: "Winner cadastrado com sucesso."
+    update:
+      alert: "Winner não pode ser atualizado."
+      notice: "Winner atualizado com sucesso."
+    destroy:
+      alert: "Winner não pode ser excluído."
+      notice: "Winner excluído com sucesso."
+      
+  helpers:
+    submit:
+      winner:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      
