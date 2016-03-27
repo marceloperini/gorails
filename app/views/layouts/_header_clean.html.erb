@@ -3,12 +3,7 @@
     <li>
       <div class="btn-group">
         <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
-          <%if current_user.avatar.present?%>
-              <%=  image_tag current_user.avatar.thumb.url%>
-          <%else%>
-              <%= image_tag("user.png")%>
-
-          <%end%>
+          <%=UserPresenter.new(current_user).user_avatar(false)%>
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
