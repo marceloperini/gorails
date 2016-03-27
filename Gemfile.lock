@@ -54,6 +54,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     builder (3.2.2)
+    burgundy (0.2.0)
     byebug (8.2.2)
     cancan (1.6.10)
     cancancan (1.13.1)
@@ -296,6 +297,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap_form
   brcpfcnpj (~> 3.3)
+  burgundy
   byebug
   cancan
   cancancan

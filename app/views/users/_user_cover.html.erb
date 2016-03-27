@@ -2,12 +2,8 @@
   <div class="bg-image" style="background-image: url('<%=asset_path @user.cover_photo.url%>');">
     <div class="block-content bg-primary-dark-op text-center overflow-hidden">
       <div class="push-30-t push animated fadeInDown">
-        <%if @user.avatar.present?%>
-            <%=  image_tag @user.avatar.url,class:"img-avatar img-avatar96 img-avatar-thumb"%>
-        <%else%>
-            <%= image_tag("user.png",class:"img-avatar img-avatar96 img-avatar-thumb")%>
+        <%=@user.user_avatar%>
 
-        <%end%>
       </div>
       <div class="push-30 animated fadeInUp">
         <h2 class="h4 font-w600 text-white push-5"><%=@user.full_name%></h2>

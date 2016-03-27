@@ -39,6 +39,7 @@ gem 'acts_as_votable'
 gem 'newrelic_rpm','>= 3.15.1.316'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'public_activity'
+gem "burgundy"
 
 group :doc do
   gem 'sdoc', :require => false

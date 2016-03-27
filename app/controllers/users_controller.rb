@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_filter :set_user, only: [:show, :edit, :update]
 
   def show
+    @user = UserPresenter.new(@user)
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user, owner_type: "User")
   end
 
