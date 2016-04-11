@@ -78,7 +78,113 @@
                       <%= f.label :job_title ,"Cargo/Função"%>
                       <%= f.text_field :job_title ,placeholder:"Digite seu Cargo/Função.." ,class:"form-control input-lg"%>
                     </div>
+                    <div class="col-xs-6">
+                      <%= f.label :rg ,"Identidade"%>
+                      <%= f.text_field :rg  ,class:"form-control input-lg"%>
+                    </div>
+                    <div class="col-xs-6">
+                      <%= f.label :consignor_organ ,"Órgão Expedidor"%>
+                      <%= f.text_field :consignor_organ  ,class:"form-control input-lg"%>
+                    </div>
                   </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :company %>
+                      <%= f.text_field :company ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-6">
+                      <%= f.label :phone ,"Telefone (Fixo)"%>
+                      <%= f.text_field :phone  ,class:"form-control input-lg"%>
+                    </div>
+                    <div class="col-xs-6">
+                      <%= f.label :celphone ,"Telefone (Celular)"%>
+                      <%= f.text_field :celphone ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :schooling %>
+                      <%= f.text_field :schooling ,class:"form-control input-lg"%>
+                    </div>
+                  </div>   
+
+                 <div class="form-group">
+                    <div class="col-xs-6">
+                      <%= f.label :birth_date %>
+                      <%= f.text_field :birth_date  ,class:"form-control input-lg datepicker"%>
+                    </div>
+                    <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
+                      <%= f.label :gender %>
+                      <%= f.select :gender, ['Masculino', 'Feminino'] %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-6">
+                      <%= f.label :marital_status %>
+                      <%= f.text_field :marital_status  ,class:"form-control input-lg"%>
+                    </div>
+                    <div class="col-xs-6">
+                      <%= f.label :place_of_birth %>
+                      <%= f.text_field :place_of_birth, class:"form-control input-lg" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-6">
+                      <%= f.label :father %>
+                      <%= f.text_field :father  ,class:"form-control input-lg"%>
+                    </div>
+                    <div class="col-xs-6">
+                      <%= f.label :mother %>
+                      <%= f.text_field :mother, class:"form-control input-lg" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :address %>
+                      <%= f.text_field :address ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-9">
+                      <%= f.label :neighborhood %>
+                      <%= f.text_field :neighborhood  ,class:"form-control input-lg"%>
+                    </div>
+                    <div class="col-xs-3">
+                      <%= f.label :uf %>
+                      <%= f.text_field :uf, class:"form-control input-lg" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-8">
+                      <%= f.label :zip_code %>
+                      <%= f.text_field :zip_code ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :special_needs %>
+                      <%= f.text_field :special_needs ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :complement %>
+                      <%= f.text_field :complement ,class:"form-control input-lg"%>
+                    </div>
+                  </div>
+
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -202,15 +308,12 @@
 </main>
 
 
-
-
-
-
-
-
 <script>
     $(document).ready(function() {
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
+
     } );
+
+  $('.datepicker').datepicker();   
 </script>
