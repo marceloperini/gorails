@@ -9,23 +9,42 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable
 
 
   HUMANIZED_ATTRIBUTES = {
-      :id => "Usuario",
-      :email => "E-mail",
-      :password => "Senha",
-      :password_confirmation => "Confirmação de Senha",
-      :remember_me => "Lembrar-me",
-      :current_password => 'Senha Atual',
-      :first_name => 'Primeiro Nome',
-      :last_name => 'Ultimo Nome',
-      :cpf => "CPF",
-      :nickname => "Nickname",
-      :bio => "Biografia",
-      :job_title => "Cargo/Função"
+    :id => "Usuario",
+    :email => "E-mail",
+    :password => "Senha",
+    :password_confirmation => "Confirmação de Senha",
+    :remember_me => "Lembrar-me",
+    :current_password => 'Senha Atual',
+    :first_name => 'Primeiro Nome',
+    :last_name => 'Ultimo Nome',
+    :cpf => "CPF",
+    :nickname => "Nickname",
+    :bio => "Biografia",
+    :company => "Empresa/Instituição de Ensino",
+    :gender => "Sexo",
+    :job_title => "Cargo/Função",
+    :phone => "Telefône(Fixo)",
+    :celphone => "Telefône(Celular)",
+    :schooling => "Escolaridade",
+    :birth_date => "Data de nascimento",
+    :marital_status => "Estado civil",
+    :father => "Filiação(Pai)",
+    :mother => "Filiação(Mãe)",
+    :consignor_organ => "Órgão Expedidor",
+    :place_of_birth => "Naturalidade",
+    :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
+    :occupation => "Situação Ocupacional",
+    :rg => "Identidade",
+    :address => "Endereço",
+    :uf => "UF",
+    :neighborhood => "Bairro",
+    :zip_code => "CEP",
+    :complement => "Complemento"
   }
 
   #def admin?
