@@ -19,11 +19,12 @@ ee https://help.github.com/articles/ignoring-files for more about ignoring files
 .ruby-version
 .ruby-gemset
 /public/uploads/*
-/config/database.yml
-/config/initializers/setup_mail.rb
 schema.rb
 config/initializers/secret_token.rb
 
 # Ignore application configuration
 /config/application.yml
 newrelic.yml
+/config/database.yml
+/config/secrets.yml
+/config/initializers/setup_mail.rb
