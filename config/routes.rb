@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :link_categories
   resources :partners
   resources :events, :path => 'eventos' do
-  	post :register, on: :member
+    post :register, on: :member
     collection do
       post 'register'
     end
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "/paginas/:pagina" => "paginas#show"
   root "paginas#show", pagina: "home"
   get 'contact', to: 'messages#new', as: 'contact'
+  post 'messages/subscribe', to: 'messages#subscribe'
   post 'contact', to: 'messages#create'
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   match "/422" => "errors#error422", via: [ :get, :post, :patch, :delete ]
