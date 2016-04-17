@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   def redirect_to(*args)
     flash.keep
     super
+
   end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -10,13 +11,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
-	def sanitize(params)
+  def sanitize(params)
     ActionController::Base.helpers.sanitize(params)
   end
 
   include PublicActivity::StoreController
   hide_action :current_user
 
+  def gibbon
+    @gibbon ||= Gibbon::Request.new
+  end
+
 end
-
-
