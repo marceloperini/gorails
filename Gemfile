@@ -40,6 +40,7 @@ gem 'newrelic_rpm','>= 3.15.1.316'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'public_activity'
 gem "burgundy"
+gem 'sweetalert-rails'
 
 group :doc do
   gem 'sdoc', :require => false

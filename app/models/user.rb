@@ -129,4 +129,24 @@ has_many :winners
     end
   end
 
+  def data_completed
+    return true if self.rg.present? and
+        self.consignor_organ.present? and
+        self.company.present? and
+        self.phone.present? and
+        self.celphone.present? and
+        self.schooling.present? and
+        self.birth_date.present? and
+        self.gender.present? and
+        self.marital_status.present? and
+        self.place_of_birth.present? and
+        self.mother.present? and
+        self.address.present? and
+        self.neighborhood.present? and
+        self.uf.present? and
+        self.zip_code.present? and
+        self.special_needs.present? and
+        self.complement.present?
+  end
+
 end

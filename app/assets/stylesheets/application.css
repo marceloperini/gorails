@@ -18,6 +18,7 @@
  *= require custom
  *= require magnific-popup.min
  *= require commontator/application
+  *= require sweet-alert
  *= require_self
 
  */

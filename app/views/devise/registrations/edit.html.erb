@@ -38,15 +38,27 @@
                         </div>
                     <%else%>
                         <div class="col-xs-6">
+                          <label for="profile-password">Imagem de Perfil</label>
                           <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
                         </div>
                         <div class="col-xs-6">
+                          <label for="profile-password">Capa de Perfil</label>
                           <%= f.file_field :cover_photo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
                         </div>
                     <%end%>
                   </div>
 
                   <div class="form-group">
+                    <br>
+                    <br>
+                    <div class="col-xs-12">
+                      <label class="css-input css-checkbox css-checkbox-success">
+                        <%= f.check_box :need_certificate  ,class:"form-control  cpf"%><span></span>Deseja Certificado para os eventos?
+                      </label>
+                    </div>
+                    <br>
+                    <br>
+
                     <div class="col-xs-12">
                       <%= f.label :email ,"Endereço de E-mail"%>
                       <%= f.email_field :email, autofocus: true ,placeholder:"Enter your email..",class:"form-control input-lg"%>
@@ -78,6 +90,10 @@
                       <%= f.label :job_title ,"Cargo/Função"%>
                       <%= f.text_field :job_title ,placeholder:"Digite seu Cargo/Função.." ,class:"form-control input-lg"%>
                     </div>
+
+
+                    <%if @user.need_certificate == true%>
+
                     <div class="col-xs-6">
                       <%= f.label :rg ,"Identidade"%>
                       <%= f.text_field :rg  ,class:"form-control input-lg"%>
@@ -86,8 +102,9 @@
                       <%= f.label :consignor_organ ,"Órgão Expedidor"%>
                       <%= f.text_field :consignor_organ  ,class:"form-control input-lg"%>
                     </div>
+                        <%end%>
                   </div>
-
+                  <%if @user.need_certificate == true%>
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :company %>
@@ -98,11 +115,11 @@
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :phone ,"Telefone (Fixo)"%>
-                      <%= f.text_field :phone  ,class:"form-control input-lg"%>
+                      <%= f.text_field :phone  ,class:"form-control input-lg phone"%>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :celphone ,"Telefone (Celular)"%>
-                      <%= f.text_field :celphone ,class:"form-control input-lg"%>
+                      <%= f.text_field :celphone ,class:"form-control input-lg celphone"%>
                     </div>
                   </div>
 
@@ -167,7 +184,7 @@
                   <div class="form-group">
                     <div class="col-xs-8">
                       <%= f.label :zip_code %>
-                      <%= f.text_field :zip_code ,class:"form-control input-lg"%>
+                      <%= f.text_field :zip_code ,class:"form-control input-lg zip_code"%>
                     </div>
                   </div>
 
@@ -184,6 +201,8 @@
                       <%= f.text_field :complement ,class:"form-control input-lg"%>
                     </div>
                   </div>
+                  <%end%>
+
 
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -312,8 +331,22 @@
     $(document).ready(function() {
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.zip_code').mask('99-999.999');
+        //$('.datepicker').mask('99/99/9999');
+        $('.phone').mask('(99) 9999-9999');
+        $('.celphone').mask('(99) 9999-9999');
 
     } );
 
-  $('.datepicker').datepicker();   
+  $('.datepicker').datepicker();
+    <%if @user.need_certificate == true and @user.data_completed != true%>
+    swal({
+      title: "Dados necessarios para emissão de certificado",
+      text: "Para que possamos emitir  seu certificado  precisa preencher todos os dados de seu perfil!",
+      type: "warning",   showCancelButton: false,
+      confirmButtonColor: "#00B300",
+      confirmButtonText: "Ok Entendi!",
+      closeOnConfirm: false });
+  <%end%>
 </script>
+
