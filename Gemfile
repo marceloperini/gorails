@@ -12,7 +12,7 @@ gem 'kaminari'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
-gem 'carrierwave', '0.10.0' #, github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave', '0.11.0' #, github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick",'>= 4.5.1'
 gem "cancan"
@@ -37,7 +37,7 @@ gem 'figaro'
 gem 'commontator', '~> 4.11.1'
 gem 'acts_as_votable'
 gem 'newrelic_rpm','>= 3.15.1.316'
-gem "recaptcha", require: "recaptcha/rails"
+gem "recaptcha",'~> 1.3.0', require: "recaptcha/rails"
 gem 'public_activity'
 gem "burgundy"
 gem 'sweetalert-rails'
@@ -47,7 +47,7 @@ group :doc do
 end
 
 platforms :ruby do
-  gem 'unicorn'
+  gem 'unicorn','~> 5.1.0'
 end
 
 group :development do
