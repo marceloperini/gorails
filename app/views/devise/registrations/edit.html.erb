@@ -133,7 +133,7 @@
                  <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :birth_date %>
-                      <%= f.text_field :birth_date  ,class:"form-control input-lg datepicker"%>
+                      <%= f.text_field :birth_date  ,class:"form-control input-lg data-nascimento"%>
                     </div>
                     <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
                       <%= f.label :gender %>
@@ -332,7 +332,7 @@
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
         $('.zip_code').mask('99-999.999');
-        //$('.datepicker').mask('99/99/9999');
+        $('.data-nascimento').mask('99/99/9999');
         $('.phone').mask('(99) 9999-9999');
         $('.celphone').mask('(99) 9999-9999');
 
