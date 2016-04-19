@@ -41,6 +41,7 @@ gem "recaptcha",'~> 1.3.0', require: "recaptcha/rails"
 gem 'public_activity'
 gem "burgundy"
 gem 'sweetalert-rails'
+gem 'gibbon', '~> 2.2', '>= 2.2.3'
 
 group :doc do
   gem 'sdoc', :require => false
@@ -59,7 +60,7 @@ end
 
 group :development, :test do
   gem 'byebug'
-	gem "factory_girl_rails", "~> 4.0"
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :test do
