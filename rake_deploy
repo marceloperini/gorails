@@ -1,6 +1,6 @@
 #comands to run after deploy
 db:migrate
 assets:precompile --trace
-rake importar_emails:todos
+importar_emails:todos
 
 
