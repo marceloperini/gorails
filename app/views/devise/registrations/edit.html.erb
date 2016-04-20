@@ -349,19 +349,12 @@
     //$(".datepicker").mask('99/99/9999');
   } );
 
-  $(document).on('click', '.data', function () {
-    var me = $(".data");
-    me.datepicker({
-      showOn: 'focus',
-      format: 'dd/mm/yyyy',
-      language: 'pt-BR',
-      minDate: '12/12/2000',
-      maxDate: '12/12/2020',
-    }).focus();
-  }).on('focus', '.data', function () {
-    var me = $(".data");
-    me.mask('99/99/9999');
+
+  $('.data').datepicker({
+    format: 'dd/mm/yyyy',
+    language: 'pt-BR'
   });
+    $('.data').mask('99/99/9999');
 </script>
 
 
