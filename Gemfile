@@ -42,6 +42,8 @@ gem 'public_activity'
 gem "burgundy"
 gem 'sweetalert-rails'
 gem 'gibbon', '~> 2.2', '>= 2.2.3'
+gem 'bootstrap-datepicker-rails'
+gem 'brdata'
 
 group :doc do
   gem 'sdoc', :require => false

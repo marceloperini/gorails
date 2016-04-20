@@ -23,8 +23,9 @@
 //= require app
 //= require jquery.amaran.min
 //= require summernote
-//= require plugins/bootstrap-datepicker/bootstrap-datepicker.min.js
 //= require maskedinput
 //= require plugins/magnific-popup/magnific-popup.min
 //= require commontator/application
 //= require sweet-alert
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker.pt

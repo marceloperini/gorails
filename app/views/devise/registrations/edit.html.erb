@@ -133,7 +133,7 @@
                  <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :birth_date %>
-                      <%= f.text_field :birth_date  ,class:"form-control input-lg data-nascimento"%>
+                      <%= date_picker f, :birth_date%>
                     </div>
                     <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
                       <%= f.label :gender %>
@@ -332,13 +332,11 @@
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
         $('.zip_code').mask('99-999.999');
-        $('.data-nascimento').mask('99/99/9999');
         $('.phone').mask('(99) 9999-9999');
         $('.celphone').mask('(99) 9999-9999');
 
     } );
 
-  $('.datepicker').datepicker();
     <%if @user.need_certificate == true and @user.data_completed != true%>
     swal({
       title: "Dados necessarios para emissão de certificado",
@@ -348,5 +346,12 @@
       confirmButtonText: "Ok Entendi!",
       closeOnConfirm: false });
   <%end%>
+    $(document).ready(function () {
+      $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'pt-BR'
+      });
+    });
+
 </script>
 

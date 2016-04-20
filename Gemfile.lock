@@ -49,8 +49,13 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.6.0.1)
+      railties (>= 3.0)
     bootstrap_form (2.3.0)
     brcpfcnpj (3.3.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    brdata (3.3.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     builder (3.2.2)
@@ -298,8 +303,10 @@ DEPENDENCIES
   acts_as_votable
   better_errors
   binding_of_caller
+  bootstrap-datepicker-rails
   bootstrap_form
   brcpfcnpj (~> 3.3)
+  brdata
   burgundy
   byebug
   cancan
