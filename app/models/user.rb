@@ -57,8 +57,7 @@ class User < ActiveRecord::Base
   usar_como_cpf :cpf
 
 
-  validates_presence_of :first_name, :last_name,:cpf,:email
-  validates_presence_of :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :if => lambda { self.need_certificate.present? }
+  validates_presence_of :first_name, :last_name,:cpf,:rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :if => lambda { self.need_certificate.present? }
 
 
   has_many :attachments, as: :origin
