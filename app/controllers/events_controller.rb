@@ -95,11 +95,9 @@ class EventsController < ApplicationController
 
   def register_user
     @event.to_register(set_user.id)
-    if params[:register][:need_certificate]=="1"
-      update_user_need_certificate
-    else
-      register_success
-    end
+    params.merge!(register: {}.merge!(need_certificate: "0")) if params[:register].nil?
+    update_user_need_certificate if params[:register][:need_certificate]=="1"
+    register_success
   end
 
   def error_email_already_register
