@@ -111,6 +111,7 @@ class User < ActiveRecord::Base
       user.uid = access_token.uid
       user.save
     end
+    user.avatar.download!(data["image"])
     user
   end
 
