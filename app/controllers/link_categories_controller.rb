@@ -1,6 +1,6 @@
 class LinkCategoriesController < ApplicationController
   before_action :set_link_category, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /link_categories
   # GET /link_categories.json
   def index

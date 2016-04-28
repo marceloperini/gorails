@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource :except => [:uteis]
   # GET /links
   # GET /links.json
   def index
