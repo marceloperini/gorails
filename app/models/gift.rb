@@ -1,4 +1,6 @@
 class Gift < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
   belongs_to :event
   has_many :attachments, as: :origin
   has_many :winners
