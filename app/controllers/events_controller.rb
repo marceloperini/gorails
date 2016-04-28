@@ -1,7 +1,7 @@
 # app/controllers/events_controller.rb
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
-  #before_filter :authenticate_user!,except: [:show,:index]
+  before_filter :authenticate_user!,except: [:index,:show]
   #before_filter do
   # redirect_to :new_user_session_path unless current_user && current_user.admin?
   #end
