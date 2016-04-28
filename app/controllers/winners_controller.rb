@@ -1,6 +1,7 @@
 class WinnersController < ApplicationController
   before_action :set_winner, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /winners
   # GET /winners.json
   def index
