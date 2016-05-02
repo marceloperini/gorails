@@ -21,7 +21,7 @@ gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'tzinfo-data','>= 1.2016.3'
-gem 'devise'
+gem 'devise','>=4.0.1'
 gem 'cancancan'
 gem 'rolify','>= 5.1.0'
 gem 'coveralls', require: false
@@ -36,7 +36,7 @@ gem 'omniauth-linkedin'
 gem 'figaro'
 gem 'commontator', '~> 4.11.1'
 gem 'acts_as_votable'
-gem 'newrelic_rpm','>= 3.15.1.316'
+gem 'newrelic_rpm','>= 3.15.2.317'
 gem "recaptcha",'~> 1.3.0', require: "recaptcha/rails"
 gem 'public_activity'
 gem "burgundy"
