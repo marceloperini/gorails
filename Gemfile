@@ -58,6 +58,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'rails-erd'
 end
 
 group :development, :test do
