@@ -44,6 +44,7 @@ gem 'sweetalert-rails'
 gem 'gibbon', '~> 2.2', '>= 2.2.3'
 gem 'bootstrap-datepicker-rails'
 gem 'brdata'
+gem 'configatron'
 
 group :doc do
   gem 'sdoc', :require => false
