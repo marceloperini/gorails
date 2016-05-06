@@ -9,45 +9,42 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable
 
 
   HUMANIZED_ATTRIBUTES = {
-      :id => "Usuario",
-      :email => "E-mail",
-      :password => "Senha",
-      :password_confirmation => "Confirmação de Senha",
-      :remember_me => "Lembrar-me",
-      :current_password => 'Senha Atual',
-      :first_name => 'Primeiro Nome',
-      :last_name => 'Ultimo Nome',
-      :cpf => "CPF",
-      :nickname => "Nickname",
-      :bio => "Biografia",
-      :company => "Empresa/Instituição de Ensino",
-      :gender => "Sexo",
-      :job_title => "Cargo/Função",
-      :phone => "Telefône(Fixo)",
-      :celphone => "Telefône(Celular)",
-      :schooling => "Escolaridade",
-      :birth_date => "Data de nascimento",
-      :marital_status => "Estado civil",
-      :father => "Filiação(Pai)",
-      :mother => "Filiação(Mãe)",
-      :consignor_organ => "Órgão Expedidor",
-      :place_of_birth => "Naturalidade",
-      :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
-      :occupation => "Situação Ocupacional",
-      :rg => "Identidade",
-      :address => "Endereço",
-      :uf => "UF",
-      :neighborhood => "Bairro",
-      :zip_code => "CEP",
-      :complement => "Complemento",
-      :city => "Cidade",
-      :receber_email => "Receber E-mail da GoRails",
-      :receber_email_parceiros => "Receber E-mail de Parceiros"
+    :id => "Usuario",
+    :email => "E-mail",
+    :password => "Senha",
+    :password_confirmation => "Confirmação de Senha",
+    :remember_me => "Lembrar-me",
+    :current_password => 'Senha Atual',
+    :first_name => 'Primeiro Nome',
+    :last_name => 'Ultimo Nome',
+    :cpf => "CPF",
+    :nickname => "Nickname",
+    :bio => "Biografia",
+    :company => "Empresa/Instituição de Ensino",
+    :gender => "Sexo",
+    :job_title => "Cargo/Função",
+    :phone => "Telefône(Fixo)",
+    :celphone => "Telefône(Celular)",
+    :schooling => "Escolaridade",
+    :birth_date => "Data de nascimento",
+    :marital_status => "Estado civil",
+    :father => "Filiação(Pai)",
+    :mother => "Filiação(Mãe)",
+    :consignor_organ => "Órgão Expedidor",
+    :place_of_birth => "Naturalidade",
+    :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
+    :occupation => "Situação Ocupacional",
+    :rg => "Identidade",
+    :address => "Endereço",
+    :uf => "UF",
+    :neighborhood => "Bairro",
+    :zip_code => "CEP",
+    :complement => "Complemento"
   }
 
   #def admin?
@@ -59,7 +56,9 @@ class User < ActiveRecord::Base
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
-  validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :city, :if => lambda { self.need_certificate.present? }
+
+  validates_presence_of :first_name, :last_name,:cpf,:rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :if => lambda { self.need_certificate.present? }
+
 
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
@@ -151,7 +150,6 @@ class User < ActiveRecord::Base
         self.uf.present? and
         self.zip_code.present? and
         self.special_needs.present? and
-        self.city.present? and
         self.complement.present?
   end
 
