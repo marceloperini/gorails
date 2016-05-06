@@ -83,6 +83,7 @@ GEM
       jquery-rails
       rails (>= 3.1)
     concurrent-ruby (1.0.2)
+    configatron (4.5.0)
     coveralls (0.8.13)
       json (~> 1.8)
       simplecov (~> 0.11.0)
@@ -322,6 +323,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.1.1)
   commontator (~> 4.11.1)
+  configatron
   coveralls
   database_cleaner (~> 1.5, >= 1.5.1)
   devise (>= 4.0.1)
