@@ -21,7 +21,7 @@ gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'tzinfo-data','>= 1.2016.3'
-gem 'devise','>=4.0.1'
+gem 'devise','>=4.1.0'
 gem 'cancancan'
 gem 'rolify','>= 5.1.0'
 gem 'coveralls', require: false
@@ -40,7 +40,7 @@ gem 'newrelic_rpm','>= 3.15.2.317'
 gem "recaptcha",'~> 1.3.0', require: "recaptcha/rails"
 gem 'public_activity'
 gem "burgundy"
-gem 'sweetalert-rails'
+gem 'sweetalert-rails','>=1.1.3'
 gem 'gibbon', '~> 2.2', '>= 2.2.3'
 gem 'bootstrap-datepicker-rails'
 gem 'brdata'
