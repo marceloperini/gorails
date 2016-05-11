@@ -1,6 +1,5 @@
 #comands to run after deploy
 db:migrate
 assets:precompile --trace
-importar_presentes:segundoencontro
 
 

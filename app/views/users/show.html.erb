@@ -24,6 +24,13 @@
       </div>
       <div class="block">
         <div class="block-content">
+          <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Alertas</h3>
+
+          <%= needs_fields(@user)%>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-content">
           <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Brindes Ganhos</h3>
 
           <% if @user.winners.any? %>
