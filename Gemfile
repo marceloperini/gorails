@@ -45,6 +45,8 @@ gem 'gibbon', '~> 2.2', '>= 2.2.3'
 gem 'bootstrap-datepicker-rails'
 gem 'brdata'
 gem 'configatron'
+gem 'redcarpet'
+gem 'coderay'
 
 group :doc do
   gem 'sdoc', :require => false
