@@ -67,6 +67,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
   accepts_nested_attributes_for :social_networks, reject_if: proc {|a| a[:link].blank?},allow_destroy: true
 
+  def name
+    [first_name, last_name].join(" ").strip
+  end
 
   def self.human_attribute_name(attr, vazio=nil)
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
