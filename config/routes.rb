@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :social_network_types
   resources :winners
   get 'activities/index'
 

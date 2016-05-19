@@ -53,6 +53,7 @@ class User < ActiveRecord::Base
   has_many :winners
   # validates :terms_of_service, acceptance: true
   has_many :registrations
+  has_many :social_networks
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
@@ -64,6 +65,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AttachmentsUploader
   mount_uploader :cover_photo, AttachmentsUploader
   accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :social_networks, reject_if: proc {|a| a[:link].blank?},allow_destroy: true
 
 
   def self.human_attribute_name(attr, vazio=nil)

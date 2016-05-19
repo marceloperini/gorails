@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509222200) do
+ActiveRecord::Schema.define(version: 20160516005337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,6 +178,24 @@ ActiveRecord::Schema.define(version: 20160509222200) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  create_table "social_network_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "icon"
+  end
+
+  create_table "social_networks", force: :cascade do |t|
+    t.integer  "social_network_type_id"
+    t.integer  "user_id"
+    t.string   "link"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "social_networks", ["social_network_type_id"], name: "index_social_networks_on_social_network_type_id", using: :btree
+  add_index "social_networks", ["user_id"], name: "index_social_networks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                   default: "",   null: false
     t.string   "encrypted_password",      default: "",   null: false
@@ -267,6 +285,8 @@ ActiveRecord::Schema.define(version: 20160509222200) do
   add_foreign_key "images", "albums"
   add_foreign_key "links", "link_categories"
   add_foreign_key "partners", "events"
+  add_foreign_key "social_networks", "social_network_types"
+  add_foreign_key "social_networks", "users"
   add_foreign_key "winners", "gifts"
   add_foreign_key "winners", "users"
 end

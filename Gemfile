@@ -12,7 +12,7 @@ gem 'kaminari'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
-gem 'carrierwave', '0.11.0' #, github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave', '0.11.2' #, github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick",'>= 4.5.1'
 gem "cancan"
@@ -47,6 +47,7 @@ gem 'brdata'
 gem 'configatron'
 gem 'redcarpet'
 gem 'coderay'
+gem "github_api"
 
 group :doc do
   gem 'sdoc', :require => false
