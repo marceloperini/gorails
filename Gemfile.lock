@@ -383,4 +383,4 @@ DEPENDENCIES
   validates_email_format_of
 
 BUNDLED WITH
-   1.12.1
+   1.11.2
