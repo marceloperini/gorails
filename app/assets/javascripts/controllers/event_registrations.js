@@ -1,42 +1,60 @@
 jQuery(function ($) {
   'use strict';
 
-  var registrationUpdateURL = $('#event-registrations-list').data('url-base');
+  $('.js-ev-presence').on('click', 'button[value=yes]', markUserAsPresent);
+  $('.js-ev-presence').on('click', 'button[value=no]', markUserAsAbsent);
 
-  $('.js-ev-presence').on('click', 'button', function() {
-    var $el            = $(this)
-      , registrationId = $el.parents('tr:eq(0)').data('id')
-      , url            = registrationUpdateURL.replace(':id', registrationId)
-      , presence       = $el.val() === 'yes' ? 1 : 0
-      , data           = jQuery.extend(forgeryProtectedFormParams('PUT'), { presence: presence })
-    ;
+  function markUserAsPresent() {
+    var $el = $(this);
+    if ($el.is('.btn-info')) { return; }
+    performAjaxRequest($el, { presence: 1 });
+  }
 
-    if ($el.val() === 'yes' && $el.is('.btn-info')) { return; }
-    if ($el.val() === 'no' && $el.is('.btn-danger')) { return; }
+  function markUserAsAbsent() {
+    var $el = $(this);
+    if ($el.is('.btn-danger')) { return; }
+    performAjaxRequest($el, { presence: 0 });
+  }
 
+  function performAjaxRequest(button, data) {
     $.ajax({
-      url:      url,
+      url:      registrationUpdateURL(button),
       method:   'POST',
-      data:     data,
+      data:     jQuery.extend(forgeryProtectedFormParams('PUT'), data),
       dataType: 'json',
-      context:  $el
-    }).then(processPresenceUpdateResponse);
-  });
+      context:  button
+    }).then(preparePresenceUpdateResponseProcessor(button));
+  }
 
-  function processPresenceUpdateResponse(data) {
-    if (data.status !== 'success') { return; }
+  function registrationUpdateURL(button) {
+    var registrationId = button.parents('tr:eq(0)').data('id');
+    return $('#event-registrations-list').data('url-base').replace(':id', registrationId);
+  }
 
-    var presentCounter = $('#ev-present')
-      , increment      = data.result === 'present' ? 1 : -1;
+  function preparePresenceUpdateResponseProcessor(clickedElement) {
+    return function (data) {
+      if (data.status !== 'success') { return; }
 
-    presentCounter.text(+presentCounter.text() + increment);
+      var presentCounter = $('#ev-present');
+      var increment      = data.result === 'present' ? 1 : -1;
 
-    if (data.result === 'present') {
-      this.addClass('btn-info').removeClass('btn-default').
-        next().addClass('btn-default').removeClass('btn-danger');
-    } else {
-      this.addClass('btn-danger').removeClass('btn-default').
-        prev().addClass('btn-default').removeClass('btn-info');
-    }
+      presentCounter.text(+presentCounter.text() + increment);
+
+      if (data.result === 'present') {
+        hightlightYesButtonAsClicked(clickedElement);
+      } else {
+        hightlightNoButtonAsClicked(clickedElement);
+      }
+    };
+  }
+
+  function hightlightYesButtonAsClicked(yesButton) {
+    yesButton.addClass('btn-info').removeClass('btn-default').
+      next().addClass('btn-default').removeClass('btn-danger');
+  }
+
+  function hightlightNoButtonAsClicked(noButton) {
+    noButton.addClass('btn-danger').removeClass('btn-default').
+      prev().addClass('btn-default').removeClass('btn-info');
   }
 });
