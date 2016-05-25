@@ -71,6 +71,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'cpf_faker', '~> 1.3'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem "codeclimate-test-reporter", require: nil
