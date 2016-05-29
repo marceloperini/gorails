@@ -6,14 +6,36 @@ jQuery(function ($) {
 
   function markUserAsPresent() {
     var $el = $(this);
-    if ($el.is('.btn-info')) { return; }
+    if (!canSetPresence($el)) { return; }
+    setLoadingState($el);
     performAjaxRequest($el, { presence: 1 });
   }
 
   function markUserAsAbsent() {
     var $el = $(this);
-    if ($el.is('.btn-danger')) { return; }
+    if (!canSetAbsence($el)) { return; }
+    setLoadingState($el);
     performAjaxRequest($el, { presence: 0 });
+  }
+
+  function canSetPresence($el) {
+    return !$el.is('.btn-info') && !$el.data('busy');
+  }
+
+  function canSetAbsence($el) {
+    return !$el.is('.btn-danger') && !$el.data('busy');
+  }
+
+  function setLoadingState($el) {
+    var trEl = $el.closest('tr');
+    trEl.css({ opacity: 0.3, cursor: 'wait' });
+    trEl.find('button').css({ cursor: 'wait' }).data({ busy: true });
+  }
+
+  function unsetLoadingState($el) {
+    var trEl = $el.closest('tr');
+    trEl.css({ opacity: '', cursor: '' });
+    trEl.find('button').css({ cursor: '' }).data({ busy: false });
   }
 
   function performAjaxRequest(button, data) {
@@ -39,6 +61,7 @@ jQuery(function ($) {
       var increment      = data.result === 'present' ? 1 : -1;
 
       presentCounter.text(+presentCounter.text() + increment);
+      unsetLoadingState(clickedElement);
 
       if (data.result === 'present') {
         hightlightYesButtonAsClicked(clickedElement);
