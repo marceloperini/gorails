@@ -92,13 +92,13 @@ class User < ActiveRecord::Base
   end
 
   def unicidade_cpf
-    if self.cpf.present? and User.where(:cpf => self.cpf).where("id <> ?", self.id || 0).first
+    if self.cpf.present? && User.where(:cpf => self.cpf).where("id <> ?", self.id || 0).first
       errors.add(:cpf, "já está em uso")
     end
   end
 
   def need_updated_account?
-    self.cpf.nil? or self.first_name.nil? or self.last_name.nil?
+    self.cpf.nil? || self.first_name.nil? || self.last_name.nil?
   end
 
   def self.from_omniauth(access_token)
@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
 
   #Returns a full name of user, a combination of first name and last name
   def full_name
-    if (first_name and last_name) and (!first_name.blank? and !last_name.blank?)
+    if (first_name && last_name) && (!first_name.blank? && !last_name.blank?)
       " #{first_name} #{last_name}"
     else
       " #{nickname}"
@@ -134,7 +134,7 @@ class User < ActiveRecord::Base
 
   #Returns a first name of user, if it is blank return first part of email
   def event_name
-    if first_name and !first_name.blank?
+    if first_name && !first_name.blank?
       " #{first_name}"
     else
       " #{nickname}"
@@ -142,22 +142,22 @@ class User < ActiveRecord::Base
   end
 
   def data_completed
-    return true if self.rg.present? and
-    self.consignor_organ.present? and
-    self.company.present? and
-    self.phone.present? and
-    self.celphone.present? and
-    self.schooling.present? and
-    self.birth_date.present? and
-    self.gender.present? and
-    self.marital_status.present? and
-    self.place_of_birth.present? and
-    self.mother.present? and
-    self.address.present? and
-    self.neighborhood.present? and
-    self.uf.present? and
-    self.zip_code.present? and
-    self.special_needs.present? and
-    self.complement.present?
+    return true if self.rg.present? &&
+      self.consignor_organ.present? &&
+      self.company.present? &&
+      self.phone.present? &&
+      self.celphone.present? &&
+      self.schooling.present? &&
+      self.birth_date.present? &&
+      self.gender.present? &&
+      self.marital_status.present? &&
+      self.place_of_birth.present? &&
+      self.mother.present? &&
+      self.address.present? &&
+      self.neighborhood.present? &&
+      self.uf.present? &&
+      self.zip_code.present? &&
+      self.special_needs.present? &&
+      self.complement.present?
   end
 end
