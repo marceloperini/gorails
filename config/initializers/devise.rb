@@ -3,7 +3,7 @@
 Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"],{}
-  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{}
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{:secure_image_url => true}
   config.omniauth :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"],{}
   config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{:scope => 'r_basicprofile r_emailaddress'}
   config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"],{}
