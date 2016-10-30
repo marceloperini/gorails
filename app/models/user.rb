@@ -8,43 +8,46 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
-
+  devise :database_authenticatable,
+    :registerable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable,
+    :omniauthable
 
   HUMANIZED_ATTRIBUTES = {
-      :id => "Usuario",
-      :email => "E-mail",
-      :password => "Senha",
-      :password_confirmation => "Confirmação de Senha",
-      :remember_me => "Lembrar-me",
-      :current_password => 'Senha Atual',
-      :first_name => 'Primeiro Nome',
-      :last_name => 'Ultimo Nome',
-      :cpf => "CPF",
-      :nickname => "Nickname",
-      :bio => "Biografia",
-      :company => "Empresa/Instituição de Ensino",
-      :gender => "Sexo",
-      :job_title => "Cargo/Função",
-      :phone => "Telefône(Fixo)",
-      :celphone => "Telefône(Celular)",
-      :schooling => "Escolaridade",
-      :birth_date => "Data de nascimento",
-      :marital_status => "Estado civil",
-      :father => "Filiação(Pai)",
-      :mother => "Filiação(Mãe)",
-      :consignor_organ => "Órgão Expedidor",
-      :place_of_birth => "Naturalidade",
-      :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
-      :occupation => "Situação Ocupacional",
-      :rg => "Identidade",
-      :address => "Endereço",
-      :uf => "UF",
-      :neighborhood => "Bairro",
-      :zip_code => "CEP",
-      :complement => "Complemento"
+    :id => "Usuario",
+    :email => "E-mail",
+    :password => "Senha",
+    :password_confirmation => "Confirmação de Senha",
+    :remember_me => "Lembrar-me",
+    :current_password => 'Senha Atual',
+    :first_name => 'Primeiro Nome',
+    :last_name => 'Ultimo Nome',
+    :cpf => "CPF",
+    :nickname => "Nickname",
+    :bio => "Biografia",
+    :company => "Empresa/Instituição de Ensino",
+    :gender => "Sexo",
+    :job_title => "Cargo/Função",
+    :phone => "Telefône(Fixo)",
+    :celphone => "Telefône(Celular)",
+    :schooling => "Escolaridade",
+    :birth_date => "Data de nascimento",
+    :marital_status => "Estado civil",
+    :father => "Filiação(Pai)",
+    :mother => "Filiação(Mãe)",
+    :consignor_organ => "Órgão Expedidor",
+    :place_of_birth => "Naturalidade",
+    :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
+    :occupation => "Situação Ocupacional",
+    :rg => "Identidade",
+    :address => "Endereço",
+    :uf => "UF",
+    :neighborhood => "Bairro",
+    :zip_code => "CEP",
+    :complement => "Complemento"
   }
 
   #def admin?
@@ -57,9 +60,7 @@ class User < ActiveRecord::Base
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
-
   validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :if => lambda { self.need_certificate.present? }
-
 
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
@@ -101,9 +102,11 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(access_token)
+    validates :email, :presence => false, :email => false
+
     provider = access_token.provider
     data = access_token.info
-    user = User.where(:email => data["email"]).first
+    user = User.find_by(uid: access_token.uid)
 
     unless user
       user = User.new
@@ -125,7 +128,7 @@ class User < ActiveRecord::Base
     if (first_name and last_name) and (!first_name.blank? and !last_name.blank?)
       " #{first_name} #{last_name}"
     else
-      " #{email.split('@')[0]}"
+      " #{nickname}"
     end
   end
 
@@ -134,30 +137,27 @@ class User < ActiveRecord::Base
     if first_name and !first_name.blank?
       " #{first_name}"
     else
-      " #{email.split('@')[0]}"
+      " #{nickname}"
     end
   end
 
   def data_completed
     return true if self.rg.present? and
-        self.consignor_organ.present? and
-        self.company.present? and
-        self.phone.present? and
-        self.celphone.present? and
-        self.schooling.present? and
-        self.birth_date.present? and
-        self.gender.present? and
-        self.marital_status.present? and
-        self.place_of_birth.present? and
-        self.mother.present? and
-        self.address.present? and
-        self.neighborhood.present? and
-        self.uf.present? and
-        self.zip_code.present? and
-        self.special_needs.present? and
-        self.complement.present?
+    self.consignor_organ.present? and
+    self.company.present? and
+    self.phone.present? and
+    self.celphone.present? and
+    self.schooling.present? and
+    self.birth_date.present? and
+    self.gender.present? and
+    self.marital_status.present? and
+    self.place_of_birth.present? and
+    self.mother.present? and
+    self.address.present? and
+    self.neighborhood.present? and
+    self.uf.present? and
+    self.zip_code.present? and
+    self.special_needs.present? and
+    self.complement.present?
   end
-
-
-
 end

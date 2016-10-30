@@ -48,6 +48,7 @@ gem 'configatron'
 gem 'redcarpet'
 gem 'coderay'
 gem "github_api"
+gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
 
 group :doc do
   gem 'sdoc', :require => false
@@ -68,6 +69,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'dotenv', '~> 2.1', '>= 2.1.1'
 end
 
 group :test do
