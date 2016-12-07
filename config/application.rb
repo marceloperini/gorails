@@ -28,7 +28,7 @@ module Gorails
 
     config.generators do |g|
       g.template_engine :go
-      g.fallbacks[:go] = :erb 
+      g.fallbacks[:go] = :erb
       g.assets = false
       g.helper = false
       g.test_framework :rspec,
