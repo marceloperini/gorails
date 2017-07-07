@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe EventRegistrationsController, type: :controller do
-
   login_user
 
   let(:event) { create(:event) }

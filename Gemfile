@@ -21,7 +21,7 @@ gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'tzinfo-data','>= 1.2016.3'
-gem 'devise','>=4.1.0'
+gem 'devise'
 gem 'cancancan'
 gem 'rolify','>= 5.1.0'
 gem 'coveralls', require: false
@@ -76,6 +76,7 @@ group :test do
   gem 'cpf_faker', '~> 1.3'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
