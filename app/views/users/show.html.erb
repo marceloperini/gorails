@@ -2,6 +2,7 @@
   <div class="content content-boxed">
 
     <%= render 'user_cover' %>
+
     <div class="row">
       <div class="col-sm-5 col-sm-push-7 col-lg-4 col-lg-push-8">
         <div class="block">
@@ -12,6 +13,7 @@
             <% end %>
           </div>
         </div>
+
         <div class="block">
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Biografia</h3>
@@ -22,11 +24,13 @@
             <% end %>
           </div>
         </div>
+
         <div class="block">
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Alertas</h3>
           </div>
         </div>
+
         <div class="block">
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Brindes Ganhos</h3>
@@ -47,13 +51,22 @@
             <% else %>
                 <p>
                   Você ainda não ganhou nenhum brinde em eventos
-
                 </p>
             <% end %>
           </div>
         </div>
 
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Último acesso</h3>
+
+            <p><%= @user.last_signin_date %></p>
+            <p><%= @user.last_signin_ip %></p>
+          </div>
+        </div>
+
       </div>
+
       <% if get_github_user(@user)!= nil %>
           <div class="col-sm-7 col-sm-pull-5 col-lg-8 col-lg-pull-4">
             <div class="block block-opt-refresh-icon6">
