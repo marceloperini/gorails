@@ -6,7 +6,7 @@ GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores d
 
 ## Configuração Inicial
 
-Esse projeto está sendo desenvolvido usando Ruby 2.0.0. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+Esse projeto está sendo desenvolvido usando Ruby 2.4.2. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
 especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
