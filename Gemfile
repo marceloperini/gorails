@@ -29,10 +29,10 @@ gem 'coveralls', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj'
-gem 'omniauth', '~> 1.3', '>= 1.3.1'
-gem 'omniauth-google-oauth2', '~> 0.4.1'
-gem 'omniauth-facebook', '~> 3.0'
-gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'omniauth-linkedin'
 gem 'figaro'
 gem 'acts_as_votable'
@@ -66,7 +66,6 @@ group :development, :test do
   gem 'rails-erd'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 platforms :ruby do
   gem 'unicorn', '~> 5.1.0'
