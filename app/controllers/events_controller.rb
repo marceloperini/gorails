@@ -1,7 +1,7 @@
 # app/controllers/events_controller.rb
 class EventsController < ApplicationController
   before_action :set_event, only: %i(show edit update destroy register)
-  before_filter :authenticate_user!, except: %i(index show)
+  before_action :authenticate_user!, except: %i(index show)
 
   load_and_authorize_resource except: %i(index show)
 
@@ -14,7 +14,6 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    commontator_thread_show(@event)
   end
 
   # GET /events/new

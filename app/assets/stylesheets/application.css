@@ -17,9 +17,8 @@
  *= require summernote
  *= require custom
  *= require magnific-popup.min
- *= require commontator/application
-  *= require sweet-alert
-   *= require bootstrap-datepicker3
+ *= require sweet-alert
+ *= require bootstrap-datepicker3
  *= require_self
 
  */

@@ -25,7 +25,6 @@
 //= require summernote
 //= require maskedinput
 //= require plugins/magnific-popup/magnific-popup.min
-//= require commontator/application
 //= require sweetalert
 //= require sweet-alert-confirm
 //= require bootstrap-datepicker
