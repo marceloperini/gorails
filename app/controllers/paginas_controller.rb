@@ -1,7 +1,7 @@
 # app/controllers/paginas_controller.rb
 class PaginasController < ApplicationController
 
-  before_filter :validate_page!, only: %i(show)
+  before_action :validate_page!, only: %i(show)
 
   # It renders only whitelisted pages
   def show

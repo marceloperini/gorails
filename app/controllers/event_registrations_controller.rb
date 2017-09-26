@@ -1,8 +1,8 @@
 class EventRegistrationsController < ApplicationController
 
-  before_filter :authenticate_user!
-  before_filter :get_event
-  before_filter :get_registration, except: %i(index)
+  before_action :authenticate_user!
+  before_action :get_event
+  before_action :get_registration, except: %i(index)
   load_and_authorize_resource :event
 
   helper RegistrationsHelper
