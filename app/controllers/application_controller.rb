@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
   end
 
   include PublicActivity::StoreController
-  hide_action :current_user
 
   def gibbon
     @gibbon ||= Gibbon::Request.new

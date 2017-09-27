@@ -6,7 +6,7 @@ GORAILS tem como objetivo desenvolver um portal aonde todos os desenvolvedores d
 
 ## Configuração Inicial
 
-Esse projeto está sendo desenvolvido usando Ruby 2.0.0. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
+Esse projeto está sendo desenvolvido usando Ruby 2.4.2. Se você estiver utilizando [rvm](http://rvm.beginrescueend.com/)
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
 especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
@@ -25,8 +25,7 @@ cp config/database.example.yml config/database.yml
 Esse projeto utiliza o [bundler](http://bundler.io) para controle de dependências `ruby`.
 Projeto também monitorado pelo [gemnasium](https://gemnasium.com).
 
-## Controle da Qualidade [![Build Status](https://semaphoreci.com/api/v1/jcottobboni/gorails/branches/master/badge.svg)](https://semaphoreci.com/jcottobboni/gorails)
-
+## Controle da Qualidade 
 
 ## Garantia da Qualidade [![Code Climate](https://codeclimate.com/github/gorails/gorails/badges/gpa.svg)](https://codeclimate.com/github/gorails/gorails)
 
@@ -49,11 +48,9 @@ rake uml:generate
 [![Throughput Graph](https://graphs.waffle.io/gorails/gorails/throughput.svg)](https://waffle.io/gorails/gorails/metrics)
 
 
-## Discussões  [![Slack Status](https://desolate-anchorage-59902.herokuapp.com/badge.svg)](https://desolate-anchorage-59902.herokuapp.com/)
+## Discussões  
 
-Para discussões relacionadas ao projeto, é utilizado o [slack](https://go-railsslack.com) que disponibiliza
-um chat em tempo real.
+Para discussões relacionadas ao projeto, é utilizado o [Discurse](https://discord.gg/7tz73A) que disponibiliza
+um chat em tempo real.Instale o programa e clique no link para entrar no chat.
 
-## Triagem de tarefas
 
-Trello(https://trello.com)

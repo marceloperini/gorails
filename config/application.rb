@@ -42,7 +42,6 @@ module Gorails
     end
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
     config.action_controller.include_all_helpers = false
 
     require Rails.root.join("config/initializers/custom_public_exceptions")
@@ -50,5 +49,7 @@ module Gorails
 
     settings_data = File.read(Rails.root.join("config/settings.yml"))
     configatron.configure_from_hash(YAML.load(settings_data))
+
+    config.web_console.development_only = false
   end
 end
