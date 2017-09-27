@@ -368,7 +368,7 @@ DEPENDENCIES
   cancan
   cancancan
   carrierwave
-  codeclimate-test-reporter (~> 1.0.0)
+  codeclimate-test-reporter
   coderay
   coffee-rails (~> 4.2)
   configatron
@@ -409,7 +409,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
   simple_form
-  simplecov (~> 0.14.1)
+  simplecov (~> 0.13)
   spring
   spring-watcher-listen (~> 2.0.0)
   sweet-alert
