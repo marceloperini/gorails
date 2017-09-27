@@ -25,7 +25,7 @@ gem 'sweet-alert-confirm'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem 'coveralls', require: false
+gem 'coveralls','>= 0.8.21', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj'
@@ -68,14 +68,14 @@ end
 
 
 platforms :ruby do
-  gem 'unicorn', '~> 5.1.0'
+  gem 'unicorn', '>= 5.3.0'
 end
 
 group :test do
   gem 'cpf_faker', '~> 1.3'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov'
+  gem 'simplecov','~>0.14.1'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
