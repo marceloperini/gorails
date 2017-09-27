@@ -49,5 +49,7 @@ module Gorails
 
     settings_data = File.read(Rails.root.join("config/settings.yml"))
     configatron.configure_from_hash(YAML.load(settings_data))
+
+    config.web_console.development_only = false
   end
 end
