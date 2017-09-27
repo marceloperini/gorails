@@ -75,7 +75,7 @@ group :test do
   gem 'cpf_faker', '~> 1.3'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov','~>0.15.1'
-  gem 'codeclimate-test-reporter', '~> 1.0.8'
+  gem 'simplecov','~>0.13'
+  gem 'codeclimate-test-reporter'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
