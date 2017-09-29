@@ -54,7 +54,6 @@ group :development, :test do
 end
 
 group :development, :test do
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
