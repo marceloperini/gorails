@@ -64,6 +64,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'rails-erd'
+  gem 'rails_real_favicon'
 end
 
 
