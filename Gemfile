@@ -48,6 +48,8 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'github_api'
 gem 'omniauth-twitter'
+gem 'web-console'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
