@@ -7,6 +7,10 @@ class UserPresenter < Burgundy::Item
     h.send(:h, item.email)
   end
 
+  def cover_photo
+    item.try(:cover_photo).present? ? item.cover_photo.url : ''
+  end
+
   def user_avatar(css = true, size = nil, tooltip = false)
     html_classes = %W(img-avatar img-avatar#{size} img-avatar-thumb).uniq.join(' ')
     html_attrs   = {}
