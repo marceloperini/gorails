@@ -105,21 +105,21 @@ class User < ActiveRecord::Base
     validates :email, :presence => false, :email => false
 
     provider = access_token.provider
-    data = access_token.info
-    user = User.find_by(uid: access_token.uid)
+    data = access_token.extra.raw_info
+    user = User.find_by(email: data.email)
 
     unless user
       user = User.new
-      user.first_name ||= data["first_name"]
-      user.last_name ||= data["last_name"]
-      user.nickname ||= data["nickname"]
-      user.email = data["email"]
+      user.first_name ||= data.first_name
+      user.last_name ||= data.last_name
+      user.nickname ||= data.nickname
+      user.email = data.email
       user.password = Devise.friendly_token[0, 20]
       user.provider = provider
       user.uid = access_token.uid
       user.save
     end
-    user.avatar.download!(data["image"])
+    user.avatar.download!(data.picture)
     user
   end
 
