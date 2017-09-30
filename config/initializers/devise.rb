@@ -2,7 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  config.omniauth :google_oauth2, "262791497357-gsesbhflmjhh1lf8btiulor0358m3v9r.apps.googleusercontent.com", "zIYFgs-DxKiIfzUQ2lCSbtBn",{}
+  config.omniauth :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"],{}
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{:secure_image_url => true}
   config.omniauth :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"],{}
   config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{:scope => 'r_basicprofile r_emailaddress'}
