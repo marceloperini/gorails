@@ -8,7 +8,7 @@ RSpec.describe EventRegistrationsController, type: :controller do
   before { 2.times { create :registration, event: event } }
 
   describe '#index' do
-    let(:do_request) { get :index, event_id: event.id }
+    let(:do_request) { get :index, params: { event_id: event.id } }
 
     context "when user has admin role," do
       before { @current_user.add_role("admin") }
@@ -46,7 +46,7 @@ RSpec.describe EventRegistrationsController, type: :controller do
   describe "#update" do
     let(:registration)   { event.registrations.first }
     let(:request_params) { { event_id: event, id: registration, format: 'json' } }
-    let(:do_request)     { put :update, request_params }
+    let(:do_request)     { put :update, params: request_params }
 
     context "when given user is not marked as present in the event yet," do
       context "and logged user tries to mark the user as present in the event," do

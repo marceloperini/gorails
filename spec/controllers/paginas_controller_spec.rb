@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PaginasController, type: :controller do
   describe '#show' do
-    subject { get :show, pagina: page; response.status }
+    subject { get :show, params: { pagina: page }; response.status }
 
     context "when page is valid," do
       let(:page) { configatron.static_pages.paginas.first }
