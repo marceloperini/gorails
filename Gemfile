@@ -49,6 +49,7 @@ gem 'coderay'
 gem 'github_api'
 gem 'omniauth-twitter'
 gem 'web-console'
+gem 'figaro'
 
 
 group :development, :test do
