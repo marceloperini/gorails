@@ -1,12 +1,12 @@
 class MessageMailer < ActionMailer::Base
 
-  default from: "GoRails<inscricoes@gorails.com.br>"
-  default to:   "GoRails<inscricoes@gorails.com.br>"
+  default from: "GoRails<contato@gorails.com.br>"
+  default to:   "GoRails<contato@gorails.com.br>"
 
   def new_message(message)
     @message = message
 
-    mail subject: "Mensagem de #{message.name}"
+    mail to:'contato@gorails.com.br',subject: "Mensagem de #{message.name}"
   end
 
 end

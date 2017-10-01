@@ -1,3 +1,6 @@
-<%= @message.name %> <<%= @message.email %>> wrote:
 
-<%= @message.content %>
+Mensagem de contato
+Data de envio: <%= Time.now.strftime("%d/%m/%Y %H:%M") %>
+Visitante: <%= @message.name %>
+Email:<%= @message.email %>
+Mensagem:<%= @message.content %>
