@@ -66,6 +66,8 @@ group :development, :test do
   gem 'rails_layout'
   gem 'rails-erd'
   gem 'rails_real_favicon'
+  gem 'ffaker'
+  gem 'rails-controller-testing'
 end
 
 
