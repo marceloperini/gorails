@@ -47,7 +47,8 @@ class User < ActiveRecord::Base
     :uf => "UF",
     :neighborhood => "Bairro",
     :zip_code => "CEP",
-    :complement => "Complemento"
+    :complement => "Complemento",
+    :reset_password_token => "Token"
   }
 
   #def admin?
