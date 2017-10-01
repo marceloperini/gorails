@@ -65,5 +65,8 @@ Procurar o usuário @helioborges, e efetue a Doação.
 
 #### Doações pelo Mercado Pago 
 
-[Doar  R$ 100,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-6a1a0129-cee7-43d5-b2a9-7afa32e15abe)
-[Doar  R$ 50,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-55dc62ab-7759-4483-9c10-b05bf4e59377)
+[Doar  R$ 200,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-cb23d353-2429-419f-8ca8-d0bae86ab334) /
+[Doar  R$ 100,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-6a1a0129-cee7-43d5-b2a9-7afa32e15abe) /
+[Doar  R$ 50,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-55dc62ab-7759-4483-9c10-b05bf4e59377) /
+[Doar  R$ 20,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-4a653d99-2493-4d75-8a42-7a2224ad703b) /
+[Doar  R$ 10,00](https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-5dd6ed08-5c8b-4f47-8cd4-df0c573870f1) 
