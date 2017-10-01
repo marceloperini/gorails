@@ -57,13 +57,13 @@ um chat em tempo real.Instale o programa e clique no link para entrar no chat.
 
 Neste momento os responsáveis, por receber e prestar contas sobre as doações são @jcottobboni e @helioborges
 
-#####Doações pelo PicPay
+####Doações pelo PicPay
 
 Procurar o usuário @helioborges, e efetue a Doação.
 
 
 
-#####Doações pelo Mercado Pago
+####Doações pelo Mercado Pago
 
 <a mp-mode="dftl" href="https://www.mercadopago.com/mlb/checkout/start?pref_id=192719033-6a1a0129-cee7-43d5-b2a9-7afa32e15abe" name="MP-payButton" class='blue-ar-l-rn-none'>Doar  R$ 100,00</a>
 <script type="text/javascript">
