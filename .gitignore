@@ -26,5 +26,6 @@ config/initializers/secret_token.rb
 /config/application.yml
 newrelic.yml
 /config/database.yml
+/config/application.yml
 /config/secrets.yml
 /config/initializers/setup_mail.rb
