@@ -51,6 +51,7 @@ gem 'omniauth-twitter'
 gem 'web-console'
 gem 'figaro'
 gem 'bullet', group: 'development'
+gem 'draper'
 
 
 group :development, :test do

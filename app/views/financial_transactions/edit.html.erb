@@ -1,0 +1,17 @@
+<%= provide :page_title, I18n.t('financial_transactions.edit.header', resource: @financial_transaction.try(:id) ) %>
+<%= provide :breadcrumb do %>
+  <li><%= link_to  I18n.t('activerecord.models.financial_transaction.other'), financial_transactions_path %></li>
+  <li><%= link_to  @financial_transaction.try(:id), @financial_transaction %></li>
+  <li><%= I18n.t('financial_transactions.edit.header', resource: @financial_transaction.try(:id) ) %></li>
+<% end %>
+
+<div class="row">
+  <div class="block">
+    <div class="block-header">
+        <h3 class="block-title"><%= I18n.t('financial_transactions.new.block_header') %></h3>
+    </div>
+    <div class="block-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

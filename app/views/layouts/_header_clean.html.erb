@@ -3,13 +3,13 @@
     <li>
       <div class="btn-group">
         <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
-          <%=UserPresenter.new(current_user).user_avatar(false)%>
+          <%= current_user.decorate.user_avatar(false) %>
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li class="dropdown-header">Perfil</li>
 
-          <li><%= link_to  current_user  , :class => 'navbar-link' do %>
+          <li><%= link_to current_user, :class => 'navbar-link' do %>
                 <i class="si si-user pull-right"></i><span class="sidebar-mini-hide"> Perfil</span>
             <% end %>
           </li>
@@ -39,6 +39,10 @@
 
     <li>
       <a href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
+    </li>
+
+    <li>
+      <a href="/transparencia"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Transparência</span></a>
     </li>
 
     <li>

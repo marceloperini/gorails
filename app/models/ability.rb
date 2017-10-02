@@ -8,6 +8,7 @@ class Ability
         can :manage, :all
       else
         can :read, :Event
+        can :read, :FinancialTransaction
         can :register, :all
       end
     end
