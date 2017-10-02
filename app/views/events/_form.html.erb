@@ -2,7 +2,7 @@
 <br>
 <br>
 <br>
-<%= simple_nested_form_for @event ,class: "form-horizontal" do | f | %>
+<%= simple_nested_form_for @event, class: "form-horizontal" do |f| %>
     <% if @event.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -14,108 +14,125 @@
           </ul>
         </div>
     <% end %>
-    <div class="form-group">
-      <%= f.label :status ,"Inscrições Abertas?"%><br>
-      <%= f.check_box :status %>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.label :status, "Inscrições Abertas?" %><br>
+        <%= f.check_box :status %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+    <div class="row">
+      <div class="col-lg-3">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="col-lg-3">
+
+        <%= f.label :start_at %><br>
+        <%= f.datetime_select :start_at %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.label :end_at %><br>
+        <%= f.datetime_select :end_at %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.label :participants_limit %><br>
+        <%= f.number_field :participants_limit, min: 1 %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.text_area :description ,class:'summernote_description' ,:id => 'description'%>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.text_area :description, class: 'summernote_description', :id => 'description' %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :start_at %><br>
-      <%= f.datetime_select :start_at %>
-    </div>
-    <div class="form-group">
-      <%= f.label :end_at %><br>
-      <%= f.datetime_select :end_at %>
-    </div>
-    <div class="form-group">
-      <%= f.label :local %><br>
-      <%= f.text_area :local,class:'summernote_local', :id => 'local'%>
-    </div>
-    <div class="form-group">
-      <%= f.label :participants_limit %><br>
-      <%= f.number_field :participants_limit, min: 1 %>
-      <br>
-      <br>
-
-
-      <h3>Albuns</h3>
-      <%= f.fields_for :albums do |album| %>
-          <p>
-            <%= album.input :title, placeholder: "Digite o Titulo do Album" %>
-            <%= album.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
-          </p>
-
-          <%= album.fields_for :images do |image| %>
-              <p>
-                <%= image.input :title, placeholder: "Digite o Titulo para Foto" %>
-                <%= image.label :asset, "Imagem" %>
-                <%= image.file_field :asset, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
-<br>
-                <%= image.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
-
-              </p>
-          <% end %>
-          <%= album.link_to_add "Adicionar Imagem", :images, class: 'btn btn-success' %>
-
-      <% end %>
-      <%= f.link_to_add "Adicionar Album de Fotos", :albums, class: 'btn btn-success' %>
-
-
-
-      <h3>Patrocinador</h3>
-      <%= f.fields_for :partners do |partner| %>
-          <p>
-            <%= partner.input :name, placeholder: "Nome do Patrocinador" %>
-            <%= partner.input :link %>
-            <%= partner.input :order, placehorderolder: "Ordem na tela do Evento" %>
-            Possui site?
-            <%= partner.check_box :site %>
-            <br>
-            <%= partner.label :logo, "Logo" %>
-            <%= partner.file_field :logo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
-            <br>
-            <%= partner.input :category, collection: Partner.categories.keys, prompt: "Selecione uma categoria" %>
-            <%= partner.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
-          </p>
-      <% end %>
-      <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success'%>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.label :local %><br>
+        <%= f.text_area :local, class: 'summernote_local', :id => 'local' %>
+      </div>
     </div>
 
 
-    <h3>Brindes</h3>
-    <%= f.fields_for :gifts do |gift| %>
-        <p>
-          <%= gift.input :name, placeholder: "Nome do brinde" %>
-          <%= gift.label :photo, "Foto" %>
-          <%= gift.file_field :photo, accept: "image/jpeg, image/jpg, image/gif, image/png"  %>
-          <br>
-          <%= gift.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
-        </p>
-        <%= gift.fields_for :winners do |winner| %>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Albuns</h3>
+        <%= f.fields_for :albums do |album| %>
             <p>
-              <%=winner.association :user, label_method: :full_name, value_method: :id, include_blank: false%>
+              <%= album.input :title, placeholder: "Digite o Titulo do Album" %>
+              <%= album.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+            </p>
+
+            <%= album.fields_for :images do |image| %>
+                <p>
+                  <%= image.input :title, placeholder: "Digite o Titulo para Foto" %>
+                  <%= image.label :asset, "Imagem" %>
+                  <%= image.file_field :asset, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+                  <br>
+                  <%= image.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+
+                </p>
+            <% end %>
+            <%= album.link_to_add "Adicionar Imagem", :images, class: 'btn btn-success' %>
+
+        <% end %>
+        <%= f.link_to_add "Adicionar Album de Fotos", :albums, class: 'btn btn-success' %>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Patrocinador</h3>
+        <%= f.fields_for :partners do |partner| %>
+            <p>
+              <%= partner.input :name, placeholder: "Nome do Patrocinador" %>
+              <%= partner.input :link %>
+              <%= partner.input :order, placehorderolder: "Ordem na tela do Evento" %>
+              Possui site?
+              <%= partner.check_box :site %>
               <br>
-              <%= winner.link_to_remove "Remover", class: 'btn btn-danger', data: { disable_with: "Fechando..." } %>
+              <%= partner.label :logo, "Logo" %>
+              <%= partner.file_field :logo, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+              <br>
+              <%= partner.input :category, collection: Partner.categories.keys, prompt: "Selecione uma categoria" %>
+              <%= partner.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
             </p>
         <% end %>
-        <%= gift.link_to_add "Adicionar um novo ganhador", :winners, class: 'btn btn-success' %>
-    <% end %>
-    <br>
-    <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success' %>
+        <%= f.link_to_add "Adicionar um novo patrocinador", :partners, class: 'btn btn-success' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Brindes</h3>
+        <%= f.fields_for :gifts do |gift| %>
+            <p>
+              <%= gift.input :name, placeholder: "Nome do brinde" %>
+              <%= gift.label :photo, "Foto" %>
+              <%= gift.file_field :photo, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+              <br>
+              <%= gift.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+            </p>
+            <%= gift.fields_for :winners do |winner| %>
+                <p>
+                  <%= winner.association :user, label_method: :full_name, value_method: :id, include_blank: false %>
+                  <br>
+                  <%= winner.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+                </p>
+            <% end %>
+            <%= gift.link_to_add "Adicionar um novo ganhador", :winners, class: 'btn btn-success' %>
+        <% end %>
+        <br>
+        <%= f.link_to_add "Adicionar um novo Brinde", :gifts, class: 'btn btn-success' %>
+      </div>
     </div>
 
     <br>
     <br>
     <br>
-
-    <%= f.submit "Cadastrar",class: "btn btn-primary", data: { disable_with: "Cadastrando..." } %>
-
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.submit "Cadastrar", class: "btn btn-xs btn-primary", data: {disable_with: "Cadastrando..."} %>
+      </div>
+    </div>
 <% end %>
 <script>
     $(document).ready(function () {

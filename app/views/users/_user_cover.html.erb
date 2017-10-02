@@ -1,16 +1,16 @@
 <div class="block">
-  <div class="bg-image" style="background-image: url('<%=asset_path @user.cover_photo.url%>')">
+  <div class="bg-image" style="background-image: url('<%=asset_path  @user.cover_photo%>')">
     <div class="block-content bg-primary-dark-op text-center overflow-hidden">
       <div class="push-30-t push animated fadeInDown">
 
-        <%=UserPresenter.new(@user).user_avatar(true,"96")%>
+        <%= @user.decorate.user_avatar(true, "96") %>
 
       </div>
       <div class="push-30 animated fadeInUp">
-        <h2 class="h4 font-w600 text-white push-5"><%=@user.full_name%></h2>
-        <%if @user.job_title%>
-            <h3 class="h5 text-gray"><%=@user.job_title%></h3>
-        <%end%>
+        <h2 class="h4 font-w600 text-white push-5"><%= @user.full_name %></h2>
+        <% if @user.job_title %>
+            <h3 class="h5 text-gray"><%= @user.job_title %></h3>
+        <% end %>
       </div>
     </div>
 

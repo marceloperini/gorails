@@ -77,7 +77,7 @@ module ApplicationHelper
   end
 
   def link_to_image(image_path, target_link, options={})
-    link_to(image_tag(image_path, :border => "0", class: "image-size"), target_link, options)
+    link_to(image_tag(image_path, border: "0", class: "image-size"), target_link, options)
   end
 
   def date_picker(form, field, label=nil, place_holder=nil, required=false, style=nil, disabled_plugin=false, valor_conteudo=nil, onchange=nil)
@@ -85,10 +85,9 @@ module ApplicationHelper
     valor = valor_conteudo if valor_conteudo
     valor = form.object.attributes[field.to_s].to_date.to_s_br if form.object.attributes[field.to_s] and valor_conteudo == nil
     # valor = form.object.attributes[field.to_s].to_date.to_s_br if form.object.attributes[field.to_s]
-    form.text_field field, :label => label, :value => valor, :placeholder => place_holder, :data_required => required, :class => "form-control input-lg data", "data-provide" => 'datepicker', "data-mask" => '99/99/9999', :date_picker => "input-small date date-picker", :html_icon => "<span class=\"input-group-btn\" style=\"vertical-align: top;\"><button class=\"btn btn-info\" type=\"button\"><i class=\"fa fa-calendar\"></i></button></span>", :style => style, :disable_plugin => disabled_plugin, :onchange => onchange
+    form.text_field field, label: label, value: valor, placeholder: place_holder, data_required: required, class: "form-control input-lg data", "data-provide" => 'datepicker', "data-mask" => '99/99/9999', date_picker: "input-small date date-picker", html_icon: "<span class=\"input-group-btn\" style=\"vertical-align: top;\"><button class=\"btn btn-info\" type=\"button\"><i class=\"fa fa-calendar\"></i></button></span>", style: style, disable_plugin: disabled_plugin, onchange: onchange
 
   end
-
 
 
   class CodeRayify < Redcarpet::Render::HTML
@@ -98,13 +97,13 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    coderayified = CodeRayify.new(:filter_html => true,
-                                  :hard_wrap => true)
+    coderayified = CodeRayify.new(filter_html: true,
+                                  hard_wrap: true)
     options = {
-        :fenced_code_blocks => true,
-        :no_intra_emphasis => true,
-        :autolink => true,
-        :lax_html_blocks => true,
+        fenced_code_blocks: true,
+        no_intra_emphasis: true,
+        autolink: true,
+        lax_html_blocks: true,
     }
     markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
     markdown_to_html.render(text).html_safe
@@ -116,9 +115,57 @@ module ApplicationHelper
 
   def get_github_user(user)
     social_network = user.social_networks.where("link like '%github%'").first
-    social_network != nil ?  social_network.link.split('/')[-1] : nil
+    social_network != nil ? social_network.link.split('/')[-1] : nil
   end
 
+  # params:
+  #   ext - file extension
+  # ==== Examples
+  # lines_of_code(rb)
+  # lines_of_code(html)
+  # Returns a number of lines of codes based on parameter
+  def lines_of_code(ext)
+
+
+    o = 0 # Number of files
+    n = 0 # Number of lines of code
+    m = 0 # Number of lines of comments
+
+    files = Dir.glob('./**/*.' + ext)
+
+    files.each do |f|
+      next if f.index('vendor')
+      next if FileTest.directory?(f)
+      o += 1
+      i = 0
+      File.new(f).each_line do |line|
+        if line.strip[0] == '#'
+          m += 1
+          next
+        end
+        i += 1
+      end
+      n += i
+    end
+
+    puts "#{o.to_s} files."
+    puts "#{n.to_s} lines of code."
+    puts "#{(n.to_f/o.to_f).round(2)} LOC/file."
+    puts "#{m.to_s} lines of comments."
+    return n
+  end
+  # Returns number of registrated users
+  def users_ammount
+    return User.all.size
+  end
+
+  def converte_date(date)
+    date.to_date.to_s_br if date
+  end
+
+  def yes_no(bool)
+    bool ? "Sim" : 'Não'
+  end
 
 end
 

@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      financial_transaction:
+        one: "FinancialTransaction"
+        other: "financial_transactions"
+        explain: "FinancialTransaction"
+
+    attributes:
+      financial_transaction:
+        object: "object"
+        origin: "origin"
+        transaction_type: "transaction_type"
+        value: "value"
+        user_id: "user_id"
+        payment_date: "payment_date"
+        payment_method: "payment_method"
+        consolidated: "consolidated"
+        consolidation_date: "consolidation_date"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

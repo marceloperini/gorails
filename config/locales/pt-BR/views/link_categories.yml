@@ -2,33 +2,46 @@ pt-BR:
   link_categories:
     default: &default
       h1: LinkCategory
-      header: "Lista de link_categories"
+      header: 'Lista de Categoria de Links'
       block_header: link_categories
     index:
       <<: *default
-      header: "Lista de Categorias de Link"
+      header: 'Lista de Categorias de Link'
       block_header: Categorias de Link
     show:
       <<: *default
-      header: "Detalhes: %{resource}"
+      header: 'Detalhes: %{resource}'
     edit:
       <<: *default
-      header: "Editar: %{resource}"
+      header: 'Editar: %{resource}'
     new:
       <<: *default
-      header: "Cadastrar Categoria de Link"
+      header: 'Cadastrar Categoria de Link'
     create:
-      alert: "LinkCategory não pode ser cadastrado."
-      notice: "LinkCategory cadastrado com sucesso."
+      alert: 'LinkCategory não pode ser cadastrado.'
+      notice: 'LinkCategory cadastrado com sucesso.'
     update:
-      alert: "LinkCategory não pode ser atualizado."
-      notice: "LinkCategory atualizado com sucesso."
+      alert: 'LinkCategory não pode ser atualizado.'
+      notice: 'LinkCategory atualizado com sucesso.'
     destroy:
-      alert: "LinkCategory não pode ser excluído."
-      notice: "LinkCategory excluído com sucesso."
-      
+      alert: 'LinkCategory não pode ser excluído.'
+      notice: 'LinkCategory excluído com sucesso.'
+    new:
+      new: 'Nova Categoria'
+      title: 'Adicionar Categoria de Links'
+      header: 'Nova Categoria'
+    index:
+      title: 'Lista de Categorias de Links'
+    edit:
+      title: 'Editar Link Categoria'
+    show:
+      title: 'Exibir link Categoria'
+      remover: 'Tem certeza que vai excluir esta Categoria de Links?'
+    form:
+      submit: 'Salvar Link Categoria'
+
   helpers:
     submit:
       link_category:
-        create: "Cadastrar %{model}"
-        update: "Atualizar %{model}"      
+        create: 'Cadastrar %{model}'
+        update: 'Atualizar %{model}'

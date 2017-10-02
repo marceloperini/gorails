@@ -60,8 +60,8 @@
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Último acesso</h3>
 
-            <p><%= @user.last_signin_date %></p>
-            <p><%= @user.last_signin_ip %></p>
+            <p><%= @user.decorate.last_signin_date %></p>
+            <p><%= @user.decorate.last_signin_ip %></p>
           </div>
         </div>
 

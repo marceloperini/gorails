@@ -17,37 +17,38 @@ class User < ActiveRecord::Base
     :omniauthable
 
   HUMANIZED_ATTRIBUTES = {
-    :id => "Usuario",
-    :email => "E-mail",
-    :password => "Senha",
-    :password_confirmation => "Confirmação de Senha",
-    :remember_me => "Lembrar-me",
-    :current_password => 'Senha Atual',
-    :first_name => 'Primeiro Nome',
-    :last_name => 'Ultimo Nome',
-    :cpf => "CPF",
-    :nickname => "Nickname",
-    :bio => "Biografia",
-    :company => "Empresa/Instituição de Ensino",
-    :gender => "Sexo",
-    :job_title => "Cargo/Função",
-    :phone => "Telefône(Fixo)",
-    :celphone => "Telefône(Celular)",
-    :schooling => "Escolaridade",
-    :birth_date => "Data de nascimento",
-    :marital_status => "Estado civil",
-    :father => "Filiação(Pai)",
-    :mother => "Filiação(Mãe)",
-    :consignor_organ => "Órgão Expedidor",
-    :place_of_birth => "Naturalidade",
-    :special_needs => "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
-    :occupation => "Situação Ocupacional",
-    :rg => "Identidade",
-    :address => "Endereço",
-    :uf => "UF",
-    :neighborhood => "Bairro",
-    :zip_code => "CEP",
-    :complement => "Complemento"
+    id: "Usuario",
+    email: "E-mail",
+    password: "Senha",
+    password_confirmation: "Confirmação de Senha",
+    remember_me: "Lembrar-me",
+    current_password: 'Senha Atual',
+    first_name: 'Primeiro Nome',
+    last_name: 'Ultimo Nome',
+    cpf: "CPF",
+    nickname: "Nickname",
+    bio: "Biografia",
+    company: "Empresa/Instituição de Ensino",
+    gender: "Sexo",
+    job_title: "Cargo/Função",
+    phone: "Telefône(Fixo)",
+    celphone: "Telefône(Celular)",
+    schooling: "Escolaridade",
+    birth_date: "Data de nascimento",
+    marital_status: "Estado civil",
+    father: "Filiação(Pai)",
+    mother: "Filiação(Mãe)",
+    consignor_organ: "Órgão Expedidor",
+    place_of_birth: "Naturalidade",
+    special_needs: "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)",
+    occupation: "Situação Ocupacional",
+    rg: "Identidade",
+    address: "Endereço",
+    uf: "UF",
+    neighborhood: "Bairro",
+    zip_code: "CEP",
+    complement: "Complemento",
+    reset_password_token: "Token"
   }
 
   #def admin?
@@ -60,7 +61,7 @@ class User < ActiveRecord::Base
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
-  validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, :if => lambda { self.need_certificate.present? }
+  validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, if: lambda { self.need_certificate.present? }
 
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
@@ -92,7 +93,7 @@ class User < ActiveRecord::Base
   end
 
   def unicidade_cpf
-    if self.cpf.present? && User.where(:cpf => self.cpf).where("id <> ?", self.id || 0).first
+    if self.cpf.present? && User.where(cpf: self.cpf).where("id <> ?", self.id || 0).first
       errors.add(:cpf, "já está em uso")
     end
   end
@@ -102,24 +103,24 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(access_token)
-    validates :email, :presence => false, :email => false
+    validates :email, presence: false, email: false
 
     provider = access_token.provider
-    data = access_token.info
-    user = User.find_by(uid: access_token.uid)
+    data = access_token.extra.raw_info
+    user = User.find_by(email: data.email)
 
     unless user
       user = User.new
-      user.first_name ||= data["first_name"]
-      user.last_name ||= data["last_name"]
-      user.nickname ||= data["nickname"]
-      user.email = data["email"]
+      user.first_name ||= data.first_name
+      user.last_name ||= data.last_name
+      user.nickname ||= data.nickname
+      user.email = data.email
       user.password = Devise.friendly_token[0, 20]
       user.provider = provider
       user.uid = access_token.uid
       user.save
     end
-    user.avatar.download!(data["image"])
+    user.avatar.download!(data.picture)
     user
   end
 
@@ -159,5 +160,9 @@ class User < ActiveRecord::Base
       self.zip_code.present? &&
       self.special_needs.present? &&
       self.complement.present?
+  end
+
+  def admin?
+    roles.first.name.to_sym == :admin if roles.first.present?
   end
 end

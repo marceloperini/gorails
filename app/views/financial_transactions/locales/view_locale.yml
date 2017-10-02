@@ -1,0 +1,34 @@
+pt-BR:
+  financial_transactions:
+    default: &default
+      h1: FinancialTransaction
+      header: "Lista de financial_transactions"
+      block_header: financial_transactions
+    index:
+      <<: *default
+      header: "Lista de financial_transactions"
+      block_header: financial_transactions
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar FinancialTransaction"
+    create:
+      alert: "FinancialTransaction não pode ser cadastrado."
+      notice: "FinancialTransaction cadastrado com sucesso."
+    update:
+      alert: "FinancialTransaction não pode ser atualizado."
+      notice: "FinancialTransaction atualizado com sucesso."
+    destroy:
+      alert: "FinancialTransaction não pode ser excluído."
+      notice: "FinancialTransaction excluído com sucesso."
+      
+  helpers:
+    submit:
+      financial_transaction:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

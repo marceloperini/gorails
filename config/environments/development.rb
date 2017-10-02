@@ -53,16 +53,25 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-  config.action_mailer.default_url_options = { :host => 'gorails.com.br' }
+  config.action_mailer.default_url_options = { host: 'gorails.com.br' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => "587",
-      :domain => "gorails.com.br",
-      :user_name => "gorailsbr@gmail.com",
-      :password => "gorails@123",
-      :authentication => "plain",
-      :enable_starttls_auto => true
+      address: ENV["EMAIL_ADRESS"],
+      port: ENV["EMAIL_PORT"],
+      domain: ENV["EMAIL_DOMAIN"],
+      user_name: ENV["EMAIL_USER_NAME"],
+      password: ENV["EMAIL_PASSWORD"],
+      authentication: "plain",
+      enable_starttls_auto: true
   }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+
+  end
+
 end

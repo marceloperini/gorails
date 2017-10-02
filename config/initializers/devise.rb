@@ -3,9 +3,9 @@
 Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"],{}
-  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{:secure_image_url => true}
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{secure_image_url: true}
   config.omniauth :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"],{}
-  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{:scope => 'r_basicprofile r_emailaddress'}
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{scope: 'r_basicprofile r_emailaddress'}
   config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"],{}
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -28,6 +28,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require "omniauth-google-oauth2"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

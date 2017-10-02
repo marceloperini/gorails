@@ -1,32 +1,41 @@
 <% if user_signed_in? %>
 
-    <% if can? :magage, link_categories_path %>
+
+    <% if current_user.admin? %>
         <li class="nav-main-heading"><span class="sidebar-mini-hide">Admin</span></li>
-        <li>
-          <a href="/link_categories"><i class="si si-list"></i><span class="sidebar-mini-hide"> Categorias de Links</span></a>
-        </li>
-    <% end %>
-
-    <% if can? :magage, link_categories_path %>
-        <li>
-          <a href="/links"><i class="si si-link"></i><span class="sidebar-mini-hide"> Links</span></a>
-        </li>
-
-        <%= link_to activities_index_path do %>
-            <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
+        <% if can? :magage, financial_transactions_path %>
+            <li>
+              <a href="/transparencia"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Transparência</span></a>
+            </li>
         <% end %>
+        <% if can? :magage, link_categories_path %>
+
+            <li>
+              <a href="/link_categories"><i class="si si-list"></i><span class="sidebar-mini-hide"> Categorias de Links</span></a>
+            </li>
+        <% end %>
+
+        <% if can? :magage, link_categories_path %>
+            <li>
+              <a href="/links"><i class="si si-link"></i><span class="sidebar-mini-hide"> Links</span></a>
+            </li>
+
+            <%= link_to activities_index_path do %>
+                <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
+            <% end %>
+        <% end %>
+
+    <% else %>
+
+        <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+              <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
+          <% end %>
+        </li>
+
+        <li><%= link_to new_user_session_path, :class => 'navbar-link' do %>
+              <i class="fa fa-sign-in"></i><span class="sidebar-mini-hide"> Logar</span>
+          <% end %>
+        </li>
+
     <% end %>
-
-<% else %>
-
-    <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-          <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
-      <% end %>
-    </li>
-
-    <li><%= link_to new_user_session_path, :class => 'navbar-link' do %>
-          <i class="fa fa-sign-in"></i><span class="sidebar-mini-hide"> Logar</span>
-      <% end %>
-    </li>
-
 <% end %>

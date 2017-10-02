@@ -5,13 +5,28 @@
   <li><%= I18n.t('link_categories.edit.header', resource: @link_category.try(:id) ) %></li>
 <% end %>
 
-<div class="row">
-  <div class="block">
-    <div class="block-header">
-        <h3 class="block-title"><%= I18n.t('link_categories.new.block_header') %></h3>
-    </div>
-    <div class="block-content">
-      <%= render 'form' %>
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('link_categories.edit.title') %>
+        </h1>
+      </div>
     </div>
   </div>
-</div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span >
+          <%= link_to I18n.t('link_categories.new.new'), new_link_category_path, class: 'btn btn-sm btn-square btn-success' %>
+        </span>
+      </div>
+      <div class="block-content">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</main>

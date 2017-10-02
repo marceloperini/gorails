@@ -48,34 +48,41 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'github_api'
 gem 'omniauth-twitter'
+gem 'web-console'
+gem 'figaro'
+gem 'bullet', group: 'development'
+gem 'draper'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development, :test do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "factory_girl_rails", "~> 4.0"
-  gem 'dotenv', '~> 2.1', '>= 2.1.1'
+  gem 'spring-watcher-listen'
+  gem "factory_girl_rails"
+  gem 'dotenv'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'rails-erd'
+  gem 'rails_real_favicon'
+  gem 'ffaker'
+  gem 'rails-controller-testing'
 end
 
 
 platforms :ruby do
-  gem 'unicorn', '>= 5.3.0'
+  gem 'unicorn'
 end
 
 group :test do
-  gem 'cpf_faker', '~> 1.3'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov','~>0.13'
+  gem 'cpf_faker'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
+  gem 'database_cleaner'
 end

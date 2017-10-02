@@ -1,0 +1,21 @@
+<%= simple_form_for(@financial_transaction) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :user_id,value:  current_user.id %>
+
+    <div class="form-inputs">
+      <%= f.input :object %>
+      <%= f.input :origin %>
+      <%= f.select :transaction_type, [['Renda', 'I'], ['Despesa', 'O']] %>
+      <%= f.input :value %>
+
+      <%= f.input :payment_date %>
+      <%= f.input :payment_method %>
+      <%= f.input :consolidated %>
+      <%= f.input :consolidation_date %>
+    </div>
+
+    <div class="form-group form-actions">
+      <%= link_to I18n.t('misc.action.back'), financial_transactions_path, class: 'btn btn-sm btn-square btn-default' %>
+      <%= f.button :submit, class: 'btn btn-sm btn-square btn-primary' %>
+    </div>
+<% end %>

@@ -1,7 +1,32 @@
-<div class="content">
-<h1>New Event</h1>
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          Responsive Tables
+          <small>Mobile friendly tables that work across all screen sizes.</small>
+        </h1>
+      </div>
+      <div class="col-sm-5 text-right hidden-xs">
+        <ol class="breadcrumb push-10-t">
+          <li>Tables</li>
+          <li><a class="link-effect" href="">Responsive</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header">
+        <h3 class="block-title">Full Table</h3>
+      </div>
+      <div class="block-content">
+        <%= render 'form' %>
 
-<%= render 'form' %>
+        <%= link_to 'Back', events_path,class: "btn btn-xs btn-default" %>
 
-<%= link_to 'Back', events_path %>
-    </div >
+
+      </div>
+    </div>
+  </div>
+</main>
