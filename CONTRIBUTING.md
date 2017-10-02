@@ -17,7 +17,7 @@ o projeto wiki, documentação e código fonte primeiro, ou tente fazer sua perg
 em nosso canais de comunicação antes.
 
 ** Se você encontrar um bug de segurança, não o informe através do GitHub. Envie um
-e-mail para [contato@gorails.com.br](mailto: contato@gorails.com.br).**
+e-mail para [contato@gorails.com.br](conrato@gorails.com.br) 
 
 ## Enviando pedidos de Pull Request
 
