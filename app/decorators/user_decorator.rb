@@ -1,5 +1,6 @@
 class UserDecorator < Draper::Decorator
-  delegate :all
+  delegate_all
+  
   def name
     [object.first_name, object.last_name].join(" ").strip.upcase
   end
