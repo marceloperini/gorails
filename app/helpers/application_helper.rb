@@ -159,5 +159,13 @@ module ApplicationHelper
     return User.all.size
   end
 
+  def converte_date(date)
+    date.to_date.to_s_br if date
+  end
+
+  def yes_no(bool)
+    bool ? "Sim" : 'Não'
+  end
+
 end
 

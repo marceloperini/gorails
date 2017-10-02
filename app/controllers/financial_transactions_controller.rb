@@ -6,7 +6,7 @@ class FinancialTransactionsController < ApplicationController
   # GET /financial_transactions
   # GET /financial_transactions.json
   def index
-    @financial_transactions = FinancialTransaction.all
+    @financial_transactions = FinancialTransaction.all.includes(:user).order(payment_date: :desc)
   end
 
   # GET /financial_transactions/1
