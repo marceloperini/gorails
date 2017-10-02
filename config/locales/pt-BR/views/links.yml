@@ -7,6 +7,7 @@ pt-BR:
     index:
       <<: *default
       header: "Lista de links"
+      title: "Lista de links"
       block_header: links
     show:
       <<: *default
@@ -17,6 +18,7 @@ pt-BR:
     new:
       <<: *default
       header: "Cadastrar Link"
+      title: "Cadastrar Link"
     create:
       alert: "Link não pode ser cadastrado."
       notice: "Link cadastrado com sucesso."
