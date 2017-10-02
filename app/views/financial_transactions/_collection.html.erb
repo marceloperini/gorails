@@ -2,13 +2,13 @@
     <tr id="<%= dom_id(resource) %>" class="<%=resource.decorate.tr_color%>">
       <td><%= resource.object %></td>
       <td><%= resource.origin %></td>
-      <td><%= resource.transaction_type %></td>
+      <td><%= resource.decorate.transaction_type %></td>
       <td><%=resource.decorate.operator%> <%= number_to_currency(resource.value, :separator => ",", :delimiter => ".", :unit => "R$") %></td>
       <td><%= resource.user_name %></td>
       <td><%= converte_date(resource.payment_date) %></td>
       <td><%= resource.payment_method %></td>
       <td><%= yes_no(resource.consolidated) %></td>
-      <td><%= converte_date(resource.consolidation_date) %></td>
+      <td><%= resource.decorate.consolidation_date %></td>
       <td class="text-center">
         <% if current_user and current_user.admin? %>
             <div class="btn-group">
