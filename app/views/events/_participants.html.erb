@@ -16,7 +16,7 @@
           <%#end%>
 
 
-          <%=UserPresenter.new(registration.user).user_avatar(true,'',true)%>
+          <%=registration.user.decorate.user_avatar(true,'',true)%>
           <%#=registration.user.user_avatar%>
 
           <!--<div class="pull-left push-10-t">-->

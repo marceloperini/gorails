@@ -1,0 +1,36 @@
+pt-BR:
+  financial_transactions:
+    default: &default
+      h1: FinancialTransaction
+      header: "Transparência"
+      block_header: financial_transactions
+    index:
+      <<: *default
+      header: "Transparência"
+      title: "Transparência"
+      block_header: financial_transactions
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar Transparência"
+      title: "Cadastrar Transparência"
+    create:
+      alert: "Transparência não pode ser cadastrado."
+      notice: "Transparência cadastrado com sucesso."
+    update:
+      alert: "Transparência não pode ser atualizado."
+      notice: "Transparência atualizado com sucesso."
+    destroy:
+      alert: "Transparência não pode ser excluído."
+      notice: "Transparência excluído com sucesso."
+      
+  helpers:
+    submit:
+      financial_transaction:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

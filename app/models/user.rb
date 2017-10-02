@@ -161,4 +161,8 @@ class User < ActiveRecord::Base
       self.special_needs.present? &&
       self.complement.present?
   end
+
+  def admin?
+    roles.first.name.to_sym == :admin if roles.first.present?
+  end
 end

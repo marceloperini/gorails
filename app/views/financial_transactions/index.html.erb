@@ -1,0 +1,54 @@
+<%= provide :page_title, I18n.t('financial_transactions.index.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= I18n.t('activerecord.models.financial_transaction.other') %></li>
+<% end %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('financial_transactions.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span>
+          <% if current_user and current_user.admin? %>
+          <%= link_to I18n.t('financial_transactions.new.new'), new_financial_transaction_path, class: 'btn btn-sm btn-square btn-success' %>
+          <% end %>
+        </span>
+      </div>
+      <div class="block-content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+
+            <th><%= t 'activerecord.attributes.financial_transaction.object' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.origin' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.transaction_type' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.value' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.user_id' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.payment_date' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.payment_method' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.consolidated' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.consolidation_date' %></th>
+            <% if current_user and current_user.admin? %>
+                <th class="text-center" style="width: 100px;"><%= t 'misc.actions' %></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody id='link_categories'>
+          <%= render 'collection', collection: @financial_transactions %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+

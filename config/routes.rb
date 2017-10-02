@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :financial_transactions,path: 'transparencia'
   resources :social_network_types
   resources :winners
   get 'activities/index'
