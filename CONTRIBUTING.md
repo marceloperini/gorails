@@ -2,12 +2,12 @@
 
 Obrigado pelo seu interesse em contribuir para GoRails! Aqui estão alguns
 diretrizes sobre a contribuição e notificação de erros  que pedimos que você
-de uma olhada antes de contribuir. Esperamos que você siga nosso [Código de Conduta] (CODE_OF_CONDUCT.md).
+de uma olhada antes de contribuir. Esperamos que você siga nosso [Código de Conduta](CODE_OF_CONDUCT.md).
 
 ## Reportando  Issues
 
 Antes de relatar um novo problema, certifique-se de que a questão ainda não foi
-reportada ou corrigida pesquisando no GitHub através dos nossas [issues] (https://github.com/gorails/gorails/issues).
+reportada ou corrigida pesquisando no GitHub através dos nossas [issues](https://github.com/gorails/gorails/issues).
 
 Ao criar uma issue de erro, certifique-se de incluir um título ** e uma descrição clara **,
 tanta informação relevante quanto possível,precisamos de tanto contexto e detalhes quanto possível para identificar o que pode estar quebrado para voce. 
@@ -41,7 +41,7 @@ Damos as boas-vindas a qualquer pessoa que queira contribuir para conceber a tri
 
 * Ajuda a garantir que a issues existentes seguem as recomendações e os padrôes. Providenciando um feedback par ao autor
 da mesma, quando necessário.
-* Revise e atualize o conteúdo existente do nosso [Wiki] (https://github.com/gorails/gorails/wiki)
+* Revise e atualize o conteúdo existente do nosso [Wiki](https://github.com/gorails/gorails/wiki)
 com instruções atualizadas e exemplos de código - sinta-se à vontade para atualizá-lo conforme necessário.
 * Revise pedidos de pull request existentes e efetue testes para ter certeza que tudo esta funcionando.Fornecendo tambèm 
 feedback quando não estiver.
