@@ -9,15 +9,15 @@ de uma olhada antes de contribuir. Esperamos que você siga nosso [Código de Co
 Antes de relatar um novo problema, certifique-se de que a questão ainda não foi
 reportada ou corrigida pesquisando no GitHub através dos nossas [issues](https://github.com/gorails/gorails/issues).
 
-Ao criar uma issue de erro, certifique-se de incluir um título ** e uma descrição clara **,
+Ao criar uma issue de erro, certifique-se de incluir um título **e uma descrição clara**,
 tanta informação relevante quanto possível,precisamos de tanto contexto e detalhes quanto possível para identificar o que pode estar quebrado para voce. 
 
 Evite abrir novos problemas para discussão de funcionalidades. Por favor, passe pelo
 o projeto wiki, documentação e código fonte primeiro, ou tente fazer sua pergunta
 em nosso canais de comunicação antes.
 
-** Se você encontrar um bug de segurança, não o informe através do GitHub. Envie um
-e-mail para [contato@gorails.com.br](conrato@gorails.com.br) 
+**Se você encontrar um bug de segurança, não o informe através do GitHub. Envie um
+e-mail para [contato@gorails.com.br](conrato@gorails.com.br)**
 
 ## Enviando pedidos de Pull Request
 
