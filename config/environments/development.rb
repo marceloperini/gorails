@@ -53,17 +53,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-  config.action_mailer.default_url_options = { :host => 'gorails.com.br' }
+  config.action_mailer.default_url_options = { host: 'gorails.com.br' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => ENV["EMAIL_ADRESS"],
-      :port => ENV["EMAIL_PORT"],
-      :domain => ENV["EMAIL_DOMAIN"],
-      :user_name => ENV["EMAIL_USER_NAME"],
-      :password => ENV["EMAIL_PASSWORD"],
-      :authentication => "plain",
-      :enable_starttls_auto => true
+      address: ENV["EMAIL_ADRESS"],
+      port: ENV["EMAIL_PORT"],
+      domain: ENV["EMAIL_DOMAIN"],
+      user_name: ENV["EMAIL_USER_NAME"],
+      password: ENV["EMAIL_PASSWORD"],
+      authentication: "plain",
+      enable_starttls_auto: true
   }
 
   config.after_initialize do

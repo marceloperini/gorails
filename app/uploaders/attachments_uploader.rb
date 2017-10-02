@@ -35,7 +35,7 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  # process scale: [200, 300]
   #
   # def scale(width, height)
   #   # do something
@@ -43,17 +43,17 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
 
-  version :thumb, :if => :image? do
-    process :resize_to_limit => [200, 200]
+  version :thumb, if: :image? do
+    process resize_to_limit: [200, 200]
   end
 
-  version :medium, :if => :image? do 
-    process :resize_to_limit => [400, 400]
+  version :medium, if: :image? do 
+    process resize_to_limit: [400, 400]
   end
 
-  version :large, :if => :image? do
-    process :resize_to_limit => [1200, 800]
-    process :watermark => [Rails.root.join('app/assets/images/logo_sem_nome_mini.png')]
+  version :large, if: :image? do
+    process resize_to_limit: [1200, 800]
+    process watermark: [Rails.root.join('app/assets/images/logo_sem_nome_mini.png')]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
