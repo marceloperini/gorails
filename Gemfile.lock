@@ -65,6 +65,9 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     builder (3.2.3)
+    bullet (5.6.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     burgundy (0.2.0)
     byebug (9.1.0)
     cancan (1.6.10)
@@ -362,6 +365,7 @@ GEM
     unicorn (5.3.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    uniform_notifier (1.10.0)
     validates_email_format_of (1.6.3)
       i18n
     warden (1.2.7)
@@ -387,6 +391,7 @@ DEPENDENCIES
   bootstrap_form
   brcpfcnpj
   brdata
+  bullet
   burgundy
   byebug
   cancan

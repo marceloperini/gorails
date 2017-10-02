@@ -50,6 +50,7 @@ gem 'github_api'
 gem 'omniauth-twitter'
 gem 'web-console'
 gem 'figaro'
+gem 'bullet', group: 'development'
 
 
 group :development, :test do
