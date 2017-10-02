@@ -1,4 +1,5 @@
 class FinancialTransactionDecorator < Draper::Decorator
+  delegate_all
 
   def tr_color
     if object.transaction_type == 'I' and object.consolidated
