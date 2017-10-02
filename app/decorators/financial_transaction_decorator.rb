@@ -18,4 +18,16 @@ class FinancialTransactionDecorator < Draper::Decorator
       '-'
     end
   end
+
+  def transaction_type
+    if object.transaction_type == 'I'
+      'Renda'
+    elsif object.transaction_type == 'O'
+      'Despesa'
+    end
+  end
+  def consolidation_date
+
+    h.converte_date(object.consolidation_date) if object.consolidated
+  end
 end
