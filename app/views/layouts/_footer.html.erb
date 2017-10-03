@@ -11,7 +11,7 @@
             <a class="font-w600" href="https://github.com/gorails/gorails" target="_blank">Quem Somos</a>
           </li>
           <li>
-            <a class="font-w600" href="/paginas/parceiros">Parceiros</a>
+            <%= link_to_unless_current 'Parceiros', page_path('parceiros'),class:'font-w600'%>
           </li>
           <li>
             <a class="font-w600" href="/contact">Contate-nos</a>

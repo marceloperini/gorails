@@ -52,6 +52,7 @@ gem 'web-console'
 gem 'figaro'
 gem 'bullet', group: 'development'
 gem 'draper'
+gem 'easy_static_pages', :github => 'gorails/easy_static_pages', :branch => 'master'
 
 
 group :development, :test do
