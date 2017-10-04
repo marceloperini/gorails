@@ -58,6 +58,7 @@ GEM
     acts_as_votable (0.10.0)
     addressable (2.4.0)
     arel (8.0.0)
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     better_errors (2.3.0)
       coderay (>= 1.0.0)
@@ -89,6 +90,9 @@ GEM
       mime-types (>= 1.16)
     choice (0.2.0)
     clipboard (1.1.1)
+    cloudinary (1.8.1)
+      aws_cf_signer
+      rest-client
     codeclimate-test-reporter (1.0.7)
       simplecov
     coderay (1.1.2)
@@ -415,6 +419,7 @@ DEPENDENCIES
   cancan
   cancancan
   carrierwave
+  cloudinary
   codeclimate-test-reporter
   coderay
   coffee-rails (~> 4.2)

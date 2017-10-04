@@ -52,6 +52,7 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'easy_static_pages', :github => 'gorails/easy_static_pages', :branch => 'master'
+gem 'cloudinary'
 
 
 group :development, :test do

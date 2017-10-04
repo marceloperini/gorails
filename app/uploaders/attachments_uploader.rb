@@ -6,20 +6,20 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::MiniMagick
   include CarrierWave::RMagick
-
+  include Cloudinary::CarrierWave
   # Call method
 
 
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  #def store_dir
+    #{}"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #end
 
   def watermark(watermark_image, options = {})
     cache_stored_file! if !cached?
@@ -43,16 +43,20 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
 
-  version :thumb, if: :image? do
-    process resize_to_limit: [200, 200]
+
+  version :thumb do
+    process :eager => true
+    process :resize_to_fill => [200, 200, :north]
   end
 
-  version :medium, if: :image? do 
-    process resize_to_limit: [400, 400]
+  version :medium do
+    process :eager => true
+    process :resize_to_fit => [400, 400]
   end
 
-  version :large, if: :image? do
-    process resize_to_limit: [1200, 800]
+   version :large do
+    process :eager => true
+    process :resize_to_fit => [1200, 800]
     process watermark: [Rails.root.join('app/assets/images/logo_sem_nome_mini.png')]
   end
 
@@ -69,9 +73,7 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   # end
 
   protected
-    def image?(new_file)
-      new_file.content_type.start_with? 'image'
-    end
+
 
 
 end
