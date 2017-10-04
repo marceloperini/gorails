@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root :to => "home#index"
+
+  resources :pages, path:'paginas'
+
   resources :financial_transactions,path: 'transparencia'
   resources :social_network_types
   resources :winners
@@ -23,8 +27,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
   resources :users, only: [:show]
 
-  get "/paginas/:pagina" => "paginas#show"
-  root "paginas#show", pagina: "home"
+  # get "/paginas/:pagina" => "paginas#show"
   get 'contact', to: 'messages#new', as: 'contact'
   post 'messages/subscribe', to: 'messages#subscribe'
   post 'contact', to: 'messages#create'

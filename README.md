@@ -50,7 +50,7 @@ rake uml:generate
 
 ## Discussões  
 
-Para discussões relacionadas ao projeto, é utilizado o [Discurse](https://discord.gg/7tz73A) que disponibiliza
+Para discussões relacionadas ao projeto, é utilizado o [Discord](https://discord.gg/7tz73A) que disponibiliza
 um chat em tempo real.Instale o programa e clique no link para entrar no chat.
 
 ## Doações :moneybag:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002002740) do
+ActiveRecord::Schema.define(version: 20171003021528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,15 @@ ActiveRecord::Schema.define(version: 20171002002740) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.index ["link_category_id"], name: "index_links_on_link_category_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "name"
+    t.string "permalink"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permalink"], name: "index_pages_on_permalink"
   end
 
   create_table "partners", force: :cascade do |t|
