@@ -45,12 +45,5 @@ class Event < ActiveRecord::Base
     self.participants_limit - self.registrations.size
   end
 
-  def get_event_cover_image
-    if self.albums.first
-      self.albums.first.images.first.asset.medium.url
-    else
-      asset_path "bg-red.jpg"
-    end
-  end
 
 end
