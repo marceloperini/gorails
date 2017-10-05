@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gorails/easy_static_pages.git
-  revision: 99a335e6550c139c9984d8d8809dd1d77561aa29
+  revision: e2fb912fc3c6dba2129f721bb9f2e2d1ad01ff93
   branch: master
   specs:
     easy_static_pages (0.1.0)
