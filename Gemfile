@@ -51,7 +51,7 @@ gem 'omniauth-twitter'
 gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
-gem 'easy_static_pages', :github => 'gorails/easy_static_pages', :branch => 'master'
+gem 'easy_static_pages'
 gem 'cloudinary'
 
 
