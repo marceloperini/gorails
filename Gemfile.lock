@@ -3,7 +3,7 @@ GIT
   revision: e2fb912fc3c6dba2129f721bb9f2e2d1ad01ff93
   branch: master
   specs:
-    easy_static_pages (0.1.0)
+    easy_static_pages (0.1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -331,7 +331,7 @@ GEM
     ruby-graphviz (1.2.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    sass (3.5.1)
+    sass (3.5.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
