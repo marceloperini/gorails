@@ -231,13 +231,20 @@
           <div class="h6 text-gray">- Ailton</div>
         </div>
       </div>
+
       <div class="newsletter-box">
         <h1>Newsletter do GoRails</h1>
         <p>Assine nossa newsletter para acompanhar o novo conteúdo publicado no site e outros destaques</p>
         <form accept-charset="UTF-8" action="/messages/subscribe" data-remote="true" id="subscribe" method="post">
           <div class="form-inline">
-            <input id="email" name="email[address]" placeholder="Digite aqui seu endereco de e-mail" type="email" class="form-control" style="width: 300px" />
-            <input name="commit" type="submit" class="btn btn-success" value="Assinar" />
+            <div class="input-group">
+              <input id="email" name="email[address]" placeholder="Digite aqui seu endereco de e-mail"
+                type="email" class="form-control" style="min-width: 270px" />
+
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-success">Assinar</button>
+              </span>
+            </div>
           </div>
         </form>
       </div>
@@ -259,5 +266,3 @@
   </section>
 </div>-->
 <!-- END Get Started -->
-
-
