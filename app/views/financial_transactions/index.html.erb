@@ -28,6 +28,64 @@
         </span>
       </div>
       <div class="block-content">
+
+        <div class="row">
+          <div class="row">
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-success">
+                  <%==number_to_currency(FinancialTransaction.income, :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-success font-w600">RENDA</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-danger">
+                  <%=number_to_currency(FinancialTransaction.outcome, :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-danger font-w600">DESPESA</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-muted">
+                  <%=number_to_currency(FinancialTransaction.balance, :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-warning">
+                  <%=number_to_currency(FinancialTransaction.income(false), :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">RENDA NÃO CONSOLIDADA</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center " href="javascript:void(0)">
+                <div class="block-content block-content-full text-warning">
+                  <%=number_to_currency(FinancialTransaction.outcome(false), :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">DESPESA NÃO CONSOLIDADA</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full">
+                  <%=number_to_currency(FinancialTransaction.balance_after_consolidated, :precision => 2)%>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO APOS CONSOLIDAR</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
         <table class="table table-striped">
           <thead>
           <tr>
