@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: "User"
+        other: "users"
+        explain: "User"
+
+    attributes:
+      user:
+        name: "name"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

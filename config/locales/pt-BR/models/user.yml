@@ -21,6 +21,7 @@ pt-BR:
         reset_password_sent_at: Redefinir Senha enviada em
         reset_password_token: Redefinir Senha Token 
         updated_at: Atualizado em
+        admin: Admin
 
   helpers:
     submit:

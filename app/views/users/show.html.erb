@@ -7,9 +7,11 @@
       <div class="col-sm-5 col-sm-push-7 col-lg-4 col-lg-push-8">
         <div class="block">
           <div class="block-content block-content-full text-center">
-            <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-                <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-edit text-success"></i>Editar perfil
-                </button>
+            <% if current_user and user_signed_in? && current_user.to_param == params[:id] %>
+                <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-edit text-success"></i>Editar perfil
+                    </button>
+                <% end %>
             <% end %>
           </div>
         </div>
