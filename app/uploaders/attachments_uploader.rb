@@ -45,18 +45,18 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
 
 
   version :thumb do
-    process :eager => true
-    process :resize_to_limit => [200, 200]
+    process eager: true
+    process resize_to_limit: [200, 200]
   end
 
   version :medium do
-    process :eager => true
-    process :resize_to_limit => [400, 400]
+    process eager: true
+    process resize_to_limit: [400, 400]
   end
 
   version :large do
-    process :eager => true
-    process :resize_to_limit => [1200, 800]
+    process eager: true
+    process resize_to_limit: [1200, 800]
     process watermark: [Rails.root.join('app/assets/images/logo_sem_nome_mini.png')]
   end
 
