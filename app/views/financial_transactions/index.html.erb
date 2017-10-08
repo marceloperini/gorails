@@ -17,7 +17,7 @@
       <div class="block-header text-right">
         <h3 class="block-title">
           <% unless current_user and current_user.admin? %>
-          <div class="text-right"><a href="paginas/doacao" class="btn btn-success">Contribua com a GoRails</a></div>
+              <div class="text-right"><a href="paginas/doacao" class="btn btn-success">Contribua com a GoRails</a></div>
           <% end %>
 
         </h3>
@@ -34,7 +34,7 @@
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center" href="javascript:void(0)">
                 <div class="block-content block-content-full text-success">
-                  <%==number_to_currency(FinancialTransaction.income, :precision => 2)%>
+                  <%== number_to_currency(FinancialTransaction.income, :precision => 2) %>
                 </div>
                 <div class="block-content block-content-full block-content-mini bg-gray-lighter text-success font-w600">RECEITAS</div>
               </a>
@@ -42,7 +42,7 @@
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center" href="javascript:void(0)">
                 <div class="block-content block-content-full text-danger">
-                  <%=number_to_currency(FinancialTransaction.outcome, :precision => 2)%>
+                  <%= number_to_currency(FinancialTransaction.outcome, :precision => 2) %>
                 </div>
                 <div class="block-content block-content-full block-content-mini bg-gray-lighter text-danger font-w600">DESPESAS</div>
               </a>
@@ -50,40 +50,45 @@
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center" href="javascript:void(0)">
                 <div class="block-content block-content-full text-muted">
-                  <%=number_to_currency(FinancialTransaction.balance, :precision => 2)%>
+                  <%= number_to_currency(FinancialTransaction.balance, :precision => 2) %>
                 </div>
-                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO ATUAL</div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO
+                  ATUAL
+                </div>
               </a>
             </div>
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center" href="javascript:void(0)">
                 <div class="block-content block-content-full text-warning">
-                  <%=number_to_currency(FinancialTransaction.income(false), :precision => 2)%>
+                  <%= number_to_currency(FinancialTransaction.income(false), :precision => 2) %>
                 </div>
-                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">RECEITA NAO CONSOLIDADA</div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">RECEITA
+                  NAO CONSOLIDADA
+                </div>
               </a>
             </div>
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center " href="javascript:void(0)">
                 <div class="block-content block-content-full text-warning">
-                  <%=number_to_currency(FinancialTransaction.outcome(false), :precision => 2)%>
+                  <%= number_to_currency(FinancialTransaction.outcome(false), :precision => 2) %>
                 </div>
-                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">DESPESA NAO CONSOLIDADA</div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">DESPESA
+                  NAO CONSOLIDADA
+                </div>
               </a>
             </div>
             <div class="col-sm-6 col-md-2">
               <a class="block block-link-hover3 text-center" href="javascript:void(0)">
                 <div class="block-content block-content-full">
-                  <%=number_to_currency(FinancialTransaction.balance_after_consolidated, :precision => 2)%>
+                  <%= number_to_currency(FinancialTransaction.balance_after_consolidated, :precision => 2) %>
                 </div>
-                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO APÓS CONSOLIDAÇÕES</div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO
+                  APÓS CONSOLIDAÇÕES
+                </div>
               </a>
             </div>
           </div>
         </div>
-
-
-
 
 
         <table class="table table-striped">
@@ -94,7 +99,9 @@
             <th><%= t 'activerecord.attributes.financial_transaction.origin' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.transaction_type' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.value' %></th>
-            <th><%= t 'activerecord.attributes.financial_transaction.user_id' %></th>
+            <% if current_user and current_user.admin? %>
+                <th><%= t 'activerecord.attributes.financial_transaction.user_id' %></th>
+            <% end %>
             <th><%= t 'activerecord.attributes.financial_transaction.payment_date' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.payment_method' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.consolidated' %></th>
