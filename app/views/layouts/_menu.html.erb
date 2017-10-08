@@ -8,9 +8,9 @@
               <a href="/transparencia"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Transparência</span></a>
             </li>
         <% end %>
-            <li>
-              <a href="/paginas"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Paginas</span></a>
-            </li>
+        <li>
+          <a href="/paginas"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Paginas</span></a>
+        </li>
         <% if can? :magage, link_categories_path %>
 
             <li>
@@ -22,7 +22,14 @@
             <li>
               <a href="/links"><i class="si si-link"></i><span class="sidebar-mini-hide"> Links</span></a>
             </li>
+        <% end %>
 
+        <% if can? :magage, users_path %>
+            <li>
+              <a href="/users"><i class="fa fa-users"></i><span class="sidebar-mini-hide"> Usuários</span></a>
+            </li>
+        <% end %>
+        <% if can? :magage, activities_index_path %>
             <%= link_to activities_index_path do %>
                 <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
             <% end %>

@@ -1,0 +1,44 @@
+
+<%= provide :page_title, I18n.t('users.index.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= I18n.t('activerecord.models.user.other') %></li>
+<% end %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('users.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span >
+        </span>
+      </div>
+      <div class="block-content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%=t 'activerecord.attributes.user.first_name' %></th>
+            <th><%=t 'activerecord.attributes.user.email' %></th>
+            <th><%=t 'activerecord.attributes.user.provider' %></th>
+            <th><%=t 'activerecord.attributes.user.created_at' %></th>
+            <th><%=t 'activerecord.attributes.user.admin' %></th>
+            <th class="text-center" style="width: 150px;"><%=t 'misc.actions' %></th>
+          </tr>
+          </thead>
+          <tbody id='link_categories'>
+          <%= render 'collection', collection: @users %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
