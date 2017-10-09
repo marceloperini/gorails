@@ -1,21 +1,3 @@
-GIT
-  remote: git://github.com/gorails/easy_static_pages.git
-  revision: 2bff000c64cbb883491868fc6f61704c95b230fd
-  branch: master
-  specs:
-    easy_static_pages (0.1.1)
-
-GIT
-  remote: git://github.com/gorails/go_blog.git
-  revision: 69d983a4857eeea0dc3be5b2916caeba5c15bf0c
-  branch: master
-  specs:
-    go_blog (0.1.0)
-      draper
-      pg
-      rails
-      sqlite3
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -147,6 +129,7 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    easy_static_pages (0.1.1)
     erubi (1.6.1)
     execjs (2.7.0)
     factory_girl (4.8.1)
@@ -171,6 +154,11 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    go_blog (0.1.2)
+      draper
+      pg
+      rails
+      sqlite3
     hashie (3.5.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -446,13 +434,13 @@ DEPENDENCIES
   devise
   dotenv
   draper
-  easy_static_pages!
+  easy_static_pages
   factory_girl_rails
   ffaker
   figaro
   gibbon
   github_api
-  go_blog!
+  go_blog
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
