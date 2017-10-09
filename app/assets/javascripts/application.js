@@ -22,7 +22,7 @@
 //= require core/js.cookie.min
 //= require app
 //= require jquery.amaran.min
-//= require summernote
+//= require old_summernote.js
 //= require maskedinput
 //= require plugins/magnific-popup/magnific-popup.min
 //= require sweetalert
