@@ -52,7 +52,9 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'#, github: 'gorails/easy_static_pages', branch: 'master'
+gem 'easy_static_pages', github: 'gorails/easy_static_pages', branch: 'master'
+gem 'go_blog', github: 'gorails/go_blog', branch: 'master'
+gem 'summernote-rails'
 
 
 group :development, :test do

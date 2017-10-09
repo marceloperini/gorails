@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003021528) do
+ActiveRecord::Schema.define(version: 20171008203759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20171003021528) do
     t.datetime "updated_at", null: false
     t.string "file"
     t.index ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id"
+  end
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "teaser"
+    t.text "body", null: false
+    t.boolean "draft", default: false
+    t.datetime "published_at"
+    t.integer "user_id", null: false
+    t.string "custom_url"
+    t.integer "access_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "commontator_comments", force: :cascade do |t|
