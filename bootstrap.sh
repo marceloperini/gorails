@@ -30,10 +30,6 @@ echo installing Bundler
 gem install bundler -N >/dev/null 2>&1
 
 install Git git
-install SQLite sqlite3 libsqlite3-dev
-install memcached memcached
-install Redis redis-server
-install RabbitMQ rabbitmq-server
 
 install PostgreSQL postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser ubuntu
@@ -59,14 +55,8 @@ install 'ExecJS runtime' nodejs
 
 # To generate guides in Kindle format.
 install 'ImageMagick' libmagickwand-dev
-echo installing KindleGen
-kindlegen_tarball=kindlegen_linux_2.6_i386_v2_9.tar.gz
-wget -q http://kindlegen.s3.amazonaws.com/$kindlegen_tarball
-tar xzf $kindlegen_tarball kindlegen
-mv kindlegen /usr/local/bin
-rm $kindlegen_tarball
 
 # Needed for docs generation.
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
-echo 'all set, rock on!
+echo 'all set, go rails!
