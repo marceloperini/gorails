@@ -1,37 +1,43 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  devise_for :users, controllers: { registrations: 'registrations',
+                                    omniauth_callbacks: 'omniauth_callbacks' }
 
-  resources :pages, path:'paginas'
+  root to: 'home#index'
 
-  resources :financial_transactions,path: 'transparencia'
+  resources :pages, path: 'paginas'
+
+  resources :financial_transactions, path: 'transparencia'
   resources :social_network_types
   resources :winners
-  get 'activities/index'
 
   resources :images
   resources :albums
-  resources :links, path: "links" do
-    collection do
-      get 'uteis'
-    end
+
+  resources :links, path: 'links' do
+    get 'uteis', on: :collection
   end
+
   resources :gifts
   resources :link_categories
   resources :partners
+
   resources :events, path: 'eventos' do
     post :register, on: :member
-    collection {post 'register'}
+    post :register, on: :collection
+
     resources :registrations, controller: 'event_registrations'
   end
+
   resources :attachments
-  devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
-  resources :users, only: [:show,:index]
+  resources :users, only: [:show, :index]
+
+  get 'activities/index'
 
   # get "/paginas/:pagina" => "paginas#show"
   get 'contact', to: 'messages#new', as: 'contact'
   post 'messages/subscribe', to: 'messages#subscribe'
   post 'contact', to: 'messages#create'
-  match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
-  match "/422" => "errors#error422", via: [:get, :post, :patch, :delete]
-  match "/500" => "errors#error500", via: [:get, :post, :patch, :delete]
+  match '/404' => 'errors#error404', via: [:get, :post, :patch, :delete]
+  match '/422' => 'errors#error422', via: [:get, :post, :patch, :delete]
+  match '/500' => 'errors#error500', via: [:get, :post, :patch, :delete]
 end
