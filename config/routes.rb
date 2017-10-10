@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "home#index"
+  root to: "home#index"
 
   resources :pages, path:'paginas'
 
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   resources :attachments
   devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
-  resources :users, only: [:show]
+  resources :users, only: [:show,:index]
 
   # get "/paginas/:pagina" => "paginas#show"
   get 'contact', to: 'messages#new', as: 'contact'

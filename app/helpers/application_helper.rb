@@ -168,7 +168,7 @@ module ApplicationHelper
   end
 
   def truncate_with_hover(text, length = 30)
-    "<span title='#{text.gsub("'", "\\'")}'>#{truncate(text, :length => length)}</span>".html_safe if !text.blank?
+    "<span title='#{text.gsub("'", "\\'")}'>#{truncate(text, length: length)}</span>".html_safe if !text.blank?
   end
 
 end
