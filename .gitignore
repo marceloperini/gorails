@@ -29,3 +29,5 @@ newrelic.yml
 /config/application.yml
 /config/secrets.yml
 /config/initializers/setup_mail.rb
+
+ubuntu-zesty-17\.04-cloudimg-console\.log
