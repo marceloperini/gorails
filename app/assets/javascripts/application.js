@@ -27,6 +27,5 @@
 //= require plugins/magnific-popup/magnific-popup.min
 //= require sweetalert
 //= require sweet-alert-confirm
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker.pt
 //= require jquery_nested_form
+//= require bootstrap-datepicker
