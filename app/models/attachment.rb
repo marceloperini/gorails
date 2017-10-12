@@ -1,9 +1,9 @@
 class Attachment < ActiveRecord::Base
   belongs_to :origin, polymorphic: true
 
-  mount_uploader :data, AttachmentsUploader
+  mount_uploader :file, AttachmentsUploader
 
-  validates_presence_of :name, :data
+  validates_presence_of :name, :file
 
   validate :attachment_size_validation
 
@@ -12,6 +12,6 @@ class Attachment < ActiveRecord::Base
   private 
 
     def attachment_size_validation
-      errors[:data] << "should be less than 3MB" if data.size > 3.megabytes
+      errors[:file] << "should be less than 3MB" if file.size > 3.megabytes
     end
 end
