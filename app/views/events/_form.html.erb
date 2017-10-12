@@ -136,7 +136,15 @@
 <% end %>
 <script>
     $(document).ready(function () {
-        $('.summernote_description').summernote();
-        $('.summernote_local').summernote();
+        $('.summernote_description').summernote({
+            lang: 'pt-BR'
+
+        });
+        $('.summernote_local').summernote({
+            lang: 'pt-BR',
+            codemirror: { // codemirror options
+                theme: 'monokai'
+            }
+        });
     });
 </script>

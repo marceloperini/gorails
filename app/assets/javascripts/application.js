@@ -23,6 +23,7 @@
 //= require app
 //= require jquery.amaran.min
 //= require old_summernote.js
+//= require summernote-pt-PT.js
 //= require maskedinput
 //= require plugins/magnific-popup/magnific-popup.min
 //= require sweetalert
