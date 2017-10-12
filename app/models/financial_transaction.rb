@@ -1,5 +1,7 @@
 class FinancialTransaction < ApplicationRecord
   belongs_to :user
+  has_many :attachments,as: :origin
+  accepts_nested_attributes_for :attachments,allow_destroy: true
 
   def user_name
     self.user.decorate.name if self.user
