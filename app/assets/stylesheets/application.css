@@ -14,7 +14,7 @@
  *= require bootstrap-social
  *= require oneui
  *= require amaran.min
- *= require old_summernote.css
+ *= require old_summernote.css.erb
  *= require custom
  *= require magnific-popup.min
  *= require sweet-alert
