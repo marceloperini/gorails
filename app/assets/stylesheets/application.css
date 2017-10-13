@@ -19,6 +19,7 @@
  *= require magnific-popup.min
  *= require sweet-alert
  *= require bootstrap-datepicker3
+ *= require tags
  *= require_self
 
  */
