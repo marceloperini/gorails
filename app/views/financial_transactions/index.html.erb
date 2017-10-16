@@ -12,6 +12,37 @@
       </div>
     </div>
   </div>
+
+  <div class="content">
+    <%= form_tag financial_transactions_path, :method => 'get', class: 'form-inline' do %>
+        <div class="form-group">
+
+          <%= date_range_picker_tag :initial_payment_date, :final_payment_date, 'Data de pagamento', nil, nil, required = false, bootstrapform = true %>
+
+          <label for="simple-classic-progress-firstname">Tipo de transação</label>
+          <%= select_tag :transaction_type, options_for_select([["Receita", "I"], ["Despesa", "O"]]), {:include_blank => 'Selecione o tipo', class: 'form-control'} %>
+
+          <label for="simple-classic-progress-firstname">Consolidado</label>
+          <%= select_tag :consolidated, options_for_select([["Sim", true], ["Nao", false]]), {:include_blank => 'Selecione ', class: 'form-control'} %>
+
+
+          <%= button_tag(type: "submit", class: "btn btn-default") do %>
+              Filtrar <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
+        </div>
+
+    <% end %>
+
+    <!---->
+    <!--<form action="base_pages_search.php" method="post" _lpchecked="1">-->
+    <!--<div class="input-group input-group-lg">-->
+    <!--<input class="form-control" type="text" placeholder="Search application..">-->
+    <!--<div class="input-group-btn">-->
+    <!--<button class="btn btn-default"><i class="fa fa-search"></i></button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+  </div>
   <div class="content">
     <div class="block">
       <div class="block-header text-right">
@@ -106,6 +137,7 @@
             <th><%= t 'activerecord.attributes.financial_transaction.payment_method' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.consolidated' %></th>
             <th><%= t 'activerecord.attributes.financial_transaction.consolidation_date' %></th>
+            <th></th>
             <% if current_user and current_user.admin? %>
                 <th class="text-center" style="width: 150px;"><%= t 'misc.actions' %></th>
             <% end %>
@@ -115,8 +147,17 @@
           <%= render 'collection', collection: @financial_transactions %>
           </tbody>
         </table>
+        <%=render 'pagination',collection: @financial_transactions%>
       </div>
     </div>
   </div>
 </main>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR'
+        });
+    });
+</script>

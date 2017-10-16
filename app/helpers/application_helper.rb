@@ -168,7 +168,21 @@ module ApplicationHelper
   end
 
   def truncate_with_hover(text, length = 30)
-    "<span title='#{text.gsub("'", "\\'")}'>#{truncate(text, length: length)}</span>".html_safe if !text.blank?
+    "#{truncate(text, length: length)}".html_safe if !text.blank?
+  end
+
+  def date_range_picker_tag(campo_inicio, campo_final, label, valor_inicio = nil, valor_final = nil, required = false, bootstrapform = true, customize = nil)
+    conteudo = "<div class='form-group' data_required='#{required}'>"
+    conteudo += "<label class='control-label'>#{label}</label>" if label
+    conteudo += "<div class='input-group input-small'>
+       #{text_field_tag campo_inicio, valor_inicio, :class => 'form-control input-small datepicker date-picker',:style => 'border-top-left-radius: 4px; border-bottom-left-radius: 4px;', :disable_plugin => true}
+          <span class='input-group-addon date-range-picker'>até</span>
+      #{text_field_tag campo_final, valor_final, :class => 'form-control input-small datepicker date-picker', :style => 'border-top-right-radius: 4px; border-bottom-right-radius: 4px;', :disable_plugin => true}
+      </div>
+  </div>"
+    conteudo.html_safe
+
+
   end
 
 end
