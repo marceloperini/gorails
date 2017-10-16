@@ -25,7 +25,7 @@ gem 'sweet-alert-confirm'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem 'coveralls','>= 0.8.21', require: false
+gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj'
@@ -52,10 +52,9 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'#, github: 'gorails/easy_static_pages', branch: 'master'
-gem 'go_blog'#, github: 'gorails/go_blog', branch: 'master'
+gem 'easy_static_pages'
+gem 'go_blog' # , path: '/home/marcelo/Projects/go_blog' # for development only
 gem 'summernote-rails'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -74,8 +73,8 @@ group :development, :test do
   gem 'rails_real_favicon'
   gem 'ffaker'
   gem 'rails-controller-testing'
+  gem 'rubocop'
 end
-
 
 platforms :ruby do
   gem 'unicorn'
