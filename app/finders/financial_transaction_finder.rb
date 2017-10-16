@@ -7,7 +7,7 @@ class FinancialTransactionFinder < BaseFinder
     financial_transactions = new(financial_transactions).with_transaction_type(transaction_type) if transaction_type and !transaction_type.blank?
     financial_transactions = new(financial_transactions).with_consolidated(consolidated) if consolidated and !consolidated.blank?
     financial_transactions = new(financial_transactions).paginate(page)
-    financial_transactions.includes(:user,:attachments)
+    financial_transactions.includes(:user,:attachments).order(payment_date: :desc)
   end
 
   def with_payment_date(initial_payment_date,final_payment_date)
