@@ -12,6 +12,9 @@ Tell us what happens instead
 ### System configuration
 
 **OS**:
+
 **OS Version**:
+
 **Browser**:
+
 **Browser Version**:
