@@ -10,6 +10,7 @@ Tell us what should happen
 Tell us what happens instead
 
 ### System configuration
-**Rails version**:
-
-**Ruby version**:
+**OS**: Xubuntu
+**OS Version**: 16.04 LTS 
+**Browser**:  [Google Chrome, Mozilla Firefox]
+**Browser Version**: [62.0.3202.62 (Official Build) (64-bit), 56.0 (64-bit)]
