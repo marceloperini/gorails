@@ -10,6 +10,11 @@ Tell us what should happen
 Tell us what happens instead
 
 ### System configuration
-**Rails version**:
 
-**Ruby version**:
+**OS**:
+
+**OS Version**:
+
+**Browser**:
+
+**Browser Version**:
