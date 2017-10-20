@@ -185,5 +185,9 @@ module ApplicationHelper
 
   end
 
+  def active_inactive(value)
+    value ? "Ativo" : "Inativo"
+  end
+
 end
 
