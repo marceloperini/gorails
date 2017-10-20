@@ -34,6 +34,11 @@
               <a href="/blog/posts"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Blog Posts</span></a>
             </li>
         <% end %>
+        <% if can? :magage, jobs_jobs_path %>
+            <li>
+              <a href="/jobs/jobs"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
+            </li>
+        <% end %>
         <% if can? :magage, activities_index_path %>
             <%= link_to activities_index_path do %>
                 <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
@@ -42,14 +47,9 @@
 
     <% else %>
 
-        <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-              <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
-          <% end %>
-        </li>
 
-        <li><%= link_to new_user_session_path, :class => 'navbar-link' do %>
-              <i class="fa fa-sign-in"></i><span class="sidebar-mini-hide"> Logar</span>
-          <% end %>
+        <li>
+          <a href="/jobs/jobs"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
         </li>
 
     <% end %>
