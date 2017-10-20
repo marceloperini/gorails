@@ -3,7 +3,9 @@
     <section class="content content-full content-boxed">
       <div class="push-100-t push-50 text-center">
         <h1 class="h2 text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"> <%= @event.name %></h1>
-        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"><%= @event.start_at.strftime("Data %d/%m/%Y") %></h2>
+        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown">
+            <%= @event.start_at.strftime("%e %b %Y, %H:%M") %> — <%= @event.end_at.strftime("%e %b %Y, %H:%M") %>
+        </h2>
       </div>
     </section>
   </div>
