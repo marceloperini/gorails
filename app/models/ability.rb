@@ -8,6 +8,10 @@ class Ability
         can :manage, :all
       else
         can :read, :Event
+        can :read, Jobs::Job
+        can :new, Jobs::Job
+        can :create, Jobs::Job
+        can [:edit,:update], Jobs::Job, :status => 1,:user_id => user.id
         can :read, :FinancialTransaction
         can :register, :all
       end

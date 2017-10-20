@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
-gem 'cancan'
+gem 'cancancan'
 gem 'validates_email_format_of'
 gem 'nested_form'
 gem 'sweet-alert'
@@ -52,10 +52,13 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'
-gem 'go_blog' # , path: '/home/marcelo/Projects/go_blog' # for development only
+gem 'easy_static_pages', github: 'gorails/easy_static_pages', branch: 'master'
+gem 'go_blog', github: 'gorails/go_blog', branch: 'master'
+gem 'go_jobs', github: 'gorails/go_jobs', branch: 'master'
 gem 'summernote-rails'
 gem 'truncato'
+gem 'valid_url'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
