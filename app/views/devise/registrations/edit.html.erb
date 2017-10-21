@@ -125,7 +125,10 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :schooling, "Escolaridade" %>
-                      <%= f.select :schooling, ['Ensino Médio Incompleto', 'Ensino Médio Completo', 'Ensino Superior', 'Pós-Graduação'] %>
+                      <%= f.select :schooling, ['Ensino Médio Incompleto',
+                                                'Ensino Médio Completo',
+                                                'Ensino Superior',
+                                                'Pós-Graduação'],{}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
@@ -134,9 +137,9 @@
                       <%= f.label :birth_date, "Data de Nascimento" %>
                       <%= date_picker f, :birth_date %>
                     </div>
-                    <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
+                    <div class="col-xs-6" >
                       <%= f.label :gender, "Sexo" %>
-                      <%= f.select :gender, ['Masculino', 'Feminino'] %>
+                      <%= f.select :gender, ['Masculino', 'Feminino'], {}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
@@ -174,9 +177,13 @@
                       <%= f.label :neighborhood, "Bairro" %>
                       <%= f.text_field :neighborhood, class: "form-control input-lg" %>
                     </div>
-                    <div class="col-xs-3">
+                    <!--<div class="col-xs-3">-->
+                      <!--<%= f.label :uf, "UF" %>-->
+                      <!--<%= f.text_field :uf, class: "form-control input-lg" %>-->
+                    <!--</div>-->
+                    <div class="col-xs-3" >
                       <%= f.label :uf, "UF" %>
-                      <%= f.text_field :uf, class: "form-control input-lg" %>
+                      <%= f.select :uf, UF_BRASIL, {}, {class: "form-control input-lg"}  %>
                     </div>
                   </div>
 
