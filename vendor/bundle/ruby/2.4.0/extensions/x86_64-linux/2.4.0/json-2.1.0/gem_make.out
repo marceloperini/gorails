@@ -1,0 +1,13 @@
+current directory: /home/benhur/Workspace/gorails/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+/home/benhur/.rvm/rubies/ruby-2.4.2/bin/ruby -r ./siteconf20171009-5535-5vx5ng.rb extconf.rb
+creating Makefile
+
+current directory: /home/benhur/Workspace/gorails/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/benhur/Workspace/gorails/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/benhur/Workspace/gorails/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" install

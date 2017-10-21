@@ -70,6 +70,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
   accepts_nested_attributes_for :social_networks, reject_if: proc {|a| a[:link].blank?}, allow_destroy: true
 
+  before_save :phone_numeric
+  def phone_numeric
+    self.celphone = celphone.gsub(/\D/, '')
+    self.phone = phone.gsub(/\D/, '')
+  end
+
   def name
     [first_name, last_name].join(" ").strip
   end
