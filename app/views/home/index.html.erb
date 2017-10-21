@@ -89,6 +89,55 @@
   </section>
 </div>-->
 <!-- END Classic Features #1 -->
+<br>
+<ul class="nav nav-tabs nav-justified nav-tabs-alt" data-toggle="tabs">
+  <li class="active">
+    <div class="text-center">
+    <h3>Notícias</h3>
+    </div>
+  </li>
+</ul>
+<br>
+
+
+<div class="bg-white">
+  <section class="content content-boxed">
+    <div class="block block-transparent">
+
+      <div class="block-content tab-content bg-white">
+        <div class="tab-pane fade fade-right push-30-t active in" id="front-search-pages">
+          <%if @news.present? and @news.size > 0%>
+          <% @news.each do |news| %>
+              <div class="row items-push">
+                <div class="col-md-12">
+                  <h3 class="h5 font-w600">
+                    <%= news.decorate.link_to_title %>
+                  </h3>
+                  <div class="font-s13 text-success push-5"><%= news.decorate.link_to_author %> - publicado em <%= converte_date(news.published_at) %>
+
+                  </div>
+                  <p><%= raw Truncato.truncate news.text, max_length: 30, count_tags: false%></p>
+                  <div class="btn-group btn-group-sm">
+                    <%= news.decorate.link_to_read_more %>
+                  </div>
+                </div>
+
+              </div>
+          <% end %>
+          <% end %>
+
+          <div class="text-center">
+            <div class="btn-group btn-group-sm">
+              <%= link_to 'Ver todas as  Notícias',list_blog_posts_path(tag:'noticias') ,class:'btn btn-info btn-sm'%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
 
 <!-- Mini Stats -->
 <div class="bg-gray-lighter">
@@ -100,7 +149,7 @@
         <div class="font-w600 text-uppercase text-muted">Linhas de código escritas</div>
       </div>
       <div class="col-sm-4">
-        <div class="h1 push-5" data-toggle="countTo" data-to="<%=partners%>" data-after=""></div>
+        <div class="h1 push-5" data-toggle="countTo" data-to="<%= partners %>" data-after=""></div>
         <div class="font-w600 text-uppercase text-muted"> Parcerias fechadas em eventos</div>
       </div>
       <div class="col-sm-4">
@@ -189,7 +238,7 @@
       <!-- Section Content -->
       <div class="row items-push-2x push-50-t text-center">
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150">
-          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>">"
+          <img class="img-avatar img-avatar-thumb" src="<%= asset_path "rails.jpg" %>">"
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>
@@ -204,7 +253,7 @@
           <div class="h6 text-gray">- Raphael</div>
         </div>
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150" data-timeout="150">
-          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>" alt="">
+          <img class="img-avatar img-avatar-thumb" src="<%= asset_path "rails.jpg" %>" alt="">
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>
@@ -218,7 +267,7 @@
           <div class="h6 text-gray">- Wanderson</div>
         </div>
         <div class="col-sm-4 visibility-hidden" data-toggle="appear" data-offset="-150" data-timeout="300">
-          <img class="img-avatar img-avatar-thumb" src="<%=asset_path "rails.jpg"%>" alt="">
+          <img class="img-avatar img-avatar-thumb" src="<%= asset_path "rails.jpg" %>" alt="">
 
           <div class="text-warning push-10-t push-15">
             <i class="fa fa-fw fa-star"></i>
@@ -239,7 +288,7 @@
           <div class="form-inline">
             <div class="input-group">
               <input id="email" name="email[address]" placeholder="Digite aqui seu endereco de e-mail"
-                type="email" class="form-control" style="min-width: 270px" />
+                     type="email" class="form-control" style="min-width: 270px"/>
 
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-success">Assinar</button>
