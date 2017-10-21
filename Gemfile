@@ -17,13 +17,12 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
-gem 'cancan'
+gem 'cancancan'
 gem 'validates_email_format_of'
 gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'devise'
-gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
@@ -52,9 +51,17 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'
-gem 'go_blog' # , path: '/home/marcelo/Projects/go_blog' # for development only
 gem 'summernote-rails'
+gem 'truncato'
+gem 'valid_url'
+gem 'rails-observers'
+gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
+gem 'go_blog'#, git: 'https://github.com/gorails/go_blog.git', branch: 'master'
+gem 'go_jobs'#, git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
+gem 'go_gamification'#, git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+
+
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,5 +1,21 @@
 module ApplicationHelper
 
+  # Present unseen rewards for the given user.
+  #
+  # options - A Hash of options:
+  #           for: A rewardable model.
+  #
+  # Returns HTML.
+  def present_rewards options
+    rewardable = options[:for]
+    rewards      = rewardable.rewards
+    presentation = render partial: 'go_gamification/rewards/presentation', locals: { rewards: rewards }
+
+    rewards.see
+
+    presentation
+  end
+
   def include_view_javascript
     js_path = Rails.root.join('app/assets/javascripts/views', params[:controller], "#{params[:action]}.*")
     return unless Dir[js_path].present?
@@ -183,6 +199,10 @@ module ApplicationHelper
     conteudo.html_safe
 
 
+  end
+
+  def active_inactive(value)
+    value ? "Ativo" : "Inativo"
   end
 
 end
