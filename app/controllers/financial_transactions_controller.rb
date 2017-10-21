@@ -6,8 +6,6 @@ class FinancialTransactionsController < ApplicationController
   # GET /financial_transactions
   # GET /financial_transactions.json
   def index
-    #@financial_transactions = FinancialTransaction.all.includes(:user).order(payment_date: :desc)
-
     @financial_transactions = FinancialTransactionFinder.search(initial_payment_date: params[:initial_payment_date],
                                                                 final_payment_date: params[:final_payment_date],
                                                                 transaction_type: params[:transaction_type],

@@ -23,7 +23,6 @@ gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'devise'
-gem 'cancancan'
 gem 'rolify'
 gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
@@ -52,12 +51,16 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'#, github: 'gorails/easy_static_pages', branch: 'master'
-gem 'go_blog'#, github: 'gorails/go_blog', branch: 'master'
-gem 'go_jobs'#, github: 'gorails/go_jobs', branch: 'master'
 gem 'summernote-rails'
 gem 'truncato'
 gem 'valid_url'
+gem 'rails-observers'
+gem 'easy_static_pages', git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
+gem 'go_blog', git: 'https://github.com/gorails/go_blog.git', branch: 'master'
+gem 'go_jobs', git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
+gem 'go_gamification', git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+
+
 
 
 group :development, :test do

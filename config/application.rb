@@ -51,5 +51,6 @@ module Gorails
     configatron.configure_from_hash(YAML.load(settings_data))
 
     config.web_console.development_only = false
+    config.active_record.observers = :user_observer
   end
 end

@@ -32,6 +32,12 @@
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Alertas</h3>
           </div>
         </div>
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Badges</h3>
+            <%=  present_rewards for: current_user %>
+          </div>
+        </div>
 
         <div class="block">
           <div class="block-content">
@@ -96,7 +102,7 @@
                                 <a class="block block-bordered block-link-hover3 text-center" href="javascript:void(0)">
                                   <div class="block-content block-content-full bg-gray-lighter border-b" style="min-height: 150px;">
                                     <div class="h5 font-w700"><i class="si si-notebook"></i> <%= repo.name %></div>
-                                    <div class="h7 text-muted text-uppercase push-5-t"> <%= repo.description.first(50) %></div>
+                                    <div class="h7 text-muted text-uppercase push-5-t"> <%= repo.description.present? ? repo.description.first(50) : '' %></div>
                                   </div>
                                   <div class="block-content block-content-full block-content-mini">
                                     <i class="fa fa-code-fork text-success"></i> <%= repo.forks %>
