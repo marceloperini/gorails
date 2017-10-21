@@ -6,10 +6,10 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::MiniMagick
   include CarrierWave::RMagick
-  include Cloudinary::CarrierWave
+  #include Cloudinary::CarrierWave
   # Call method
 
-
+  storage :file
 
   # Choose what kind of storage to use for this uploader:
   #storage :file

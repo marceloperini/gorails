@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      event:
+        one: "Album"
+        other: "albums"
+        explain: "Album"
+
+    attributes:
+      event:
+        title: "title"
+        name: "nome"
+        start_at: "data inicio"
+        registrations: "inscritos"
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em

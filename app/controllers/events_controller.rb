@@ -11,6 +11,12 @@ class EventsController < ApplicationController
     @events = Event.all.order('start_at ASC')
   end
 
+  # GET /events
+  # GET /events.json
+  def index_admin
+    @events = Event.all.order('start_at ASC')
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show
