@@ -1,6 +1,6 @@
 require 'cpf_faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     nickname 'MyNickName'
     first_name 'MyFirstName'

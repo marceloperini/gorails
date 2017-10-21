@@ -71,7 +71,7 @@ group :development, :test do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'dotenv'
   gem 'better_errors'
   gem 'binding_of_caller'

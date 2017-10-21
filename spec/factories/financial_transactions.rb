@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :financial_transaction do
     object "MyString"
     origin "MyString"
