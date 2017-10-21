@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryBot.define do # frozen_string_literal: true.
   factory :financial_transaction do
     object "MyString"
     origin "MyString"
