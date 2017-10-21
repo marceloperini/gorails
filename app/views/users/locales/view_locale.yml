@@ -8,6 +8,7 @@ pt-BR:
     index:
       <<: *default
       header: "Lista de users"
+      title: "Lista de users"
       block_header: users
     show:
       <<: *default

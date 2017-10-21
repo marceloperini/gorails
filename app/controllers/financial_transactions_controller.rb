@@ -6,7 +6,10 @@ class FinancialTransactionsController < ApplicationController
   # GET /financial_transactions
   # GET /financial_transactions.json
   def index
-    @financial_transactions = FinancialTransaction.all.includes(:user).order(payment_date: :desc)
+    @financial_transactions = FinancialTransactionFinder.search(initial_payment_date: params[:initial_payment_date],
+                                                                final_payment_date: params[:final_payment_date],
+                                                                transaction_type: params[:transaction_type],
+                                                                consolidated:params[:consolidated],page: params[:page])
   end
 
   # GET /financial_transactions/1
@@ -71,6 +74,8 @@ class FinancialTransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def financial_transaction_params
-      params.require(:financial_transaction).permit(:object, :origin, :transaction_type, :value, :user_id, :payment_date, :payment_method, :consolidated, :consolidation_date)
+      params.require(:financial_transaction).permit(:object, :origin, :transaction_type, :value, :user_id, :payment_date,
+                                                    :payment_method, :consolidated, :consolidation_date,
+                                                    attachments_attributes: [:id, :name,:type,:origin_type, :situation,:file, :_destroy])
     end
 end

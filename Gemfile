@@ -17,15 +17,14 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
-gem 'cancan'
+gem 'cancancan'
 gem 'validates_email_format_of'
 gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'devise'
-gem 'cancancan'
 gem 'rolify'
-gem 'coveralls','>= 0.8.21', require: false
+gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj'
@@ -52,9 +51,16 @@ gem 'web-console'
 gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
-gem 'easy_static_pages'#, github: 'gorails/easy_static_pages', branch: 'master'
-gem 'go_blog'#, github: 'gorails/go_blog', branch: 'master'
 gem 'summernote-rails'
+gem 'truncato'
+gem 'valid_url'
+gem 'rails-observers'
+gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
+gem 'go_blog'#, git: 'https://github.com/gorails/go_blog.git', branch: 'master'
+gem 'go_jobs'#, git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
+gem 'go_gamification'#, git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+
+
 
 
 group :development, :test do
@@ -74,8 +80,8 @@ group :development, :test do
   gem 'rails_real_favicon'
   gem 'ffaker'
   gem 'rails-controller-testing'
+  gem 'rubocop'
 end
-
 
 platforms :ruby do
   gem 'unicorn'
