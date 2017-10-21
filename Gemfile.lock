@@ -17,10 +17,10 @@ GIT
 
 GIT
   remote: https://github.com/gorails/go_gamification.git
-  revision: 44caffef1a417e1e996770b2451b4c3379476345
+  revision: 82d08d9dfbf0fa98d7bc3093ad1e4242baf5f13c
   branch: master
   specs:
-    go_gamification (0.0.5)
+    go_gamification (0.0.6)
       draper
       pg
       rails
