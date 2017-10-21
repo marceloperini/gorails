@@ -369,13 +369,21 @@
 
   $(document).ready(function () {
 
+    var celphoneMask = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    celphoneOptions = {
+        onKeyPress: function(val, e, field, options) {
+           field.mask(celphoneMask.apply({}, arguments), options);
+        }
+    };
+
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.zip_code').mask('99-999.999');
     $('.phone').mask('(99) 9999-9999');
-    $('.celphone').mask('(99) 9999-9999');
+    $('.celphone').mask(celphoneMask,celphoneOptions);
     //$(".datepicker").mask('99/99/9999');
   });
-
 
   $('.data').datepicker({
     format: 'dd/mm/yyyy',
