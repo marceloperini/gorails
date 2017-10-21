@@ -106,6 +106,7 @@
 
       <div class="block-content tab-content bg-white">
         <div class="tab-pane fade fade-right push-30-t active in" id="front-search-pages">
+          <%if @news.present? and @news.size > 0%>
           <% @news.each do |news| %>
               <div class="row items-push">
                 <div class="col-md-12">
@@ -122,6 +123,7 @@
                 </div>
 
               </div>
+          <% end %>
           <% end %>
 
           <div class="text-center">
