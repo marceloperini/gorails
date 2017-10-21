@@ -479,6 +479,7 @@ DEPENDENCIES
   listen
   mini_magick
   nested_form
+  nokogiri (~> 1.6, >= 1.6.8)
   omniauth
   omniauth-facebook
   omniauth-github
