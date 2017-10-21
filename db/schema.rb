@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20171013000036) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -208,6 +207,8 @@ ActiveRecord::Schema.define(version: 20171013000036) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "presence", default: false
+    t.string "certified_code"
+    t.index ["certified_code"], name: "index_registrations_on_certified_code", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
