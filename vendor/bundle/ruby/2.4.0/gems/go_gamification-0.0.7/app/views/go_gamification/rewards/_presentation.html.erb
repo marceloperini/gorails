@@ -1,0 +1,12 @@
+<% if rewards.any? %>
+  <div class="reward-presentation">
+    <div class="block-content">
+      <div class="row items-push text-center">
+    <% rewards.each do |reward| %>
+      <%= render reward %>
+    <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

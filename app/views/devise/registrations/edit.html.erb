@@ -125,7 +125,10 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :schooling, "Escolaridade" %>
-                      <%= f.select :schooling, ['Ensino Médio Incompleto', 'Ensino Médio Completo', 'Ensino Superior', 'Pós-Graduação'] %>
+                      <%= f.select :schooling, ['Ensino Médio Incompleto',
+                                                'Ensino Médio Completo',
+                                                'Ensino Superior',
+                                                'Pós-Graduação'],{}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
@@ -134,9 +137,9 @@
                       <%= f.label :birth_date, "Data de Nascimento" %>
                       <%= date_picker f, :birth_date %>
                     </div>
-                    <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
+                    <div class="col-xs-6" >
                       <%= f.label :gender, "Sexo" %>
-                      <%= f.select :gender, ['Masculino', 'Feminino'] %>
+                      <%= f.select :gender, ['Masculino', 'Feminino'], {}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
@@ -174,9 +177,13 @@
                       <%= f.label :neighborhood, "Bairro" %>
                       <%= f.text_field :neighborhood, class: "form-control input-lg" %>
                     </div>
-                    <div class="col-xs-3">
+                    <!--<div class="col-xs-3">-->
+                      <!--<%= f.label :uf, "UF" %>-->
+                      <!--<%= f.text_field :uf, class: "form-control input-lg" %>-->
+                    <!--</div>-->
+                    <div class="col-xs-3" >
                       <%= f.label :uf, "UF" %>
-                      <%= f.text_field :uf, class: "form-control input-lg" %>
+                      <%= f.select :uf, UF_BRASIL, {}, {class: "form-control input-lg"}  %>
                     </div>
                   </div>
 
@@ -369,13 +376,21 @@
 
   $(document).ready(function () {
 
+    var celphoneMask = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    celphoneOptions = {
+        onKeyPress: function(val, e, field, options) {
+           field.mask(celphoneMask.apply({}, arguments), options);
+        }
+    };
+
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.zip_code').mask('99-999.999');
     $('.phone').mask('(99) 9999-9999');
-    $('.celphone').mask('(99) 9999-9999');
+    $('.celphone').mask(celphoneMask,celphoneOptions);
     //$(".datepicker").mask('99/99/9999');
   });
-
 
   $('.data').datepicker({
     format: 'dd/mm/yyyy',
