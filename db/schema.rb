@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171021183741) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "activities", force: :cascade do |t|
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
     t.bigint "trackable_id"
     t.string "owner_type"
@@ -34,14 +31,14 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
-  create_table "albums", force: :cascade do |t|
+  create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
   end
 
-  create_table "attachments", force: :cascade do |t|
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "type"
     t.string "origin_type"
@@ -53,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id"
   end
 
-  create_table "blog_posts", force: :cascade do |t|
+  create_table "blog_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.text "teaser"
     t.text "body", null: false
@@ -66,59 +63,20 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "blog_taggings", force: :cascade do |t|
+  create_table "blog_taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "tag_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "blog_tags", force: :cascade do |t|
+  create_table "blog_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "commontator_comments", force: :cascade do |t|
-    t.string "creator_type"
-    t.integer "creator_id"
-    t.string "editor_type"
-    t.integer "editor_id"
-    t.integer "thread_id", null: false
-    t.text "body", null: false
-    t.datetime "deleted_at"
-    t.integer "cached_votes_up", default: 0
-    t.integer "cached_votes_down", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down"
-    t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up"
-    t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id"
-    t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at"
-  end
-
-  create_table "commontator_subscriptions", force: :cascade do |t|
-    t.string "subscriber_type", null: false
-    t.integer "subscriber_id", null: false
-    t.integer "thread_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true
-    t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id"
-  end
-
-  create_table "commontator_threads", force: :cascade do |t|
-    t.string "commontable_type"
-    t.integer "commontable_id"
-    t.datetime "closed_at"
-    t.string "closer_type"
-    t.integer "closer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
-  end
-
-  create_table "events", force: :cascade do |t|
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "description"
     t.datetime "start_at"
@@ -130,7 +88,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.boolean "status"
   end
 
-  create_table "financial_transactions", force: :cascade do |t|
+  create_table "financial_transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "object"
     t.string "origin"
     t.string "transaction_type", limit: 1
@@ -145,7 +103,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["user_id"], name: "index_financial_transactions_on_user_id"
   end
 
-  create_table "gifts", force: :cascade do |t|
+  create_table "gifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "description"
     t.bigint "event_id"
@@ -155,7 +113,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["event_id"], name: "index_gifts_on_event_id"
   end
 
-  create_table "go_gamification_goals", force: :cascade do |t|
+  create_table "go_gamification_goals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "rewarding_type"
     t.bigint "rewarding_id"
     t.integer "points"
@@ -164,7 +122,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["rewarding_type", "rewarding_id"], name: "index_go_gamification_goals_on_rewarding_type_and_rewarding_id"
   end
 
-  create_table "go_gamification_medals", force: :cascade do |t|
+  create_table "go_gamification_medals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "goal_id"
     t.string "name"
     t.string "image"
@@ -174,7 +132,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["goal_id"], name: "index_go_gamification_medals_on_goal_id"
   end
 
-  create_table "go_gamification_rewards", force: :cascade do |t|
+  create_table "go_gamification_rewards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "goal_id"
     t.string "rewardable_type"
     t.bigint "rewardable_id"
@@ -187,7 +145,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["seen_at"], name: "index_go_gamification_rewards_on_seen_at"
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "album_id"
     t.string "asset"
     t.string "title"
@@ -196,7 +154,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["album_id"], name: "index_images_on_album_id"
   end
 
-  create_table "jobs_jobs", force: :cascade do |t|
+  create_table "jobs_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false
     t.string "location"
     t.integer "job_type", null: false
@@ -218,13 +176,13 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["user_id"], name: "index_jobs_jobs_on_user_id"
   end
 
-  create_table "link_categories", force: :cascade do |t|
+  create_table "link_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "links", force: :cascade do |t|
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "link"
     t.bigint "link_category_id"
@@ -234,7 +192,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["link_category_id"], name: "index_links_on_link_category_id"
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "permalink"
     t.text "content"
@@ -243,7 +201,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["permalink"], name: "index_pages_on_permalink"
   end
 
-  create_table "partners", force: :cascade do |t|
+  create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "link"
     t.integer "order"
@@ -256,7 +214,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["event_id"], name: "index_partners_on_event_id"
   end
 
-  create_table "registrations", force: :cascade do |t|
+  create_table "registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -266,7 +224,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["certified_code"], name: "index_registrations_on_certified_code", unique: true
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
@@ -277,7 +235,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  create_table "social_networks", force: :cascade do |t|
+  create_table "social_networks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "link"
     t.datetime "created_at", null: false
@@ -285,7 +243,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["user_id"], name: "index_social_networks_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -294,8 +252,8 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
@@ -337,7 +295,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_roles", id: false, force: :cascade do |t|
+  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
@@ -345,7 +303,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  create_table "votes", force: :cascade do |t|
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "votable_type"
     t.bigint "votable_id"
     t.string "voter_type"
@@ -361,7 +319,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
-  create_table "winners", force: :cascade do |t|
+  create_table "winners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "gift_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
