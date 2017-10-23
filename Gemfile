@@ -56,7 +56,7 @@ gem 'summernote-rails'
 gem 'truncato'
 gem 'valid_url'
 gem 'rails-observers'
-gem "sentry-raven"
+gem 'sentry-raven'
 gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
 gem 'go_blog'#, git: 'https://github.com/gorails/go_blog.git', branch: 'master'
 gem 'go_jobs'#, git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
