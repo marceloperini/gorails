@@ -52,5 +52,10 @@ module Gorails
 
     config.web_console.development_only = false
     config.active_record.observers = :user_observer
+
+    Raven.configure do |config|
+      config.dsn = ENV["SENTRY-RAVEN-DSN"]
+    end
+
   end
 end
