@@ -72,8 +72,8 @@ class User < ActiveRecord::Base
 
   before_save :phone_numeric
   def phone_numeric
-    self.celphone = celphone.gsub(/\D/, '')
-    self.phone = phone.gsub(/\D/, '')
+    self.celphone = celphone.gsub(/\D/, '') if celphone.present?
+    self.phone = phone.gsub(/\D/, '') if phone.present?
   end
 
   def name
