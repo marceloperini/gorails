@@ -176,7 +176,11 @@ module ApplicationHelper
   end
 
   def converte_date(date)
-    date.to_date.to_s_br if date
+    date.present? ? date.to_date.to_s_br : ''
+  end
+
+  def converte_timestamp(date)
+    date.present? ? date.to_s_br : ''
   end
 
   def yes_no(bool)

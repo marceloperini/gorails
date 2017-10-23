@@ -60,7 +60,7 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
-    binding_of_caller (0.7.2)
+    binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.7.1.1)
       railties (>= 3.0)
@@ -329,6 +329,8 @@ GEM
       netrc (~> 0.8)
     rmagick (2.16.0)
     rolify (5.1.0)
+    rollbar (2.15.4)
+      multi_json
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -501,6 +503,7 @@ DEPENDENCIES
   redcarpet
   rmagick
   rolify
+  rollbar
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
@@ -522,4 +525,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
