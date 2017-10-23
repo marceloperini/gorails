@@ -54,7 +54,7 @@ module Gorails
     config.active_record.observers = :user_observer
 
     Raven.configure do |config|
-      config.dsn = ENV["SENTRY-RAVEN-DSN"]
+      config.dsn = ENV['SENTRY-RAVEN-DSN']
     end
 
   end
