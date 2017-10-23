@@ -33,6 +33,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-linkedin'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 gem 'figaro'
 gem 'acts_as_votable'
 gem 'recaptcha', require: 'recaptcha/rails'
@@ -60,9 +61,6 @@ gem 'go_blog'#, git: 'https://github.com/gorails/go_blog.git', branch: 'master'
 gem 'go_jobs'#, git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
 gem 'go_gamification'#, git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
 
-
-
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -71,7 +69,7 @@ group :development, :test do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'dotenv'
   gem 'better_errors'
   gem 'binding_of_caller'

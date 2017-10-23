@@ -1,0 +1,53 @@
+<%= provide :page_title, I18n.t('certified.index.header') %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading ">
+          <%= t('certified.show.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="row">
+      <div class="col-sm-5 col-sm-7 col-lg-4 col-lg-8">
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa"></i> Evento</h3>
+            <%= link_to "#{@certified_event.name}", event_path(@certified_event) %>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa"></i> Data</h3>
+            De <%= @certified_event.start_at.strftime('%d/%m/%Y - %H:%M:%S') %> <br>a <%= @certified_event.end_at.strftime('%d/%m/%Y - %H:%M:%S') %>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa"></i> Duração</h3>
+            <%= @certified_event.event_duration %> horas de duração
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa"></i> Participante</h3>
+            <%= "#{@certified_user.first_name}" " #{@certified_user.last_name}" %><br>
+            <%= @certified_user.cpf %><br>
+            <%= @register_certified.presence ? "Esteve presente" : "Não esteve presente" %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>

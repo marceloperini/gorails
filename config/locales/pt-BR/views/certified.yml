@@ -1,0 +1,17 @@
+pt-BR:
+  certified:
+    index:
+      h1: "Certificado"
+      header: "Certificado"
+      title: "Certificado"
+    show:
+      h1: "Certificado"
+      header: "Detalhes"
+      title: "Detalhes do Certificado"
+    edit:
+      h1: "Certificado"
+      header: "Editar: %{resource}"
+    new:
+      h1: "Certificado"
+      header: "Cadastrar %{model}"
+

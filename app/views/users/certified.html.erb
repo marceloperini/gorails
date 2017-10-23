@@ -1,0 +1,30 @@
+<%= provide :page_title, I18n.t('certified.index.header') %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading ">
+          <%= t('certified.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= form_tag certified_path, :method => 'get', class: 'form-inline' do %>
+        <div class="form-group">
+
+          <label for="simple-classic-progress-firstname">Código do Certificado: </label>
+          <%= text_field_tag :certified_code ,nil, class:'form-control'%>
+
+          <%= button_tag(type: "submit", class: "btn btn-default") do %>
+              Validar <i class="fa fa-check" aria-hidden="true"></i>
+          <% end %>
+        </div>
+
+    <% end %>
+
+  </div>
+
+</main>

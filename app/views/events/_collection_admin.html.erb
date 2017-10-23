@@ -1,0 +1,11 @@
+<% collection.each do |resource| %>
+    <tr id="<%= dom_id(resource) %>">
+      <td><%= resource.name %></td>
+      <td><%= resource.start_at %></td>
+      <td><%= resource.registrations.size %></td>
+      <td class="text-center">
+      </td>
+      </td>
+    </tr>
+<% end %>
+
