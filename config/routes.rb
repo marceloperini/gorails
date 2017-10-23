@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :winners
   get 'activities/index'
 
+  get 'certificado', to: 'users#certified', as: 'certified'
+
   resources :images
   resources :albums
   resources :links, path: "links" do
