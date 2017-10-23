@@ -155,6 +155,38 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.index ["event_id"], name: "index_gifts_on_event_id"
   end
 
+  create_table "go_gamification_goals", force: :cascade do |t|
+    t.string "rewarding_type"
+    t.bigint "rewarding_id"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rewarding_type", "rewarding_id"], name: "index_go_gamification_goals_on_rewarding_type_and_rewarding_id"
+  end
+
+  create_table "go_gamification_medals", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.index ["goal_id"], name: "index_go_gamification_medals_on_goal_id"
+  end
+
+  create_table "go_gamification_rewards", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.string "rewardable_type"
+    t.bigint "rewardable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "seen_at"
+    t.index ["goal_id"], name: "index_game_scoring_on_tasks"
+    t.index ["rewardable_id", "rewardable_type"], name: "index_go_game_score_on_subjectable"
+    t.index ["rewardable_type", "rewardable_id"], name: "index_game_scoring_on_subjectable"
+    t.index ["seen_at"], name: "index_go_gamification_rewards_on_seen_at"
+  end
+
   create_table "images", force: :cascade do |t|
     t.bigint "album_id"
     t.string "asset"
@@ -162,6 +194,28 @@ ActiveRecord::Schema.define(version: 20171021183741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_images_on_album_id"
+  end
+
+  create_table "jobs_jobs", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "location"
+    t.integer "job_type", null: false
+    t.integer "week_hours"
+    t.text "description", null: false
+    t.string "company_name"
+    t.string "company_url"
+    t.bigint "user_id", null: false
+    t.integer "positions", default: 1, null: false
+    t.integer "sallary_low"
+    t.integer "sallary_high"
+    t.string "contact_email"
+    t.datetime "expiration_date"
+    t.datetime "published_at"
+    t.integer "acess_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "status", default: false, null: false
+    t.index ["user_id"], name: "index_jobs_jobs_on_user_id"
   end
 
   create_table "link_categories", force: :cascade do |t|
@@ -319,6 +373,7 @@ ActiveRecord::Schema.define(version: 20171021183741) do
   add_foreign_key "financial_transactions", "users"
   add_foreign_key "gifts", "events"
   add_foreign_key "images", "albums"
+  add_foreign_key "jobs_jobs", "users"
   add_foreign_key "links", "link_categories"
   add_foreign_key "partners", "events"
   add_foreign_key "social_networks", "users"
