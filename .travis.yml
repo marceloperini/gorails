@@ -6,6 +6,7 @@ services:
 before_install:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database gorails_test;' -U postgres
+  - apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev libgmp-dev -y
 script:
   - export RAILS_ENV=test
   - bundle exec rake db:create db:migrate
