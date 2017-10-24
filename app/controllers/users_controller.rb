@@ -23,6 +23,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def certified
+    if params[:certified_code].present? and params[:certified_code] != ''
+      @register_certified = Registration.where('certified_code = ? and presence is true', params[:certified_code]).first
+      if @register_certified
+        @certified_event = Event.find(@register_certified.event_id)
+        @certified_user = User.find(@register_certified.user_id)
+        render 'show_certified'
+      else
+        flash[:alert] = "Por favor digite um código valido de um diploma emitido pela GoRails"
+        render 'certified'
+      end
+    end
+  end
+
   private
 
   def set_user

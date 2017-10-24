@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do # frozen_string_literal: true.
   factory :event do
   	name 'MyEvent'
   	description 'MyDescription'
