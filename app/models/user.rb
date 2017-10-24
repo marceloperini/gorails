@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) {controller && controller.current_user}
   rolify
-  rewardable
+
+  has_many :rewards, class_name: 'GoGamification::Reward'
+  has_many :goals, through: :rewards, class_name: '::GoGamification::Goal'
+
+  def medals
+    rewards.includes(goal: :medal).collect(&:medal).compact || []
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
