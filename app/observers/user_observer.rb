@@ -16,7 +16,7 @@ class UserObserver < ActiveRecord::Observer
   end
 
   def sign_in_goal(user)
-    goal = GoGamification::Goal.create(rewarding_type: user.class, rewarding_id: user.id, points: points(user))
+    goal = Gamification::Goal.create(rewarding_type: user.class, rewarding_id: user.id, points: points(user))
     goal.create_medal do |medal|
       medal.name = 'Logar'
       medal.image = File.open("#{Rails.root}/app/assets/images/medals/login-medal.png")

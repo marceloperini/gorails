@@ -1,7 +1,7 @@
 PATH
-  remote: /home/jcottobboni/Projetos/go_gamification
+  remote: /home/jcottobboni/Projetos/engines/go_gamification
   specs:
-    go_gamification (0.0.12)
+    go_gamification (0.0.13)
       carrierwave
       draper
       rails
@@ -137,6 +137,7 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    easy_static_pages (0.1.1)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -159,13 +160,9 @@ GEM
       faraday (~> 0.8)
       hashie (>= 3.4)
       oauth2 (~> 1.0)
-    globalid (0.4.0)
+    globalid (0.4.1)
       activesupport (>= 4.2.0)
     go_blog (0.1.10)
-      draper
-      pg
-      rails
-    go_gamification (0.0.7)
       draper
       pg
       rails
@@ -399,7 +396,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.13)
     summernote-rails (0.8.3.0)
       railties (>= 3.1)
     sweet-alert (0.0.9)
@@ -474,14 +470,14 @@ DEPENDENCIES
   devise
   dotenv
   draper
-  easy_static_pages!
+  easy_static_pages
   factory_bot_rails
   ffaker
   figaro
   gibbon
   github_api
   go_blog
-  go_gamification
+  go_gamification!
   go_jobs
   jbuilder (~> 2.5)
   jquery-rails
