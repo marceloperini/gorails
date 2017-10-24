@@ -106,6 +106,45 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.index ["user_id"], name: "index_financial_transactions_on_user_id"
   end
 
+  create_table "gamification_goals", force: :cascade do |t|
+    t.string "rewarding_type"
+    t.bigint "rewarding_id"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rewarding_type", "rewarding_id"], name: "index_gamification_goals_on_rewarding_type_and_rewarding_id"
+  end
+
+  create_table "gamification_levels", force: :cascade do |t|
+    t.integer "experience"
+    t.integer "previous_level_difference"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gamification_medals", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.index ["goal_id"], name: "index_gamification_medals_on_goal_id"
+  end
+
+  create_table "gamification_rewards", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.string "rewardable_type"
+    t.bigint "rewardable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "seen_at"
+    t.index ["goal_id"], name: "index_game_scoring_on_tasks"
+    t.index ["rewardable_id", "rewardable_type"], name: "index_go_game_score_on_subjectable"
+    t.index ["rewardable_type", "rewardable_id"], name: "index_game_scoring_on_subjectable"
+    t.index ["seen_at"], name: "index_go_gamification_rewards_on_seen_at"
+  end
+
   create_table "gifts", force: :cascade do |t|
     t.string "name"
     t.text "description"

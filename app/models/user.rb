@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   tracked owner: ->(controller, model) {controller && controller.current_user}
   rolify
 
-  has_many :rewards, class_name: 'GoGamification::Reward'
-  has_many :goals, through: :rewards, class_name: '::GoGamification::Goal'
+  has_many :rewards, class_name: 'Gamification::Reward', as: :rewardable
+  has_many :goals, through: :rewards, class_name: 'Gamification::Goal'
 
   def medals
     rewards.includes(goal: :medal).collect(&:medal).compact || []

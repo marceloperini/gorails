@@ -1,38 +1,8 @@
-GIT
-  remote: https://github.com/gorails/easy_static_pages.git
-  revision: 4c4917ddc310633da66945c7e7d8f8fa964f21c9
-  branch: master
+PATH
+  remote: /home/jcottobboni/Projetos/go_gamification
   specs:
-    easy_static_pages (0.1.1)
-
-GIT
-  remote: https://github.com/gorails/go_blog.git
-  revision: b6660a3f541110eaf5f738459ddae623b93d5871
-  branch: master
-  specs:
-    go_blog (0.2.0)
-      draper
-      pg
-      rails
-
-GIT
-  remote: https://github.com/gorails/go_gamification.git
-  revision: 6c2effdc4ed303fee2e8dcdc78eadb1e554539ca
-  branch: master
-  specs:
-    go_gamification (0.0.8)
+    go_gamification (0.0.12)
       carrierwave
-      draper
-      pg
-      rails
-      sqlite3
-
-GIT
-  remote: https://github.com/gorails/go_jobs.git
-  revision: 379b583346269170dd5b762edfe78649cafbcc95
-  branch: master
-  specs:
-    go_jobs (0.1.2)
       draper
       rails
 
@@ -191,6 +161,18 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    go_blog (0.1.10)
+      draper
+      pg
+      rails
+    go_gamification (0.0.7)
+      draper
+      pg
+      rails
+    go_jobs (0.1.2)
+      draper
+      pg
+      rails
     hashie (3.5.6)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
@@ -498,9 +480,9 @@ DEPENDENCIES
   figaro
   gibbon
   github_api
-  go_blog!
-  go_gamification!
-  go_jobs!
+  go_blog
+  go_gamification
+  go_jobs
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
