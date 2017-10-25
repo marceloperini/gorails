@@ -61,17 +61,17 @@
                     <br>
 
                     <div class="col-xs-12">
-                      <%= f.label :email, "Endereço de E-mail" %>
+                      <%= f.label :email, "Endereço de E-mail" %> <i>(*obrigatório)</i><br/>
                       <%= f.email_field :email, autofocus: true, placeholder: "Enter your email..", class: "form-control input-lg" %>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-xs-6">
-                      <%= f.label :first_name, "Primeiro Nome" %>
+                      <%= f.label :first_name, "Primeiro Nome" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :first_name, placeholder: "Digite seu primeiro nome..", class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
-                      <%= f.label :last_name, "Sobrenome" %>
+                      <%= f.label :last_name, "Sobrenome" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :last_name, placeholder: "Digite seu sobrenome nome..", class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -94,11 +94,12 @@
 
 
                     <div class="col-xs-6">
-                      <%= f.label :rg, "Identidade" %>
+                      <%= f.label :rg, "Identidade" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :rg, class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :consignor_organ, "Órgão Expedidor" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :consignor_organ, class: "form-control input-lg" %>
                     </div>
 
@@ -106,18 +107,19 @@
 
                   <div class="form-group">
                     <div class="col-xs-12">
-                      <%= f.label :company, "Empresa" %>
+                      <%= f.label :company, "Empresa" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :company, class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-6">
-                      <%= f.label :phone, "Telefone (Fixo)" %>
+                      <%= f.label :phone, "Telefone (Fixo)" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :phone, class: "form-control input-lg phone" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :celphone, "Telefone (Celular)" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :celphone, class: "form-control input-lg celphone" %>
                     </div>
                   </div>
@@ -134,7 +136,7 @@
 
                   <div class="form-group">
                     <div class="col-xs-6">
-                      <%= f.label :birth_date, "Data de Nascimento" %>
+                      <%= f.label :birth_date, "Data de Nascimento" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= date_picker f, :birth_date %>
                     </div>
                     <div class="col-xs-6" >
@@ -146,10 +148,12 @@
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :marital_status, "Estado Civil" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :marital_status, class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :place_of_birth, "Naturalidade" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :place_of_birth, class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -160,36 +164,35 @@
                       <%= f.text_field :father, class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
-                      <%= f.label :mother, "Filiação (Mãe)" %>
+                      <%= f.label :mother, "Filiação (Mãe)" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :mother, class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-12">
-                      <%= f.label :address, "Endereço" %>
+                      <%= f.label :address, "Endereço" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :address, class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-9">
-                      <%= f.label :neighborhood, "Bairro" %>
+                      <%= f.label :neighborhood, "Bairro" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :neighborhood, class: "form-control input-lg" %>
                     </div>
-                    <!--<div class="col-xs-3">-->
-                      <!--<%= f.label :uf, "UF" %>-->
-                      <!--<%= f.text_field :uf, class: "form-control input-lg" %>-->
-                    <!--</div>-->
+
+
                     <div class="col-xs-3" >
-                      <%= f.label :uf, "UF" %>
+                      <%= f.label :uf, "UF" %><i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.select :uf, UF_BRASIL, {}, {class: "form-control input-lg"}  %>
+
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-8">
-                      <%= f.label :zip_code, "CEP" %>
+                      <%= f.label :zip_code, "CEP" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :zip_code, class: "form-control input-lg zip_code" %>
                     </div>
                   </div>
@@ -197,13 +200,14 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :special_needs, "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :special_needs, class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-12">
-                      <%= f.label :complement, "Complemento" %>
+                      <%= f.label :complement, "Complemento" %> <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :complement, class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -219,7 +223,8 @@
 
                   <div class="form-group">
                     <div class="col-xs-12">
-                      <%= f.label :password, "Senha" %> <i>(deixe em branco se você não deseja alterar)</i><br/>
+                      <%= f.label :password, "Senha" %>
+                      <i>(deixe em branco se você não deseja alterar)</i><br/>
                       <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -231,7 +236,6 @@
                     </div>
                   </div>
                   <hr>
-
 
 
                   <!--<div class="form-group">-->
@@ -337,16 +341,16 @@
                   <tr class="fields">
                     <td>
                       <%= social_network.hidden_field :user_id, :value => current_user.id %>
-                      <%= social_network.text_field :link  ,class: "form-control input-sm"%>
+                      <%= social_network.text_field :link, class: "form-control input-sm" %>
                     </td>
                     <td>
-                      <%= social_network.link_to_remove "Remover"  ,class: "btn btn-danger btn-mini"%>
+                      <%= social_network.link_to_remove "Remover", class: "btn btn-danger btn-mini" %>
                     </td>
                   </tr>
               <% end %>
 
             </table>
-                <%= f.link_to_add "Nova Rede Social", :social_networks, class: 'btn btn-success btn-mini' ,'data-target' => '#social_networks_table' %>
+            <%= f.link_to_add "Nova Rede Social", :social_networks, class: 'btn btn-success btn-mini', 'data-target' => '#social_networks_table' %>
 
           </div>
           <div class="block-content block-content-full bg-gray-lighter text-center">
@@ -361,6 +365,7 @@
 
 
 <script>
+
 
 
   <%if @user.need_certificate == true and @user.data_completed != true%>
@@ -397,6 +402,7 @@
     language: 'pt-BR'
   });
   $('.data').mask('99/99/9999');
+
 </script>
 
 
