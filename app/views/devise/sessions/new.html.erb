@@ -41,8 +41,9 @@
         <div class="form-group">
           <div class="col-xs-12">
             <% if devise_mapping.rememberable? -%>
-            <label class="css-input switch switch-sm switch-primary">
-              <%= f.check_box :remember_me ,id:"login-remember-me"%>
+            <label class="form-material form-material-primary floating">
+              <%= f.check_box :remember_me, id:"login-remember-me" %>
+              Lembrar-me?
             </label>
             <% end %>
           </div>
