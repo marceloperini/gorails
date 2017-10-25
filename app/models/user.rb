@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) {controller && controller.current_user}
   rolify
-  rewardable
+
+  has_many :rewards, class_name: 'Gamification::Reward', as: :rewardable
+  has_many :goals, through: :rewards, class_name: 'Gamification::Goal'
+
+  def medals
+    rewards.includes(goal: :medal).collect(&:medal).compact || []
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -69,6 +75,12 @@ class User < ActiveRecord::Base
   mount_uploader :cover_photo, AttachmentsUploader
   accepts_nested_attributes_for :attachments
   accepts_nested_attributes_for :social_networks, reject_if: proc {|a| a[:link].blank?}, allow_destroy: true
+
+  before_save :phone_numeric
+  def phone_numeric
+    self.celphone = celphone.gsub(/\D/, '') if celphone.present?
+    self.phone = phone.gsub(/\D/, '') if phone.present?
+  end
 
   def name
     [first_name, last_name].join(" ").strip

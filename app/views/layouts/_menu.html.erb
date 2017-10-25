@@ -39,6 +39,12 @@
               <a href="/jobs/jobs"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
             </li>
         <% end %>
+        <% if can? :magage, index_admin_events_path %>
+            <%= link_to index_admin_events_path do %>
+                <i class="si si-list"></i><span class="sidebar-mini-hide">Eventos</span>
+            <% end %>
+        <% end %>
+        
         <% if can? :magage, activities_index_path %>
             <%= link_to activities_index_path do %>
                 <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>

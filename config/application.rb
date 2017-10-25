@@ -51,6 +51,15 @@ module Gorails
     configatron.configure_from_hash(YAML.load(settings_data))
 
     config.web_console.development_only = false
-    config.active_record.observers = :user_observer
+
+
+    Dir.chdir("#{Rails.root}/app/observers") do
+      config.active_record.observers = Dir["*_observer.rb"].collect {|ob_name| ob_name.split(".").first}
+    end
+
+    Raven.configure do |config|
+        config.dsn = ENV["SENTRY_RAVEN_DSN"]
+    end
+
   end
 end

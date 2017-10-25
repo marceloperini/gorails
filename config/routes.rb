@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   resources :partners
   resources :events, path: 'eventos' do
     post :register, on: :member
-    collection {post 'register'}
+    collection do 
+      post 'register'
+      get 'index_admin'
+    end
     resources :registrations, controller: 'event_registrations'
   end
   resources :attachments

@@ -9,7 +9,7 @@ class AttachmentsUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   # Call method
 
-
+  #storage :file
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
