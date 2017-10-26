@@ -13,8 +13,13 @@ class User < ActiveRecord::Base
   end
 
   def level
-    Gamification::Level.where('gamification_levels.experience = (select max(gamification_levels.experience)
-       FROM gamification_levels where experience < ?)', self.current_experience).first.level
+    level = Gamification::Level.where('gamification_levels.experience = (select max(gamification_levels.experience)
+       FROM gamification_levels where experience < ?)', self.current_experience).first
+    if level
+      level.level
+    else
+      1
+    end
   end
 
   def next_level_xp
