@@ -157,7 +157,7 @@ GEM
     go_blog (0.2.1)
       draper
       rails
-    go_gamification (0.0.15)
+    go_gamification (0.0.16)
       carrierwave
       draper
       rails
@@ -523,4 +523,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.0.pre.3
+   1.15.4
