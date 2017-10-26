@@ -157,7 +157,7 @@ GEM
     go_blog (0.2.1)
       draper
       rails
-    go_gamification (0.0.14)
+    go_gamification (0.0.15)
       carrierwave
       draper
       rails
@@ -310,7 +310,7 @@ GEM
     rainbow (2.2.2)
       rake
     raindrops (0.19.0)
-    rake (12.1.0)
+    rake (12.2.1)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)

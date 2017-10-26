@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023230506) do
+ActiveRecord::Schema.define(version: 20171026003231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count"
     t.index ["rewarding_type", "rewarding_id"], name: "index_gamification_goals_on_rewarding_type_and_rewarding_id"
   end
 
@@ -120,6 +121,7 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.integer "previous_level_difference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level"
   end
 
   create_table "gamification_medals", force: :cascade do |t|
