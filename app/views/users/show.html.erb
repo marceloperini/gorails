@@ -30,6 +30,13 @@
                     jump();
                 }
             </script>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%=
+                @user.current_experience %>" aria-valuemin="0" aria-valuemax="<%= @user.next_level_xp%>" style="width: <%=
+              @user.current_experience%>%;"><%= @user.current_experience%>XP / <%= @user.next_level_xp%>XP
+              </div>
+            </div>
+
           </div>
         </div>
         <div class="block">
