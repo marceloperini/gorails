@@ -6,6 +6,14 @@ class UserDecorator < Draper::Decorator
     [object.first_name, object.last_name].join(" ").strip
   end
 
+  def equipped_hair
+    h.asset_path Gamification::ItemType.where(key:'hair').first.items.first.inventories.equipped.first.item.image
+  end
+
+  def equipped_head
+    h.asset_path Gamification::ItemType.where(key:'head').first.items.first.inventories.equipped.first.item.image
+  end
+
   def xp_percent
     if current_experience > 0 and next_level_xp > 0
       current_experience * 100 / next_level_xp
