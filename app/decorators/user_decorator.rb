@@ -7,11 +7,13 @@ class UserDecorator < Draper::Decorator
   end
 
   def equipped_hair
-    h.asset_path Gamification::ItemType.where(key:'hair').first.items.first.inventories.equipped.first.item.image
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true}, gamification_item_types: {key: 'hair'})
+                     .joins(:inventories, :item_type).first.image
   end
 
   def equipped_head
-    h.asset_path Gamification::ItemType.where(key:'head').first.items.first.inventories.equipped.first.item.image
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true}, gamification_item_types: {key: 'head'})
+                     .joins(:inventories, :item_type).first.image
   end
 
   def xp_percent
