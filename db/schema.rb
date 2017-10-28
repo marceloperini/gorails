@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026003231) do
+ActiveRecord::Schema.define(version: 20171028203324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,42 @@ ActiveRecord::Schema.define(version: 20171026003231) do
     t.datetime "updated_at", null: false
     t.integer "count"
     t.index ["rewarding_type", "rewarding_id"], name: "index_gamification_goals_on_rewarding_type_and_rewarding_id"
+  end
+
+  create_table "gamification_inventories", force: :cascade do |t|
+    t.integer "user_id"
+    t.bigint "gamification_item_id"
+    t.boolean "equipped"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gamification_item_id"], name: "index_gamification_inventories_on_gamification_item_id"
+  end
+
+  create_table "gamification_item_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gamification_item_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "key"
+  end
+
+  create_table "gamification_items", force: :cascade do |t|
+    t.string "name"
+    t.bigint "gamification_item_type_id"
+    t.string "image"
+    t.integer "rarity"
+    t.decimal "cost"
+    t.integer "user_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "gamification_item_group_id"
+    t.index ["gamification_item_type_id"], name: "index_gamification_items_on_gamification_item_type_id"
   end
 
   create_table "gamification_levels", force: :cascade do |t|
@@ -341,6 +377,8 @@ ActiveRecord::Schema.define(version: 20171026003231) do
   end
 
   add_foreign_key "financial_transactions", "users"
+  add_foreign_key "gamification_inventories", "gamification_items"
+  add_foreign_key "gamification_items", "gamification_item_types"
   add_foreign_key "gifts", "events"
   add_foreign_key "images", "albums"
   add_foreign_key "jobs_jobs", "users"

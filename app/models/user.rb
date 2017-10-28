@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
 
   has_many :rewards, class_name: 'Gamification::Reward', as: :rewardable
   has_many :goals, through: :rewards, class_name: 'Gamification::Goal'
+  belongs_to :inventory, class_name: 'Gamification::Inventory'
 
   def medals
     rewards.includes(goal: :medal).collect(&:medal).compact || []
   end
+
 
   def level
     level = Gamification::Level.where('gamification_levels.experience = (select max(gamification_levels.experience)

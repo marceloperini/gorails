@@ -1,9 +1,60 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def inventory?
+    Gamification::Inventory.where(user_id:id).any?
+  end
+
   def name
     return email if !first_name.present? and !last_name.present?
     [object.first_name, object.last_name].join(" ").strip
+  end
+
+  def equipped_hair
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'hair'})
+                     .joins(:inventories, :item_type).first.image
+  end
+
+  def equipped_head
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'head'})
+                     .joins(:inventories, :item_type).first.image
+  end
+
+  def equipped_left_arm
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'leftarm'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_right_arm
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'rightarm'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_legs
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'legs'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_torso
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'torso'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_right_arm_jump
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'rightarmjump'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_left_arm_jump
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'leftarmjump'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_legs_jump
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'legsjump'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_background
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'background'})
+                     .joins(:inventories, :item_type).first.image
+  end
+  def equipped_flyingobject
+    h.asset_path Gamification::Item.where(gamification_inventories: {equipped: true,user_id:id}, gamification_item_types: {key: 'flyingobject'})
+                     .joins(:inventories, :item_type).first.image
   end
 
   def xp_percent
