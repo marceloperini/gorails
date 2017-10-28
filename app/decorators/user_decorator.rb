@@ -5,6 +5,10 @@ class UserDecorator < Draper::Decorator
     Gamification::Inventory.where(user_id:id).any?
   end
 
+  def owner?
+    inventory? && h.current_user == self
+  end
+
   def name
     return email if !first_name.present? and !last_name.present?
     [object.first_name, object.last_name].join(" ").strip

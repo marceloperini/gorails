@@ -92,7 +92,7 @@
 
       </div>
 
-      <%= render 'gamification/inventories/inventory' if @user.decorate.inventory?%>
+      <%= render 'gamification/inventories/inventory' if @user.decorate.owner?%>
 
       <% if get_github_user(@user)!= nil %>
           <div class="col-sm-7 col-sm-pull-5 col-lg-8 col-lg-pull-4">
