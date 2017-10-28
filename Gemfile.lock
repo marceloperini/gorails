@@ -157,7 +157,7 @@ GEM
     go_blog (0.2.1)
       draper
       rails
-    go_gamification (0.0.17)
+    go_gamification (0.0.18)
       cancancan
       carrierwave
       devise
