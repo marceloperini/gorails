@@ -14,11 +14,6 @@ class User < ActiveRecord::Base
   end
 
 
-
-  def equipped_head
-
-  end
-
   def level
     level = Gamification::Level.where('gamification_levels.experience = (select max(gamification_levels.experience)
        FROM gamification_levels where experience < ?)', self.current_experience).first

@@ -55,6 +55,13 @@
               <% end %>
             </li>
         <% end %>
+        <% if can? :magage, gamification_item_groups_path %>
+            <li>
+              <%= link_to gamification_item_groups_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Grupos de Items</span>
+              <% end %>
+            </li>
+        <% end %>
         <% if can? :magage, gamification_items_path %>
             <li>
               <%= link_to gamification_items_path do %>

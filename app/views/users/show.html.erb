@@ -29,7 +29,7 @@
         <!--</div>-->
 
 
-        <%= render 'character' %>
+        <%= render 'character'if @user.decorate.inventory? %>
 
         <div class="block">
           <div class="block-content">
@@ -92,7 +92,7 @@
 
       </div>
 
-      <%= render 'inventory' %>
+      <%= render 'gamification/inventories/inventory' if @user.decorate.inventory?%>
 
       <% if get_github_user(@user)!= nil %>
           <div class="col-sm-7 col-sm-pull-5 col-lg-8 col-lg-pull-4">
@@ -141,4 +141,4 @@
   </div>
 </main>
 
-<%= render 'javascript' %>
+<%= render 'javascript' if @user.decorate.inventory?%>
