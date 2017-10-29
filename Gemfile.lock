@@ -154,7 +154,7 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    go_blog (0.2.1)
+    go_blog (0.2.2)
       draper
       rails
     go_gamification (0.0.18)
