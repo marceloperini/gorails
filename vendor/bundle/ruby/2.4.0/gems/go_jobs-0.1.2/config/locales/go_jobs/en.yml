@@ -1,7 +1,0 @@
-en:
-  blog_posts:
-    index:
-      title: 'Posts'
-  blog_post:
-    new:
-      header: 'New post'

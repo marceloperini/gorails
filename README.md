@@ -10,6 +10,15 @@ Esse projeto está sendo desenvolvido usando Ruby 2.4.2. Se você estiver utiliz
 ou [rbenv](https://github.com/sstephenson/rbenv) ele vai selecionar a versão exata em desenvolvimento
 especificada no arquivo [.ruby-version](https://github.com/RubyCastsBrasil/RubyCastsBrasil/blob/master/.ruby-version).
 
+- Se você quiser configurar o Ruby on Rails no Ubuntu, siga esse tutorial: http://gorails.com.br/blog/posts/show_list?id=1
+
+- Faça o seu fork no projeto e clone ele para sua máquina
+
+- Rode:
+```shell
+bundle install
+```
+
 - Crie um arquivo de configuração do banco de dados:
 ```shell
 cp config/database.example.yml config/database.yml

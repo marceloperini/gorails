@@ -6,6 +6,7 @@ ee https://help.github.com/articles/ignoring-files for more about ignoring files
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
