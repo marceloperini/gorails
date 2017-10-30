@@ -103,4 +103,8 @@ Rails.application.configure do
       authentication: "plain",
       enable_starttls_auto: true
   }
+
+  Raven.configure do |config|
+    config.dsn = ENV['SENTRY_RAVEN_DSN'] if Rails.env != 'test'
+  end
 end
