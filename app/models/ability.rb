@@ -12,6 +12,7 @@ class Ability
         can :new, Jobs::Job
         can :create, Jobs::Job
         can [:edit,:update], Jobs::Job, :status => 1,:user_id => user.id
+        can [:update], Gamification::Inventory,:user_id => user.id
         can :read, :FinancialTransaction
         can :register, :all
       end
