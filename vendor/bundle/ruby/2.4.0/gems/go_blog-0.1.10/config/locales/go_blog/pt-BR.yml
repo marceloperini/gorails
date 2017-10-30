@@ -1,7 +1,0 @@
-pt-BR:
-  blog_posts:
-    index:
-      title: 'Posts'
-  blog_post:
-    new:
-      header: 'Novo post'

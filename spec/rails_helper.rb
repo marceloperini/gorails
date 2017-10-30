@@ -1,10 +1,10 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-require 'spec_helper'
 require 'rspec/rails'
 require 'devise'
 require "support/factory_bot"
@@ -62,6 +62,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+=begin
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       # Choose a test framework:
@@ -70,4 +71,5 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+=end
 end

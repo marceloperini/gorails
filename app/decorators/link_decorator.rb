@@ -13,7 +13,7 @@ class LinkDecorator < Draper::Decorator
 
   def link_to_edit
     h.link_to h.edit_link_path(id: self.id),
-              class: 'tn btn-warning btn-sm',
+              class: 'btn btn-warning btn-sm',
               title: 'Alterar',
               style: 'color: #FFF; float: none;' do
       h.content_tag :span, class: 'fa fa-pencil' do
