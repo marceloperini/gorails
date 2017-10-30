@@ -5,16 +5,29 @@ namespace :dev do
 
     puts "Executando o setup para desenvolvimento"
 
-    puts "Apagando o BD...#{%x(rake db:drop)}"
-    puts "Criando o BD...#{%x(rake db:create)}"
-    puts %x(rake db:migrate)
-    puts %x(rake dev:generate_users)
-    puts %x(rake dev:generate_events)
-    puts %x(rake dev:generate_posts)
+    puts "Apagando o BD...#{%x(rails db:drop)}"
+    puts "Criando o BD...#{%x(rails db:create)}"
+    puts %x(rails db:migrate)
+    puts %x(rails dev:generate_itens)
+    puts %x(rails dev:generate_users)
+    puts %x(rails dev:generate_events)
+    puts %x(rails dev:generate_posts)
 
     puts "Setup completado"
   end
 
+
+  desc "Cria Itens do Game"
+  task generate_itens: :environment do
+    puts "Cadastrando Itens..."
+    10.times do
+      Gamification::ItemGroup.create!(
+          key: 'human_man',
+          name: FFaker::Product.product
+      )
+    end
+    puts "Cadastrando Usuário Adminstrador..."
+  end
 
   desc "Cria Usuários do Sistema"
   task generate_users: :environment do
