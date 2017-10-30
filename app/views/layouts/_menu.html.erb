@@ -44,7 +44,33 @@
                 <i class="si si-list"></i><span class="sidebar-mini-hide">Eventos</span>
             <% end %>
         <% end %>
-        
+
+
+
+
+        <% if can? :magage, gamification_item_types_path %>
+            <li>
+              <%= link_to gamification_item_types_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Tipos de Item</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, gamification_item_groups_path %>
+            <li>
+              <%= link_to gamification_item_groups_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Grupos de Items</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, gamification_items_path %>
+            <li>
+              <%= link_to gamification_items_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Items</span>
+              <% end %>
+            </li>
+        <% end %>
+
+
         <% if can? :magage, activities_index_path %>
             <%= link_to activities_index_path do %>
                 <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>

@@ -1,0 +1,18 @@
+<div class="block" id="character">
+  <div class="block-content" align="center">
+    <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Personagem</h3>
+
+    <div id="shadow"></div>
+
+    <div id="stageholder"></div>
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%=
+        @user.current_experience %>" aria-valuemin="0" aria-valuemax="<%= @user.next_level_xp %>"
+           style="width: <%=@user.decorate.xp_percent %>%;">
+        <%= @user.current_experience %>XP / <%= @user.next_level_xp %>XP
+      </div>
+    </div>
+
+  </div>
+</div>

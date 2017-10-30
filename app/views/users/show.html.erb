@@ -1,5 +1,14 @@
-<%= javascript_include_tag 'go_gamification/character' %>
+<style>
+  #stageholder {
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+  }
 
+  canvas {
+    border: 5px solid #e1e1e1;
+  }
+</style>
 
 <main id="main-container" style="min-height: 277px;">
   <div class="content content-boxed">
@@ -20,18 +29,8 @@
         <!--</div>-->
 
 
-        <div class="block">
-          <div class="block-content" style="width: 500px; height: 300px">
-            <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Personagem</h3>
-            <div id="canvasDiv"></div>
-            <script type="text/javascript">
-                prepareCanvas(document.getElementById("canvasDiv"), 600, 220);
-                document.getElementById("canvasDiv").onmousedown = function () {
-                    jump();
-                }
-            </script>
-          </div>
-        </div>
+        <%= render 'character'if @user.decorate.inventory? %>
+
         <div class="block">
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Conquistas</h3>
@@ -93,7 +92,7 @@
 
       </div>
 
-
+      <%= render 'gamification/inventories/inventory' if @user.decorate.owner?%>
 
       <% if get_github_user(@user)!= nil %>
           <div class="col-sm-7 col-sm-pull-5 col-lg-8 col-lg-pull-4">
@@ -141,3 +140,5 @@
     </div>
   </div>
 </main>
+
+<%= render 'javascript' if @user.decorate.inventory?%>
