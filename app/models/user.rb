@@ -4,7 +4,33 @@ class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) {controller && controller.current_user}
   rolify
-  rewardable
+
+  has_many :rewards, class_name: 'Gamification::Reward', as: :rewardable
+  has_many :goals, through: :rewards, class_name: 'Gamification::Goal'
+  belongs_to :inventory, class_name: 'Gamification::Inventory'
+
+  def medals
+    rewards.includes(goal: :medal).collect(&:medal).compact || []
+  end
+
+
+  def level
+    level = Gamification::Level.where('gamification_levels.experience = (select max(gamification_levels.experience)
+       FROM gamification_levels where experience < ?)', self.current_experience).first
+    if level
+      level.level
+    else
+      1
+    end
+  end
+
+  def next_level_xp
+    Gamification::Level.where(level: level + 1).first.experience
+  end
+
+  def current_experience
+    goals.sum(:points)
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -71,6 +97,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :social_networks, reject_if: proc {|a| a[:link].blank?}, allow_destroy: true
 
   before_save :phone_numeric
+
   def phone_numeric
     self.celphone = celphone.gsub(/\D/, '') if celphone.present?
     self.phone = phone.gsub(/\D/, '') if phone.present?

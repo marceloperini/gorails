@@ -56,11 +56,11 @@ gem 'summernote-rails'
 gem 'truncato'
 gem 'valid_url'
 gem 'rails-observers'
-gem 'rollbar'
+gem 'sentry-raven'
 gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
-gem 'go_blog'#, git: 'https://github.com/gorails/go_blog.git', branch: 'master'
-gem 'go_jobs'#, git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
-gem 'go_gamification'#, git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+gem 'go_blog'# ,path: '/home/jcottobboni/Projetos/engines/go_blog'# ,git: 'https://github.com/gorails/go_blog.git', branch: 'master'
+gem 'go_jobs'# ,git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
+gem 'go_gamification'# ,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

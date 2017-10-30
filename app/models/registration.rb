@@ -3,13 +3,14 @@
 class Registration < ActiveRecord::Base
   # extends ...................................................................
   # includes ..................................................................
-  rewarding
   # security (i.e. attr_accessible) ...........................................
   # relationships .............................................................
   belongs_to :event
   belongs_to :user, foreign_key: "user_id"
 
   before_create :code_certified
+
+  validates_uniqueness_of :certified_code
   # validations ...............................................................
   # callbacks .................................................................
   # scopes ....................................................................
@@ -25,7 +26,14 @@ class Registration < ActiveRecord::Base
   end
 
   def code_certified
-    self.certified_code = SecureRandom.hex[0..7]
+
+    while true do
+      code = SecureRandom.hex[0..7]
+      register = Registration.where(' certified_code = ? ', code).first
+      break if register.nil?
+    end
+
+    self.certified_code = code
   end
 
   # public instance methods ...................................................
