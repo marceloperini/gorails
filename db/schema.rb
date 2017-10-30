@@ -79,45 +79,6 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "commontator_comments", force: :cascade do |t|
-    t.string "creator_type"
-    t.integer "creator_id"
-    t.string "editor_type"
-    t.integer "editor_id"
-    t.integer "thread_id", null: false
-    t.text "body", null: false
-    t.datetime "deleted_at"
-    t.integer "cached_votes_up", default: 0
-    t.integer "cached_votes_down", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down"
-    t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up"
-    t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id"
-    t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at"
-  end
-
-  create_table "commontator_subscriptions", force: :cascade do |t|
-    t.string "subscriber_type", null: false
-    t.integer "subscriber_id", null: false
-    t.integer "thread_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true
-    t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id"
-  end
-
-  create_table "commontator_threads", force: :cascade do |t|
-    t.string "commontable_type"
-    t.integer "commontable_id"
-    t.datetime "closed_at"
-    t.string "closer_type"
-    t.integer "closer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -145,6 +106,15 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.index ["user_id"], name: "index_financial_transactions_on_user_id"
   end
 
+  create_table "gamification_goals", force: :cascade do |t|
+    t.string "rewarding_type"
+    t.bigint "rewarding_id"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rewarding_type", "rewarding_id"], name: "index_gamification_goals_on_rewarding_type_and_rewarding_id"
+  end
+
   create_table "gamification_levels", force: :cascade do |t|
     t.integer "experience"
     t.integer "previous_level_difference"
@@ -152,36 +122,17 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "gifts", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "photo"
-    t.index ["event_id"], name: "index_gifts_on_event_id"
-  end
-
-  create_table "go_gamification_goals", force: :cascade do |t|
-    t.string "rewarding_type"
-    t.bigint "rewarding_id"
-    t.integer "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rewarding_type", "rewarding_id"], name: "index_go_gamification_goals_on_rewarding_type_and_rewarding_id"
-  end
-
-  create_table "go_gamification_medals", force: :cascade do |t|
+  create_table "gamification_medals", force: :cascade do |t|
     t.bigint "goal_id"
     t.string "name"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.index ["goal_id"], name: "index_go_gamification_medals_on_goal_id"
+    t.index ["goal_id"], name: "index_gamification_medals_on_goal_id"
   end
 
-  create_table "go_gamification_rewards", force: :cascade do |t|
+  create_table "gamification_rewards", force: :cascade do |t|
     t.bigint "goal_id"
     t.string "rewardable_type"
     t.bigint "rewardable_id"
@@ -192,6 +143,16 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.index ["rewardable_id", "rewardable_type"], name: "index_go_game_score_on_subjectable"
     t.index ["rewardable_type", "rewardable_id"], name: "index_game_scoring_on_subjectable"
     t.index ["seen_at"], name: "index_go_gamification_rewards_on_seen_at"
+  end
+
+  create_table "gifts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["event_id"], name: "index_gifts_on_event_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -301,8 +262,8 @@ ActiveRecord::Schema.define(version: 20171023230506) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
