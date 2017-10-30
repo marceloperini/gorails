@@ -57,10 +57,5 @@ module Gorails
     Dir.chdir("#{Rails.root}/app/observers") do
       config.active_record.observers = Dir["*_observer.rb"].collect {|ob_name| ob_name.split(".").first}
     end
-
-    Raven.configure do |config|
-        config.dsn = ENV["SENTRY_RAVEN_DSN"]
-    end
-
   end
 end
