@@ -30,3 +30,4 @@
 //= require sweet-alert-confirm
 //= require jquery_nested_form
 //= require bootstrap-datepicker
+//= require social-share-button
