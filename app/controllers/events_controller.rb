@@ -120,7 +120,7 @@ class EventsController < ApplicationController
   end
 
   def update_user_need_certificate
-    return need_certificate if @user.update_attributes(need_certificate: params[:register][:need_certificate])
+    return need_certificate if  @user.update_attributes(need_certificate: params[:register][:need_certificate])
   end
 
   def update_cpf_and_registre

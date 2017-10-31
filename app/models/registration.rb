@@ -8,7 +8,7 @@ class Registration < ActiveRecord::Base
   belongs_to :event
   belongs_to :user, foreign_key: "user_id"
 
-  before_create :code_certified
+  before_validation :code_certified
 
   validates_uniqueness_of :certified_code
   # validations ...............................................................
