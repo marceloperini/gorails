@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     goals.sum(:points)
   end
 
+  def current_rubys
+    goals.sum(:rubys)
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
