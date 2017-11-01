@@ -29,7 +29,7 @@
         <!--</div>-->
 
 
-        <%= render 'character'if @user.decorate.inventory? %>
+        <%= render 'character' if @user.decorate.inventory? %>
 
         <div class="block">
           <div class="block-content">
@@ -81,6 +81,34 @@
           </div>
         </div>
 
+
+        <div class="block">
+          <div class="block-content">
+            <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Redes Sociais</h3>
+
+            <% if @user.social_networks.any? %>
+                <table class="table table-borderless table-condensed">
+                  <tbody>
+                  <% @user.social_networks.order(:created_at).each do |social| %>
+                      <tr>
+                        <td>
+                          <i class="fa fa-fw fa-<%= class_fa(social.social_network_type_id) %> push-10-r"></i>
+                          <%= social.social_network_type.name_social_media %> <%= link_to "#{social.link}", url_with_protocol(social.link), :target => '_blank' %>
+                          <br>
+                        </td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+            <% else %>
+                <p>
+                  Usuário não cadastrou nenhuma Rede Social
+                </p>
+            <% end %>
+          </div>
+        </div>
+
+
         <div class="block">
           <div class="block-content">
             <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Último acesso</h3>
@@ -92,7 +120,7 @@
 
       </div>
 
-      <%= render 'gamification/inventories/inventory' if @user.decorate.owner?%>
+      <%= render 'gamification/inventories/inventory' if @user.decorate.owner? %>
 
       <% if get_github_user(@user)!= nil %>
           <div class="col-sm-7 col-sm-pull-5 col-lg-8 col-lg-pull-4">
@@ -141,4 +169,4 @@
   </div>
 </main>
 
-<%= render 'javascript' if @user.decorate.inventory?%>
+<%= render 'javascript' if @user.decorate.inventory? %>
