@@ -346,11 +346,15 @@
             <br>
             <table id="social_networks_table" class="table table-striped table-condensed net">
               <tr>
+                <th>Rede Social</th>
                 <th>Link</th>
                 <th>Ações</th>
               </tr>
               <%= f.fields_for :social_networks, :wrapper => false do |social_network| %>
                   <tr class="fields">
+                    <td>
+                      <%= social_network.select :social_network_type_id, SocialNetworkType.all.map { |social| [social.name_social_media, social.id] },{:include_blank => 'Selecione o tipo', class: 'form-control'} %>
+                    </td>
                     <td>
                       <%= social_network.hidden_field :user_id, :value => current_user.id %>
                       <%= social_network.text_field :link, class: "form-control input-sm" %>
