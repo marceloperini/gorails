@@ -4,7 +4,7 @@
       <div class="push-100-t push-50 text-center">
         <h1 class="h2 text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"> <%= @event.name %></h1>
         <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown">
-            <%= @event.start_at.strftime("%e %b %Y, %H:%M") %> — <%= @event.end_at.strftime("%e %b %Y, %H:%M") %>
+          <%= @event.start_at.strftime("%e %b %Y, %H:%M") %> — <%= @event.end_at.strftime("%e %b %Y, %H:%M") %>
         </h2>
       </div>
     </section>
@@ -88,6 +88,8 @@
             </li>
             <li><span class="fa fa-fw fa-user push-10-r"></span><%= @event.participants_limit %> vagas no total</li>
           </ul>
+          Compartilhe este evento:
+          <%= social_share_button_tag(@event.name, desc: @event.description) %>
         </div>
       </div>
       <!-- END.SOBRE ESTE EVENTO -->
@@ -187,7 +189,6 @@
       <br>
       <br>
       <%= render "albums" %>
-
 
       <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
     </div>
