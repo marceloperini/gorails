@@ -4,6 +4,13 @@ class SocialNetwork < ActiveRecord::Base
 
   validates_presence_of :link, :social_network_type_id
 
+  validate :validate_link_social
+
+  def validate_link_social
+    unless self.link.include?('http://') or self.link.include?('https://') or self.link.include?('.com') or self.link.include?('www.')
+      errors.add(:link, 'Digite o Link Completo da Rede Social')
+    end
+  end
 
   HUMANIZED_ATTRIBUTES = {
       id: "Rede Social",
@@ -18,9 +25,9 @@ class SocialNetwork < ActiveRecord::Base
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       lista = []
-      column_names.each {|coluna| lista << self.human_attribute_name(coluna)}
+      column_names.each { |coluna| lista << self.human_attribute_name(coluna) }
       csv << lista
-      all.each {|registro| csv << registro.attributes.values_at(*column_names)}
+      all.each { |registro| csv << registro.attributes.values_at(*column_names) }
     end
   end
 
