@@ -353,7 +353,7 @@
               <%= f.fields_for :social_networks, :wrapper => false do |social_network| %>
                   <tr class="fields">
                     <td>
-                      <%= social_network.select :social_network_type_id, SocialNetworkType.all.map { |social| [social.name_social_media, social.id] },{:include_blank => 'Selecione o tipo', class: 'form-control'} %>
+                      <%= social_network.select :social_network_type_id, SocialNetworkType.all.map { |social| [social.name_social_media, social.id] }, {:include_blank => 'Selecione o tipo'}, {class: 'form-control', onchange: 'fill_link_social($(this));'} %>
                     </td>
                     <td>
                       <%= social_network.hidden_field :user_id, :value => current_user.id %>
@@ -423,6 +423,63 @@
         $('.celphone').mask(celphoneMask, celphoneOptions);
         //$(".datepicker").mask('99/99/9999');
     });
+
+    function fill_link_social(element) {
+        var value_selected = element.val();
+
+        var name_input = element[0].name;
+
+        var exp = /\d+/;
+
+        var id = name_input.match(exp);
+
+        var link_id = '#user_social_networks_attributes_' + id + '_link'
+
+        switch (value_selected) {
+            case '1':
+                content = 'https://www.facebook.com/'
+                break;
+            case '2':
+                content = 'https://plus.google.com/'
+                break;
+            case '3':
+                content = 'https://twitter.com/'
+                break;
+            case '4':
+                content = 'https://www.instagram.com/'
+                break;
+            case '5':
+                content = 'https://www.linkedin.com/in/'
+                break;
+            case '6':
+                content = ''
+                break;
+            case '7':
+                content = 'https://www.youtube.com/channel/'
+                break;
+            case '8':
+                content = 'https://github.com/'
+                break;
+            case '9':
+                content = 'https://www.reddit.com/user/'
+                break;
+            case '10':
+                content = 'https://go.twitch.tv/'
+                break;
+            case '11':
+                content = 'https://stackoverflow.com/users/'
+                break;
+            case '12':
+                content = ''
+                break;
+            default:
+                content = 'https://'
+        }
+
+        //if ($(link_id).val() == '' || $(link_id).val().length() == 0) {
+        $(link_id).val(content);
+        //}
+    }
 
     $('.data').datepicker({
         format: 'dd/mm/yyyy',
