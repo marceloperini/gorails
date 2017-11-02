@@ -12,6 +12,7 @@ namespace :dev do
     puts %x(rails dev:generate_users)
     puts %x(rails dev:generate_events)
     puts %x(rails dev:generate_posts)
+    puts %x(rails dev:generate_socials)
 
     puts "Setup completado"
   end
@@ -148,6 +149,20 @@ namespace :dev do
     end
 
     puts "Postagens cadastradas!"
+  end
+
+
+  desc "Cria Redes Sociais no Sistema"
+  task generate_socials: :environment do
+    puts "Cadastrando Redes Sociais..."
+
+    %w(facebook google+ twitter instagram linkedin snapshat youtube github reddit twitch stackoverflow discord).each do |rede|
+      SocialNetworkType.create!(
+          name_social_media: rede
+      )
+    end
+
+    puts "Redes Sociais cadastradas!"
   end
 
 end
