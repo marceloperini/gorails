@@ -12,7 +12,6 @@
 //
 //= require core/jquery.min
 //= require jquery_ujs
-//= require turbolinks
 //= require core/bootstrap.min
 //= require core/jquery.slimscroll.min
 //= require core/jquery.scrollLock.min
