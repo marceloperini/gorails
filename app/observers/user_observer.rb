@@ -1,6 +1,7 @@
 # app/models/user_observer.rb
 class UserObserver < ActiveRecord::Observer
   observe User
+
   SIGN_IN_REWARDS =[{:count => 1, :points => 100, :rubys => 5},
                     {:count => 5, :points => 50, :rubys => 4},
                     {:count => 10, :points => 10, :rubys => 3},
@@ -25,8 +26,10 @@ class UserObserver < ActiveRecord::Observer
   end
 
   private
+
   def create_default_inventory(user)
     default_inventory = Gamification::ItemGroup.where(key: 'human_man').first
+    return if default_inventory.nil?
     default_inventory.items.each do |item|
       Gamification::Inventory.create(user_id: user.id, gamification_item_id: item.id, equipped: true)
     end
@@ -45,6 +48,4 @@ class UserObserver < ActiveRecord::Observer
     end
     goal
   end
-
-
 end
