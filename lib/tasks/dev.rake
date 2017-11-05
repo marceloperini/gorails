@@ -3,7 +3,7 @@ namespace :dev do
   desc "Setup Development"
   task setup: :environment do
 
-    puts "Executando o setup para desenvolvimento"
+    puts "Executando o setup para ambiente de  #{Rails.env}"
 
     puts "Apagando o BD...#{%x(rails db:drop)}"
     puts "Criando o BD...#{%x(rails db:create)}"
@@ -13,6 +13,8 @@ namespace :dev do
     puts %x(rails dev:generate_events)
     puts %x(rails dev:generate_posts)
     puts %x(rails dev:generate_socials)
+    puts %x(rails populate:geography_states)
+    puts %x(rails populate:geography_cities)
 
     puts "Setup completado"
   end

@@ -1,3 +1,9 @@
+PATH
+  remote: /home/jcottobboni/Projetos/engines/go_geography
+  specs:
+    go_geography (0.1.0)
+      rails (~> 5.1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -477,6 +483,7 @@ DEPENDENCIES
   github_api
   go_blog
   go_gamification
+  go_geography!
   go_jobs
   jbuilder (~> 2.5)
   jquery-rails
