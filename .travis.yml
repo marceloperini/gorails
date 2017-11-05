@@ -10,6 +10,7 @@ script:
   - export RAILS_ENV=test
   - bundle exec rake db:create db:migrate
   - bundle exec rake db:test:prepare
+  - bundle rake db:setup
   - bundle exec rspec
-#after_success:
-#  - coveralls
+after_success:
+  - coveralls
