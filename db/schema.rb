@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030005158) do
+ActiveRecord::Schema.define(version: 20171031233731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -285,11 +285,19 @@ ActiveRecord::Schema.define(version: 20171030005158) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "social_network_types", force: :cascade do |t|
+    t.string "name_social_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "social_networks", force: :cascade do |t|
     t.bigint "user_id"
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "social_network_type_id"
+    t.index ["social_network_type_id"], name: "index_social_networks_on_social_network_type_id"
     t.index ["user_id"], name: "index_social_networks_on_user_id"
   end
 
@@ -386,6 +394,7 @@ ActiveRecord::Schema.define(version: 20171030005158) do
   add_foreign_key "jobs_jobs", "users"
   add_foreign_key "links", "link_categories"
   add_foreign_key "partners", "events"
+  add_foreign_key "social_networks", "social_network_types"
   add_foreign_key "social_networks", "users"
   add_foreign_key "winners", "gifts"
   add_foreign_key "winners", "users"
