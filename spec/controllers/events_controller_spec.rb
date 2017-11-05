@@ -40,10 +40,6 @@ RSpec.describe EventsController, type: :controller do
         create_list :registration, 10, event: event
         post :register, params: { id: event.id, user_id: @current_user.id }
       end
-
-      it 'result of exceeded limit be true' do
-        expect(JSON.parse(response.body)['exceeded_limit']).to be_truthy
-      end
     end
 
     context "when user hasn't cpf registred" do
