@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :albums, allow_destroy: true, reject_if: :all_blank
 
 
-  has_many :registrations
+  has_many :registrations, counter_cache: true
 
   delegate :is_registrated?, :to_register, to: :registrations, prefix: true, allow_nil: true
 

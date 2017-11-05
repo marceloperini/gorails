@@ -40,7 +40,7 @@ module ApplicationHelper
         when ".txt"
           link_to attachment.file.filename, attachment.url
         else
-          image_tag attachment.thumb.url
+          image_tag attachment.thumb.url,style: 'vertical-align: middle;'
       end
     else
       "Nenhum arquivo cadastrado."

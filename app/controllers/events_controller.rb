@@ -100,7 +100,7 @@ class EventsController < ApplicationController
   def register_user
     @event.to_register(set_user.id)
     params[:register] = {}.merge!(need_certificate: "0") if params[:register].nil?
-    update_user_need_certificate if params[:register][:need_certificate] == "1"
+    return update_user_need_certificate if params[:register][:need_certificate] == "1"
     register_success
   end
 
@@ -121,7 +121,7 @@ class EventsController < ApplicationController
   end
 
   def update_user_need_certificate
-    return need_certificate if @user.update_attributes(need_certificate: params[:register][:need_certificate])
+    return need_certificate if  @user.update_attributes(need_certificate: params[:register][:need_certificate])
   end
 
   def update_cpf_and_registre

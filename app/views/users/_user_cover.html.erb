@@ -15,46 +15,18 @@
     border-radius: 27px;
   }
 </style>
-<div class="block">
-  <div class="bg-image" style="background-image: url('<%=asset_path  @user.cover_photo%>')">
-    <div class="block-content bg-primary-dark-op text-center overflow-hidden">
-      <div class="push-30-t push animated fadeInDown">
 
-        <%= @user.decorate.user_avatar(true, "96") %>
-        <div class="rank-label-container">
-          <span class="label label-default rank-label">Nível <%=@user.level%></span>
-        </div>
-
-      </div>
-      <div class="push-30 animated fadeInUp">
-        <h2 class="h4 font-w600 text-white push-5"><%= @user.full_name %></h2>
-        <% if @user.job_title %>
-            <h3 class="h5 text-gray"><%= @user.job_title %></h3>
-        <% end %>
+<div class="content bg-image" style="background-image: url('<%=asset_path  @user.cover_photo%>')">
+  <div class="push-50-t push-15 clearfix">
+    <div class="push-15-r pull-left animated fadeIn">
+      <%= @user.decorate.user_avatar(true, "96") %>
+      <div class="rank-label-container">
+        <span class="label label-default rank-label">Nível <%=@user.level%></span>
       </div>
     </div>
-
-  </div>
-  <div class="block-content text-center">
-    <div class="row items-push text-uppercase">
-      <div class="col-xs-6 col-sm-3">
-        <div class="font-w700 text-gray-darker animated fadeIn"></div>
-        <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)"></a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <div class="font-w700 text-gray-darker animated fadeIn"></div>
-        <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)"></a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <div class="font-w700 text-gray-darker animated fadeIn"></div>
-        <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)"></a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <div class="font-w700 text-gray-darker animated fadeIn"></div>
-        <div class="text-warning push-10-t animated flipInX">
-
-        </div>
-      </div>
-    </div>
+    <h1 class="h2 text-white push-5-t animated zoomIn"><%= @user.full_name %></h1>
+    <h2 class="h5 text-white-op animated zoomIn"><%= @user.job_title %></h2>
   </div>
 </div>
+
+
