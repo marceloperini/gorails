@@ -70,6 +70,21 @@
             </li>
         <% end %>
 
+        <% if can? :magage, geography_states_path %>
+            <li>
+              <%= link_to geography_states_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Estados</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, geography_cities_path %>
+            <li>
+              <%= link_to geography_cities_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Cidades</span>
+              <% end %>
+            </li>
+        <% end %>
+
 
         <% if can? :magage, activities_index_path %>
             <%= link_to activities_index_path do %>
