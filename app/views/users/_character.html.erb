@@ -1,6 +1,8 @@
 <div class="block" id="character">
-  <div class="block-content" align="center">
-    <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Personagem</h3>
+  <div class="block-content block-content-full ribbon ribbon-modern ribbon-warning" align="center">
+    <div class="ribbon-box font-w600">
+      <%= @user.current_rubys %> &nbsp;&nbsp; <%= image_tag "ruby.png", size: "22x22" %>
+    </div>
 
     <div id="shadow"></div>
 
@@ -13,6 +15,7 @@
         <%= @user.current_experience %>XP / <%= @user.next_level_xp %>XP
       </div>
     </div>
-
   </div>
 </div>
+
+

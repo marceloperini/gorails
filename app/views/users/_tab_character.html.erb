@@ -1,0 +1,38 @@
+<div class="tab-pane fade fade-up active in" id="character">
+  <div class="border-b push-30">
+    <h2 class="push-10"><span class="h5 font-w400 text-muted">Inventario / Personagem / Conquistas</span></h2>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-5 col-sm-push-7 col-lg-4 col-lg-push-8">
+      <!--<div class="block">-->
+      <!--<div class="block-content block-content-full text-center">-->
+      <!--<%# if current_user and user_signed_in? && current_user.to_param == params[:id] %>-->
+      <!--<%#= link_to edit_user_registration_path, :class => 'navbar-link' do %>-->
+      <!--<button class="btn btn-sm btn-default"><i class="fa fa-fw fa-edit text-success"></i>Editar perfil-->
+      <!--</button>-->
+      <!--<%# end %>-->
+      <!--<%# end %>-->
+      <!--</div>-->
+      <!--</div>-->
+
+
+      <%= render 'character' if @user.decorate.inventory? %>
+
+      <div class="block">
+        <div class="block-content">
+          <h3 class="block-title"><i class="fa fa-fw fa-user"></i> Conquistas</h3>
+          <%= render 'gamification/rewards/presentation', rewards: @user.rewards %>
+        </div>
+      </div>
+
+
+    </div>
+
+    <%= render 'gamification/inventories/inventory' if @user.decorate.owner? %>
+
+
+  </div>
+
+
+</div>

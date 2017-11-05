@@ -9,7 +9,7 @@
   <title>GoRails</title>
 
   <meta name="description" content="WebSite GORAILS">
-  <meta name="author" content="jcottobboni,helioborges,fabioaraujopina">
+  <meta name="author" content="jcottobboni,helioborges,fabioaraujopina,marceloperine">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
@@ -20,13 +20,13 @@
   <!-- Web fonts -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
   <!-- OneUI CSS framework -->
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 
   <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
   <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
   <!-- END Stylesheets -->
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'go_gamification/bhive', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'go_gamification/bhive', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= include_controller_javascript %>
   <%= include_view_javascript %>

@@ -2,13 +2,13 @@ pt-BR:
   activerecord:
     models:
       event:
-        one: "Album"
-        other: "albums"
-        explain: "Album"
+        one: "Event"
+        other: "events"
+        explain: "Event"
 
     attributes:
       event:
-        title: "title"
+        title: "Evento"
         name: "nome"
         start_at: "data inicio"
         registrations: "inscritos"

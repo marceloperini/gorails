@@ -12,7 +12,6 @@
 //
 //= require core/jquery.min
 //= require jquery_ujs
-//= require turbolinks
 //= require core/bootstrap.min
 //= require core/jquery.slimscroll.min
 //= require core/jquery.scrollLock.min
@@ -30,3 +29,4 @@
 //= require sweet-alert-confirm
 //= require jquery_nested_form
 //= require bootstrap-datepicker
+//= require social-share-button

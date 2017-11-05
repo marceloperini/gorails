@@ -1,0 +1,48 @@
+pt-BR:
+  events:
+    default: &default
+      h1: Event
+      header: 'Lista de Eventos'
+      block_header: events
+    index:
+      <<: *default
+      header: 'Lista de Eventos'
+      block_header: Eventos
+      title: 'Eventos'
+    show:
+      <<: *default
+      header: 'Detalhes: %{resource}'
+    edit:
+      <<: *default
+      header: 'Editar: %{resource}'
+    new:
+      <<: *default
+      header: 'Cadastrar Evento'
+    create:
+      alert: 'Evento não pode ser cadastrado.'
+      notice: 'Evento cadastrado com sucesso.'
+    update:
+      alert: 'Evento não pode ser atualizado.'
+      notice: 'Evento atualizado com sucesso.'
+    destroy:
+      alert: 'Evento não pode ser excluído.'
+      notice: 'Evento excluído com sucesso.'
+    new:
+      new: 'Novo Evento'
+      title: 'Adicionar Evento'
+      header: 'Novo Evento'
+    index:
+      title: 'Lista de Eventos'
+    edit:
+      title: 'Editar Evento'
+    show:
+      title: 'Exibir Evento'
+      remover: 'Tem certeza que vai excluir este Evento?'
+    form:
+      submit: 'Salvar Evento'
+
+  helpers:
+    submit:
+      event:
+        create: 'Cadastrar %{model}'
+        update: 'Atualizar %{model}'

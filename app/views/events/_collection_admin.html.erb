@@ -2,9 +2,12 @@
     <tr id="<%= dom_id(resource) %>">
       <td><%= resource.name %></td>
       <td><%= resource.start_at %></td>
-      <td><%= resource.registrations.size %></td>
+      <td><%= resource.registrations.size if resource.registrations %></td>
       <td class="text-center">
-      </td>
+        <% if current_user and current_user.admin? %>
+            <%=resource.decorate.link_to_show %>
+            <%=resource.decorate.link_to_edit %>
+        <% end %>
       </td>
     </tr>
 <% end %>
