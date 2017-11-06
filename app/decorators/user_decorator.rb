@@ -10,7 +10,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def name
-    return email if !first_name.present? and !last_name.present?
+    return 'Usuário' if !first_name.present? and !last_name.present?
     [object.first_name, object.last_name].join(" ").strip
   end
 
