@@ -90,7 +90,6 @@ class User < ActiveRecord::Base
   has_many :registrations
   has_many :social_networks
   validate :unicidade_cpf
-  usar_como_cpf :cpf
 
   validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :geography_state_id, :zip_code, :special_needs, :complement, if: lambda {self.need_certificate.present?}
 
