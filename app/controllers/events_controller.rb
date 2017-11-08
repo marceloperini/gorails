@@ -133,7 +133,7 @@ class EventsController < ApplicationController
 
   def update_cpf_and_registre
     return register_success if @user.update_attributes(cpf: params[:register][:cpf]) and @event.to_register(set_user.id)
-    redirect_to event_path(@event), flash: {error: "Cpf Invalido!"}
+    redirect_to event_path(@event), flash: {error: @user.errors.full_messages.join(',')}
   end
 
 end
