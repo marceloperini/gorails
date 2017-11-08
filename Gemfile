@@ -28,6 +28,7 @@ gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'brcpfcnpj'
+gem "cpf_cnpj"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'

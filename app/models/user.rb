@@ -127,12 +127,14 @@ class User < ActiveRecord::Base
 
   # Verify if cpf attribute is valid
   def has_valid_cpf?
-    self.cpf.valido?
+    self.cpf.valid?
   end
 
   def unicidade_cpf
-    if self.cpf.present? && User.where(cpf: self.cpf).where("id <> ?", self.id || 0).first
-      errors.add(:cpf, "já está em uso")
+    if self.cpf.present? and !self.cpf.blank?
+      if User.where(cpf: self.cpf).where("id <> ?", self.id || 0).first
+        errors.add(:cpf, "já está em uso")
+      end
     end
   end
 
