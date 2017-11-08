@@ -3,6 +3,9 @@ class Event < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
 
+  has_many :attachments,as: :origin
+  accepts_nested_attributes_for :attachments,allow_destroy: true
+
   include ActionView::Helpers
   resourcify
   belongs_to :user
