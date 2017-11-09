@@ -1,0 +1,11 @@
+<div class="block-content">
+  <h3 class="block-title">
+    <i class="fa fa-fw fa-newspaper-o"></i>Últimas Vagas</h3>
+  <% if @jobs.present? and @jobs.size > 0 %>
+      <% @jobs.each do |job| %>
+          <i class="fa fa-check-circle-o"></i> <%= job.decorate.link_to_title %>
+          - <%= job.published_at.strftime("%e %b %Y") %>
+          <br>
+      <% end %>
+  <% end %>
+</div>
