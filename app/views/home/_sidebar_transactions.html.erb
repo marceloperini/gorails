@@ -6,6 +6,7 @@
           <i class="fa fa-exchange"></i> <%= transaction.object %>:
           <%= transaction.decorate.operator %> <%= number_to_currency(transaction.value, :separator => ",", :delimiter => ".", :unit => "R$") %>
           <br>
+          <br>
       <% end %>
   <% end %>
 </div>
