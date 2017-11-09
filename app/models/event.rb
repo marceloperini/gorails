@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   alias_method :is_registrated?, :registrations_is_registrated?
   alias_method :to_register, :registrations_to_register
 
-  scope :not_happened_yet, ->(limit_date) {where("end_at > ?", limit_date )}
+  scope :not_happened_yet, ->(limit_date) { where("end_at > ?", limit_date) }
 
 # Returns false if event is full
   def exceeded_limit?
