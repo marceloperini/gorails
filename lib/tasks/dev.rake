@@ -27,7 +27,7 @@ namespace :dev do
           name: FFaker::Product.product
       )
     end
-    puts "Cadastrando Usuário Adminstrador..."
+    puts "Itens cadastrados!"
   end
 
   desc "Cria Usuários do Sistema"

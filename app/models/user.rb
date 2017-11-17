@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
-  validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, :complement, if: lambda {self.need_certificate.present?}
+  validates_presence_of :first_name, :last_name, :cpf, :rg, :consignor_organ, :company, :phone, :celphone, :schooling, :birth_date, :gender, :marital_status, :place_of_birth, :mother, :address, :neighborhood, :uf, :zip_code, :special_needs, if: lambda {self.need_certificate.present?}
 
   has_many :attachments, as: :origin
   mount_uploader :avatar, AttachmentsUploader
@@ -192,8 +192,8 @@ class User < ActiveRecord::Base
         self.neighborhood.present? &&
         self.uf.present? &&
         self.zip_code.present? &&
-        self.special_needs.present? &&
-        self.complement.present?
+        self.special_needs.present? # &&
+      #self.complement.present?
   end
 
   def admin?
