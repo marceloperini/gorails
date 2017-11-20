@@ -36,7 +36,7 @@
         <% end %>
         <% if can? :magage, jobs_jobs_path %>
             <li>
-              <a href="/jobs/jobs"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
+              <a href="/jobs/jobs"><i class="fa fa-briefcase"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
             </li>
         <% end %>
         <% if can? :magage, index_admin_events_path %>
@@ -66,6 +66,21 @@
             <li>
               <%= link_to gamification_items_path do %>
                   <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Items</span>
+              <% end %>
+            </li>
+        <% end %>
+
+        <% if can? :magage, geography_states_path %>
+            <li>
+              <%= link_to geography_states_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Estados</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, geography_cities_path %>
+            <li>
+              <%= link_to geography_cities_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Cidades</span>
               <% end %>
             </li>
         <% end %>

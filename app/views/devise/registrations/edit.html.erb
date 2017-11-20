@@ -205,9 +205,12 @@
 
 
                     <div class="col-xs-3">
-                      <%= f.label :uf, "UF" %>
+                      <%= f.label :geography_state_id, "UF" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.select :uf, UF_BRASIL, {}, {class: "form-control input-lg", id: "uf_field"} %>
+                      <%= f.select :geography_state_id,Geography::State.all.collect {|p| [ p.name, p.id ] }, {}, {class: "form-control input-lg", id: "uf_field"} %>
+                    </div>
+                  </div>
+
 
                     </div>
                   </div>
@@ -419,7 +422,7 @@
                 } else {
 
                     $('#neighborhood_field').val(data.bairro);
-                    $('#uf_field').val(data.uf);
+                    //$('#uf_field').val(data.uf);
                     $('#complement_field').val(data.complemento);
                     $('#address_field').val(data.logradouro + ' ' + data.localidade);
                 }

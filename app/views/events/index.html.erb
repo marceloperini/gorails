@@ -17,7 +17,7 @@
           <a  href="#">
             <%= link_to(event,:class=>"block block-rounded block-link-hover2") do %>
                 <div class="block-content bg-image block-content-full text-center bg-city ribbon ribbon-bookmark ribbon-crystal" style="background-image: url('<%=asset_path event.decorate.get_event_cover_image%>');">
-                  <div class="ribbon-box font-w600">EVENTO GRATUITO</div>
+                  <div class="ribbon-box font-w600"><%=event.event_ribbon%></div>
                   <div class="item item-2x item-circle bg-crystal-op push-20-t push-20 visibility-hidden" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
                     <i class="fa fa-diamond text-white-op"></i>
                   </div>
