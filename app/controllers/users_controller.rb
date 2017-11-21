@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: %i(index)
   load_and_authorize_resource only: %i(index)
+
   def index
-    @users = UserFinder.search(first_name: params[:first_name],email: params[:email],provider:params[:provider],page: params[:page])
+    @users = UserFinder.search(first_name: params[:first_name], email: params[:email], provider: params[:provider], page: params[:page])
   end
 
   def show
@@ -37,6 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def uf_id_extended
+    uf_id = Geography::State.where(" initials ilike ? ", params[:uf_initals]).first.id
+
+    respond_to do |format|
+      format.json {render json: uf_id}
+    end
+  end
+
+
   private
 
   def set_user
@@ -51,4 +61,5 @@ class UsersController < ApplicationController
   def authenticate_owner!
     redirect_to root_path unless user_signed_in? && current_user.to_param == params[:id]
   end
+
 end
