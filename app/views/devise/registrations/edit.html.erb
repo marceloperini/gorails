@@ -89,11 +89,6 @@
                       <%= f.label :cpf, "CPF" %>
                       <%= f.text_field :cpf, class: "form-control input-lg cpf" %>
                     </div>
-                    <div class="col-xs-6">
-                      <%= f.label :job_title, "Cargo/Função" %>
-                      <%= f.text_field :job_title, placeholder: "Digite seu Cargo/Função..", class: "form-control input-lg" %>
-                    </div>
-
 
                     <div class="col-xs-6">
                       <%= f.label :rg, "Identidade" %>
@@ -113,6 +108,13 @@
                       <%= f.label :company, "Empresa" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :company, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :job_title, "Cargo/Função" %>
+                      <%= f.text_field :job_title, placeholder: "Digite seu Cargo/Função..", class: "form-control input-lg" %>
                     </div>
                   </div>
 
@@ -155,7 +157,7 @@
                     <div class="col-xs-6">
                       <%= f.label :marital_status, "Estado Civil" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :marital_status, class: "form-control input-lg" %>
+                      <%= f.select :marital_status, MARITAL_STATUS, {}, {class: "form-control input-lg"} %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :place_of_birth, "Naturalidade" %>
@@ -176,11 +178,21 @@
                     </div>
                   </div>
 
+
+                  <div class="form-group">
+                    <div class="col-xs-8">
+                      <%= f.label :zip_code, "CEP" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.text_field :zip_code, class: "form-control input-lg zip_code", id: "zip_code_field" %><br/>
+                      <span class="btn btn-success btn-mini" id="fill_zip_code">Preencher Endereço</span>
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :address, "Endereço" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :address, class: "form-control input-lg" %>
+                      <%= f.text_field :address, class: "form-control input-lg", id: "address_field" %>
                     </div>
                   </div>
 
@@ -188,45 +200,36 @@
                     <div class="col-xs-9">
                       <%= f.label :neighborhood, "Bairro" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :neighborhood, class: "form-control input-lg" %>
+                      <%= f.text_field :neighborhood, class: "form-control input-lg", id: "neighborhood_field" %>
                     </div>
 
 
                     <div class="col-xs-3">
                       <%= f.label :geography_state_id, "UF" %>
                       <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.select :geography_state_id,Geography::State.all.collect {|p| [ p.name, p.id ] }, {class: "form-control input-lg"} %>
-
+                      <%= f.select :geography_state_id,Geography::State.all.collect {|p| [ p.name, p.id ] }, {}, {class: "form-control input-lg", id: "uf_field"} %>
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="col-xs-8">
-                      <%= f.label :zip_code, "CEP" %>
-                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :zip_code, class: "form-control input-lg zip_code" %>
-                    </div>
-                  </div>
 
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <%= f.label :special_needs, "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)" %>
-                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :special_needs, class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :complement, "Complemento" %>
-                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
-                      <%= f.text_field :complement, class: "form-control input-lg" %>
+                      <%= f.text_field :complement, class: "form-control input-lg", id: "complement_field" %>
                     </div>
                   </div>
 
 
-
-
+                  <div class="form-group">
+                    <div class="col-xs-6">
+                      <%= f.label :special_needs, "Necessidades Especiais" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.select :special_needs, ['Física', 'Mental', 'Visual', 'Auditiva', 'Nenhuma'], {}, {class: "form-control input-lg"} %>
+                    </div>
+                  </div>
 
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -353,7 +356,7 @@
               <%= f.fields_for :social_networks, :wrapper => false do |social_network| %>
                   <tr class="fields">
                     <td>
-                      <%= social_network.select :social_network_type_id, SocialNetworkType.all.map { |social| [social.name_social_media, social.id] }, {:include_blank => 'Selecione o tipo'}, {class: 'form-control', onchange: 'fill_link_social($(this));'} %>
+                      <%= social_network.select :social_network_type_id, SocialNetworkType.all.map {|social| [social.name_social_media, social.id]}, {:include_blank => 'Selecione o tipo'}, {class: 'form-control', onchange: 'fill_link_social($(this));'} %>
                     </td>
                     <td>
                       <%= social_network.hidden_field :user_id, :value => current_user.id %>
@@ -400,6 +403,44 @@
     });
     <%end%>
 
+    $('#fill_zip_code').click(function () {
+
+        field_value = $('#zip_code_field').val();
+        field_value = field_value.replace(/\D/g, '');
+
+        if (field_value.length == 8) {
+            $.getJSON("https://viacep.com.br/ws/" + field_value + "/json/", function (data) {
+                if (data.erro == true) {
+                    swal({
+                        title: "CEP não encontrado",
+                        text: "O CEP digitado não foi encontrado!",
+                        type: "warning", showCancelButton: false,
+                        confirmButtonColor: "#00B300",
+                        confirmButtonText: "Ok Entendi!",
+                        closeOnConfirm: false
+                    });
+                } else {
+
+                    $('#neighborhood_field').val(data.bairro);
+                    //$('#uf_field').val(data.uf);
+                    $('#complement_field').val(data.complemento);
+                    $('#address_field').val(data.logradouro + ' ' + data.localidade);
+                }
+            })
+        } else {
+            swal({
+                title: "CEP inválido",
+                text: "O CEP digitado não é válido!",
+                type: "warning", showCancelButton: false,
+                confirmButtonColor: "#00B300",
+                confirmButtonText: "Ok Entendi!",
+                closeOnConfirm: false
+            });
+        }
+
+
+    });
+
     $(document).ready(function () {
 
         if ($('#user_need_certificate').prop('checked') == true) {
@@ -418,7 +459,7 @@
             };
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
-        $('.zip_code').mask('99-999.999');
+        $('.zip_code').mask('99999-999');
         $('.phone').mask('(99) 9999-9999');
         $('.celphone').mask(celphoneMask, celphoneOptions);
         //$(".datepicker").mask('99/99/9999');
