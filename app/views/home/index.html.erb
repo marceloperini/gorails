@@ -6,12 +6,12 @@
     <section class="content content-full content-boxed overflow-hidden">
       <!-- Section Content -->
       <div class="push-100-t push-50 text-center">
-        <h1 class="h2 text-white push-10 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">3º
-          Encontro GoRails.</h1>
+        <h1 class="h2 text-white push-10 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">
+          <%= link_to 'Inscreva-se na 3º GoRails Conf', 'http://www.gorails.com.br/events/4', style: 'color: white;' %>
+          .</h1>
 
         <h2 class="h5 text-white-op push-50 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Um
           evento para aproximar a comunidade Ruby on Rails de Goiás</h2>
-
 
       </div>
       <div class="row visibility-hidden" data-toggle="appear" data-class="animated fadeInUp">
@@ -24,6 +24,8 @@
   </div>
 </div>
 <!-- END Hero Content -->
+
+
 
 <!-- Classic Features #1 -->
 <!--<div class="bg-white">
@@ -89,11 +91,13 @@
   </section>
 </div>-->
 <!-- END Classic Features #1 -->
+
+
 <br>
 <ul class="nav nav-tabs nav-justified nav-tabs-alt" data-toggle="tabs">
   <li class="active">
     <div class="text-center">
-    <h3>Notícias</h3>
+      <h3>Notícias</h3>
     </div>
   </li>
 </ul>
@@ -102,48 +106,59 @@
 
 <div class="bg-white">
   <section class="content content-boxed">
-    <div class="block block-transparent">
+    <div class="row">
 
-      <div class="block-content tab-content bg-white">
-        <div class="tab-pane fade fade-right push-30-t active in" id="front-search-pages">
-          <%if @news.present? and @news.size > 0%>
-          <% @news.each do |news| %>
-              <div class="row items-push">
-                <div class="col-md-12">
-                  <h3 class="h5 font-w600">
-                    <%= news.decorate.link_to_title %>
-                  </h3>
-                  <div class="font-s13 text-success push-5"><%= news.decorate.link_to_author %> - publicado em <%= converte_date(news.published_at) %>
+      <div class="block block-transparent col-md-9">
+        <div class="block-content tab-content bg-white ">
 
-                  </div>
-                  <p>
-                    <% if news.teaser.present? %>
-                      <%= raw news.text %>
-                    <% else %>
-                      <%= raw Truncato.truncate news.text, max_length: 150, count_tags: false%>
-                    <% end %>
-                  </p>
-                  <div class="btn-group btn-group-sm">
-                    <%= news.decorate.link_to_read_more %>
-                  </div>
-                </div>
+          <div class="tab-pane fade fade-right push-30-t active in" id="front-search-pages">
+            <% if @news.present? and @news.size > 0 %>
+                <% @news.each do |news| %>
+                    <div class="row items-push">
+                      <div class="col-md-12">
+                        <h3 class="h5 font-w600">
+                          <%= news.decorate.link_to_title %>
+                        </h3>
+                        <div class="font-s13 text-success push-5"><%= news.decorate.link_to_author %> - publicado
+                          em <%= converte_date(news.published_at) %>
 
+                        </div>
+                        <p>
+                          <% if news.teaser.present? %>
+                              <%= raw news.text %>
+                          <% else %>
+                              <%= raw Truncato.truncate news.text, max_length: 150, count_tags: false %>
+                          <% end %>
+                        </p>
+                        <div class="btn-group btn-group-sm">
+                          <%= news.decorate.link_to_read_more %>
+                        </div>
+                      </div>
+
+                    </div>
+                <% end %>
+            <% end %>
+
+            <div class="text-center">
+              <div class="btn-group btn-group-sm">
+                <%= link_to 'Ver todas as  Notícias', list_blog_posts_path(tag: 'noticias'), class: 'btn btn-info btn-sm' %>
               </div>
-          <% end %>
-          <% end %>
-
-          <div class="text-center">
-            <div class="btn-group btn-group-sm">
-              <%= link_to 'Ver todas as  Notícias',list_blog_posts_path(tag:'noticias') ,class:'btn btn-info btn-sm'%>
             </div>
+
           </div>
         </div>
       </div>
+
+
+      <div class="col-md-3">
+        <%= render 'sidebar' %>
+      </div>
     </div>
+
   </section>
 </div>
 
-
+<br>
 
 <!-- Mini Stats -->
 <div class="bg-gray-lighter">
