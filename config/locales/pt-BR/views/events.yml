@@ -40,6 +40,11 @@ pt-BR:
       remover: 'Tem certeza que vai excluir este Evento?'
     form:
       submit: 'Salvar Evento'
+    partners:
+      category:
+        sponsor: 'Patrocinadores'
+        supporter: 'Apoiadores'
+        contributor: 'Contribuidores'
 
   helpers:
     submit:
