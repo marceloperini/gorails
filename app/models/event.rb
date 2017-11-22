@@ -3,6 +3,9 @@ class Event < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
 
+  has_many :attachments,as: :origin
+  accepts_nested_attributes_for :attachments,allow_destroy: true
+
   include ActionView::Helpers
   resourcify
   belongs_to :user
@@ -20,6 +23,8 @@ class Event < ActiveRecord::Base
 
   alias_method :is_registrated?, :registrations_is_registrated?
   alias_method :to_register, :registrations_to_register
+
+  scope :not_happened_yet, ->(limit_date) { where("end_at > ?", limit_date) }
 
 # Returns false if event is full
   def exceeded_limit?

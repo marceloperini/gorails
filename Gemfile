@@ -59,8 +59,9 @@ gem 'rails-observers'
 gem 'sentry-raven'
 gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
 gem 'go_blog'# ,path: '/home/jcottobboni/Projetos/engines/go_blog'# ,git: 'https://github.com/gorails/go_blog.git', branch: 'master'
-gem 'go_jobs'# ,git: 'https://github.com/gorails/go_jobs.git', branch: 'master'
+gem 'go_jobs'#,path: '/home/jcottobboni/Projetos/engines/go_jobs'
 gem 'go_gamification'#,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+gem 'go_geography'#,path: '/home/jcottobboni/Projetos/engines/go_geography'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
 gem 'social-share-button'
 
 group :development, :test do

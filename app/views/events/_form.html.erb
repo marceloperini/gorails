@@ -40,6 +40,13 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-lg-3">
+        <%= f.label :event_ribbon %><br>
+        <%= f.text_field :event_ribbon, class: 'form-control' %>
+      </div>
+
+    </div>
+    <div class="row">
       <div class="col-lg-12">
         <%= f.text_area :description, class: 'summernote_description', :id => 'description' %>
       </div>
@@ -48,6 +55,25 @@
       <div class="col-lg-12">
         <%= f.label :local %><br>
         <%= f.text_area :local, class: 'summernote_local', :id => 'local' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Backgrounds</h3>
+        <%= f.simple_fields_for :attachments do |gift| %>
+            <p>
+              <%= gift.input :name, placeholder: "Nome do background" %>
+              <%= gift.input :file_type, placeholder: "Chave background" %>
+              <%= gift.label :file, "arquivo" %>
+              <%= gift.file_field :file %>
+              <br>
+              <%= gift.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+            </p>
+
+        <% end %>
+        <br>
+        <%= f.link_to_add "Adicionar um novo Background", :attachments, class: 'btn btn-success' %>
       </div>
     </div>
 

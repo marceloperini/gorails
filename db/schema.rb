@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031233731) do
+ActiveRecord::Schema.define(version: 20171108004106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file"
+    t.string "file_type"
     t.index ["origin_type", "origin_id"], name: "index_attachments_on_origin_type_and_origin_id"
   end
 
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.datetime "updated_at", null: false
     t.datetime "end_at"
     t.boolean "status"
+    t.string "event_ribbon"
   end
 
   create_table "financial_transactions", force: :cascade do |t|
@@ -185,6 +187,25 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.index ["seen_at"], name: "index_go_gamification_rewards_on_seen_at"
   end
 
+  create_table "geography_cities", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.integer "cdg_ibge"
+    t.integer "state_id"
+    t.integer "population_2010"
+    t.decimal "demographic_density"
+    t.string "gentile"
+    t.decimal "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "geography_states", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "initials"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gifts", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -219,7 +240,7 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.string "contact_email"
     t.datetime "expiration_date"
     t.datetime "published_at"
-    t.integer "acess_count", default: 0
+    t.integer "access_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status", default: false, null: false
@@ -339,7 +360,6 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.string "special_needs"
     t.string "occupation"
     t.string "address"
-    t.string "uf"
     t.string "neighborhood"
     t.string "zip_code"
     t.string "complement"
@@ -349,6 +369,7 @@ ActiveRecord::Schema.define(version: 20171031233731) do
     t.boolean "receber_email", default: true
     t.boolean "receber_email_parceiros", default: true
     t.string "city"
+    t.integer "geography_state_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

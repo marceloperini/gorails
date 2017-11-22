@@ -39,11 +39,11 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Evento foi criado com sucesso!' }
-        format.json { render action: 'show', status: :created, location: @event }
+        format.html {redirect_to @event, notice: 'Evento foi criado com sucesso!'}
+        format.json {render action: 'show', status: :created, location: @event}
       else
-        format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html {render action: 'new'}
+        format.json {render json: @event.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -53,11 +53,11 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
+        format.html {redirect_to @event, notice: 'Event was successfully updated.'}
+        format.json {head :no_content}
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html {render action: 'edit'}
+        format.json {render json: @event.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -67,8 +67,8 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
+      format.html {redirect_to events_url}
+      format.json {head :no_content}
     end
   end
 
@@ -94,7 +94,14 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :status, :description, :start_at, :end_at, :local, :participants_limit, partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo, :_destroy], gifts_attributes: [:id, :name, :photo, :_destroy, winners_attributes: [:id, :gift_id, :user_id, :_destroy]], albums_attributes: [:id, :title, :event_id, :_destroy, images_attributes: [:id, :title, :asset, :_destroy]])
+    params.require(:event).permit(:name, :status,:event_ribbon, :description, :start_at, :end_at, :local, :participants_limit,
+                                  partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo,
+                                                        :_destroy],
+                                  gifts_attributes: [:id, :name, :photo, :_destroy,
+                                                     winners_attributes: [:id, :gift_id, :user_id, :_destroy]],
+                                  albums_attributes: [:id, :title, :event_id, :_destroy,
+                                                      images_attributes: [:id, :title, :asset, :_destroy]],
+                                  attachments_attributes: [:id, :name,:file_type, :type, :origin_type, :situation, :file, :_destroy])
   end
 
   def register_user
@@ -121,12 +128,12 @@ class EventsController < ApplicationController
   end
 
   def update_user_need_certificate
-    return need_certificate if  @user.update_attributes(need_certificate: params[:register][:need_certificate])
+    return need_certificate if @user.update_attributes(need_certificate: params[:register][:need_certificate])
   end
 
   def update_cpf_and_registre
     return register_success if @user.update_attributes(cpf: params[:register][:cpf]) and @event.to_register(set_user.id)
-    redirect_to event_path(@event), flash: {error: "Cpf Invalido!"}
+    redirect_to event_path(@event), flash: {error: @user.errors.full_messages.join(',')}
   end
 
 end

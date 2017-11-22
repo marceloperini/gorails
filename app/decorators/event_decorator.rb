@@ -1,6 +1,16 @@
 class EventDecorator < Draper::Decorator
   delegate_all
 
+  def event_background
+    background = attachments.where(file_type: 'event_background').first
+
+    if background
+      background.file
+    else
+      'bg-red.jpg'
+    end
+  end
+
   def link_to_show
     h.link_to h.event_path(id: self.id),
               class: 'tn btn-info btn-sm',
