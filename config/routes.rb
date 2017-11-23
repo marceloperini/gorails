@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+  namespace :api do
+    namespace :v1 do
+      resources :events
+    end
+  end
+
   resources :pages, path: 'paginas'
 
   resources :financial_transactions, path: 'transparencia'
   resources :social_network_types
   resources :winners
+
   get 'activities/index'
-
   get 'certificado', to: 'users#certified', as: 'certified'
-
   get 'uf_id_extenso', to: 'users#uf_id_extended', as: 'uf_id_extended'
 
   resources :images
@@ -19,6 +24,7 @@ Rails.application.routes.draw do
       get 'uteis'
     end
   end
+
   resources :gifts
   resources :link_categories
   resources :partners
