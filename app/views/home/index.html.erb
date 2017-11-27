@@ -114,27 +114,33 @@
           <div class="tab-pane fade fade-right push-30-t active in" id="front-search-pages">
             <% if @news.present? and @news.size > 0 %>
                 <% @news.each do |news| %>
-                    <div class="row items-push">
-                      <div class="col-md-12">
-                        <h3 class="h5 font-w600">
-                          <%= news.decorate.link_to_title %>
-                        </h3>
-                        <div class="font-s13 text-success push-5"><%= news.decorate.link_to_author %> - publicado
-                          em <%= converte_date(news.published_at) %>
+                    <div class="panel panel-primary">
 
-                        </div>
-                        <p>
-                          <% if news.teaser.present? %>
-                              <%= raw news.text %>
-                          <% else %>
-                              <%= raw Truncato.truncate news.text, max_length: 150, count_tags: false %>
-                          <% end %>
-                        </p>
-                        <div class="btn-group btn-group-sm">
-                          <%= news.decorate.link_to_read_more %>
+                      <div class="panel-body">
+
+                        <div class="row items-push">
+                          <div class="col-md-12">
+                            <div class="panel-heading"><h3 class="h3 font-w600">
+                              <%= news.decorate.link_to_title %>
+                            </h3></div>
+                            <div class="font-s13 text-success push-5"><%= news.decorate.link_to_author %> - publicado
+                              em <%= converte_date(news.published_at) %>
+
+                            </div>
+                            <p>
+                              <% if news.teaser.present? %>
+                                  <%= raw news.text %>
+                              <% else %>
+                                  <%= raw Truncato.truncate news.text, max_length: 150, count_tags: false %>
+                              <% end %>
+                            </p>
+                            <div class="btn-group btn-group-sm">
+                              <%= news.decorate.link_to_read_more %>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-
                     </div>
                 <% end %>
             <% end %>
