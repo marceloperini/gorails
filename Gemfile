@@ -49,7 +49,6 @@ gem 'coderay'
 gem 'github_api'
 gem 'omniauth-twitter'
 gem 'web-console'
-gem 'bullet', group: 'development'
 gem 'draper'
 gem 'cloudinary'
 gem 'summernote-rails'
@@ -63,6 +62,11 @@ gem 'go_jobs'#,path: '/home/jcottobboni/Projetos/engines/go_jobs'
 gem 'go_gamification'#,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
 gem 'go_geography'#,path: '/home/jcottobboni/Projetos/engines/go_geography'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
 gem 'social-share-button'
+
+group :development do
+  gem 'pry'
+  gem 'bullet'
+end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
