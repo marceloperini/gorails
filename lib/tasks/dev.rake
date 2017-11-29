@@ -167,4 +167,17 @@ namespace :dev do
     puts "Redes Sociais cadastradas!"
   end
 
+  desc "Registra Usuarios nos eventos"
+  task register_user_for_event: :environment do
+    puts "Registrando Usuarios..."
+
+    Event.all.each do |event|
+      10.times do
+        event.to_register(User.all.sample.id)
+      end
+    end
+
+    puts "Usuarios registrados!"
+  end
+
 end
