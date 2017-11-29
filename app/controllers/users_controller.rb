@@ -46,6 +46,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def name_alter
+    unless params[params.keys.first].blank?
+      user_inline = User.find(params.keys.first.split('_').last.to_i)
+      user_inline.first_name = params[params.keys.first].split(' ').first
+      user_inline.last_name = params[params.keys.first].split(' ')[1..-1].join(' ')
+      user_inline.save
+    end
+    head 204, content_type: "text/html"
+  end
+
 
   private
 

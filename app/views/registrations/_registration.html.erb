@@ -1,7 +1,22 @@
+<%= stylesheet_link_tag 'bootstrap-editable.css' %>
 <tr id="registration-<%= registration.id %>" data-id="<%= registration.id %>">
   <% user_presenter = registration.user.decorate -%>
   <td class="text-right"><%= user_presenter.user_avatar(true, 32, false) %></td>
   <td><%= user_presenter.email %></td>
-  <td><%= user_presenter.name %></td>
+  <td>
+    <a href="#" class="name" id="name_<%= user_presenter.id %>" data-type="text" data-pk="<%= user_presenter.id %>" data-title="Alterar o Nome"><%= user_presenter.name %></a>
+  </td>
   <td class="js-ev-presence"><%= presence_buttons(registration) %></td>
 </tr>
+
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editableform.buttons = '<button type="submit" class="editable-submit btn btn-primary"> <i class="fa fa-check"></i></button>\n' +
+        '<button type="button" class="editable-cancel btn btn-danger"> <i class="fa fa-times"></i> </button>'
+    $('.name').editable({
+        inputclass: "input-large",
+        url: "<%= name_alter_path %>"
+    });
+
+
+</script>
