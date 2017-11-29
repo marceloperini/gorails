@@ -34,7 +34,7 @@ RSpec.describe Api::V1::EventsController, type: :controller do
     end
 
     it 'respond with JSON' do
-      expect(response.body).to eq()
+      expect(response.body).to eq(event.to_json)
     end
   end
 end
