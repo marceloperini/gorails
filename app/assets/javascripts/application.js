@@ -13,6 +13,8 @@
 //= require core/jquery.min
 //= require jquery_ujs
 //= require core/bootstrap.min
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require core/jquery.slimscroll.min
 //= require core/jquery.scrollLock.min
 //= require core/jquery.appear.min
