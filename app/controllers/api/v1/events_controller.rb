@@ -1,7 +1,5 @@
-class Api::V1::EventsController < ApplicationController
+class Api::V1::EventsController < Api::BaseController
   before_action :set_event, only: %i(show)
-
-  respond_to :json
 
   # GET /api/v1/events.json
   def index
