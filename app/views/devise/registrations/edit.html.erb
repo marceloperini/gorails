@@ -61,17 +61,19 @@
                     <br>
 
                     <div class="col-xs-12">
-                      <%= f.label :email, "Endereço de E-mail" %>
+                      <%= f.label :email, "Endereço de E-mail" %> <i>(*obrigatório)</i><br/>
                       <%= f.email_field :email, autofocus: true, placeholder: "Enter your email..", class: "form-control input-lg" %>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :first_name, "Primeiro Nome" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :first_name, placeholder: "Digite seu primeiro nome..", class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :last_name, "Sobrenome" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :last_name, placeholder: "Digite seu sobrenome nome..", class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -87,18 +89,15 @@
                       <%= f.label :cpf, "CPF" %>
                       <%= f.text_field :cpf, class: "form-control input-lg cpf" %>
                     </div>
-                    <div class="col-xs-6">
-                      <%= f.label :job_title, "Cargo/Função" %>
-                      <%= f.text_field :job_title, placeholder: "Digite seu Cargo/Função..", class: "form-control input-lg" %>
-                    </div>
-
 
                     <div class="col-xs-6">
                       <%= f.label :rg, "Identidade" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :rg, class: "form-control input-lg" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :consignor_organ, "Órgão Expedidor" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :consignor_organ, class: "form-control input-lg" %>
                     </div>
 
@@ -107,17 +106,27 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :company, "Empresa" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :company, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <%= f.label :job_title, "Cargo/Função" %>
+                      <%= f.text_field :job_title, placeholder: "Digite seu Cargo/Função..", class: "form-control input-lg" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :phone, "Telefone (Fixo)" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :phone, class: "form-control input-lg phone" %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :celphone, "Telefone (Celular)" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :celphone, class: "form-control input-lg celphone" %>
                     </div>
                   </div>
@@ -125,28 +134,34 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :schooling, "Escolaridade" %>
-                      <%= f.select :schooling, ['Ensino Médio Incompleto', 'Ensino Médio Completo', 'Ensino Superior', 'Pós-Graduação'] %>
+                      <%= f.select :schooling, ['Ensino Médio Incompleto',
+                                                'Ensino Médio Completo',
+                                                'Ensino Superior',
+                                                'Pós-Graduação'], {}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :birth_date, "Data de Nascimento" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= date_picker f, :birth_date %>
                     </div>
-                    <div class="col-xs-6" style="margin-top: 20px;font-size: 20px">
+                    <div class="col-xs-6">
                       <%= f.label :gender, "Sexo" %>
-                      <%= f.select :gender, ['Masculino', 'Feminino'] %>
+                      <%= f.select :gender, ['Masculino', 'Feminino'], {}, {class: "form-control input-lg"} %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-6">
                       <%= f.label :marital_status, "Estado Civil" %>
-                      <%= f.text_field :marital_status, class: "form-control input-lg" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.select :marital_status, MARITAL_STATUS, {}, {class: "form-control input-lg"} %>
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :place_of_birth, "Naturalidade" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :place_of_birth, class: "form-control input-lg" %>
                     </div>
                   </div>
@@ -158,230 +173,371 @@
                     </div>
                     <div class="col-xs-6">
                       <%= f.label :mother, "Filiação (Mãe)" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
                       <%= f.text_field :mother, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-xs-8">
+                      <%= f.label :zip_code, "CEP" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.text_field :zip_code, class: "form-control input-lg zip_code", id: "zip_code_field" %><br/>
+                      <span class="btn btn-success btn-mini" id="fill_zip_code">Preencher Endereço</span>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-12">
                       <%= f.label :address, "Endereço" %>
-                      <%= f.text_field :address, class: "form-control input-lg" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.text_field :address, class: "form-control input-lg", id: "address_field" %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-9">
                       <%= f.label :neighborhood, "Bairro" %>
-                      <%= f.text_field :neighborhood, class: "form-control input-lg" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.text_field :neighborhood, class: "form-control input-lg", id: "neighborhood_field" %>
                     </div>
+
+
                     <div class="col-xs-3">
-                      <%= f.label :uf, "UF" %>
-                      <%= f.text_field :uf, class: "form-control input-lg" %>
+                      <%= f.label :geography_state_id, "UF" %>
+                      <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                      <%= f.select :geography_state_id, Geography::State.all.collect {|p| [p.name, p.id]}, {}, {class: "form-control input-lg", id: "uf_field"} %>
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="col-xs-8">
-                      <%= f.label :zip_code, "CEP" %>
-                      <%= f.text_field :zip_code, class: "form-control input-lg zip_code" %>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <%= f.label :special_needs, "Necessidades Especiais: (Física, Mental, Visual, Auditiva ou Nenhuma)" %>
-                      <%= f.text_field :special_needs, class: "form-control input-lg" %>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <%= f.label :complement, "Complemento" %>
-                      <%= f.text_field :complement, class: "form-control input-lg" %>
-                    </div>
-                  </div>
-
-
-
-
-
-
-                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                  <% end %>
-
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <%= f.label :password, "Senha" %> <i>(deixe em branco se você não deseja alterar)</i><br/>
-                      <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <%= f.label :password_confirmation, "Confirmação de Senha" %><br/>
-                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
-                    </div>
-                  </div>
-                  <hr>
-
-
-
-                  <!--<div class="form-group">-->
-                  <!--<div class="col-xs-12">-->
-
-                  <!--<h3>Cancelar minha Conta</h3>-->
-
-                  <!--<p>Não precisa mais ter um conta aqui? <%#= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem Certeza?" }, method: :delete %></p>-->
-
-                  <!--</div>-->
-                  <!--</div>-->
 
                 </div>
               </div>
-            </div>
-            <!--<div class="tab-pane fade" id="tab-profile-password">-->
-            <!--<div class="row items-push">-->
-            <!--<div class="col-sm-6 col-sm-offset-3 form-horizontal">-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-12">-->
-            <!--<label for="profile-password">Current Password</label>-->
-            <!--<input class="form-control input-lg" type="password" id="profile-password" name="profile-password">-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<hr>-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-12">-->
-            <!--<label for="profile-password-new">New Password</label>-->
-            <!--<input class="form-control input-lg" type="password" id="profile-password-new" name="profile-password-new">-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-12">-->
-            <!--<label for="profile-password-new-confirm">Confirm New Password</label>-->
-            <!--<input class="form-control input-lg" type="password" id="profile-password-new-confirm" name="profile-password-new-confirm">-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="tab-pane fade active in" id="tab-profile-privacy">-->
-            <!--<div class="row items-push">-->
-            <!--<div class="col-sm-6 col-sm-offset-3 form-horizontal">-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-8">-->
-            <!--<div class="font-s13 font-w600">Online Status</div>-->
-            <!--<div class="font-s13 font-w400 text-muted">Show your status to all</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-4 text-right">-->
-            <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
-            <!--<input type="checkbox"><span></span>-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<hr>-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-8">-->
-            <!--<div class="font-s13 font-w600">Auto Updates</div>-->
-            <!--<div class="font-s13 font-w400 text-muted">Keep up to date</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-4 text-right">-->
-            <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
-            <!--<input type="checkbox"><span></span>-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<hr>-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-xs-8">-->
-            <!--<div class="font-s13 font-w600">Notifications</div>-->
-            <!--<div class="font-s13 font-w400 text-muted">Do you need them?</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-4 text-right">-->
-            <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
-            <!--<input type="checkbox" checked=""><span></span>-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<hr>-->
-            <!--<div class="form-group">-->
-            <!--<div class="col-sm-8">-->
-            <!--<div class="font-s13 font-w600">API Access</div>-->
-            <!--<div class="font-s13 font-w400 text-muted">Enable/Disable access</div>-->
-            <!--</div>-->
-            <!--<div class="col-sm-4 text-right">-->
-            <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
-            <!--<input type="checkbox" checked=""><span></span>-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <h4>Redes Sociais </h4>
-            <br>
-            <br>
-            <table id="social_networks_table" class="table table-striped table-condensed net">
-              <tr>
-                <th>Link</th>
-                <th>Ações</th>
-              </tr>
-              <%= f.fields_for :social_networks, :wrapper => false do |social_network| %>
-                  <tr class="fields">
-                    <td>
-                      <%= social_network.hidden_field :user_id, :value => current_user.id %>
-                      <%= social_network.text_field :link  ,class: "form-control input-sm"%>
-                    </td>
-                    <td>
-                      <%= social_network.link_to_remove "Remover"  ,class: "btn btn-danger btn-mini"%>
-                    </td>
-                  </tr>
+
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <%= f.label :complement, "Complemento" %>
+                  <%= f.text_field :complement, class: "form-control input-lg", id: "complement_field" %>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <%= f.label :special_needs, "Necessidades Especiais" %>
+                  <i class="show_off_certificate">(*obrigatório para emissão do Certificado)</i><br/>
+                  <%= f.select :special_needs, ['Física', 'Mental', 'Visual', 'Auditiva', 'Nenhuma'], {}, {class: "form-control input-lg"} %>
+                </div>
+              </div>
+
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
 
-            </table>
-                <%= f.link_to_add "Nova Rede Social", :social_networks, class: 'btn btn-success btn-mini' ,'data-target' => '#social_networks_table' %>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <%= f.label :password, "Senha" %>
+                  <i>(deixe em branco se você não deseja alterar)</i><br/>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
+                </div>
+              </div>
 
-          </div>
-          <div class="block-content block-content-full bg-gray-lighter text-center">
-            <%#= f.submit "Atualizar",:class=>"btn btn-sm btn-primary" %>
-            <%= f.submit "Atualizar", :class => "btn btn-success" %>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <%= f.label :password_confirmation, "Confirmação de Senha" %><br/>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
+                </div>
+              </div>
+              <hr>
 
+
+              <!--<div class="form-group">-->
+              <!--<div class="col-xs-12">-->
+
+              <!--<h3>Cancelar minha Conta</h3>-->
+
+              <!--<p>Não precisa mais ter um conta aqui? <%#= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem Certeza?" }, method: :delete %></p>-->
+
+              <!--</div>-->
+              <!--</div>-->
+
+            </div>
           </div>
         </div>
+        <!--<div class="tab-pane fade" id="tab-profile-password">-->
+        <!--<div class="row items-push">-->
+        <!--<div class="col-sm-6 col-sm-offset-3 form-horizontal">-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-12">-->
+        <!--<label for="profile-password">Current Password</label>-->
+        <!--<input class="form-control input-lg" type="password" id="profile-password" name="profile-password">-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-12">-->
+        <!--<label for="profile-password-new">New Password</label>-->
+        <!--<input class="form-control input-lg" type="password" id="profile-password-new" name="profile-password-new">-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-12">-->
+        <!--<label for="profile-password-new-confirm">Confirm New Password</label>-->
+        <!--<input class="form-control input-lg" type="password" id="profile-password-new-confirm" name="profile-password-new-confirm">-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="tab-pane fade active in" id="tab-profile-privacy">-->
+        <!--<div class="row items-push">-->
+        <!--<div class="col-sm-6 col-sm-offset-3 form-horizontal">-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-8">-->
+        <!--<div class="font-s13 font-w600">Online Status</div>-->
+        <!--<div class="font-s13 font-w400 text-muted">Show your status to all</div>-->
+        <!--</div>-->
+        <!--<div class="col-xs-4 text-right">-->
+        <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
+        <!--<input type="checkbox"><span></span>-->
+        <!--</label>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-8">-->
+        <!--<div class="font-s13 font-w600">Auto Updates</div>-->
+        <!--<div class="font-s13 font-w400 text-muted">Keep up to date</div>-->
+        <!--</div>-->
+        <!--<div class="col-xs-4 text-right">-->
+        <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
+        <!--<input type="checkbox"><span></span>-->
+        <!--</label>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-xs-8">-->
+        <!--<div class="font-s13 font-w600">Notifications</div>-->
+        <!--<div class="font-s13 font-w400 text-muted">Do you need them?</div>-->
+        <!--</div>-->
+        <!--<div class="col-xs-4 text-right">-->
+        <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
+        <!--<input type="checkbox" checked=""><span></span>-->
+        <!--</label>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="form-group">-->
+        <!--<div class="col-sm-8">-->
+        <!--<div class="font-s13 font-w600">API Access</div>-->
+        <!--<div class="font-s13 font-w400 text-muted">Enable/Disable access</div>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4 text-right">-->
+        <!--<label class="css-input switch switch-sm switch-primary push-10-t">-->
+        <!--<input type="checkbox" checked=""><span></span>-->
+        <!--</label>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <h4>Redes Sociais </h4>
+        <br>
+        <br>
+        <table id="social_networks_table" class="table table-striped table-condensed net">
+          <tr>
+            <th>Rede Social</th>
+            <th>Link</th>
+            <th>Ações</th>
+          </tr>
+          <%= f.fields_for :social_networks, :wrapper => false do |social_network| %>
+              <tr class="fields">
+                <td>
+                  <%= social_network.select :social_network_type_id, SocialNetworkType.all.map {|social| [social.name_social_media, social.id]}, {:include_blank => 'Selecione o tipo'}, {class: 'form-control', onchange: 'fill_link_social($(this));'} %>
+                </td>
+                <td>
+                  <%= social_network.hidden_field :user_id, :value => current_user.id %>
+                  <%= social_network.text_field :link, class: "form-control input-sm" %>
+                </td>
+                <td>
+                  <%= social_network.link_to_remove "Remover", class: "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+          <% end %>
+
+        </table>
+        <%= f.link_to_add "Nova Rede Social", :social_networks, class: 'btn btn-success btn-mini', 'data-target' => '#social_networks_table' %>
+
+        </div>
+        <div class="block-content block-content-full bg-gray-lighter text-center">
+          <%#= f.submit "Atualizar",:class=>"btn btn-sm btn-primary" %>
+          <%= f.submit "Atualizar", :class => "btn btn-success" %>
+
+        </div>
+        </div>
     <% end %>
-  </div>
-</main>
+    </div>
+    </main>
 
 
 <script>
+    $('#user_need_certificate').change(function () {
+        if ($(this).prop('checked') == true) {
+            $('.show_off_certificate').show();
+        } else {
+            $('.show_off_certificate').hide();
+        }
+    });
+
+    <%if @user.need_certificate == true and @user.data_completed != true%>
+    swal({
+        title: "Dados necessarios para emissão de certificado",
+        text: "Para que possamos emitir  seu certificado  precisa preencher todos os dados de seu perfil!",
+        type: "warning", showCancelButton: false,
+        confirmButtonColor: "#00B300",
+        confirmButtonText: "Ok Entendi!",
+        closeOnConfirm: false
+    });
+    <%end%>
+
+    $('#fill_zip_code').click(function () {
+
+        field_value = $('#zip_code_field').val();
+        field_value = field_value.replace(/\D/g, '');
+
+        if (field_value.length == 8) {
+            $.getJSON("https://viacep.com.br/ws/" + field_value + "/json/", function (data) {
+                if (data.erro == true) {
+                    swal({
+                        title: "CEP não encontrado",
+                        text: "O CEP digitado não foi encontrado!",
+                        type: "warning", showCancelButton: false,
+                        confirmButtonColor: "#b30001",
+                        confirmButtonText: "Ok Entendi!",
+                        closeOnConfirm: false
+                    });
+                } else {
+
+                    $('#neighborhood_field').val(data.bairro);
+
+                    $.ajax({
+                        type: "GET",
+                        url: "<%= uf_id_extended_path %>",
+                        dataType: "json",
+                        data: {uf_initals: data.uf},
+                        success: function (result) {
+                            $('#uf_field').val(result);
+                        }
+                    });
+
+                    $('#complement_field').val(data.complemento);
+                    $('#address_field').val(data.logradouro + ' ' + data.localidade);
+                }
+            })
+        } else {
+            swal({
+                title: "CEP inválido",
+                text: "O CEP digitado não é válido!",
+                type: "warning", showCancelButton: false,
+                confirmButtonColor: "#b30003",
+                confirmButtonText: "Ok Entendi!",
+                closeOnConfirm: false
+            });
+        }
 
 
-  <%if @user.need_certificate == true and @user.data_completed != true%>
-  swal({
-    title: "Dados necessarios para emissão de certificado",
-    text: "Para que possamos emitir  seu certificado  precisa preencher todos os dados de seu perfil!",
-    type: "warning", showCancelButton: false,
-    confirmButtonColor: "#00B300",
-    confirmButtonText: "Ok Entendi!",
-    closeOnConfirm: false
-  });
-  <%end%>
+    });
 
-  $(document).ready(function () {
+    $(document).ready(function () {
 
-    $('.cpf').mask('000.000.000-00', {reverse: true});
-    $('.zip_code').mask('99-999.999');
-    $('.phone').mask('(99) 9999-9999');
-    $('.celphone').mask('(99) 9999-9999');
-    //$(".datepicker").mask('99/99/9999');
-  });
+        if ($('#user_need_certificate').prop('checked') == true) {
+            $('.show_off_certificate').show();
+        } else {
+            $('.show_off_certificate').hide();
+        }
 
+        var celphoneMask = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+            celphoneOptions = {
+                onKeyPress: function (val, e, field, options) {
+                    field.mask(celphoneMask.apply({}, arguments), options);
+                }
+            };
 
-  $('.data').datepicker({
-    format: 'dd/mm/yyyy',
-    language: 'pt-BR'
-  });
-  $('.data').mask('99/99/9999');
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.zip_code').mask('99999-999');
+        $('.phone').mask('(99) 9999-9999');
+        $('.celphone').mask(celphoneMask, celphoneOptions);
+        //$(".datepicker").mask('99/99/9999');
+    });
+
+    function fill_link_social(element) {
+        var value_selected = element.val();
+
+        var name_input = element[0].name;
+
+        var exp = /\d+/;
+
+        var id = name_input.match(exp);
+
+        var link_id = '#user_social_networks_attributes_' + id + '_link'
+
+        switch (value_selected) {
+            case '1':
+                content = 'https://www.facebook.com/'
+                break;
+            case '2':
+                content = 'https://plus.google.com/'
+                break;
+            case '3':
+                content = 'https://twitter.com/'
+                break;
+            case '4':
+                content = 'https://www.instagram.com/'
+                break;
+            case '5':
+                content = 'https://www.linkedin.com/in/'
+                break;
+            case '6':
+                content = ''
+                break;
+            case '7':
+                content = 'https://www.youtube.com/channel/'
+                break;
+            case '8':
+                content = 'https://github.com/'
+                break;
+            case '9':
+                content = 'https://www.reddit.com/user/'
+                break;
+            case '10':
+                content = 'https://go.twitch.tv/'
+                break;
+            case '11':
+                content = 'https://stackoverflow.com/users/'
+                break;
+            case '12':
+                content = ''
+                break;
+            default:
+                content = 'https://'
+        }
+
+        //if ($(link_id).val() == '' || $(link_id).val().length() == 0) {
+        $(link_id).val(content);
+        //}
+    }
+
+    $('.data').datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'pt-BR'
+    });
+    $('.data').mask('99/99/9999');
+
 </script>
 
 

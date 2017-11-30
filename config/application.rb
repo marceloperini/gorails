@@ -1,4 +1,5 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
+# require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
@@ -28,7 +29,7 @@ module Gorails
 
     config.generators do |g|
       g.template_engine :go
-      g.fallbacks[:go] = :erb 
+      g.fallbacks[:go] = :erb
       g.assets = false
       g.helper = false
       g.test_framework :rspec,
@@ -42,7 +43,6 @@ module Gorails
     end
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
     config.action_controller.include_all_helpers = false
 
     require Rails.root.join("config/initializers/custom_public_exceptions")
@@ -50,5 +50,12 @@ module Gorails
 
     settings_data = File.read(Rails.root.join("config/settings.yml"))
     configatron.configure_from_hash(YAML.load(settings_data))
+
+    config.web_console.development_only = false
+
+
+    Dir.chdir("#{Rails.root}/app/observers") do
+      config.active_record.observers = Dir["*_observer.rb"].collect {|ob_name| ob_name.split(".").first}
+    end
   end
 end

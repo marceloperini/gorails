@@ -1,0 +1,9 @@
+development:
+  cloud_name:  <%= ENV["CLOUD_NAME"] %>
+  api_key:  <%= ENV["API_KEY_CLOUD"] %>
+  api_secret:  <%= ENV["API_SECRET_CLOUD"] %>
+
+production:
+  cloud_name:  <%= ENV["CLOUD_NAME"] %>
+  api_key:  <%= ENV["API_KEY_CLOUD"] %>
+  api_secret:  <%= ENV["API_SECRET_CLOUD"] %>

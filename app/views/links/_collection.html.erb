@@ -4,18 +4,11 @@
       <td><%= resource.link %></td>
       <td><%= resource.link_category.name %></td>
       <td class="text-center">
-        <div class="btn-group">
-          <%= link_to link_path(resource), data: {toggle: 'tooltip', original_title: I18n.t('misc.action.show')}, title: '', class: "btn btn-xs btn-default" do %>
-              <i class="fa fa-list"></i>
-          <% end %>
-          <%= link_to edit_link_path(resource), data: {toggle: 'tooltip', original_title: I18n.t('misc.action.edit')}, title: '', class: "btn btn-xs btn-default" do %>
-              <i class="fa fa-pencil"></i>
-          <% end %>
-
-          <%= link_to link_path(resource), method: :delete, data: { confirm: 'Are you sure?' }, title: '', class: "btn btn-xs btn-default" do %>
-              <i class="fa fa-times"></i>
-          <% end %>
-          </div>
+        <% if current_user and current_user.admin? %>
+            <%=resource.decorate.link_to_show%>
+            <%=resource.decorate.link_to_edit%>
+            <%=resource.decorate.link_to_delete%>
+        <% end %>
       </td>
       </td>
     </tr>

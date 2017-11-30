@@ -1,0 +1,86 @@
+<%= provide :page_title, I18n.t('financial_transactions.show.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= link_to I18n.t('activerecord.models.financial_transaction.other'), financial_transactions_path %></li>
+    <li><%= link_to @financial_transaction.try(:id), @financial_transaction %></li>
+    <li><%= I18n.t('financial_transactions.show.header', resource: @financial_transaction.try(:id)) %></li>
+<% end %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= I18n.t('financial_transactions.new.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-content">
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.object' %>:</strong></td>
+              <td><%= @financial_transaction.object %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.origin' %>:</strong></td>
+              <td><%= @financial_transaction.origin %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.transaction_type' %>:</strong></td>
+              <td><%= @financial_transaction.transaction_type %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.value' %>:</strong></td>
+              <td><%= @financial_transaction.value %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.user_id' %>:</strong></td>
+              <td><%= @financial_transaction.user_id %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.payment_date' %>:</strong></td>
+              <td><%= @financial_transaction.payment_date %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.payment_method' %>:</strong></td>
+              <td><%= @financial_transaction.payment_method %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.consolidated' %>:</strong></td>
+              <td><%= @financial_transaction.consolidated %></td>
+            </tr>
+            <tr>
+              <td><strong><%= t 'activerecord.attributes.financial_transaction.consolidation_date' %>:</strong></td>
+              <td><%= @financial_transaction.consolidation_date %></td>
+            </tr>
+
+            <% @financial_transaction.attachments.each do |attachment| %>
+                <tr>
+                  <td><strong>Arquivo:</strong></td>
+                  <td>
+                    <%= link_to url_with_protocol(attachment.file_url), target: "_blank" do %>
+                        <%= attachment.name %>
+                    <% end %>
+                  </td>
+                </tr>
+            <% end %>
+
+
+            </tbody>
+          </table>
+        </div>
+
+        <%= link_to I18n.t('misc.action.back'), financial_transactions_path, class: 'btn btn-default' %>
+        <%= link_to I18n.t('misc.action.edit'), edit_financial_transaction_path(@financial_transaction), class: 'btn btn-warning' %>
+        <%= link_to I18n.t('misc.action.destroy'), financial_transaction_path(@financial_transaction), method: :destroy, data: {confirm: I18n.t('misc.actions.confirm')}, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</main>

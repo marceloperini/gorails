@@ -3,10 +3,10 @@
 Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"],{}
-  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{}
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"],{secure_image_url: true}
   config.omniauth :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"],{}
-  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{:scope => 'r_basicprofile r_emailaddress'}
-
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],{scope: 'r_basicprofile r_emailaddress'}
+  config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"],{}
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -14,11 +14,12 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '5124617cd8686ff51c84baa25f73275782cd1c51074c9b4195556214926ef9cb83e1f00d5a26a898168f95ef26c0d4e9530b9d64221342e231d2e506dc664539'
 
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'inscricoes@gorails.com.br'
+  config.mailer_sender = 'contato@gorails.com.br'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -28,6 +29,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require "omniauth-google-oauth2"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -134,7 +136,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true

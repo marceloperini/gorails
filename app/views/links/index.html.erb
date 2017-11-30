@@ -1,33 +1,43 @@
+
 <%= provide :page_title, I18n.t('links.index.header') %>
 <%= provide :breadcrumb do %>
-  <li><%= I18n.t('activerecord.models.link.other') %></li>
+    <li><%= I18n.t('activerecord.models.link.other') %></li>
 <% end %>
 
-<div class="block">
-  <div class="block-header">
-      <h3 class="block-title"><%= I18n.t('links.index.block_header') %></h3>
-      <div class="block-options">
-        <%= link_to I18n.t('misc.action.new'), new_link_path, class: 'btn btn-sm btn-square btn-success' %>
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('links.index.title') %>
+        </h1>
       </div>
-  </div>
-  <div class="block-content">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                          <th><%=t 'activerecord.attributes.link.name' %></th>
-                          <th><%=t 'activerecord.attributes.link.link' %></th>
-                          <th><%=t 'activerecord.attributes.link.link_category' %></th>
-                          <th class="text-center" style="width: 100px;"><%=t 'misc.actions' %></th>
-            </tr>
-        </thead>
-        <tbody id='links'>
-          <%= render 'collection', collection: @links %> 
-        </tbody>
-    </table>
-    
-    <div class="dataTables_paginate paging_simple_numbers"  id="pagination">
-      <%#= render 'pagination', collection: @links %>
     </div>
-    
   </div>
-</div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span >
+          <%= link_to I18n.t('links.new.header'), new_link_path, class: 'btn btn-sm btn-square btn-success' %>
+        </span>
+      </div>
+      <div class="block-content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%=t 'activerecord.attributes.link.name' %></th>
+            <th><%=t 'activerecord.attributes.link.link' %></th>
+            <th><%=t 'activerecord.attributes.link.link_category' %></th>
+            <th class="text-center" style="width: 150px;"><%=t 'misc.actions' %></th>
+          </tr>
+          </thead>
+          <tbody id='link_categories'>
+          <%= render 'collection', collection: @links %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

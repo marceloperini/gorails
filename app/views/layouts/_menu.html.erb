@@ -1,32 +1,103 @@
 <% if user_signed_in? %>
 
-    <% if can? :magage, link_categories_path %>
+
+    <% if current_user.admin? %>
         <li class="nav-main-heading"><span class="sidebar-mini-hide">Admin</span></li>
-        <li>
-          <a href="/link_categories"><i class="si si-list"></i><span class="sidebar-mini-hide"> Categorias de Links</span></a>
-        </li>
-    <% end %>
-
-    <% if can? :magage, link_categories_path %>
-        <li>
-          <a href="/links"><i class="si si-link"></i><span class="sidebar-mini-hide"> Links</span></a>
-        </li>
-
-        <%= link_to activities_index_path do %>
-            <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
+        <% if can? :magage, financial_transactions_path %>
+            <li>
+              <a href="/transparencia"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Transparência</span></a>
+            </li>
         <% end %>
+        <li>
+          <a href="/paginas"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Paginas</span></a>
+        </li>
+        <% if can? :magage, link_categories_path %>
+
+            <li>
+              <a href="/link_categories"><i class="si si-list"></i><span class="sidebar-mini-hide"> Categorias de Links</span></a>
+            </li>
+        <% end %>
+
+        <% if can? :magage, link_categories_path %>
+            <li>
+              <a href="/links"><i class="si si-link"></i><span class="sidebar-mini-hide"> Links</span></a>
+            </li>
+        <% end %>
+
+        <% if can? :magage, users_path %>
+            <li>
+              <a href="/users"><i class="fa fa-users"></i><span class="sidebar-mini-hide"> Usuários</span></a>
+            </li>
+        <% end %>
+        <% if can? :magage, blog_posts_path %>
+            <li>
+              <a href="/blog/posts"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Blog Posts</span></a>
+            </li>
+        <% end %>
+        <% if can? :magage, jobs_jobs_path %>
+            <li>
+              <a href="/jobs/jobs"><i class="fa fa-briefcase"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
+            </li>
+        <% end %>
+        <% if can? :magage, index_admin_events_path %>
+            <%= link_to index_admin_events_path do %>
+                <i class="si si-list"></i><span class="sidebar-mini-hide">Eventos</span>
+            <% end %>
+        <% end %>
+
+
+
+
+        <% if can? :magage, gamification_item_types_path %>
+            <li>
+              <%= link_to gamification_item_types_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Tipos de Item</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, gamification_item_groups_path %>
+            <li>
+              <%= link_to gamification_item_groups_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Grupos de Items</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, gamification_items_path %>
+            <li>
+              <%= link_to gamification_items_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Items</span>
+              <% end %>
+            </li>
+        <% end %>
+
+        <% if can? :magage, geography_states_path %>
+            <li>
+              <%= link_to geography_states_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Estados</span>
+              <% end %>
+            </li>
+        <% end %>
+        <% if can? :magage, geography_cities_path %>
+            <li>
+              <%= link_to geography_cities_path do %>
+                  <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Cidades</span>
+              <% end %>
+            </li>
+        <% end %>
+
+
+        <% if can? :magage, activities_index_path %>
+            <%= link_to activities_index_path do %>
+                <i class="si si-list"></i><span class="sidebar-mini-hide">Atividades</span>
+            <% end %>
+        <% end %>
+
+    <% else %>
+
+
+        <li>
+          <a href="/jobs/jobs"><i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide">Vagas de Emprego</span></a>
+        </li>
+
     <% end %>
-
-<% else %>
-
-    <li><%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-          <i class="fa fa-file-text-o"></i><span class="sidebar-mini-hide"> Registrar</span>
-      <% end %>
-    </li>
-
-    <li><%= link_to new_user_session_path, :class => 'navbar-link' do %>
-          <i class="fa fa-sign-in"></i><span class="sidebar-mini-hide"> Logar</span>
-      <% end %>
-    </li>
-
 <% end %>

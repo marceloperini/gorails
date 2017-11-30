@@ -1,0 +1,21 @@
+<div class="block" id="character">
+  <div class="block-content block-content-full ribbon ribbon-modern ribbon-warning" align="center">
+    <div class="ribbon-box font-w600">
+      <%= @user.current_rubys %> &nbsp;&nbsp; <%= image_tag "ruby.png", size: "22x22" %>
+    </div>
+
+    <div id="shadow"></div>
+
+    <div id="stageholder"></div>
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%=
+        @user.current_experience %>" aria-valuemin="0" aria-valuemax="<%= @user.next_level_xp %>"
+           style="width: <%=@user.decorate.xp_percent %>%;">
+        <%= @user.current_experience %>XP / <%= @user.next_level_xp %>XP
+      </div>
+    </div>
+  </div>
+</div>
+
+

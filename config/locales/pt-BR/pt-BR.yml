@@ -20,32 +20,45 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
-  activerecord: 
-    attributes: 
-      commontator/comment: 
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              already_confirmed: "já confirmado"
+              not_found: "não encontrado"
+              taken: "já utilizado"
+              blank: "não pode ficar em branco"
+              too_long: "muito comprido (max: 80 caracteres)"
+              invalid: "formato incorreto"
+            password:
+              blank: "não pode ficar em branco"
+    attributes:
+      commontator/comment:
         body: Comment
         creator: Creator
         editor: Editor
         thread: Discussion
-      commontator/subscription: 
+      commontator/subscription:
         subscriber: Subscriber
         thread: Discussion
-      commontator/thread: 
+      commontator/thread:
         commontable: Commontable
-    models: 
-      commontator/comment: 
+    models:
+      commontator/comment:
         one: comment
         other: comments
-      commontator/subscription: 
+      commontator/subscription:
         one: subscription
         other: subscriptions
-      commontator/thread: 
+      commontator/thread:
         one: thread
         other: threads
-  commontator: 
+  commontator:
     anonymous: Anônimo
-    comment: 
-      actions: 
+    comment:
+      actions:
         cancel: Cancelar
         confirm_delete: "Are you sure you want to delete this comment?"
         create: "Postar Comentário"
@@ -54,33 +67,33 @@ pt-BR:
         new: "Novo Comentário"
         undelete: Publicar
         update: "Modificar Comentário"
-      errors: 
+      errors:
         already_deleted: "Este comentário foi deletado"
         create: "Este comentário não pode ser postado porque"
         double_posted: "e uma duplicata de outro comentário."
         not_deleted: "Este comentário não pode ser deletado."
         update: "Este comentário não pode ser editado porque:"
-      status: 
+      status:
         created_at: "Publicado em %{created_at}."
         deleted_by: "Comentário deletado por %{deleter_name}."
         updated_at: "Última modificação por %{editor_name} em %{updated_at}."
-    email: 
-      comment_created: 
+    email:
+      comment_created:
         body: "%{creator_name} comentou em %{commontable_name}:"
         subject: "%{creator_name} postou comentário em %{commontable_name}"
       thread_link_html: "<a href=\"%{comment_url}\">Click here</a> to view all comments on %{commontable_name}."
       undisclosed_recipients: "Undisclosed Recipients"
     require_login: "Você precisa efetuar login para poder comentar"
-    subscription: 
-      actions: 
+    subscription:
+      actions:
         confirm_unsubscribe: "Are you sure you want to unsubscribe from this discussion?"
         subscribe: Subscribe
         unsubscribe: Unsubscribe
-      errors: 
+      errors:
         already_subscribed: "You are already subscribed to this discussion."
         not_subscribed: "You are not subscribed to this discussion."
-    thread: 
-      actions: 
+    thread:
+      actions:
         show_all: "Mostrar todos os Comentários"
         filter: "Filtrar Comentários"
         close: "Fechar Discussão"
@@ -91,10 +104,31 @@ pt-BR:
       errors:
         already_closed: "Esta Discussão está fechada"
         not_closed: "A discussão não esta fechada."
-      status: 
+      status:
         cannot_post: "Novos comentários não podem ser postados agora"
         closed: "Comentario fechado (por %{closer_name})"
         open: Comentários
-  time: 
-    formats: 
+  time:
+    formats:
       commontator: "%d/%m/%Y as %H:%M:%S"
+  social_share_button:
+    share_to: Compartilhar no %{name}
+    weibo: Sina Weibo
+    twitter: Twitter
+    facebook: Facebook
+    douban: Douban
+    qq: Qzone
+    delicious: Delicious
+    google_plus: Google+
+    google_bookmark: Google Bookmark
+    tumblr: Tumblr
+    pinterest: Pinterest
+    email: Email
+    linkedin: Linkedin
+    wechat: WeChat
+    vkontakte: Vkontakte
+    odnoklassniki: Odnoklassniki
+    xing: Xing
+    reddit: Reddit
+    hacker_news: Hacker News
+    telegram: Telegram

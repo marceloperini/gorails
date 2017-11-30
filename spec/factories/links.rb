@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do # frozen_string_literal: true.
   factory :link do
     name "MyString"
     link "MyString"

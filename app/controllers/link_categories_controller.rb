@@ -1,6 +1,6 @@
 class LinkCategoriesController < ApplicationController
   before_action :set_link_category, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   load_and_authorize_resource
   # GET /link_categories
   # GET /link_categories.json

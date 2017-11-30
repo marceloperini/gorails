@@ -1,0 +1,41 @@
+<%= simple_nested_form_for(@financial_transaction) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :user_id,value:  current_user.id %>
+
+    <div class="form-inputs">
+      <%= f.input :object %>
+      <%= f.input :origin %>
+      <%= f.select :transaction_type, [['Renda', 'I'], ['Despesa', 'O']] %>
+      <%= f.input :value %>
+
+      <%= f.input :payment_date %>
+      <%= f.input :payment_method %>
+      <%= f.input :consolidated %>
+      <%= f.input :consolidation_date %>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Comprovantes</h3>
+        <%= f.simple_fields_for :attachments do |gift| %>
+            <p>
+              <%= gift.input :name, placeholder: "Nome do anexo" %>
+              <%= gift.label :file, "arquivo" %>
+              <%= gift.file_field :file %>
+              <br>
+              <%= gift.link_to_remove "Remover", class: 'btn btn-danger', data: {disable_with: "Fechando..."} %>
+            </p>
+
+        <% end %>
+        <br>
+        <%= f.link_to_add "Adicionar um novo anexo", :attachments, class: 'btn btn-success' %>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="form-group form-actions">
+      <%= link_to I18n.t('misc.action.back'), financial_transactions_path, class: 'btn btn-sm btn-square btn-default' %>
+      <%= f.button :submit, class: 'btn btn-sm btn-square btn-primary' %>
+    </div>
+<% end %>

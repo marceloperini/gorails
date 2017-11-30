@@ -1,0 +1,83 @@
+
+<%= provide :page_title, I18n.t('users.index.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= I18n.t('activerecord.models.user.other') %></li>
+<% end %>
+
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('users.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <%= form_tag users_path, :method => 'get' ,class:'form-inline' do %>
+        <div class="form-group">
+
+        <label for="simple-classic-progress-firstname">Primeiro Nome</label>
+        <%= text_field_tag :first_name ,nil, class:'form-control'%>
+
+        <label for="simple-classic-progress-firstname">Email</label>
+        <%= text_field_tag :email,nil, class:'form-control' %>
+
+          <label for="simple-classic-progress-firstname">Provider</label>
+          <%=select_tag :provider, options_for_select([["GitHub", "github"], ["Google", "google_oauth2"]]),{:include_blank => 'Selecione o provider',class: 'form-control'}%>
+
+          <%#= date_range_picker_tag :initial_date, :final_date, 'Data', nil, nil, required = false, bootstrapform = true %>
+
+          <%= button_tag(type: "submit", class: "btn btn-default") do %>
+              Filtrar <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
+        </div>
+
+  <% end %>
+
+    <!---->
+    <!--<form action="base_pages_search.php" method="post" _lpchecked="1">-->
+      <!--<div class="input-group input-group-lg">-->
+        <!--<input class="form-control" type="text" placeholder="Search application..">-->
+        <!--<div class="input-group-btn">-->
+          <!--<button class="btn btn-default"><i class="fa fa-search"></i></button>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</form>-->
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span >
+        </span>
+      </div>
+      <div class="block-content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%=t 'activerecord.attributes.user.first_name' %></th>
+            <th><%=t 'activerecord.attributes.user.email' %></th>
+            <th><%=t 'activerecord.attributes.user.provider' %></th>
+            <th><%=t 'activerecord.attributes.user.created_at' %></th>
+            <th><%=t 'activerecord.attributes.user.admin' %></th>
+            <th class="text-center" style="width: 150px;"><%=t 'misc.actions' %></th>
+          </tr>
+          </thead>
+          <tbody id='link_categories'>
+          <%= render 'collection', collection: @users %>
+          </tbody>
+        </table>
+        <%=render 'pagination',collection: @users%>
+      </div>
+    </div>
+  </div>
+</main>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+</script>

@@ -1,43 +1,66 @@
-<%= provide :page_title, I18n.t('links.show.header', resource: @link.try(:id) ) %>
+<%= provide :page_title, I18n.t('links.show.header', resource: @links.try(:id)) %>
 <%= provide :breadcrumb do %>
-  <li><%= link_to  I18n.t('activerecord.models.link.other'), links_path %></li>
-  <li><%= link_to  @link.try(:id), @link %></li>
-  <li><%= I18n.t('links.show.header', resource: @link.try(:id) ) %></li>
+    <li><%= link_to I18n.t('activerecord.models.links.other'), links_path %></li>
+    <li><%= link_to @link.try(:id), @link %></li>
+    <li><%= I18n.t('links.show.header', resource: @link.try(:id)) %></li>
 <% end %>
 
-<div class="panel">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= I18n.t('links.show.header', resource: @link.try(:id)) %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        </thead>
-        <tbody>
-                  <tr>
-            <td><strong><%=t 'activerecord.attributes.link.name' %>:</strong></td>
-             <td><%= @link.name %></td>
-          </tr>   
-                  <tr>
-            <td><strong><%=t 'activerecord.attributes.link.link' %>:</strong></td>
-             <td><%= @link.link %></td>
-          </tr>   
-                  <tr>
-            <td><strong><%=t 'activerecord.attributes.link.link_category' %>:</strong></td>
-             <td><%= @link.link_category.name %></td>
-          </tr>   
-                </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="panel-footer">
-    <div class="row">
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
       <div class="col-sm-7">
-        <%= link_to I18n.t('misc.action.back'), links_path, class: 'btn btn-default' %>
-        <%= link_to I18n.t('misc.action.edit'),edit_link_path(@link), class: 'btn btn-warning' %>
-        <%= link_to I18n.t('misc.action.destroy'),link_path(@link), method: :destroy, data: {confirm: I18n.t('misc.actions.confirm') }, class: 'btn btn-danger' %>
+        <h1 class="page-heading">
+          <%= t('links.show.title') %>
+        </h1>
       </div>
     </div>
   </div>
-</div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span>
+          <%= link_to I18n.t('links.new.new'), new_link_path, class: 'btn btn-sm btn-square btn-success' %>
+        </span>
+      </div>
+      <div class="block-content">
+        <div class="row">
+
+          <div class="col-sm-12">
+            <table class="table table-striped">
+              <thead>
+              </thead>
+              <tbody>
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.link.name' %>:</strong></td>
+                <td><%= @link.name %></td>
+              </tr>
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.link.link' %>:</strong></td>
+                <td><%= @link.link %></td>
+              </tr>
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.link.description' %>:</strong></td>
+                <td><%= @link.description %></td>
+              </tr>
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.link.link_category' %>:</strong></td>
+                <td><%= @link.link_category.name %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-4 ">
+            <%= link_to I18n.t('misc.action.back'), links_path, class: 'btn btn-default' %>
+            <%= link_to I18n.t('misc.action.edit'), edit_link_path(@link), class: 'btn btn-warning' %>
+            <%= link_to I18n.t('misc.action.destroy'), link_path(@link), method: :destroy, data: {confirm: I18n.t('links.show.remover')}, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

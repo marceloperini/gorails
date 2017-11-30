@@ -14,12 +14,15 @@
  *= require bootstrap-social
  *= require oneui
  *= require amaran.min
- *= require summernote
+ *= require old_summernote.css.erb
  *= require custom
  *= require magnific-popup.min
- *= require commontator/application
-  *= require sweet-alert
-   *= require bootstrap-datepicker3
+ *= require sweet-alert
+ *= require bootstrap-datepicker3
+ *= require tags
+ *= require events
+ *= require social-share-button
  *= require_self
+
 
  */

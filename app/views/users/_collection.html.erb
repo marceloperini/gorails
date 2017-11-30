@@ -1,0 +1,16 @@
+<% collection.each do |resource| %>
+    <tr id="<%= dom_id(resource) %>">
+      <td><%= resource.name.upcase %></td>
+      <td><%= resource.email %></td>
+      <td><%= resource.provider %></td>
+      <td><%= converte_date(resource.created_at) %></td>
+      <td><%= yes_no(resource.admin?) %></td>
+      <td class="text-center">
+        <% if current_user and current_user.admin? %>
+            <%=resource.decorate.link_to_show%>
+        <% end %>
+      </td>
+      </td>
+    </tr>
+<% end %>
+

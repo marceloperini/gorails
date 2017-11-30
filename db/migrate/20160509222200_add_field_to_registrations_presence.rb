@@ -1,4 +1,4 @@
-class AddFieldToRegistrationsPresence < ActiveRecord::Migration
+class AddFieldToRegistrationsPresence < ActiveRecord::Migration[5.1]
   def change
     add_column :registrations, :presence, :boolean, default: false
   end

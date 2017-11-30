@@ -1,9 +1,11 @@
-<div class="bg-image" style="background-image: url('<%=asset_path "bg-red.jpg"%>')";>
+<div class="bg-image" style="background-image: url('<%=asset_path @event.decorate.event_background%>')" ;>
   <div class="bg-primary-dark-op">
     <section class="content content-full content-boxed">
       <div class="push-100-t push-50 text-center">
         <h1 class="h2 text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"> <%= @event.name %></h1>
-        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"><%= @event.start_at.strftime("Data %d/%m/%Y") %></h2>
+        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown">
+          <%= @event.start_at.strftime("%e %b %Y, %H:%M") %> — <%= @event.end_at.strftime("%e %b %Y, %H:%M") %>
+        </h2>
       </div>
     </section>
   </div>
@@ -39,33 +41,37 @@
       <div class="block block-rounded">
         <div class="block-content">
           <% if @event.event_happened? %>
-            <center>Este evento já aconteceu</center>
+              <center>Este evento já aconteceu</center>
           <% else %>
-            <% if user_signed_in?  %>
-              <% if @event.is_registrated?(current_user.id) %>
-                  <center>Você já esta registrado neste evento</center>
-              <% else %>
-                <%= simple_form_for :register, { url: register_events_path(:id=>@event.id, :user_id=>current_user.id) } do |f| %>
-                  <%if current_user.cpf.blank?%>
-                    <%= f.label :cpf ,"CPF"%>
-                    <%= f.text_field :cpf  ,class:"form-control  cpf"%>
-                  <%end%>
-                  <div class="col-xs-12">
-                    <label class="css-input css-checkbox css-checkbox-success">
-                      <%= f.check_box :need_certificate  ,class:"form-control  cpf"%><span></span>Deseja Certificado?
-                    </label>
-                  </div>
+              <% if user_signed_in? %>
+                  <% if @event.is_registrated?(current_user.id) %>
+                      <center>Você já esta registrado neste evento</center>
+                  <% elsif !@event.inscriptions_open? %>
+                      <center>O Período inscrição ainda nao foi iniciado</center>
 
-                  <br>
-                  <br>
-                  <%= f.submit "Inscrever-se", data: { disable_with: "Cadastrando..." } ,class: "btn btn-block btn-rounded btn-noborder btn-success push-10"%>
-                <% end %>
+                  <% else %>
+                      <%= simple_form_for :register, {url: register_events_path(:id => @event.id, :user_id => current_user.id)} do |f| %>
+                          <% if current_user.cpf.blank? %>
+                              <%= f.label :cpf, "CPF" %>
+                              <%= f.text_field :cpf, class: "form-control  cpf" %>
+                          <% end %>
+                          <div class="col-xs-12">
+                            <label class="css-input css-checkbox css-checkbox-success">
+                              <%= f.check_box :need_certificate, class: "form-control  cpf" %><span></span>Deseja
+                              Certificado?
+                            </label>
+                          </div>
+
+                          <br>
+                          <br>
+                          <%= f.submit "Inscrever-se", data: {disable_with: "Cadastrando..."}, class: "btn btn-block btn-rounded btn-noborder btn-success push-10" %>
+                      <% end %>
+                  <% end %>
+              <% else %>
+                  <%= link_to new_user_session_path, :class => 'btn btn-block btn-rounded btn-noborder btn-success push-10' do %>
+                      Inscrever-se
+                  <% end %>
               <% end %>
-            <% else %>
-              <%= link_to new_user_session_path, :class => 'btn btn-block btn-rounded btn-noborder btn-success push-10' do %>
-                  Inscrever-se
-              <% end %>
-            <% end %>
           <% end %>
         </div>
       </div>
@@ -77,26 +83,32 @@
         </div>
         <div class="block-content">
           <ul class="list-unstyled push-20">
-            <li class="push-10"><span class="fa fa-fw fa-clock-o push-10-r"></span><%=@event.event_duration%> horas de duração</li>
+            <li class="push-10"><span class="fa fa-fw fa-clock-o push-10-r"></span><%= @event.event_duration %> horas de
+              duração
+            </li>
             <li><span class="fa fa-fw fa-user push-10-r"></span><%= @event.participants_limit %> vagas no total</li>
           </ul>
+          Compartilhe este evento:
+          <%= social_share_button_tag(@event.name, desc: @event.description) %>
         </div>
       </div>
       <!-- END.SOBRE ESTE EVENTO -->
 
       <% if can?(:update, @event) %>
-        <!-- INI.ACESSO RESTRITO -->
-        <div class="block block-rounded">
-          <div class="block-header bg-gray-lighter text-center">
-            <h3 class="block-title">Acesso Restrito</h3>
+          <!-- INI.ACESSO RESTRITO -->
+          <div class="block block-rounded">
+            <div class="block-header bg-gray-lighter text-center">
+              <h3 class="block-title">Acesso Restrito</h3>
+            </div>
+            <div class="block-content">
+              <ul class="list-unstyled push-20">
+                <li>
+                  <span class="fa fa-fw fa-gear push-10-r"></span><%= link_to("Gerenciar presenças", event_registrations_path(@event)) %>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="block-content">
-            <ul class="list-unstyled push-20">
-              <li><span class="fa fa-fw fa-gear push-10-r"></span><%= link_to("Gerenciar presenças", event_registrations_path(@event)) %></li>
-            </ul>
-          </div>
-        </div>
-        <!-- END.ACESSO RESTRITO -->
+          <!-- END.ACESSO RESTRITO -->
       <% end %>
 
     </div>
@@ -106,40 +118,39 @@
   <section class="content content-full content-boxed">
     <div class="push-20-t push-20 text-center">
       <h3 class="h4 push-20 animated fadeIn" data-toggle="appear"></h3>
-      <h3>Apoiadores</h3>
+
       <br>
       <% if @event.partners.any? %>
+          <% partners = @event.partners.group_by {|p| p[:category]} %>
 
-          <div class="content-grid">
-            <div class="row">
+          <% partners.each do |partner_ext| %>
+              <h3> <%= t("events.partners.category.#{partner_ext.first}") %> </h3><br>
 
-              <% @event.partners.order(:order).each_with_index do |partner,index| %>
-                  <div class="col-sm-3 col-lg-3">
-                    <div class="block" style="min-height: 150px; align-items: center;">
-                      <div class="block-content">
-                  
-                      
-                        <%#= link_to partner.name, partner %>
+              <div class="content-grid">
+                <div class="row" style="display:inline-block !important;">
 
-                        <%= link_to url_with_protocol(partner.link) ,target: "_blank" do%>
-                            <%= show_by_file_type(partner.logo) %>
-                        <%end%>
-                        <%#= t(partner.category) %>
+                  <% partner_ext.last.each do |partner| %>
+                      <div class="col-sm-4 col-lg-4" style="padding: 10px;">
+                        <div class="block" style="min-height: 200px !important; vertical-align: middle;">
+                          <div class="block-content">
+                            <%= link_to url_with_protocol(partner.link), target: "_blank" do %>
+                                <%= show_by_file_type(partner.logo) %>
+                            <% end %>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-              <% end %>
+                  <% end %>
 
 
+                </div>
+              </div>
 
-            </div>
-          </div>
+          <% end %>
+
       <% else %>
-          <p>
-            Sem patrocinador cadastrado neste evento!
-
-          </p>
+          <p>Sem patrocinador cadastrado neste evento!</p>
       <% end %>
+
 
       <h3>Brindes</h3>
       <br>
@@ -173,23 +184,23 @@
       <br>
       <br>
 
-      <%= render "participants"%>
+      <%= render "participants" %>
       <br>
       <br>
       <br>
-      <%= render "albums"%>
+      <%= render "albums" %>
 
-
-      <%= commontator_thread(@event) %>
       <!--<a class="btn btn-rounded btn-noborder btn-lg btn-success animated bounceIn" data-toggle="appear" data-class="animated bounceIn" href="javascript:void(0)"></a>-->
     </div>
   </section>
 </div>
 <script>
-    jQuery(function(){App.initHelpers('magnific-popup');});
+    jQuery(function () {
+        App.initHelpers('magnific-popup');
+    });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('.cpf').mask('000.000.000-00', {reverse: true});
-    } );
+    });
 </script>

@@ -1,0 +1,48 @@
+<% collection.each do |resource| %>
+    <tr id="<%= dom_id(resource) %>" class="<%= resource.decorate.tr_color %>">
+      <td><%= resource.object %></td>
+      <td><%= resource.origin %></td>
+      <td><%= resource.decorate.transaction_type %></td>
+      <td><%= resource.decorate.operator %> <%= number_to_currency(resource.value, :separator => ",", :delimiter => ".", :unit => "R$") %></td>
+      <% if current_user and current_user.admin? %>
+          <td><%= resource.user_name %></td>
+      <% end %>
+      <td><%= converte_date(resource.payment_date) %></td>
+      <td><%= resource.payment_method %></td>
+      <td><%= yes_no(resource.consolidated) %></td>
+      <td><%= resource.decorate.consolidation_date %></td>
+      <td>
+        <% if resource.attachments.any? %>
+
+            <div class="btn-group">
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  Comprovantes <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                  <% resource.attachments.each do |attachment| %>
+                      <li>
+                        <%= link_to url_with_protocol(attachment.file_url), target: "_blank", class: "dropdown-item" do %>
+                            <%= attachment.name %>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+
+
+        <% end %>
+
+      </td>
+      <td class="text-center">
+        <% if current_user and current_user.admin? %>
+            <%= resource.decorate.link_to_visualizar %>
+            <%= resource.decorate.link_to_editar %>
+            <%= resource.decorate.link_to_excluir %>
+        <% end %>
+
+      </td>
+    </tr>
+<% end %>
+

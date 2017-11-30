@@ -1,0 +1,163 @@
+<%= provide :page_title, I18n.t('financial_transactions.index.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= I18n.t('activerecord.models.financial_transaction.other') %></li>
+<% end %>
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading ">
+          <%= t('financial_transactions.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <%= form_tag financial_transactions_path, :method => 'get', class: 'form-inline' do %>
+        <div class="form-group">
+
+          <%= date_range_picker_tag :initial_payment_date, :final_payment_date, 'Data de pagamento', nil, nil, required = false, bootstrapform = true %>
+
+          <label for="simple-classic-progress-firstname">Tipo de transação</label>
+          <%= select_tag :transaction_type, options_for_select([["Receita", "I"], ["Despesa", "O"]]), {:include_blank => 'Selecione o tipo', class: 'form-control'} %>
+
+          <label for="simple-classic-progress-firstname">Consolidado</label>
+          <%= select_tag :consolidated, options_for_select([["Sim", true], ["Nao", false]]), {:include_blank => 'Selecione ', class: 'form-control'} %>
+
+
+          <%= button_tag(type: "submit", class: "btn btn-default") do %>
+              Filtrar <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
+        </div>
+
+    <% end %>
+
+    <!---->
+    <!--<form action="base_pages_search.php" method="post" _lpchecked="1">-->
+    <!--<div class="input-group input-group-lg">-->
+    <!--<input class="form-control" type="text" placeholder="Search application..">-->
+    <!--<div class="input-group-btn">-->
+    <!--<button class="btn btn-default"><i class="fa fa-search"></i></button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+          <% unless current_user and current_user.admin? %>
+              <div class="text-right"><a href="paginas/doacao" class="btn btn-success">Contribua com a GoRails</a></div>
+          <% end %>
+
+        </h3>
+        <span>
+          <% if current_user and current_user.admin? %>
+          <%= link_to I18n.t('financial_transactions.new.title'), new_financial_transaction_path, class: 'btn btn-sm btn-square btn-success' %>
+          <% end %>
+        </span>
+      </div>
+      <div class="block-content">
+
+        <div class="row">
+          <div class="row">
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-success">
+                  <%== number_to_currency(FinancialTransaction.income, :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-success font-w600">RECEITAS</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-danger">
+                  <%= number_to_currency(FinancialTransaction.outcome, :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-danger font-w600">DESPESAS</div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-muted">
+                  <%= number_to_currency(FinancialTransaction.balance, :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO
+                  ATUAL
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full text-warning">
+                  <%= number_to_currency(FinancialTransaction.income(false), :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">RECEITA
+                  NAO CONSOLIDADA
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center " href="javascript:void(0)">
+                <div class="block-content block-content-full text-warning">
+                  <%= number_to_currency(FinancialTransaction.outcome(false), :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-warning font-w600">DESPESA
+                  NAO CONSOLIDADA
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                <div class="block-content block-content-full">
+                  <%= number_to_currency(FinancialTransaction.balance_after_consolidated, :precision => 2) %>
+                </div>
+                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">SALDO
+                  APÓS CONSOLIDAÇÕES
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+
+            <th><%= t 'activerecord.attributes.financial_transaction.object' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.origin' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.transaction_type' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.value' %></th>
+            <% if current_user and current_user.admin? %>
+                <th><%= t 'activerecord.attributes.financial_transaction.user_id' %></th>
+            <% end %>
+            <th><%= t 'activerecord.attributes.financial_transaction.payment_date' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.payment_method' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.consolidated' %></th>
+            <th><%= t 'activerecord.attributes.financial_transaction.consolidation_date' %></th>
+            <th></th>
+            <% if current_user and current_user.admin? %>
+                <th class="text-center" style="width: 150px;"><%= t 'misc.actions' %></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody id='link_categories'>
+          <%= render 'collection', collection: @financial_transactions %>
+          </tbody>
+        </table>
+        <%=render 'pagination',collection: @financial_transactions%>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR'
+        });
+    });
+</script>

@@ -1,79 +1,99 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.6'
-gem 'sass-rails', '~> 5.0.4'
-gem 'uglifier', '>= 3.0.0'
-gem 'coffee-rails', '~> 4.1.1'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.4.1'
+gem 'rails', '~> 5.1.4'
+gem 'puma', '~> 3.7'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
+
 gem 'pg'
 gem 'activerecord-session_store'
 gem 'kaminari'
 gem 'bootstrap_form'
 gem 'pdfkit'
 gem 'jquery-rails'
-gem 'carrierwave', '0.11.2' #, github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave'
 gem 'rmagick'
-gem "mini_magick",'>= 4.5.1'
-gem "cancan"
+gem 'mini_magick'
+gem 'cancancan'
 gem 'validates_email_format_of'
 gem 'nested_form'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
-gem 'tzinfo-data','>= 1.2016.3'
-gem 'devise','>=4.1.0'
-gem 'cancancan'
-gem 'rolify','>= 5.1.0'
-gem 'coveralls', require: false
+gem 'devise'
+gem 'rolify'
+gem 'coveralls', '>= 0.8.21', require: false
 gem 'simple_form'
 gem 'rails-i18n'
-gem 'brcpfcnpj', '~> 3.3'
-gem 'omniauth', '~> 1.3', '>= 1.3.1'
-gem 'omniauth-google-oauth2', '~> 0.4.1'
-gem 'omniauth-facebook', '~> 3.0'
-gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'brcpfcnpj'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'omniauth-linkedin'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 gem 'figaro'
-gem 'commontator', '~> 4.11.1'
 gem 'acts_as_votable'
-gem 'newrelic_rpm','>= 3.15.2.317'
-gem "recaptcha",'~> 1.3.0', require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 gem 'public_activity'
-gem "burgundy"
-gem 'sweetalert-rails','>=1.1.3'
-gem 'gibbon', '~> 2.2', '>= 2.2.3'
+gem 'burgundy'
+gem 'sweetalert-rails'
+gem 'gibbon'
 gem 'bootstrap-datepicker-rails'
 gem 'brdata'
 gem 'configatron'
 gem 'redcarpet'
 gem 'coderay'
-gem "github_api"
+gem 'github_api'
+gem 'omniauth-twitter'
+gem 'web-console'
+gem 'bullet', group: 'development'
+gem 'draper'
+gem 'cloudinary'
+gem 'summernote-rails'
+gem 'truncato'
+gem 'valid_url'
+gem 'rails-observers'
+gem 'sentry-raven'
+gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
+gem 'go_blog'# ,path: '/home/jcottobboni/Projetos/engines/go_blog'# ,git: 'https://github.com/gorails/go_blog.git', branch: 'master'
+gem 'go_jobs'#,path: '/home/jcottobboni/Projetos/engines/go_jobs'
+gem 'go_gamification'#,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+gem 'go_geography'#,path: '/home/jcottobboni/Projetos/engines/go_geography'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
+gem 'social-share-button'
+gem 'bootstrap-editable-rails'
 
-group :doc do
-  gem 'sdoc', :require => false
-end
-
-platforms :ruby do
-  gem 'unicorn','~> 5.1.0'
-end
-
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'quiet_assets'
-  gem 'rails_layout'
-  gem 'rails-erd'
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development, :test do
-  gem 'byebug'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'listen'
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'factory_bot_rails'
+  gem 'dotenv'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rails_layout'
+  gem 'rails-erd'
+  gem 'rails_real_favicon'
+  gem 'ffaker'
+  gem 'rails-controller-testing'
+  gem 'rubocop'
+end
+
+platforms :ruby do
+  gem 'unicorn'
 end
 
 group :test do
-  gem 'cpf_faker', '~> 1.3'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem "codeclimate-test-reporter", require: nil
-  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
+  gem 'cpf_faker'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter'
+  gem 'database_cleaner'
 end

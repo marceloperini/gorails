@@ -9,8 +9,6 @@ pt-BR:
     attributes:
       link:
         name: "name"
-        link: "link"
-        link_category: "link_category"
         id: ID
         created_at: Criado em
         updated_at: Atualizado em

@@ -26,9 +26,9 @@ pt-BR:
     destroy:
       alert: "Link não pode ser excluído."
       notice: "Link excluído com sucesso."
-      
+
   helpers:
     submit:
       link:
         create: "Cadastrar %{model}"
-        update: "Atualizar %{model}"      
+        update: "Atualizar %{model}"

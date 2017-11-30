@@ -8,7 +8,7 @@ pt-BR:
 
     attributes:
       link_category:
-        name: "name"
+        name: "Nome"
         id: ID
         created_at: Criado em
         updated_at: Atualizado em

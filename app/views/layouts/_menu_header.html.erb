@@ -5,11 +5,22 @@
 <li>
   <a class="<%= 'active' if ["events"].include?(controller_name) %>" href="/eventos"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Eventos</span></a>
 </li>
-
 <li>
-  <a class="<%= 'active' if ["links"].include?(controller_name) %>" href="/links/uteis"><i class="fa fa-link"></i>
-    <span class="sidebar-mini-hide"> Links Utéis</span></a>
+  <a href="/blog/posts/list"><i class="fa fa-newspaper-o"></i><span class="sidebar-mini-hide"> Blog</span></a>
 </li>
+<li>
+  <a href="/jobs/jobs/jobs_list"><i class="fa fa-briefcase"></i><span class="sidebar-mini-hide"> Vagas de Emprego</span></a>
+</li>
+<li>
+  <a href="/transparencia"><i class="fa fa-money"></i><span class="sidebar-mini-hide"> Transparência</span></a>
+</li>
+<li>
+  <a href="/paginas/doacao"><i class="fa fa-gift"></i><span class="sidebar-mini-hide"> Doação</span></a>
+</li>
+<!--<li>-->
+  <!--<a href="/paginas/doacoes"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide"> Doações</span></a>-->
+<!--</li>-->
+
 
 <li>
   <a class="<%= 'active' if ["messages"].include?(controller_name) %>" href="/contact"><i class="si si-envelope-open"></i><span class="sidebar-mini-hide"> Contato</span></a>

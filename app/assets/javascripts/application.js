@@ -12,8 +12,9 @@
 //
 //= require core/jquery.min
 //= require jquery_ujs
-//= require turbolinks
 //= require core/bootstrap.min
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require core/jquery.slimscroll.min
 //= require core/jquery.scrollLock.min
 //= require core/jquery.appear.min
@@ -22,12 +23,12 @@
 //= require core/js.cookie.min
 //= require app
 //= require jquery.amaran.min
-//= require summernote
+//= require old_summernote.js
+//= require summernote-pt-PT.js
 //= require maskedinput
 //= require plugins/magnific-popup/magnific-popup.min
-//= require commontator/application
 //= require sweetalert
 //= require sweet-alert-confirm
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker.pt
 //= require jquery_nested_form
+//= require bootstrap-datepicker
+//= require social-share-button

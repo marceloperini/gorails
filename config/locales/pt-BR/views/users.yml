@@ -1,0 +1,35 @@
+pt-BR:
+  users:
+    default: &default
+      h1: Winner
+      header: "Lista de usuários"
+      block_header: usuários
+    index:
+      <<: *default
+      header: "Lista de usuários"
+      title: "Lista de usuários"
+      block_header: usuários
+    show:
+      <<: *default
+      header: "Detalhes: %{resource}"
+    edit:
+      <<: *default
+      header: "Editar: %{resource}"
+    new:
+      <<: *default
+      header: "Cadastrar usuário"
+    create:
+      alert: "usuário não pode ser cadastrado."
+      notice: "usuário cadastrado com sucesso."
+    update:
+      alert: "usuário não pode ser atualizado."
+      notice: "usuário atualizado com sucesso."
+    destroy:
+      alert: "usuário não pode ser excluído."
+      notice: "usuário excluído com sucesso."
+      
+  helpers:
+    submit:
+      winner:
+        create: "Cadastrar %{model}"
+        update: "Atualizar %{model}"      

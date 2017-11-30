@@ -1,0 +1,44 @@
+<div class="tab-pane fade fade-up" id="projects">
+  <div class="border-b push-30">
+    <h2 class="push-10"><span class="h5 font-w400 text-muted">Projetos Github / Pessoais</span></h2>
+  </div>
+
+  <div class="row">
+
+    <% if get_github_user(@user)!= nil %>
+        <div class="col-lg-12">
+          <div class="block-header">
+
+            <h3 class="block-title"> </h3>
+          </div>
+          <div class="block-content">
+            <div class="block">
+              <div class="block-content">
+                <%github = Github::Client::Repos.new oauth_token:ENV["GITHUB_GORAILS_TOKEN"],user: get_github_user(@user), auto_pagination: true%>
+                <div class="row">
+                  <% github.list.each_page do |page| %>
+                      <% page.each do |repo| %>
+                          <div class="col-sm-4 col-lg-2">
+                            <a class="block block-bordered block-link-hover3 text-center" href="javascript:void(0)">
+                              <div class="block-content block-content-full bg-gray-lighter border-b" style="min-height: 150px;">
+                                <div class="h5 font-w700"><i class="si si-notebook"></i> <%= repo.name %>
+                                </div>
+                                <div class="h7 text-muted text-uppercase push-5-t"> <%= repo.description.present? ? repo.description.first(50) : '' %></div>
+                              </div>
+                              <div class="block-content block-content-full block-content-mini">
+                                <i class="fa fa-code-fork text-success"></i> <%= repo.forks %>
+                              </div>
+                            </a>
+                          </div>
+                      <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+
+</div>

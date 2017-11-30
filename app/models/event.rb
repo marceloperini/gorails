@@ -3,9 +3,11 @@ class Event < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
 
+  has_many :attachments,as: :origin
+  accepts_nested_attributes_for :attachments,allow_destroy: true
+
   include ActionView::Helpers
   resourcify
-  acts_as_commontable
   belongs_to :user
   has_many :partners
   has_many :gifts
@@ -15,12 +17,14 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :albums, allow_destroy: true, reject_if: :all_blank
 
 
-  has_many :registrations
+  has_many :registrations, counter_cache: true
 
   delegate :is_registrated?, :to_register, to: :registrations, prefix: true, allow_nil: true
 
   alias_method :is_registrated?, :registrations_is_registrated?
   alias_method :to_register, :registrations_to_register
+
+  scope :not_happened_yet, ->(limit_date) { where("end_at > ?", limit_date) }
 
 # Returns false if event is full
   def exceeded_limit?
@@ -46,12 +50,5 @@ class Event < ActiveRecord::Base
     self.participants_limit - self.registrations.size
   end
 
-  def get_event_cover_image
-    if self.albums.first
-      self.albums.first.images.first.asset.medium.url
-    else
-      asset_path "bg-red.jpg"
-    end
-  end
 
 end
