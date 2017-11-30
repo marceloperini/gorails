@@ -27,8 +27,10 @@ Rails.application.routes.draw do
     collection do
       post 'register'
       get 'index_admin'
+      get 'presents'
     end
     resources :registrations, controller: 'event_registrations'
+
   end
   resources :attachments
   devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
