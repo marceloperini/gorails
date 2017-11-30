@@ -62,6 +62,7 @@ gem 'go_jobs'#,path: '/home/jcottobboni/Projetos/engines/go_jobs'
 gem 'go_gamification'#,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
 gem 'go_geography'#,path: '/home/jcottobboni/Projetos/engines/go_geography'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
 gem 'social-share-button'
+gem 'bootstrap-editable-rails'
 
 group :development do
   gem 'pry'

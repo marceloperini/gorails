@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'activities/index'
   get 'certificado', to: 'users#certified', as: 'certified'
+  put 'name_alter', to: 'users#name_alter', as: 'name_alter'
   get 'uf_id_extenso', to: 'users#uf_id_extended', as: 'uf_id_extended'
 
   resources :images
