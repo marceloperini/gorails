@@ -1,18 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   before do
-    @user = User.new email: 'foo@bar.com', first_name: 'Foo', last_name: 'Bar',
-                     password: '12345678', password_confirmation: '12345678',
-                     cpf: '503.887.476-25', nickname: 'foo', bio: 'Foobar Foobar',
-                     company: 'Foobar', gender: 'F', job_title: 'Foo Bar',
-                     phone: '22222222', celphone: '2222222', schooling: 'Foo',
-                     birth_date: Date.today, marital_status: 'S',
-                     father: 'Foother', mother: 'Bather', consignor_organ: 'SSP',
-                     place_of_birth: 'Foo City', special_needs: 'Foo',
-                     occupation: 'Foo', rg: '222222', address: 'Foo',
-                     geography_state_id: 'GO', neighborhood: 'Foo',
-                     zip_code: '44444444', complement: 'Foobar'
+    @user = User.new email: "foo@bar.com", first_name: "Foo", last_name: "Bar",
+                     password: "12345678", password_confirmation: "12345678",
+                     cpf: "503.887.476-25", nickname: "foo",
+                     bio: "Foobar Foobar", company: "Foobar", gender: 'F',
+                     job_title: "Foo Bar", phone: "22222222",
+                     celphone: "2222222", schooling: "Foo",
+                     birth_date: Date.today, marital_status: "S",
+                     father: "Foother", mother: "Bather",
+                     consignor_organ: "SSP", place_of_birth: "Foo City",
+                     special_needs: "Foo", occupation: "Foo", rg: "222222",
+                     address: "Foo", geography_state_id: "GO",
+                     neighborhood: "Foo", zip_code: "44444444",
+                     complement: "Foobar"
   end
 
   subject { @user }
@@ -43,7 +45,7 @@ RSpec.describe User, type: :model do
   it { should respond_to :zip_code }
   it { should respond_to :complement }
 
-  describe 'when authentication_token was generated' do
+  describe "when authentication_token was generated" do
     before { @user.save }
     it { expect(@user.authentication_token).not_to eq(nil) }
   end
