@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
                         :company, :phone, :celphone, :schooling, :birth_date,
                         :gender, :marital_status, :place_of_birth, :mother,
                         :address, :neighborhood, :geography_state_id,
-                        :zip_code, :special_needs, if: lambda { self.need_certificate == true }
+                        :zip_code, :special_needs, if: lambda { need_certificate == true }
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
