@@ -23,6 +23,47 @@
 
   <div class="panel-heading">Gerenciador de presenças de inscritos do evento
     <%= link_to 'Listar Presentes', presents_events_path(id: @event.id), class: 'btn btn-success' %>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new_user_present">
+      Cadastrar Novo Usuario Presente
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="new_user_present" tabindex="-1" role="dialog" aria-labelledby="new_user_presentLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="new_user_presentLabel">Cadastro de Usuario</h4>
+          </div>
+          <div class="modal-body">
+            <%= form_tag user_present_new_events_path, controller: 'events', action: 'user_present_new', method: 'get' do %>
+                <%= hidden_field_tag :id, @event.id %>
+                <div class="col-md-12">
+                  <%= text_field_tag :full_name, nil, placeholder: "Nome Completo", class: "form-control input-lg" %>
+                </div>
+
+                <div class="col-md-12">
+                  <%= email_field_tag :email, nil, autofocus: true, placeholder: "Email", class: "form-control input-lg" %>
+                </div>
+
+                <div class="col-md-12">
+                  <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                      Salvar
+                  <% end %>
+                </div>
+
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="panel-body pa-20">

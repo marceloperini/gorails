@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post 'register'
       get 'index_admin'
       get 'presents'
+      get 'user_present_new'
     end
     resources :registrations, controller: 'event_registrations'
 
