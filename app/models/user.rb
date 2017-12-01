@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
                         :company, :phone, :celphone, :schooling, :birth_date,
                         :gender, :marital_status, :place_of_birth, :mother,
                         :address, :neighborhood, :geography_state_id,
-                        :zip_code, :special_needs, if: lambda { self.need_certificate.present? }
+                        :zip_code, :special_needs, if: lambda { self.need_certificate == true }
   validate :unicidade_cpf
   usar_como_cpf :cpf
 
@@ -75,8 +75,44 @@ class User < ActiveRecord::Base
     reset_password_token: "Token"
   }.freeze
 
+  def self.human_attribute_name(attr, vazio=nil)
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+
+  # Generate csv from all atributes of user
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      lista = []
+      column_names.each {|coluna| lista << self.human_attribute_name(coluna)}
+      csv << lista
+      all.each {|registro| csv << registro.attributes.values_at(*column_names)}
+    end
+  end
+
   def self.new_authentication_token
     SecureRandom.urlsafe_base64
+  end
+
+  def self.from_omniauth(access_token)
+    validates :email, presence: false, email: false
+
+    provider = access_token.provider
+    data = access_token.extra.raw_info
+    user = User.find_by(email: data.email)
+
+    unless user
+      user = User.new
+      user.first_name ||= data.first_name
+      user.last_name ||= data.last_name
+      user.nickname ||= data.nickname
+      user.email = data.email
+      user.password = Devise.friendly_token[0, 20]
+      user.provider = provider
+      user.uid = access_token.uid
+      user.save
+    end
+    user.avatar.download!(data.picture)
+    user
   end
 
   def medals
@@ -114,20 +150,6 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(" ").strip
   end
 
-  def self.human_attribute_name(attr, vazio=nil)
-    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
-  end
-
-  # Generate csv from all atributes of user
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      lista = []
-      column_names.each {|coluna| lista << self.human_attribute_name(coluna)}
-      csv << lista
-      all.each {|registro| csv << registro.attributes.values_at(*column_names)}
-    end
-  end
-
   # Verify if cpf attribute is valid
   def has_valid_cpf?
     self.cpf.valido?
@@ -143,28 +165,6 @@ class User < ActiveRecord::Base
 
   def need_updated_account?
     self.cpf.nil? || self.first_name.nil? || self.last_name.nil?
-  end
-
-  def self.from_omniauth(access_token)
-    validates :email, presence: false, email: false
-
-    provider = access_token.provider
-    data = access_token.extra.raw_info
-    user = User.find_by(email: data.email)
-
-    unless user
-      user = User.new
-      user.first_name ||= data.first_name
-      user.last_name ||= data.last_name
-      user.nickname ||= data.nickname
-      user.email = data.email
-      user.password = Devise.friendly_token[0, 20]
-      user.provider = provider
-      user.uid = access_token.uid
-      user.save
-    end
-    user.avatar.download!(data.picture)
-    user
   end
 
   #Returns a full name of user, a combination of first name and last name
