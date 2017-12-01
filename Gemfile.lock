@@ -261,6 +261,9 @@ GEM
     pdfkit (0.8.2)
     pg (0.21.0)
     powerpack (0.1.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_activity (1.5.0)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0)
@@ -499,6 +502,7 @@ DEPENDENCIES
   omniauth-twitter
   pdfkit
   pg
+  pry
   public_activity
   puma (~> 3.7)
   rails (~> 5.1.4)
