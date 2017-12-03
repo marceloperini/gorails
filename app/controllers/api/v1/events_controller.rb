@@ -4,17 +4,21 @@ class Api::V1::EventsController < Api::BaseController
   # GET /api/v1/events.json
   def index
     @events = Event.all.order('start_at DESC')
-    render json: @events, status: 200
+    render success_message(@events)
   end
 
   # GET /api/v1/event/:id.json
   def show
-    render json: @event, status: 200
+    render success_message(@event)
   end
 
   private
 
   def set_event
     @event = Event.find params[:id]
+  end
+
+  def success_message(message)
+    { json: message, status: 200 }
   end
 end
