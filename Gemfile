@@ -83,6 +83,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'rails-controller-testing'
   gem 'rubocop'
+  gem 'annotate'
 end
 
 platforms :ruby do

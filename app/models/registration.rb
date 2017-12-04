@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: registrations
+#
+#  id             :integer          not null, primary key
+#  event_id       :integer
+#  user_id        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  presence       :boolean          default(FALSE)
+#  certified_code :string
+#
+# Indexes
+#
+#  index_registrations_on_certified_code  (certified_code) UNIQUE
+#
+
 # app/models/registration.rb
 # Model for events registrations
 class Registration < ActiveRecord::Base
