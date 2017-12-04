@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+  namespace :api do
+    namespace :v1 do
+      resources :events
+    end
+  end
+
   resources :pages, path: 'paginas'
 
   resources :financial_transactions, path: 'transparencia'
   resources :social_network_types
   resources :winners
-  get 'activities/index'
 
+  get "activities/index"
   get 'certificado', to: 'users#certified', as: 'certified'
   put 'name_alter', to: 'users#name_alter', as: 'name_alter'
   get 'uf_id_extenso', to: 'users#uf_id_extended', as: 'uf_id_extended'
@@ -19,6 +25,7 @@ Rails.application.routes.draw do
       get 'uteis'
     end
   end
+
   resources :gifts
   resources :link_categories
   resources :partners
@@ -27,8 +34,11 @@ Rails.application.routes.draw do
     collection do
       post 'register'
       get 'index_admin'
+      get 'presents'
+      get 'user_present_new'
     end
     resources :registrations, controller: 'event_registrations'
+
   end
   resources :attachments
   devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}

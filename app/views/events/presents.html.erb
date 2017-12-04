@@ -1,0 +1,60 @@
+<div class="bg-image" style="background-image: url('<%=asset_path @event.decorate.event_background%>')" ;>
+  <div class="bg-primary-dark-op">
+    <section class="content content-full content-boxed">
+      <div class="push-100-t push-50 text-center">
+        <h1 class="h2 text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"> <%= @event.name %></h1>
+        <h2 class="h4 text-white-op animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown">
+          <%= @event.start_at.strftime("%e %b %Y, %H:%M") %> — <%= @event.end_at.strftime("%e %b %Y, %H:%M") %>
+        </h2>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="bg-white">
+  <section class="content content-mini content-mini-full content-boxed overflow-hidden">
+    <ol class="breadcrumb">
+      <li><a class="text-primary-dark" href="/eventos">Eventos</a></li>
+      <li><%= @event.name %></li>
+    </ol>
+  </section>
+</div>
+
+<section class="content content-boxed overflow-hidden">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="block block-rounded">
+        <div class="block-content">
+          <table class="table table-striped table-vcenter">
+            <thead>
+            <tr>
+              <th class="w-1p" style="text-align: center">Numero</th>
+              <th class="w-2p" style="text-align: center">Usuario</th>
+              <th class="w-8p">E-mail</th>
+              <th class="w-6p">Nome</th>
+
+            </tr>
+            </thead>
+            <% n = 1 %>
+            <% @presents.each do |present| %>
+                <tr>
+                  <td style="text-align: center"><%= n %></td>
+                  <td style="text-align: center"><%= present.user.decorate.user_avatar(true, '', false) %></td>
+                  <td><%= present.user.email %></td>
+                  <td><%= present.user.name %></td>
+                </tr>
+                <% n += 1 %>
+            <% end %>
+
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
