@@ -1,3 +1,20 @@
+PATH
+  remote: /home/jcottobboni/Projetos/engines/go_blog
+  specs:
+    go_blog (0.2.2)
+      draper
+      rails
+
+PATH
+  remote: /home/jcottobboni/Projetos/engines/go_comments
+  specs:
+    go_comments (0.1.0)
+      cancancan
+      carrierwave
+      devise
+      draper
+      rails
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -160,9 +177,6 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    go_blog (0.2.2)
-      draper
-      rails
     go_gamification (0.0.20)
       cancancan
       carrierwave
@@ -487,7 +501,8 @@ DEPENDENCIES
   figaro
   gibbon
   github_api
-  go_blog
+  go_blog!
+  go_comments!
   go_gamification
   go_geography
   go_jobs
