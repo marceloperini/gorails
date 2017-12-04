@@ -1,6 +1,6 @@
 # app/controllers/events_controller.rb
 class EventsController < ApplicationController
-  before_action :set_event, only: %i(show edit update destroy register)
+  before_action :set_event, only: %i(show edit update destroy register presents user_present_new)
   before_action :authenticate_user!, except: %i(index show)
 
   load_and_authorize_resource except: %i(index show)
@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order('start_at ASC')
+    @events = Event.all.order('start_at DESC')
   end
 
   # GET /events
@@ -81,6 +81,39 @@ class EventsController < ApplicationController
     error_necessary_cpf
   end
 
+  def presents
+    @presents = @event.registrations.where('presence = true').includes("user").order("presence", "users.email")
+  end
+
+  def user_present_new
+    if (params[:full_name].present? and !params[:full_name].blank?) and (params[:email].present? and !params[:email].blank?)
+      user = User.new
+      user.first_name = params[:full_name].split(' ').first
+      user.last_name = params[:full_name].split(' ')[1..-1].join(' ')
+      user.email = params[:email]
+      user.password = rand(10 ** 10)
+
+      if user.save
+        user.send_reset_password_instructions
+        if @event.to_register(user.id)
+          registration = Registration.where(user_id: user.id, event_id: @event.id).first
+          registration.presence = true
+          if registration.save
+            redirect_to event_registrations_path(@event), notice: 'Usuario Cadastrado!'
+          else
+            redirect_to event_registrations_path(@event), alert: "Nao foi possivel salvar! #{registration.errors.messages} "
+          end
+        else
+          redirect_to event_registrations_path(@event), alert: "Nao foi possivel salvar! #{@event.errors.messages} "
+        end
+      else
+        redirect_to event_registrations_path(@event), alert: "Nao foi possivel salvar! #{user.errors.messages} "
+      end
+    else
+      redirect_to event_registrations_path(@event), alert: 'Informe todos os dados!'
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -94,14 +127,14 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :status,:event_ribbon, :description, :start_at, :end_at, :local, :participants_limit,
+    params.require(:event).permit(:name, :status, :event_ribbon, :description, :start_at, :end_at, :local, :participants_limit,
                                   partners_attributes: [:id, :name, :link, :order, :site, :event_id, :category, :logo,
                                                         :_destroy],
                                   gifts_attributes: [:id, :name, :photo, :_destroy,
                                                      winners_attributes: [:id, :gift_id, :user_id, :_destroy]],
                                   albums_attributes: [:id, :title, :event_id, :_destroy,
                                                       images_attributes: [:id, :title, :asset, :_destroy]],
-                                  attachments_attributes: [:id, :name,:file_type, :type, :origin_type, :situation, :file, :_destroy])
+                                  attachments_attributes: [:id, :name, :file_type, :type, :origin_type, :situation, :file, :_destroy])
   end
 
   def register_user
