@@ -23,10 +23,27 @@ bundle install
 ```shell
 cp config/database.example.yml config/database.yml
 ```
+
+- Crie um arquivo de configuração da aplicação:
+```shell
+cp config/application.example.yml config/application.yml
+```
+
 - Execute o comando `rake db:create` para cria seu banco de dados.
 - Execute o comando `rake db:migrate` para criar todas as tabelas no seu banco de dados.
 - Execute o comando `rake dev:setup` para popular o banco de dados com os dados basicos.
 - Execute o comando `rails s` para subir o servidor [rails](https://github.com/rails/rails)
+
+## Cloudinary
+- Acessar o site: https://cloudinary.com/ e criar uma conta (Sign up for Free). Esse é um serviço de upload de imagens.
+- Substitua as chaves do arquivo application.yml pelos dados fornecidos pela cloudinary:
+```text
+application.yml => Cloudnary Dashboard
+CLOUD_NAME => Cloud name
+API_KEY_CLOUD => Api key
+API_SECRET_CLOUD => Api Secret
+``` 
+
 
 ## Testes [![Build Status](https://travis-ci.org/gorails/gorails.svg?branch=master)](https://travis-ci.org/gorails/gorails)  [![Coverage Status](https://coveralls.io/repos/github/gorails/gorails/badge.svg?branch=master)](https://coveralls.io/github/gorails/gorails?branch=master)
  

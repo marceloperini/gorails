@@ -8,13 +8,14 @@ namespace :dev do
     puts "Apagando o BD...#{%x(rails db:drop)}"
     puts "Criando o BD...#{%x(rails db:create)}"
     puts %x(rails db:migrate)
+    puts %x(rails populate:geography_states)
+    puts %x(rails populate:geography_cities)
     puts %x(rails dev:generate_itens)
     puts %x(rails dev:generate_users)
     puts %x(rails dev:generate_events)
     puts %x(rails dev:generate_posts)
     puts %x(rails dev:generate_socials)
-    puts %x(rails populate:geography_states)
-    puts %x(rails populate:geography_cities)
+    puts %x(rails dev:register_user_for_event)
 
     puts "Setup completado"
   end
@@ -45,7 +46,7 @@ namespace :dev do
         special_needs: FFaker::Skill.tech_skills,
         occupation: FFaker::JobBR.title,
         address: FFaker::AddressBR.full_address,
-        uf: FFaker::AddressBR.state_abbr,
+        geography_state_id: Geography::State.all.sample.id,
         neighborhood: FFaker::AddressBR.neighborhood,
         zip_code: FFaker::AddressBR.zip_code,
         complement: FFaker::AddressBR.secondary_address,
@@ -84,7 +85,7 @@ namespace :dev do
           special_needs: FFaker::Skill.tech_skills,
           occupation: FFaker::JobBR.title,
           address: FFaker::AddressBR.full_address,
-          uf: FFaker::AddressBR.state_abbr,
+          geography_state_id: Geography::State.all.sample.id,
           neighborhood: FFaker::AddressBR.neighborhood,
           zip_code: FFaker::AddressBR.zip_code,
           complement: FFaker::AddressBR.secondary_address,
