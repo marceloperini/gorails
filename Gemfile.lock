@@ -1,20 +1,3 @@
-PATH
-  remote: /home/jcottobboni/Projetos/engines/go_blog
-  specs:
-    go_blog (0.2.2)
-      draper
-      rails
-
-PATH
-  remote: /home/jcottobboni/Projetos/engines/go_comments
-  specs:
-    go_comments (0.1.0)
-      cancancan
-      carrierwave
-      devise
-      draper
-      rails
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -95,7 +78,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     builder (3.2.3)
-    bullet (5.6.1)
+    bullet (5.7.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     burgundy (0.2.0)
@@ -177,6 +160,15 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    go_blog (0.2.2)
+      draper
+      rails
+    go_comments (0.1.0)
+      cancancan
+      carrierwave
+      devise
+      draper
+      rails
     go_gamification (0.0.20)
       cancancan
       carrierwave
@@ -439,7 +431,7 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.0.1)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -501,8 +493,8 @@ DEPENDENCIES
   figaro
   gibbon
   github_api
-  go_blog!
-  go_comments!
+  go_blog
+  go_comments
   go_gamification
   go_geography
   go_jobs
