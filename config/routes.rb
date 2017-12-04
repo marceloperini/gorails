@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  resources :pages, path:'paginas'
+  resources :pages, path: 'paginas'
 
-  resources :financial_transactions,path: 'transparencia'
+  resources :financial_transactions, path: 'transparencia'
   resources :social_network_types
   resources :winners
   get 'activities/index'
 
   get 'certificado', to: 'users#certified', as: 'certified'
+
+  get 'uf_id_extenso', to: 'users#uf_id_extended', as: 'uf_id_extended'
 
   resources :images
   resources :albums
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
   resources :partners
   resources :events, path: 'eventos' do
     post :register, on: :member
-    collection do 
+    collection do
       post 'register'
       get 'index_admin'
     end
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
   end
   resources :attachments
   devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
-  resources :users, only: [:show,:index]
+  resources :users, only: [:show, :index]
 
   # get "/paginas/:pagina" => "paginas#show"
   get 'contact', to: 'messages#new', as: 'contact'

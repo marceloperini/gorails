@@ -1,0 +1,12 @@
+<div class="block-content">
+  <h3 class="block-title">
+    <i class="fa fa-fw fa-calendar"></i> Próximos Eventos</h3>
+  <% if @events.present? and @events.size > 0 %>
+      <% @events.each do |event| %>
+          <i class="fa fa-ticket"></i> <%= link_to event.name, event %>
+          em <%= event.start_at.strftime("%e %b %Y, %H:%M") %>
+          <br>
+          <br>
+      <% end %>
+  <% end %>
+</div>
