@@ -66,8 +66,9 @@ gem 'social-share-button'
 gem 'bootstrap-editable-rails'
 
 group :development do
-  gem 'pry'
   gem 'bullet'
+  gem 'guard'
+  gem 'guard-rspec', require: false
 end
 
 group :development, :test do
@@ -75,6 +76,7 @@ group :development, :test do
 end
 
 group :development, :test do
+  gem "pry"
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
