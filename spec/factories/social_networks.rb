@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :social_network do
-    link "http://foo.bar.com"
+    link { 'http://foo.bar.com' }
 
     social_network_type
     user

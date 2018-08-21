@@ -1,3 +1,13 @@
+PATH
+  remote: /home/marcelo/Projects/go_gamification
+  specs:
+    go_gamification (0.0.21)
+      cancancan
+      carrierwave
+      devise
+      draper
+      rails
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -51,9 +61,6 @@ GEM
     acts_as_votable (0.11.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    annotate (2.7.4)
-      activerecord (>= 3.2, < 6.0)
-      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     ast (2.4.0)
     aws_cf_signer (0.1.3)
@@ -165,12 +172,6 @@ GEM
       draper
       rails
     go_comments (0.1.0)
-      cancancan
-      carrierwave
-      devise
-      draper
-      rails
-    go_gamification (0.0.20)
       cancancan
       carrierwave
       devise
@@ -489,7 +490,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store
   acts_as_votable
-  annotate
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
@@ -521,7 +521,7 @@ DEPENDENCIES
   github_api
   go_blog (= 0.2.2)
   go_comments
-  go_gamification
+  go_gamification!
   go_geography
   go_jobs
   guard
@@ -578,4 +578,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.3
+   1.16.4

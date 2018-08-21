@@ -2,8 +2,8 @@
 #
 # Table name: images
 #
-#  id         :integer          not null, primary key
-#  album_id   :integer
+#  id         :bigint(8)        not null, primary key
+#  album_id   :bigint(8)
 #  asset      :string
 #  title      :string
 #  created_at :datetime         not null

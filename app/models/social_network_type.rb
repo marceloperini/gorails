@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: social_network_types
+#
+#  id                :bigint(8)        not null, primary key
+#  name_social_media :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class SocialNetworkType < ApplicationRecord
   has_many :social_networks
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129233100) do
+ActiveRecord::Schema.define(version: 20180816192659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20171129233100) do
     t.datetime "end_at"
     t.boolean "status"
     t.string "event_ribbon"
+    t.boolean "provides_certificate", default: false
   end
 
   create_table "financial_transactions", force: :cascade do |t|
@@ -161,15 +162,16 @@ ActiveRecord::Schema.define(version: 20171129233100) do
 
   create_table "gamification_items", force: :cascade do |t|
     t.string "name"
-    t.bigint "gamification_item_type_id"
     t.string "image"
     t.integer "rarity"
     t.decimal "cost"
     t.integer "user_id"
     t.text "description"
+    t.bigint "gamification_item_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "gamification_item_group_id"
+    t.bigint "gamification_item_group_id"
+    t.index ["gamification_item_group_id"], name: "index_gamification_items_on_gamification_item_group_id"
     t.index ["gamification_item_type_id"], name: "index_gamification_items_on_gamification_item_type_id"
   end
 
@@ -428,6 +430,7 @@ ActiveRecord::Schema.define(version: 20171129233100) do
 
   add_foreign_key "financial_transactions", "users"
   add_foreign_key "gamification_inventories", "gamification_items"
+  add_foreign_key "gamification_items", "gamification_item_groups"
   add_foreign_key "gamification_items", "gamification_item_types"
   add_foreign_key "gifts", "events"
   add_foreign_key "images", "albums"

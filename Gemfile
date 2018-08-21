@@ -59,7 +59,7 @@ gem 'sentry-raven'
 gem 'easy_static_pages'#, git: 'https://github.com/gorails/easy_static_pages.git', branch: 'master'
 gem 'go_blog', '0.2.2'
 gem 'go_jobs'#,path: '/home/jcottobboni/Projetos/engines/go_jobs'
-gem 'go_gamification'#,path: '/home/jcottobboni/Projetos/engines/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
+gem 'go_gamification', path: '/home/marcelo/Projects/go_gamification'# ,git: 'https://github.com/gorails/go_gamification.git', branch: 'master'
 gem 'go_geography'#,path: '/home/jcottobboni/Projetos/engines/go_geography'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
 gem 'go_comments'#,path: '/home/jcottobboni/Projetos/engines/go_comments'# ,git: 'https://github.com/gorails/go_geography.git', branch: 'master'
 gem 'social-share-button'
@@ -90,7 +90,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'rails-controller-testing'
   gem 'rubocop'
-  gem 'annotate'
 end
 
 platforms :ruby do

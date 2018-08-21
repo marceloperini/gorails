@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id                   :bigint(8)        not null, primary key
+#  name                 :string
+#  description          :text
+#  start_at             :datetime
+#  local                :text
+#  participants_limit   :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  end_at               :datetime
+#  status               :boolean
+#  event_ribbon         :string
+#  provides_certificate :boolean          default(FALSE)
+#
+
 # app/models/event.rb
 class Event < ActiveRecord::Base
   include PublicActivity::Model

@@ -2,12 +2,12 @@
 #
 # Table name: partners
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  name       :string
 #  link       :string
 #  order      :integer
 #  site       :boolean
-#  event_id   :integer
+#  event_id   :bigint(8)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  category   :integer

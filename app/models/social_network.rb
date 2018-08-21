@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: social_networks
+#
+#  id                     :bigint(8)        not null, primary key
+#  user_id                :bigint(8)
+#  link                   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  social_network_type_id :bigint(8)
+#
+# Indexes
+#
+#  index_social_networks_on_social_network_type_id  (social_network_type_id)
+#  index_social_networks_on_user_id                 (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (social_network_type_id => social_network_types.id)
+#  fk_rails_...  (user_id => users.id)
+#
+
 class SocialNetwork < ActiveRecord::Base
   belongs_to :social_network_type
   belongs_to :user
