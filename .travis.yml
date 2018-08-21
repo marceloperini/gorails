@@ -8,8 +8,8 @@ before_install:
   - psql -c 'create database gorails_test;' -U postgres
 script:
   - export RAILS_ENV=test
-  - bundle exec rake db:create db:migrate
-  - bundle exec rake db:test:prepare
+  - bundle exec rake db:create
+  - bundle exec db:migrate
   - bundle exec rspec
 after_success:
   - coveralls
