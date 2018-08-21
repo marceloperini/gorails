@@ -1,10 +1,52 @@
-PATH
-  remote: /home/marcelo/Projects/go_gamification
+GIT
+  remote: https://github.com/gorails/easy_static_pages.git
+  revision: db030ee6df5f47795f0e54a5d2b19af245933bb3
+  specs:
+    easy_static_pages (0.1.1)
+
+GIT
+  remote: https://github.com/gorails/go_blog.git
+  revision: e2530146c5c1a3ea8811e39155c0bf7a32d78b24
+  specs:
+    go_blog (0.2.4)
+      draper
+      rails
+      rspec-rails (~> 3.7.1)
+
+GIT
+  remote: https://github.com/gorails/go_comments.git
+  revision: c081460c753da94dc1b16c15870e0fbdd3899742
+  specs:
+    go_comments (0.1.0)
+      cancancan
+      carrierwave
+      devise
+      draper
+      rails
+
+GIT
+  remote: https://github.com/gorails/go_gamification.git
+  revision: 1a8e7fc1ca2529b2e255050f78ca9f388db8950c
   specs:
     go_gamification (0.0.21)
       cancancan
       carrierwave
       devise
+      draper
+      rails
+
+GIT
+  remote: https://github.com/gorails/go_geography.git
+  revision: e56b379f351145a0c04504ab676edb0b3aba07f7
+  specs:
+    go_geography (0.1.1)
+      rails (~> 5.1.4)
+
+GIT
+  remote: https://github.com/gorails/go_jobs.git
+  revision: 5ce28f590c1560d144145e8386719ac175a4c965
+  specs:
+    go_jobs (0.1.4)
       draper
       rails
 
@@ -142,7 +184,6 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
-    easy_static_pages (0.1.1)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.11.0)
@@ -168,19 +209,6 @@ GEM
       oauth2 (~> 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    go_blog (0.2.2)
-      draper
-      rails
-    go_comments (0.1.0)
-      cancancan
-      carrierwave
-      devise
-      draper
-      rails
-    go_geography (0.1.2)
-    go_jobs (0.1.4)
-      draper
-      rails
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -367,27 +395,27 @@ GEM
       netrc (~> 0.8)
     rmagick (2.16.0)
     rolify (5.2.0)
-    rspec (3.8.0)
-      rspec-core (~> 3.8.0)
-      rspec-expectations (~> 3.8.0)
-      rspec-mocks (~> 3.8.0)
-    rspec-core (3.8.0)
-      rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.1)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
-    rspec-mocks (3.8.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
-    rspec-rails (3.8.0)
+      rspec-support (~> 3.7.0)
+    rspec-rails (3.7.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 3.8.0)
-      rspec-expectations (~> 3.8.0)
-      rspec-mocks (~> 3.8.0)
-      rspec-support (~> 3.8.0)
-    rspec-support (3.8.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
     rubocop (0.58.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -453,9 +481,9 @@ GEM
     truncato (0.7.10)
       htmlentities (~> 4.3.1)
       nokogiri (~> 1.8.0, >= 1.7.0)
-    turbolinks (5.1.1)
-      turbolinks-source (~> 5.1)
-    turbolinks-source (5.1.0)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.18)
@@ -513,17 +541,17 @@ DEPENDENCIES
   devise
   dotenv
   draper
-  easy_static_pages
+  easy_static_pages!
   factory_bot_rails
   ffaker
   figaro
   gibbon
   github_api
-  go_blog (= 0.2.2)
-  go_comments
+  go_blog (= 0.2.4)!
+  go_comments!
   go_gamification!
-  go_geography
-  go_jobs
+  go_geography!
+  go_jobs!
   guard
   guard-rspec
   jbuilder (~> 2.5)
