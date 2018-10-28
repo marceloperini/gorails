@@ -1,85 +1,58 @@
 <!DOCTYPE html>
-<!--[if IE 9]>
-<html class="ie9 no-focus"> <![endif]-->
-<!--[if gt IE 9]><!-->
-<html class="no-focus"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
 
-  <title>GoRails</title>
+<html class="no-focus">
+  <head>
+    <meta charset="utf-8">
 
-  <meta name="description" content="WebSite GORAILS">
-  <meta name="author" content="jcottobboni,helioborges,fabioaraujopina,marceloperine">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+    <title>GoRails</title>
 
-  <!-- Icons -->
-  <%= render 'application/favicon' %>
-  <!-- END Icons -->
-  <!-- Stylesheets -->
-  <!-- Web fonts -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-  <!-- OneUI CSS framework -->
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+    <meta name="description" content="WebSite GORAILS">
+    <meta name="author" content="jcottobboni,helioborges,fabioaraujopina,marceloperine">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
-  <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-  <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
-  <!-- END Stylesheets -->
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'go_gamification/bhive', media: 'all' %>
-  <%= csrf_meta_tags %>
-  <%= include_controller_javascript %>
-  <%= include_view_javascript %>
-</head>
-<body>
-<%= render '/layouts/flash_messages'  ,locals: { flash: flash }%>
+    <!-- Icons -->
+    <%= render 'application/favicon' %>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+      integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
-<% if user_signed_in? %>
-    <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed bg-white-op">
-      <%= render '/layouts/header_sidebar' %>
-      <%#= render '/layouts/header_top' %>
-<% else %>
-    <div id="page-container" class="">
-      <%#= render '/layouts/header_sidebar' %>
-      <%= render '/layouts/header_top' %>
-<% end %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
-<% if user_signed_in? %>
-<%=render'layouts/header_clean'%>
-<% end %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'go_gamification/bhive', media: 'all' %>
+    <%= csrf_meta_tags %>
+    <%= include_controller_javascript %>
+    <%= include_view_javascript %>
+  </head>
 
+  <body>
+    <%= render '/layouts/flash_messages', locals: { flash: flash } %>
 
-<main id="main-container" style="background-color: #f9f9f9 !important; padding-top: 0px;
-">
-  <!--<div class="content bg-gray-lighter">-->
-  <!--<div class="row items-push">-->
-  <!--<div class="col-sm-7">-->
-  <!--<h1 class="page-heading">-->
-  <!--<%#= content_for?(:page_title) ? yield(:page_title) : t('.h1') %>-->
-  <!--</h1>-->
-  <!--</div>-->
-  <!--<div class="col-sm-5 text-right hidden-xs">-->
-  <!--<ol class="breadcrumb push-10-t">-->
-  <!--<%#= yield :breadcrumb if content_for?(:breadcrumb) %>-->
-  <!--</ol>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!-- Page Content -->
-  <%= yield %>
-  <%= render '/layouts/footer' %>
-</main>
-</div>
-</div>
+    <% if user_signed_in? %>
+      <div id="page-container" class="sidebar-l sidebar-mini sidebar-o side-scroll header-navbar-fixed bg-white-op">
+        <%= render '/layouts/header_sidebar' %>
+    <% else %>
+      <div id="page-container" class="">
+        <%= render '/layouts/header_top' %>
+    <% end %>
 
+    <% if user_signed_in? %>
+      <%= render'layouts/header_clean' %>
+    <% end %>
 
-<script>
-    $(document).ready(function () {
+        <main id="main-container" style="background-color: #f9f9f9 !important; padding-top: 0px;">
+          <%= yield %>
+          <%= render '/layouts/footer' %>
+        </main>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
         //your code here
         App.initHelpers(['appear', 'appear-countTo']);
-    });
-</script>
-
-</body>
-
+      });
+    </script>
+  </body>
 </html>
