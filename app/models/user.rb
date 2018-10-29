@@ -1,63 +1,4 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                      :bigint(8)        not null, primary key
-#  email                   :string           default("")
-#  encrypted_password      :string           default(""), not null
-#  reset_password_token    :string
-#  reset_password_sent_at  :datetime
-#  remember_created_at     :datetime
-#  sign_in_count           :integer          default(0), not null
-#  current_sign_in_at      :datetime
-#  last_sign_in_at         :datetime
-#  current_sign_in_ip      :string
-#  last_sign_in_ip         :string
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  first_name              :string
-#  last_name               :string
-#  cpf                     :string
-#  nickname                :string
-#  provider                :string
-#  uid                     :string
-#  avatar                  :string
-#  cover_photo             :string
-#  bio                     :text
-#  job_title               :string
-#  company                 :string
-#  gender                  :string
-#  phone                   :string
-#  celphone                :string
-#  schooling               :string
-#  birth_date              :date
-#  marital_status          :string
-#  father                  :string
-#  mother                  :string
-#  rg                      :string
-#  consignor_organ         :string
-#  place_of_birth          :string
-#  special_needs           :string
-#  occupation              :string
-#  address                 :string
-#  neighborhood            :string
-#  zip_code                :string
-#  complement              :string
-#  need_certificate        :boolean
-#  digital_certificate     :boolean
-#  printed_certificate     :boolean
-#  receber_email           :boolean          default(TRUE)
-#  receber_email_parceiros :boolean          default(TRUE)
-#  city                    :string
-#  geography_state_id      :integer
-#  authentication_token    :string
-#
-# Indexes
-#
-#  index_users_on_authentication_token  (authentication_token) UNIQUE
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#
+# frozen_string_literal: true
 
 class User < ActiveRecord::Base
   include PublicActivity::Model
@@ -68,7 +9,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable
 
-  tracked owner: ->(controller, model) { controller && controller.current_user }
+  tracked owner: -> (controller, model) { controller && controller.current_user }
+
   rolify
 
   has_many :attachments, as: :origin
@@ -76,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :registrations
   has_many :social_networks
   has_many :rewards, class_name: 'Gamification::Reward', as: :rewardable
-  has_many :goals, through: :rewards, class_name: 'Gamification::Goal'
+  has_many :goals, class_name: 'Gamification::Goal', through: :rewards
 
   belongs_to :inventory, class_name: 'Gamification::Inventory'
 
@@ -84,7 +26,9 @@ class User < ActiveRecord::Base
                         :company, :phone, :celphone, :schooling, :birth_date,
                         :gender, :marital_status, :place_of_birth, :mother,
                         :address, :neighborhood, :geography_state_id,
-                        :zip_code, :special_needs, if: lambda { need_certificate == true }
+                        :zip_code, :special_needs, :accepted_terms,
+                        if: lambda { need_certificate == true }
+  validates :accepted_terms, acceptance: true, if: lambda { need_certificate == true }
   validate :unicidade_cpf
 
   usar_como_cpf :cpf
@@ -132,6 +76,7 @@ class User < ActiveRecord::Base
     neighborhood: "Bairro",
     zip_code: "CEP",
     complement: "Complemento",
+    accepted_terms: 'Termos e condições',
     reset_password_token: "Token"
   }.freeze
 

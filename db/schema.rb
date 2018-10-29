@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180816192659) do
+ActiveRecord::Schema.define(version: 20181029232204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,16 +162,15 @@ ActiveRecord::Schema.define(version: 20180816192659) do
 
   create_table "gamification_items", force: :cascade do |t|
     t.string "name"
+    t.bigint "gamification_item_type_id"
     t.string "image"
     t.integer "rarity"
     t.decimal "cost"
     t.integer "user_id"
     t.text "description"
-    t.bigint "gamification_item_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "gamification_item_group_id"
-    t.index ["gamification_item_group_id"], name: "index_gamification_items_on_gamification_item_group_id"
+    t.integer "gamification_item_group_id"
     t.index ["gamification_item_type_id"], name: "index_gamification_items_on_gamification_item_type_id"
   end
 
@@ -390,6 +389,7 @@ ActiveRecord::Schema.define(version: 20180816192659) do
     t.string "city"
     t.integer "geography_state_id"
     t.string "authentication_token"
+    t.boolean "accepted_terms", default: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -430,7 +430,6 @@ ActiveRecord::Schema.define(version: 20180816192659) do
 
   add_foreign_key "financial_transactions", "users"
   add_foreign_key "gamification_inventories", "gamification_items"
-  add_foreign_key "gamification_items", "gamification_item_groups"
   add_foreign_key "gamification_items", "gamification_item_types"
   add_foreign_key "gifts", "events"
   add_foreign_key "images", "albums"

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
+
   root to: "home#index"
 
   namespace :api do
@@ -40,8 +42,9 @@ Rails.application.routes.draw do
     resources :registrations, controller: 'event_registrations'
 
   end
+
   resources :attachments
-  devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks"}
+
   resources :users, only: [:show, :index]
 
   # get "/paginas/:pagina" => "paginas#show"

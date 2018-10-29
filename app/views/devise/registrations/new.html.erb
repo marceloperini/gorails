@@ -1,100 +1,106 @@
-
 <br>
 
-  <section class="content content-boxed overflow-hidden">
-    <div class="push-50-t push-50">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-            <div class="block block-themed animated fadeIn">
-              <div class="block-header bg-success">
-                <ul class="block-options">
-                  <li>
-                    <a href="#" data-toggle="modal" data-target="#modal-terms">Ver Termos</a>
-                  </li>
-                  <li>
-                    <%= link_to "Logar", new_session_path(resource_name) ,class:"btn btn-block btn-success"  %>
-                  </li>
-                </ul>
-                <h3 class="block-title">Registrar</h3>
-              </div>
-              <div class="block-content block-content-full block-content-narrow">
-                  <%= form_for(resource,  html: {:class => "js-validation-login form-horizontal push-30-t push-50"},as: resource_name, url: registration_path(resource_name),class: "js-validation-register form-horizontal push-50-t push-50",id: "new_user") do |f| %>
-                    <%= devise_error_messages! %>
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <div class="form-material form-material-success">
-                        <%= f.label :email%>
-                        <%= f.email_field :email, autofocus: true ,placeholder: "Por favor digite seu email",class: "form-control"%>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <div class="form-material form-material-success">
-                        <%= f.label :password %>
-                        <% if @minimum_password_length %>
-                            <em>(<%= @minimum_password_length %> caracteres no minimo)</em>
-                        <% end %><br />
-                        <%= f.password_field :password, autocomplete: "off" ,placeholder: "Por favor digite sua senha",class:"form-control"%>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <div class="form-material form-material-success">
-                        <%= f.label :password_confirmation %><br />
-                        <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Digite sua senha novamente" ,class: "form-control"%>
-                      </div>
-                    </div>
-                  </div>
+<section class="content content-boxed overflow-hidden">
+  <div class="push-50-t push-50">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <div class="block block-themed animated fadeIn">
+          <div class="block-header bg-success">
+            <ul class="block-options">
+              <li>
+                <a href="#" data-toggle="modal" data-target="#modal-terms">Ver Termos</a>
+              </li>
 
-                  <div class="form-group">
-                    <div class="col-xs-12">
-                      <label class="css-input switch switch-sm switch-success">
-                        <input type="checkbox" id="register-terms" name="register-terms"><span></span> Eu aceito os termos &amp; condições
-                      </label>
-                    </div>
-                  </div>
-                    <div class="form-group">
-                      <div class="col-xs-12 col-sm-6 col-md-5">
-                        <%= f.submit "Registrar", class:"btn btn-block btn-success" %>
-                      </div>
-                    </div>
-
-
-
-                <% end %>
-              </div>
-            </div>
+              <li>
+                <%= link_to "Logar", new_session_path(resource_name) ,class:"btn btn-block btn-success"  %>
+              </li>
+            </ul>
+            <h3 class="block-title">Registrar</h3>
           </div>
-        </div>
-        <div class="push-10-t text-center animated fadeInUp">
-        </div>
-        <div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-popout">
-            <div class="modal-content">
-              <div class="block block-themed block-transparent remove-margin-b">
-                <div class="block-header bg-primary-dark">
-                  <ul class="block-options">
-                    <li>
-                      <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
-                    </li>
-                  </ul>
-                  <h3 class="block-title">Termos &amp; Condições</h3>
-                </div>
-                <div class="block-content">
-                  <%=render "layouts/termos"%>
 
+          <div class="block-content block-content-full block-content-narrow">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+                         html: { class: "js-validation-login form-horizontal push-30-t push-50", id: "new_user" }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <div class="form-material form-material-success">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, autofocus: true,
+                      placeholder: "Por favor digite seu email",
+                      class: 'form-control' %>
+                  </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal"> Fechar </button>
-                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Aceitar </button>
+
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <div class="form-material form-material-success">
+                    <%= f.label :password %>
+
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> caracteres no minimo)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off" ,placeholder: "Por favor digite sua senha",class:"form-control"%>
+                  </div>
+                </div>
               </div>
-            </div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <div class="form-material form-material-success">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Digite sua senha novamente" ,class: "form-control"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <label class="css-input switch switch-sm switch-success">
+                    <%= f.check_box :accepted_terms, id: 'register-terms' %>
+                    <span></span> Eu aceito os termos &amp; condições
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12 col-sm-6 col-md-5">
+                  <%= f.submit "Registrar", class:"btn btn-block btn-success" %>
+                </div>
+              </div>
+
+
+
+            <% end %>
           </div>
         </div>
+      </div>
     </div>
-  </section>
+    <div class="push-10-t text-center animated fadeInUp">
+    </div>
+    <div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-popout">
+        <div class="modal-content">
+          <div class="block block-themed block-transparent remove-margin-b">
+            <div class="block-header bg-primary-dark">
+              <ul class="block-options">
+                <li>
+                  <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                </li>
+              </ul>
+              <h3 class="block-title">Termos &amp; Condições</h3>
+            </div>
+            <div class="block-content">
+              <%=render "layouts/termos"%>
 
-
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-sm btn-default" type="button" data-dismiss="modal"> Fechar </button>
+            <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Aceitar </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

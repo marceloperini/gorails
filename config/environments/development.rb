@@ -52,7 +52,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
   config.action_mailer.default_url_options = { host: 'gorails.com.br' }
   Rails.application.routes.default_url_options ||= {}
   Rails.application.routes.default_url_options[:host] ||= config.action_mailer.default_url_options[:host]
@@ -73,7 +72,5 @@ Rails.application.configure do
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
-
   end
-
 end

@@ -69,6 +69,7 @@ group :development do
   gem 'bullet'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'rails_best_practices', require: false
 end
 
 group :development, :test do
